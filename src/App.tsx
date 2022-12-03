@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 
 function App() {
   return (
@@ -20,6 +22,14 @@ function App() {
         </a>
       </header>
     </div>
+    /*
+    <BrowserRouter>
+        		<NavBar /> Ici un composant directement avec le nom 
+        		<Routes>
+          			<Route path="/" element={<Home />} /> Ici une page avec son chemin 
+       		</Routes>
+    </BrowserRouter>
+    **/
   );
 }
 
