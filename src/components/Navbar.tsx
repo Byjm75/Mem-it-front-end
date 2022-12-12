@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-
-export const Navbar = () => {
-  return <div></div>;
-  
-=======
 import React from "react";
 import { NavLink } from "react-router-dom";
 // import banane from ".././assets/Logo.png";
@@ -53,5 +46,4 @@ export const Navbar = () => {
       </nav>
     </div>
   );
->>>>>>> 9a7715c6c7308ba4dfdc1dc89a1cba96b7e0db6d
 };

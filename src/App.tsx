@@ -1,10 +1,6 @@
-import React from "react";
-import { Home } from "./pages/Home";
-import { Navbar } from "./components/Navbar";
+import { Home } from "./Pages/Home";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ToolsBar } from "./components/ToolsBar";
-import { Footer } from "./components/Footer";
 
 export const App = () => {
   return (
