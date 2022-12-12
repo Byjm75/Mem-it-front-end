@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 export const App = () => {
   return (
     <div>
+      <img src={image} alt='logo' />
       <BrowserRouter>
         <Navbar /> Ici un composant directement avec le nom
         <Routes>
