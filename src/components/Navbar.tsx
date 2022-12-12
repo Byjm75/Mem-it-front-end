@@ -1,21 +1,21 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 // import banane from ".././assets/Logo.png";
 // import test from "./../logo.png";
-export const Navbar = () => {
+const Navbar = () => {
   // console.log(banane);
   return (
     <div>
       <nav
         className='navbar sticky-top navbar-expand-lg'
-        style={{ backgroundColor: "#9AAEB4" }}
+        style={{ backgroundColor: '#9AAEB4' }}
       >
         <div className='container-fluid'>
           <a className='navbar-brand' href='#'></a>
           <img
-            src={require("./Logo.png")}
+            src={require('../assets/logo.png')}
             alt='Mem-It'
-            style={{ width: "4rem " }}
+            style={{ width: '4rem ' }}
           />
           <button
             className='navbar-toggler'
@@ -47,3 +47,4 @@ export const Navbar = () => {
     </div>
   );
 };
+export default Navbar;
