@@ -1,7 +1,7 @@
 import { Caroussel } from '../components/Caroussel';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import Profil from './Profil';
+import Profil from '../components/Profil';
 
 export const Home = () => {
   return (
