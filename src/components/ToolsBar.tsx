@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const ToolsBar = () => {
   return (
@@ -21,3 +21,4 @@ export const ToolsBar = () => {
     </div>
   );
 };
+export default ToolsBar;

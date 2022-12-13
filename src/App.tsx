@@ -1,8 +1,9 @@
-import { Home } from "./Pages/Home";
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from 'react';
+import { Home } from './pages/Home';
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-export const App = () => {
+const App = () => {
   return (
     <div>
       <BrowserRouter>
@@ -14,3 +15,4 @@ export const App = () => {
     </div>
   );
 };
+export default App;

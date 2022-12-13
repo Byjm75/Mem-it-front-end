@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const Caroussel = () => {
   return (
@@ -37,10 +37,10 @@ export const Caroussel = () => {
           >
             <div className='carousel-item active'>
               <img
-                src={require("./Accueil-MEM-IT.jpg")}
+                src={require('./Accueil-MEM-IT.jpg')}
                 className='d-block w-100'
                 alt='accueil'
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: '100%', height: '100%' }}
               />
               <div className='carousel-caption d-none d-md-block'>
                 <h5>First slide label</h5>
@@ -51,7 +51,7 @@ export const Caroussel = () => {
             </div>
             <div className='carousel-item'>
               <img
-                src={require("./escalade.jpg")}
+                src='/assets/escalade.jpg'
                 className='d-block w-100'
                 alt="phot de l'escalade"
               />
@@ -64,7 +64,7 @@ export const Caroussel = () => {
             </div>
             <div className='carousel-item'>
               <img
-                src={require("./sports.jpg")}
+                src='./assets/sports.jpg'
                 className='d-block w-100'
                 alt="Louis qui fait de l'escalade"
               />
