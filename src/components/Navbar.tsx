@@ -2,6 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 // import banane from ".././assets/Logo.png";
 // import test from "./../logo.png";
+//const banane = require('../assets/logo.png');
+//import banane from 'assets/logo.png';
+
 const Navbar = () => {
   // console.log(banane);
   return (
@@ -12,11 +15,7 @@ const Navbar = () => {
       >
         <div className='container-fluid'>
           <a className='navbar-brand' href='#'></a>
-          <img
-            src={require('../assets/logo.png')}
-            alt='Mem-It'
-            style={{ width: '4rem ' }}
-          />
+          <img src='/assets/logo.png' alt='Mem-It' style={{ width: '4rem ' }} />
           <button
             className='navbar-toggler'
             type='button'

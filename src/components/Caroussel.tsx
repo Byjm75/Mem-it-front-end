@@ -51,7 +51,7 @@ export const Caroussel = () => {
             </div>
             <div className='carousel-item'>
               <img
-                src={require('../assets/escalade.jpg')}
+                src='/assets/escalade.jpg'
                 className='d-block w-100'
                 alt="phot de l'escalade"
               />
@@ -64,7 +64,7 @@ export const Caroussel = () => {
             </div>
             <div className='carousel-item'>
               <img
-                src={require('../assets/sports.jpg')}
+                src='./assets/sports.jpg'
                 className='d-block w-100'
                 alt="Louis qui fait de l'escalade"
               />
