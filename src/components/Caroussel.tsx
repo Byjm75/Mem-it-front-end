@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Caroussel = () => {
+const Caroussel = () => {
   return (
     <div>
       <div
@@ -37,7 +37,7 @@ export const Caroussel = () => {
           >
             <div className='carousel-item active'>
               <img
-                src={require('./Accueil-MEM-IT.jpg')}
+                src='/assets/Accueil-MEM-IT.jpg'
                 className='d-block w-100'
                 alt='accueil'
                 style={{ width: '100%', height: '100%' }}
@@ -105,3 +105,5 @@ export const Caroussel = () => {
     </div>
   );
 };
+
+export default Caroussel;
