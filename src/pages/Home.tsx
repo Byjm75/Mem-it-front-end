@@ -1,14 +1,13 @@
-import { Caroussel } from '../components/Caroussel';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
-import Profil from '../components/Profil';
+import { Caroussel } from '../Components/Caroussel';
+import Footer from '../Components/Footer';
+import Navbar from '../Components/Navbar';
+
 
 export const Home = () => {
   return (
     <div>
       <Navbar />
       <Caroussel />
-      <Profil />
       <Footer />
     </div>
   );
