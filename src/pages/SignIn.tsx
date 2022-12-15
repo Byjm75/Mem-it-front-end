@@ -13,7 +13,6 @@ import React, { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
 import Footer from '../components/Footer';
-import { url } from 'inspector';
 import axios, { AxiosResponse } from 'axios';
 
 export const SignIn = () => {
@@ -137,4 +136,4 @@ margin:'39px auto'        }}
   );
 };
 
-// export default SignIn;
+
