@@ -34,11 +34,11 @@ export const Caroussel = () => {
           <div className="carousel-inner row" style={{ height: '30.6em' }}>
             <div className="carousel-item active ">
               <img
-                src={require('./Accueil-MEM-IT.jpg')}
-                className="d-block w-100 "
-                alt="accueil"
-                // style={{ height: '550px' }}
-                style={{ height: '31rem' }}
+                src='/assets/Accueil-MEM-IT.jpg'
+
+                className='d-block w-100'
+                alt='accueil'
+                style={{ width: '100%', height: '100%' }}
               />
               <div className="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>

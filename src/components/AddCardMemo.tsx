@@ -1,17 +1,18 @@
-import { useState } from 'react';
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { useState } from 'react';
 
-const Profil = () => {
-  // const [show, setShow] = useState(false);
+const AddCard = () => {
+  const [show, setShow] = useState(false);
 
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
    
     <>
-      {/* <Button variant="success" onClick={handleShow}>
+      <Button variant="success" onClick={handleShow}>
         Ajout d'un mémo
       </Button>
 
@@ -106,9 +107,9 @@ const Profil = () => {
             Save Changes
           </Button>
         </Modal.Footer>
-      </Modal>*/}
+      </Modal>
     </> 
   );
 };
 
-export default Profil;
+export default AddCard;
