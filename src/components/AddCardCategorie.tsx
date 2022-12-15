@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { FloatingLabel, Form } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+import { Button, FloatingLabel, Form, Modal } from "react-bootstrap";
 
 export const AddCardCategorie = () => {
   const [show, setShow] = useState(false);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Caroussel = () => {
+const Caroussel = () => {
   return (
     <div>
       <div
@@ -106,3 +106,5 @@ export const Caroussel = () => {
     </div>
   );
 };
+
+export default Caroussel;
