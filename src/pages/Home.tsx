@@ -1,7 +1,7 @@
-import { Caroussel } from '../Components/Caroussel';
-import Footer from '../Components/Footer';
-import Navbar from '../Components/Navbar';
-import AddBtn from '../Components/AddBtn';
+import { Caroussel } from '../components/Caroussel';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import AddBtn from '../components/AddBtn';
 
 export const Home = () => {
   return (
