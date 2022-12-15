@@ -8,13 +8,13 @@ import {
   MDBCol,
   MDBInput,
   MDBCheckbox,
-} from 'mdb-react-ui-kit';
-import React, { FormEvent, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Navbar } from '../components/Navbar';
-import Footer from '../components/Footer';
-import { url } from 'inspector';
-import axios, { AxiosResponse } from 'axios';
+} from "mdb-react-ui-kit";
+import React, { FormEvent, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { Navbar } from "../components/Navbar";
+import Footer from "../components/Footer";
+import { url } from "inspector";
+import axios, { AxiosResponse } from "axios";
 
 export const SignIn = () => {
   const emailElement = useRef<HTMLInputElement>(null);
@@ -23,19 +23,19 @@ export const SignIn = () => {
   const navigate = useNavigate();
 
   const handleSubmitForm = async (e: FormEvent) => {
-    console.log('handleSubmitForm');
+    console.log("handleSubmitForm");
     e.preventDefault();
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     axios
-      .post('http://localhost:8080/api/users/sign', {
+      .post("http://localhost:8080/api/users/sign", {
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
       })
       .then((response: AxiosResponse<{ data: any }>) => {
-        console.log('response ', response.data);
-        alert('nouveau compte crée!');
-        navigate('/connexion');
+        console.log("response ", response.data);
+        alert("nouveau compte crée!");
+        navigate("/connexion");
       });
     // try {
     //   const response = await SignUp.post('/sign');
@@ -46,86 +46,87 @@ export const SignIn = () => {
 
   return (
     <div
-      // style={{
-      //   backgroundColor: '#ABCDEF',
-      //   // overflow: 'hidden',
-      // }}
+    // style={{
+    //   backgroundColor: '#ABCDEF',
+    //   // overflow: 'hidden',
+    // }}
     >
       <Navbar />
       <MDBContainer
         // className="my-"
         style={{
-margin:'39px auto'        }}
+          margin: "39px auto",
+        }}
       >
         <MDBCard>
           <MDBRow
-            className="g-0 d-flex align-items-center"
+            className='g-0 d-flex align-items-center'
             style={{
-              backgroundColor: 'rgba(180, 200, 200, 0.73)',
+              backgroundColor: "rgba(180, 200, 200, 0.73)",
             }}
           >
             <MDBCol
-              md="4"
+              md='4'
               style={{
-                height: '25.6rem',
+                height: "25.6rem",
               }}
             >
               <MDBCardImage
-                src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg"
-                alt="phone"
-                className="rounded-t-5 rounded-tr-lg-0"
+                src='https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg'
+                alt='phone'
+                className='rounded-t-5 rounded-tr-lg-0'
                 fluid
                 style={{
-                  height: '25.6rem',
+                  height: "25.6rem",
                 }}
               />
             </MDBCol>
 
-            <MDBCol md="8">
-              <h1 style={{ textAlign: 'center', color: 'white' }}>
+            <MDBCol md='8'>
+              <h1 style={{ textAlign: "center", color: "white" }}>
                 Connectez vous
               </h1>
               <MDBCardBody
-                className="form-floating mt-1"
-                style={{ color: 'white' }}
+                className='form-floating mt-1'
+                style={{ color: "white" }}
               >
                 <MDBInput
-                  wrapperClass="mb-1"
-                  label="Email"
-                  id="form1"
-                  type="email"
-                  className="form-control"
-                  placeholder="email@exemple.com"
+                  wrapperClass='mb-1'
+                  label='Email'
+                  id='form1'
+                  type='email'
+                  className='form-control'
+                  placeholder='email@exemple.com'
                   inputRef={emailElement}
                 />
                 <MDBInput
-                  wrapperClass="mb-1"
-                  label="mot de passe"
-                  id="form2"
-                  type="password"
-                  className="form-control"
-                  placeholder="mot de passe"
+                  wrapperClass='mb-1'
+                  label='mot de passe'
+                  id='form2'
+                  type='password'
+                  className='form-control'
+                  placeholder='mot de passe'
                   inputRef={passwordElement}
                 />
 
-                <div className="d-flex justify-content-between mx-1 mb-1">
+                <div className='d-flex justify-content-between mx-1 mb-1'>
                   <MDBCheckbox
-                    name="flexCheck"
-                    value=""
-                    id="flexCheckDefault"
-                    label="Remember me"
+                    name='flexCheck'
+                    value=''
+                    id='flexCheckDefault'
+                    label='Remember me'
                   />
-                  <a href="!#" style={{ color: 'black' }}>
+                  <a href='!#' style={{ color: "black" }}>
                     Forgot password?
                   </a>
                 </div>
 
                 <MDBBtn
-                  className="mb-1 w-100"
-                  style={{ height: '40px' }}
+                  className='mb-1 w-100'
+                  style={{ height: "40px" }}
                   onClick={handleSubmitForm}
                 >
-                  Connexion{' '}
+                  Connexion{" "}
                 </MDBBtn>
               </MDBCardBody>
             </MDBCol>
