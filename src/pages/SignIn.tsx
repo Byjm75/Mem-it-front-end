@@ -46,10 +46,10 @@ export const SignIn = () => {
 
   return (
     <div
-      style={{
-        backgroundColor: '#ABCDEF',
-        // overflow: 'hidden',
-      }}
+      // style={{
+      //   backgroundColor: '#ABCDEF',
+      //   // overflow: 'hidden',
+      // }}
     >
       <Navbar />
       <MDBContainer
