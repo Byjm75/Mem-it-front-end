@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { FloatingLabel, Form } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import { Modal } from "bootstrap";
+import { useState } from "react";
+import { Form } from "react-bootstrap";
+import { Button } from "react-bootstrap/lib/InputGroup";
 
 export const CategoriesForm = () => {
   const [show, setShow] = useState(false);
@@ -10,28 +10,28 @@ export const CategoriesForm = () => {
   return (
     <>
       <Button
-        variant="danger"
+        variant='danger'
         onClick={handleShow}
         style={{
           // fontSize: '500px',
-          zIndex: '2',
-          translate: '0 -150px',
-          position: 'absolute',
-          right: '50px',
+          zIndex: "2",
+          translate: "0 -150px",
+          position: "absolute",
+          right: "50px",
         }}
       >
-        <i className="bi bi-plus" ></i>
+        <i className='bi bi-plus'></i>
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="100"
-          height="100"
-          fill="currentColor"
-          className="bi bi-plus-lg"
-          viewBox="0 0 16 16"
+          xmlns='http://www.w3.org/2000/svg'
+          width='100'
+          height='100'
+          fill='currentColor'
+          className='bi bi-plus-lg'
+          viewBox='0 0 16 16'
         >
           <path
-            fill-rule="evenodd"
-            d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"
+            fill-rule='evenodd'
+            d='M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z'
           />
         </svg>
       </Button>
@@ -43,14 +43,14 @@ export const CategoriesForm = () => {
         <Modal.Body>
           <form>
             <FloatingLabel
-              controlId="floatingInput"
-              label="Catégorie"
-              className="mb-3"
+              controlId='floatingInput'
+              label='Catégorie'
+              className='mb-3'
             >
-              <Form.Control type="text" placeholder="catégorie" />
+              <Form.Control type='text' placeholder='catégorie' />
             </FloatingLabel>
             <div>
-              <input className="text-primary" type="file" accept="image/*" />
+              <input className='text-primary' type='file' accept='image/*' />
             </div>
 
             {/* <div className="d-flex justify-content-center">
@@ -64,10 +64,10 @@ export const CategoriesForm = () => {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={handleClose}>
+          <Button variant='danger' onClick={handleClose}>
             Fermer
           </Button>
-          <Button variant="success" onClick={handleClose}>
+          <Button variant='success' onClick={handleClose}>
             Créer
           </Button>
         </Modal.Footer>
