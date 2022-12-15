@@ -1,82 +1,161 @@
-import React from 'react';
+import axios, { AxiosResponse } from 'axios';
+import {
+  MDBContainer,
+  MDBCard,
+  MDBRow,
+  MDBCol,
+  MDBCardImage,
+  MDBCardBody,
+  MDBInput,
+  MDBCheckbox,
+  MDBBtn,
+} from 'mdb-react-ui-kit';
+import React, { FormEvent, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
+import { Navbar } from '../components/Navbar';
 
-const SignUpForm = () => {
+export const SignUp = () => {
+  const pseudoElement = useRef<HTMLInputElement>(null);
+  const emailElement = useRef<HTMLInputElement>(null);
+  const passwordElement = useRef<HTMLInputElement>(null);
+  const ConfirmPasswordElement = useRef<HTMLInputElement>(null);
+  // const imageElement = useRef<HTMLInputElement>(null);
+  // Permet de naviguer directement sur une autre page après l'inscription
+  const navigate = useNavigate();
+
+  const handleSubmitForm = async (e: FormEvent) => {
+    console.log('handleSubmitForm');
+    e.preventDefault();
+    console.log(emailElement.current?.value);
+    console.log(passwordElement.current?.value);
+    axios
+      .post('http://localhost:8080/api/users/sign', {
+        email: emailElement.current?.value,
+        password: passwordElement.current?.value,
+      })
+      .then((response: AxiosResponse<{ data: any }>) => {
+        console.log('response ', response.data);
+        alert('nouveau compte crée!');
+        navigate('/connexion');
+      });
+    // try {
+    //   const response = await SignUp.post('/sign');
+    // } catch (err) {
+    //   console.error(err);
+    // }
+  };
+
   return (
-    <div>
-      <section className="vh-100" style={{backgroundColor: "#eee"}}>
-  <div className="container h-100">
-    <div className="row d-flex justify-content-center align-items-center h-100">
-      <div className="col-lg-12 col-xl-11">
-        <div className="card text-black" style={{borderRadius: "25px"}}>
-          <div className="card-body p-md-5">
-            <div className="row justify-content-center">
-              <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+    <div
+      // style={{
+      //   backgroundColor: '#ABCDEF',
+      //   overflow: 'hidden',
+      // }}
+    >
+      <Navbar />
+      <MDBContainer
+        className="my-2"
+        // style={{
+        //   height: '30rem',
+        // }}
+      >
+        <MDBCard>
+          <MDBRow
+            className="g-0 d-flex align-items-center"
+            style={{
+              backgroundColor: 'rgba(180, 200, 200, 0.73)',
+            }}
+          >
+            <MDBCol
+              md="4"
+              style={{
+                height: '29.4rem',
+              }}
+            >
+              <MDBCardImage
+                src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg"
+                alt="phone"
+                className="rounded-t-5 rounded-tr-lg-0"
+                fluid
+                style={{
+                  height: '29.4rem',
+                }}
+              />
+            </MDBCol>
 
-                <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+            <MDBCol md="8">
+              <h1 style={{ textAlign: 'center', color: 'white' }}>
+                Inscrivez vous
+              </h1>
+              <MDBCardBody
+                className="form-floating mt-1"
+                style={{ color: 'white' }}
+              >
+                {/* <label htmlFor="pseudo">Pseudo</label> */}
+                <MDBInput
+                  wrapperClass="mb-1"
+                  id="form1"
+                  label="Pseudo"
+                  type="text"
+                  className="form-control"
+                  inputRef={pseudoElement}
+                  placeholder="pseudo"
+                />
 
-                <form className="mx-1 mx-md-4">
+                <MDBInput
+                  wrapperClass="mb-1"
+                  label="Email address"
+                  id="form2"
+                  type="email"
+                  className="form-control"
+                  placeholder="email@exemple.com"
+                  inputRef={emailElement}
+                />
+                <MDBInput
+                  wrapperClass="mb-1"
+                  label="mot de passe"
+                  id="form2"
+                  type="password"
+                  className="form-control"
+                  placeholder="mot de passe"
+                  inputRef={passwordElement}
+                />
+                <MDBInput
+                  wrapperClass="mb-1"
+                  label="Confirmez mot de passe"
+                  id="form2"
+                  type="password"
+                  className="form-control"
+                  placeholder="confirmez mot de passe"
+                  inputRef={ConfirmPasswordElement}
+                />
 
-                  <div className="d-flex flex-row align-items-center mb-4">
-                    <i className="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div className="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" className="form-control" />
-                      <label className="form-label" htmlFor="form3Example1c">Your Name</label>
-                    </div>
-                  </div>
+                <div className="d-flex justify-content-between mx-1 mb-2">
+                  <MDBCheckbox
+                    name="flexCheck"
+                    value=""
+                    id="flexCheckDefault"
+                    label="Remember me"
+                  />
+                  <a href="!#" style={{ color: 'black' }}>
+                    Forgot password?
+                  </a>
+                </div>
 
-                  <div className="d-flex flex-row align-items-center mb-4">
-                    <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div className="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" className="form-control" />
-                      <label className="form-label" htmlFor="form3Example3c">Your Email</label>
-                    </div>
-                  </div>
-
-                  <div className="d-flex flex-row align-items-center mb-4">
-                    <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div className="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" className="form-control" />
-                      <label className="form-label" htmlFor="form3Example4c">Password</label>
-                    </div>
-                  </div>
-
-                  <div className="d-flex flex-row align-items-center mb-4">
-                    <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                    <div className="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" className="form-control" />
-                      <label className="form-label" htmlFor="form3Example4cd">Repeat your password</label>
-                    </div>
-                  </div>
-
-                  <div className="form-check d-flex justify-content-center mb-5">
-                    <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                    <label className="form-check-label" htmlFor="form2Example3">
-                      I agree all statements in <a href="#!">Terms of service</a>
-                    </label>
-                  </div>
-
-                  <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" className="btn btn-primary btn-lg">Register</button>
-                  </div>
-
-                </form>
-
-              </div>
-              <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                  className="img-fluid" alt="Sample image"/>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+                <MDBBtn
+                  className="mb-2 w-100"
+                  style={{ height: '40px' }}
+                  onClick={handleSubmitForm}
+                >
+                  Sign in
+                </MDBBtn>
+              </MDBCardBody>
+            </MDBCol>
+          </MDBRow>
+        </MDBCard>
+      </MDBContainer>
+      <Footer />
     </div>
   );
 };
-
-export default SignUpForm;
