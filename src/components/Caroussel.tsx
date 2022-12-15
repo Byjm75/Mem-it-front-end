@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Caroussel = () => {
   return (
-    <div >
+    <div>
       <div
         id="carouselExampleCaptions"
         className="carousel slide"
@@ -30,15 +30,14 @@ export const Caroussel = () => {
             aria-label="Slide 3"
           ></button>
         </div>
-        <div className="container" >
+        <div className="container">
           <div className="carousel-inner row" style={{ height: '30.6em' }}>
             <div className="carousel-item active ">
               <img
-                src='/assets/Accueil-MEM-IT.jpg'
-
-                className='d-block w-100'
-                alt='accueil'
-                style={{ width: '100%', height: '100%' }}
+                src="/assets/Accueil-MEM-IT.jpg"
+                className="d-block w-100"
+                alt="accueil"
+                style={{ height: '31rem' }}
               />
               <div className="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
