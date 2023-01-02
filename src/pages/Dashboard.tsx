@@ -1,11 +1,9 @@
 import React from 'react';
-import { Navbar } from '../components/Navbar';
 import Footer from '../components/Footer';
 import CardPlus from '../components/CardPlus';
 import CardCategory from '../components/CardCategory';
 import CardFavoris from '../components/CardFavoris';
 import ToolsBar from '../components/ToolsBar';
-import Searchbar from '../components/Searchbar';
 import Sidebar from '../components/Sidebar';
 
 const Dashboard = () => {
