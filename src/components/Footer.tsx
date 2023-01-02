@@ -3,7 +3,9 @@ import React from 'react';
 export const Footer = () => { 
   return (
     <div>
-      <section className="" style={{ position:'relative',bottom:'0' }}>
+      <section className="" 
+      style={{ position:'relative',bottom:'0' }}
+      >
         {/*  <!-- Footer -->**/}
         <footer
           className="text-center text-white"
@@ -29,7 +31,7 @@ export const Footer = () => {
           {/*  <!-- Copyright --> **/}
           <div
             className="text-center p-3"
-            style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' , height:'40px'}}
           >
             © 2020 Copyright:
             <a className="text-white" href="https://mdbootstrap.com/">
