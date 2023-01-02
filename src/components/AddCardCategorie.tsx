@@ -9,9 +9,20 @@ export const AddCardCategorie = () => {
   const handleShow = () => setShow(true);
   return (
     <>
-      <Button variant="success" onClick={handleShow}>
-        Ajout d'une catégorie
-      </Button>
+      {/* <div
+        // type="button"
+        className="btn btn- col-sm-12"
+        style={{
+          // margin: '15px auto',
+          // borderColor: '#9AAEB4',
+          //   borderRadius: '30px',
+        }}
+      > */}
+      {/* <img src="/assets/plus.png" className="card-img" alt="escalade" /> */}
+      {/* </div> */}
+      <Button  style={{ 
+      backgroundColor:'red',width:'100%'}} variant="white "onClick={handleShow}>
+<img src="/assets/plus.png" className="card-img" alt="escalade" />      </Button>
 
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
@@ -26,11 +37,9 @@ export const AddCardCategorie = () => {
             >
               <Form.Control type="text" placeholder="catégorie" />
             </FloatingLabel>
-            <div >
-
-            <input className='text-primary' type="file"  accept="image/*"  />
+            <div>
+              <input className="text-primary" type="file" accept="image/*" />
             </div>
-           
 
             {/* <div className="d-flex justify-content-center">
               <button

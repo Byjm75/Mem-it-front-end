@@ -1,12 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import banane from ".././assets/Logo.png";
-// import test from "./../logo.png";
-//const banane = require('../assets/logo.png');
-//import banane from 'assets/logo.png';
+
 
 export const Navbar = () => {
-  // console.log(banane);
   return (
     <div>
       <nav
@@ -18,9 +14,10 @@ export const Navbar = () => {
             <img
               src="/assets/logo.png"
               alt="Mem-It"
-              style={{ width: '4rem ' }}
+              style={{ width: '4.5rem ' }}
             />
           </a>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -62,6 +59,7 @@ export const Navbar = () => {
               </li>
             </ul>
           </div>
+          {/* <img src="../assets/profil.png" alt="photo de profile"  style={{width:'7%'}}/> */}
         </div>
       </nav>
     </div>
