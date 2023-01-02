@@ -5,10 +5,9 @@ import { SignUp } from './Pages/SignUp';
 import { SignIn } from './Pages/SignIn';
 import { Home } from './Pages/Home';
 
-
 const App = () => {
   return (
-    <div >
+    <div>
       <BrowserRouter>
         {/*Ici un composant directement avec le nom**/}
         <Routes>
