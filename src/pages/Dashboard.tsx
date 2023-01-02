@@ -1,4 +1,9 @@
-import React from 'react';
+import CardCategory from '../components/CardCategory';
+import CardFavoris from '../components/CardFavoris';
+import CardPlus from '../components/CardPlus';
+import Footer from '../components/Footer';
+import Sidebar from '../components/Sidebar';
+import ToolsBar from '../components/ToolsBar';
 
 const Dashboard = () => {
   return (
