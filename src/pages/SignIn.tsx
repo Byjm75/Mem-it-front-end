@@ -31,11 +31,21 @@ export const SignIn = () => {
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
       })
-      .then((response: AxiosResponse<{ data: any }>) => {
+
+      .then((response: AxiosResponse) => {
+        const token = response.data.token;
+        // Set le token dans le localstorage
+        localStorage.setItem('token', token);
         console.log('response ', response.data);
-        alert('Bravo vous êtes connecté!');
+        alert('Bon retour parmi nous!');
         navigate('/dashboard');
       });
+
+    // .then((response: AxiosResponse<{ data: any }>) => {
+    //   console.log('response ', response.data);
+    //   alert('vous êtes connecté!');
+    //   navigate('/dashboard');
+    // });
     // try {
     //   const response = await SignUp.post('/sign');
     // } catch (err) {

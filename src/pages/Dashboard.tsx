@@ -23,7 +23,9 @@ const Dashboard = () => {
         <ToolsBar />
       </div>{' '}
       <div style={{ width: '100%', display: 'flex' }}>
-        <Sidebar />
+        <div style={{ position: 'fixed', zIndex: '1', overflow: 'hidden' }}>
+          <Sidebar />
+        </div>{' '}
         <div style={{ width: '80%', margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <h1 className="card-title" style={{ margin: '20px 0 0 20px' }}>
