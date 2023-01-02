@@ -13,7 +13,6 @@ import React, { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
 import Footer from '../components/Footer';
-import { url } from 'inspector';
 import axios, { AxiosResponse } from 'axios';
 
 export const SignIn = () => {
@@ -28,14 +27,14 @@ export const SignIn = () => {
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     axios
-      .post('http://localhost:8080/api/users/sign', {
+      .post('http://localhost:8081/api/auth/login', {
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
       })
       .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data);
-        alert('nouveau compte crée!');
-        navigate('/connexion');
+        alert('Bravo vous êtes connecté!');
+        navigate('/dashboard');
       });
     // try {
     //   const response = await SignUp.post('/sign');
@@ -46,16 +45,17 @@ export const SignIn = () => {
 
   return (
     <div
-      // style={{
-      //   backgroundColor: '#ABCDEF',
-      //   // overflow: 'hidden',
-      // }}
+    // style={{
+    //   backgroundColor: '#ABCDEF',
+    //   // overflow: 'hidden',
+    // }}
     >
       <Navbar />
       <MDBContainer
         // className="my-"
         style={{
-margin:'39px auto'        }}
+          margin: '39px auto',
+        }}
       >
         <MDBCard>
           <MDBRow
@@ -125,14 +125,16 @@ margin:'39px auto'        }}
                   style={{ height: '40px' }}
                   onClick={handleSubmitForm}
                 >
-                  Connexion{' '}
+                  Connexion{''}
                 </MDBBtn>
               </MDBCardBody>
             </MDBCol>
           </MDBRow>
         </MDBCard>
       </MDBContainer>
-      <Footer />
+      <div style={{ position: 'absolute', width: '100%', bottom: '0' }}>
+        <Footer />
+      </div>{' '}
     </div>
   );
 };
