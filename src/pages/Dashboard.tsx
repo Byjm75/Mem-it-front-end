@@ -55,8 +55,11 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <h3 className="card-title" style={{ margin: '20px 0 0 20px' }}>
-            Derniers ajoûts{' '}
+          <h3
+            className="card-title"
+            style={{ margin: '20px 0 0 20px', color: '#007872' }}
+          >
+            Derniers ajouts{' '}
           </h3>
           <hr />
           <div className="card">
@@ -74,7 +77,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div style={{ marginTop: '30px' }}>
+      <div>
         <Footer />
       </div>
     </div>

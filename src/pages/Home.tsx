@@ -147,9 +147,9 @@ export const Home = () => {
         </div>
       </div>
       {/* <Caroussel /> */}
-      <div style={{ position: 'absolute', width: '100%', bottom: '0' }}>
+      <div>
         <Footer />
-      </div>{' '}
+      </div>
     </div>
   );
 };

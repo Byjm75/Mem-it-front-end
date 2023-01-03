@@ -149,7 +149,7 @@ export const SignUp = () => {
           </MDBRow>
         </MDBCard>
       </MDBContainer>
-      <div style={{ position: 'absolute', width: '100%', bottom: '0' }}>
+      <div>
         <Footer />
       </div>
     </div>

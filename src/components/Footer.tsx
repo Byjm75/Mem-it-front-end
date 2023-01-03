@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Footer = () => { 
+export const Footer = () => {
   return (
     <div>
-      <section className="" style={{ position: 'relative', bottom: '0' }}>
+      <section className="">
         {/*  <!-- Footer -->**/}
         <footer
           className="text-center text-white"
@@ -14,8 +14,14 @@ export const Footer = () => {
             {/*      <!-- Section: CTA --> **/}
             <section className="">
               <p className="d-flex justify-content-center align-items-center">
-                <span className="me-3" style={{
-                    color: '#007872'}}>Rejoignez nous gratuitement</span>
+                <span
+                  className="me-3"
+                  style={{
+                    color: '#007872',
+                  }}
+                >
+                  Rejoignez nous gratuitement
+                </span>
                 <button
                   type="button"
                   className="btn btn-outline-light btn-rounded"

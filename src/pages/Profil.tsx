@@ -120,14 +120,7 @@ const Profil = () => {
         </div>
       </div>
 
-      <div
-        style={{
-          marginTop: '30px',
-          // position: 'fixed',
-          bottom: '0',
-          width: '100%',
-        }}
-      >
+      <div>
         <Footer />
       </div>
     </div>
