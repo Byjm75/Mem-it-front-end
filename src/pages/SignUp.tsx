@@ -32,7 +32,7 @@ export const SignUp = () => {
     console.log(passwordElement.current?.value);
     console.log(ConfirmPasswordElement.current?.value);
     axios
-      .post('http://localhost:8081/api/users/sign', {
+      .post('http://localhost:8080/api/auth/register', {
         pseudo: pseudoElement.current?.value,
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
@@ -52,14 +52,14 @@ export const SignUp = () => {
 
   return (
     <div
-      // style={{
-      //   backgroundColor: '#ABCDEF',
-      //   overflow: 'hidden',
-      // }}
+    // style={{
+    //   backgroundColor: '#ABCDEF',
+    //   overflow: 'hidden',
+    // }}
     >
       <Navbar />
       <MDBContainer
-        className="my-2"
+        className='my-2'
         // style={{
         //   height: '30rem',
         // }}
@@ -159,9 +159,8 @@ export const SignUp = () => {
           </MDBRow>
         </MDBCard>
       </MDBContainer>
-      <div style={{position:'absolute',width:'100%',bottom:'0'}}>
-
-      <Footer />
+      <div style={{ position: 'absolute', width: '100%', bottom: '0' }}>
+        <Footer />
       </div>
     </div>
   );
