@@ -4,8 +4,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { SignUp } from './Pages/SignUp';
 import { SignIn } from './Pages/SignIn';
 import { Home } from './Pages/Home';
-import Dashboard from './pages/Dashboard';
-import Categorie from './pages/Categorie';
+import Dashboard from './Pages/Dashboard';
+import Categorie from './Pages/Categorie';
+import Profil from './Pages/Profil';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categorie" element={<Categorie />} />
+          <Route path="/profil" element={<Profil />} />
         </Routes>
       </BrowserRouter>
     </div>
