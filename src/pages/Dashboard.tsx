@@ -1,18 +1,11 @@
-import { SyntheticEvent } from 'react';
-import Footer from '../components/Footer';
-import CardPlus from '../components/CardPlus';
 import CardCategory from '../components/CardCategory';
 import CardFavoris from '../components/CardFavoris';
-import ToolsBar from '../components/ToolsBar';
+import CardPlus from '../components/CardPlus';
+import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
-import { useNavigate } from 'react-router-dom';
+import ToolsBar from '../components/ToolsBar';
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-  const profilElement = (e: SyntheticEvent) => {
-    e.preventDefault();
-    navigate('../profil');
-  };
   return (
     <div>
       <div
@@ -35,9 +28,8 @@ const Dashboard = () => {
             </h1>
             <img
               src="../assets/profile-icon-png-917.png"
-              alt="profil"
+              alt="photo de profile"
               style={{ width: '5em', margin: '5px 25px 0' }}
-              onClick={profilElement}
             />
           </div>
           <hr />

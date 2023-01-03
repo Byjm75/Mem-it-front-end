@@ -2,7 +2,7 @@ import React from 'react';
 
 const CardFavoris = () => {
   return (
-    <div className="card" style={{ width: ' 17rem',margin:'0 0 10px ' }}>
+    <div className="card" style={{ width: ' 14rem',margin:'0 0 10px ' }}>
       <div>
         <div
           className="btn btn- col-sm-12"
