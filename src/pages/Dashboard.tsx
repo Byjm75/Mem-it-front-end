@@ -1,10 +1,9 @@
-import React from 'react';
-import Footer from '../components/Footer';
-import CardPlus from '../components/CardPlus';
 import CardCategory from '../components/CardCategory';
 import CardFavoris from '../components/CardFavoris';
-import ToolsBar from '../components/ToolsBar';
+import CardPlus from '../components/CardPlus';
+import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
+import ToolsBar from '../components/ToolsBar';
 
 const Dashboard = () => {
   return (
@@ -21,9 +20,7 @@ const Dashboard = () => {
         <ToolsBar />
       </div>{' '}
       <div style={{ width: '100%', display: 'flex' }}>
-        <div style={{ position: 'fixed', zIndex: '1', overflow: 'hidden' }}>
-          <Sidebar />
-        </div>{' '}
+        <Sidebar />
         <div style={{ width: '80%', margin: '0 auto' }}>
           <div
             style={{
@@ -50,7 +47,7 @@ const Dashboard = () => {
               Mon espace
             </h1>
           </div>
-          <hr style={{ color: 'lightslategrey', fontWeight: 'bold' }} />
+          <hr />
           <div className="card">
             <div className="card-header">
               <div
@@ -80,7 +77,7 @@ const Dashboard = () => {
           >
             Derniers ajoûts{' '}
           </h3>
-          <hr style={{ color: 'lightslategrey', fontWeight: 'bold' }} />
+          <hr />
           <div className="card">
             <div className="card-header">
               <div

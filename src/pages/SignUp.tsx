@@ -10,7 +10,7 @@ import {
   MDBCheckbox,
   MDBBtn,
 } from 'mdb-react-ui-kit';
-import React, { FormEvent, useRef } from 'react';
+import { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { Navbar } from '../components/Navbar';
@@ -32,7 +32,7 @@ export const SignUp = () => {
     console.log(passwordElement.current?.value);
     console.log(ConfirmPasswordElement.current?.value);
     axios
-      .post('http://localhost:8081/api/auth/register', {
+      .post('http://localhost:8081/api/users/sign', {
         pseudo: pseudoElement.current?.value,
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
@@ -149,9 +149,8 @@ export const SignUp = () => {
           </MDBRow>
         </MDBCard>
       </MDBContainer>
-      <div style={{position:'absolute',width:'100%',bottom:'0'}}>
-
-      <Footer />
+      <div style={{ position: 'absolute', width: '100%', bottom: '0' }}>
+        <Footer />
       </div>
     </div>
   );

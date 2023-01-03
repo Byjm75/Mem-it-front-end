@@ -9,7 +9,7 @@ import {
   MDBInput,
   MDBCheckbox,
 } from 'mdb-react-ui-kit';
-import React, { FormEvent, useRef } from 'react';
+import { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -27,7 +27,7 @@ export const SignIn = () => {
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     axios
-      .post('http://localhost:8081/api/auth/login', {
+      .post('http://localhost:8085/api/auth/login', {
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
       })
@@ -148,5 +148,3 @@ export const SignIn = () => {
     </div>
   );
 };
-
-// export default SignIn;
