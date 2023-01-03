@@ -23,7 +23,7 @@ const Categorie = () => {
           position: 'sticky',
           top: '0',
           overflow: 'hidden',
-          zIndex:'1',
+          zIndex: '1',
         }}
       >
         <ToolsBar />
