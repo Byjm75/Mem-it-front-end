@@ -27,17 +27,21 @@ export const SignUp = () => {
   const handleSubmitForm = async (e: FormEvent) => {
     console.log('handleSubmitForm');
     e.preventDefault();
+    console.log(pseudoElement.current?.value);
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
+    console.log(ConfirmPasswordElement.current?.value);
     axios
-      .post('http://localhost:8080/api/users/sign', {
+      .post('http://localhost:8081/api/auth/register', {
+        pseudo: pseudoElement.current?.value,
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
+        ConfirmPassword: ConfirmPasswordElement.current?.value,
       })
       .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data);
         alert('nouveau compte crée!');
-        navigate('/connexion');
+        navigate('/signin');
       });
     // try {
     //   const response = await SignUp.post('/sign');
@@ -47,6 +51,7 @@ export const SignUp = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div
     // style={{
     //   backgroundColor: '#ABCDEF',
@@ -60,6 +65,11 @@ export const SignUp = () => {
         //   height: '30rem',
         // }}
       >
+=======
+    <div>
+      <Navbar />
+      <MDBContainer className="my-2">
+>>>>>>> b4075adbc9dbe8efd4ba7ec73fa6c68f8a8148db
         <MDBCard>
           <MDBRow
             className='g-0 d-flex align-items-center'
@@ -148,14 +158,17 @@ export const SignUp = () => {
                   style={{ height: '40px' }}
                   onClick={handleSubmitForm}
                 >
-                  Sign in
+                  inscription {''}
                 </MDBBtn>
               </MDBCardBody>
             </MDBCol>
           </MDBRow>
         </MDBCard>
       </MDBContainer>
+      <div style={{position:'absolute',width:'100%',bottom:'0'}}>
+
       <Footer />
+      </div>
     </div>
   );
 };
