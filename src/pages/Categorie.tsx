@@ -57,7 +57,7 @@ const Categorie = () => {
               />
             </div>
           </div>
-          <hr /> */}
+          <hr /> 
 
           <div
             style={{
