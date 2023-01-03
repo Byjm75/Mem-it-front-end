@@ -16,9 +16,13 @@ export const ToolsBar = () => {
             width: '100%',
           }}
         >
-          <div className="container-fluid" style={{ width: '30% ' }}>
-            <a className="navbar-brand" href="/">
-              <ProfilBtn/>
+          <div className="container-fluid" style={{ width: '100% ' }}>
+            <a className="navbar-brand" href="/dashboard">
+              <img
+                src="/assets/logo.png"
+                alt="Mem-It"
+                style={{ width: '4.5rem ' }}
+              />
             </a>
           </div>
 

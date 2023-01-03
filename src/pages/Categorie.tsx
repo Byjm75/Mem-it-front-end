@@ -23,7 +23,7 @@ const Categorie = () => {
           position: 'sticky',
           top: '0',
           overflow: 'hidden',
-          zIndex: '1',
+          zIndex:  '1',
         }}
       >
         <ToolsBar />
@@ -38,9 +38,12 @@ const Categorie = () => {
           // className="col-md-8 offset-md-2 "
         >
           {/* < Searchbar/> */}
-          {/* <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <h1 className="card-title" style={{ margin: '20px 0 0 20px' }}>
-              Catégorie1
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <h1
+              className="card-title"
+              style={{ margin: '20px 0 0 20px', color: '#007872' }}
+            >
+              Catégorie 1
             </h1>
            
             <hr style={{ color: 'lightslategrey', fontWeight: 'bold' }} />
@@ -70,7 +73,7 @@ const Categorie = () => {
               className="col-3"
               src="../assets/profile-icon-png-917.png"
               alt="profile"
-              style={{ width: '4rem' }}
+              style={{ width: '5em', margin: '5px 25px 0' }}
             />
             <h1
               style={{

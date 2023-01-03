@@ -1,5 +1,5 @@
 import React from 'react';
-
+import CardPlus from './CardPlus';
 const cdbreact = require('cdbreact');
 const {
   CDBSidebar,
@@ -11,21 +11,28 @@ const {
 } = cdbreact;
 
 const Sidebar = () => {
+
+  
   return (
     <CDBSidebar style={{ backgroundColor: '#9AAEB4', width: '5rem',position:'sticky',top:'88px'}}>
       <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
         <a className="navbar-brand" href="/">
-          Home
+          Accueil
         </a>{' '}
       </CDBSidebarHeader>
       <CDBSidebarContent>
         <CDBSidebarMenu>
-          <CDBSidebarMenuItem icon="th-large">
+          <CDBSidebarMenuItem icon="sticky-note">
             <a className="navbar-brand" href="/">
-              Créer
+              Créer catégorie
             </a>
           </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon="sticky-note">
+            <a className="navbar-brand" href="/">
+              Créer mémo
+            </a>
+          </CDBSidebarMenuItem>
+          <CDBSidebarMenuItem icon="th-large">
             <a className="navbar-brand" href="/">
               Organiser
             </a>

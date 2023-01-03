@@ -29,7 +29,7 @@ const CardFavoris = () => {
             borderRadius: '15px',
             width: '80%',
             margin: 'auto',
-            backgroundColor: '#9AAEB4',
+            backgroundColor: '#007872',
             color: 'white',
           }}
         >
