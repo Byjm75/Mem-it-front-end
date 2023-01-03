@@ -8,22 +8,12 @@ import {
   MDBCol,
   MDBInput,
   MDBCheckbox,
-<<<<<<< HEAD
 } from "mdb-react-ui-kit";
 import React, { FormEvent, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import Footer from "../components/Footer";
-import { url } from "inspector";
 import axios, { AxiosResponse } from "axios";
-=======
-} from 'mdb-react-ui-kit';
-import React, { FormEvent, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Navbar } from '../components/Navbar';
-import Footer from '../components/Footer';
-import axios, { AxiosResponse } from 'axios';
->>>>>>> b4075adbc9dbe8efd4ba7ec73fa6c68f8a8148db
 
 export const SignIn = () => {
   const emailElement = useRef<HTMLInputElement>(null);
@@ -37,17 +27,7 @@ export const SignIn = () => {
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     axios
-<<<<<<< HEAD
-      .post("http://localhost:8080/api/users/sign", {
-        email: emailElement.current?.value,
-        password: passwordElement.current?.value,
-      })
-      .then((response: AxiosResponse<{ data: any }>) => {
-        console.log("response ", response.data);
-        alert("nouveau compte crée!");
-        navigate("/connexion");
-=======
-      .post('http://localhost:8081/api/auth/login', {
+      .post("http://localhost:8081/api/auth/login", {
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
       })
@@ -55,11 +35,10 @@ export const SignIn = () => {
       .then((response: AxiosResponse) => {
         const token = response.data.token;
         // Set le token dans le localstorage
-        localStorage.setItem('token', token);
-        console.log('response ', response.data);
-        alert('Bon retour parmi nous!');
-        navigate('/dashboard');
->>>>>>> b4075adbc9dbe8efd4ba7ec73fa6c68f8a8148db
+        localStorage.setItem("token", token);
+        console.log("response ", response.data);
+        alert("Bon retour parmi nous!");
+        navigate("/dashboard");
       });
 
     // .then((response: AxiosResponse<{ data: any }>) => {
@@ -85,11 +64,7 @@ export const SignIn = () => {
       <MDBContainer
         // className="my-"
         style={{
-<<<<<<< HEAD
           margin: "39px auto",
-=======
-          margin: '39px auto',
->>>>>>> b4075adbc9dbe8efd4ba7ec73fa6c68f8a8148db
         }}
       >
         <MDBCard>
@@ -131,7 +106,7 @@ export const SignIn = () => {
                   type='email'
                   className='form-control'
                   placeholder='email@exemple.com'
-                  inputRef={emailElement}
+                  ref={emailElement}
                 />
                 <MDBInput
                   wrapperClass='mb-1'
@@ -140,7 +115,7 @@ export const SignIn = () => {
                   type='password'
                   className='form-control'
                   placeholder='mot de passe'
-                  inputRef={passwordElement}
+                  ref={passwordElement}
                 />
 
                 <div className='d-flex justify-content-between mx-1 mb-1'>
@@ -160,20 +135,16 @@ export const SignIn = () => {
                   style={{ height: "40px" }}
                   onClick={handleSubmitForm}
                 >
-<<<<<<< HEAD
-                  Connexion{" "}
-=======
-                  Connexion{''}
->>>>>>> b4075adbc9dbe8efd4ba7ec73fa6c68f8a8148db
+                  Connexion{""}
                 </MDBBtn>
               </MDBCardBody>
             </MDBCol>
           </MDBRow>
         </MDBCard>
       </MDBContainer>
-      <div style={{ position: 'absolute', width: '100%', bottom: '0' }}>
+      <div style={{ position: "absolute", width: "100%", bottom: "0" }}>
         <Footer />
-      </div>{' '}
+      </div>{" "}
     </div>
   );
 };

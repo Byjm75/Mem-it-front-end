@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from "axios";
 import {
   MDBContainer,
   MDBCard,
@@ -9,11 +9,11 @@ import {
   MDBInput,
   MDBCheckbox,
   MDBBtn,
-} from 'mdb-react-ui-kit';
-import React, { FormEvent, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Footer from '../components/Footer';
-import { Navbar } from '../components/Navbar';
+} from "mdb-react-ui-kit";
+import React, { FormEvent, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
+import { Navbar } from "../components/Navbar";
 
 export const SignUp = () => {
   const pseudoElement = useRef<HTMLInputElement>(null);
@@ -25,23 +25,23 @@ export const SignUp = () => {
   const navigate = useNavigate();
 
   const handleSubmitForm = async (e: FormEvent) => {
-    console.log('handleSubmitForm');
+    console.log("handleSubmitForm");
     e.preventDefault();
     console.log(pseudoElement.current?.value);
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     console.log(ConfirmPasswordElement.current?.value);
     axios
-      .post('http://localhost:8081/api/auth/register', {
+      .post("http://localhost:8081/api/auth/register", {
         pseudo: pseudoElement.current?.value,
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
         ConfirmPassword: ConfirmPasswordElement.current?.value,
       })
       .then((response: AxiosResponse<{ data: any }>) => {
-        console.log('response ', response.data);
-        alert('nouveau compte crée!');
-        navigate('/signin');
+        console.log("response ", response.data);
+        alert("nouveau compte crée!");
+        navigate("/signin");
       });
     // try {
     //   const response = await SignUp.post('/sign');
@@ -51,36 +51,20 @@ export const SignUp = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <div
-    // style={{
-    //   backgroundColor: '#ABCDEF',
-    //   overflow: 'hidden',
-    // }}
-    >
-      <Navbar />
-      <MDBContainer
-        className='my-2'
-        // style={{
-        //   height: '30rem',
-        // }}
-      >
-=======
     <div>
       <Navbar />
-      <MDBContainer className="my-2">
->>>>>>> b4075adbc9dbe8efd4ba7ec73fa6c68f8a8148db
+      <MDBContainer className='my-2'>
         <MDBCard>
           <MDBRow
             className='g-0 d-flex align-items-center'
             style={{
-              backgroundColor: 'rgba(180, 200, 200, 0.73)',
+              backgroundColor: "rgba(180, 200, 200, 0.73)",
             }}
           >
             <MDBCol
               md='4'
               style={{
-                height: '29.4rem',
+                height: "29.4rem",
               }}
             >
               <MDBCardImage
@@ -89,18 +73,18 @@ export const SignUp = () => {
                 className='rounded-t-5 rounded-tr-lg-0'
                 fluid
                 style={{
-                  height: '29.4rem',
+                  height: "29.4rem",
                 }}
               />
             </MDBCol>
 
             <MDBCol md='8'>
-              <h1 style={{ textAlign: 'center', color: 'white' }}>
+              <h1 style={{ textAlign: "center", color: "white" }}>
                 Inscrivez vous
               </h1>
               <MDBCardBody
                 className='form-floating mt-1'
-                style={{ color: 'white' }}
+                style={{ color: "white" }}
               >
                 {/* <label htmlFor="pseudo">Pseudo</label> */}
                 <MDBInput
@@ -109,7 +93,7 @@ export const SignUp = () => {
                   label='Pseudo'
                   type='text'
                   className='form-control'
-                  inputRef={pseudoElement}
+                  ref={pseudoElement}
                   placeholder='pseudo'
                 />
 
@@ -120,7 +104,7 @@ export const SignUp = () => {
                   type='email'
                   className='form-control'
                   placeholder='email@exemple.com'
-                  inputRef={emailElement}
+                  ref={emailElement}
                 />
                 <MDBInput
                   wrapperClass='mb-1'
@@ -129,7 +113,7 @@ export const SignUp = () => {
                   type='password'
                   className='form-control'
                   placeholder='mot de passe'
-                  inputRef={passwordElement}
+                  ref={passwordElement}
                 />
                 <MDBInput
                   wrapperClass='mb-1'
@@ -138,7 +122,7 @@ export const SignUp = () => {
                   type='password'
                   className='form-control'
                   placeholder='confirmez mot de passe'
-                  inputRef={ConfirmPasswordElement}
+                  ref={ConfirmPasswordElement}
                 />
 
                 <div className='d-flex justify-content-between mx-1 mb-2'>
@@ -148,26 +132,25 @@ export const SignUp = () => {
                     id='flexCheckDefault'
                     label='Remember me'
                   />
-                  <a href='!#' style={{ color: 'black' }}>
+                  <a href='!#' style={{ color: "black" }}>
                     Forgot password?
                   </a>
                 </div>
 
                 <MDBBtn
                   className='mb-2 w-100'
-                  style={{ height: '40px' }}
+                  style={{ height: "40px" }}
                   onClick={handleSubmitForm}
                 >
-                  inscription {''}
+                  inscription {""}
                 </MDBBtn>
               </MDBCardBody>
             </MDBCol>
           </MDBRow>
         </MDBCard>
       </MDBContainer>
-      <div style={{position:'absolute',width:'100%',bottom:'0'}}>
-
-      <Footer />
+      <div style={{ position: "absolute", width: "100%", bottom: "0" }}>
+        <Footer />
       </div>
     </div>
   );

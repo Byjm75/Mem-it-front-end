@@ -7,11 +7,6 @@ export const AddCardCategorie = () => {
   const handleShow = () => setShow(true);
   return (
     <>
-<<<<<<< HEAD
-      <Button variant='success' onClick={handleShow}>
-        Ajout d'une catégorie
-      </Button>
-=======
       {/* <div
         // type="button"
         className="btn btn- col-sm-12"
@@ -23,10 +18,16 @@ export const AddCardCategorie = () => {
       > */}
       {/* <img src="/assets/plus.png" className="card-img" alt="escalade" /> */}
       {/* </div> */}
-      <Button  style={{ 
-      backgroundColor:'red',width:'100%'}} variant="white "onClick={handleShow}>
-<img src="/assets/plus.png" className="card-img" alt="escalade" />      </Button>
->>>>>>> b4075adbc9dbe8efd4ba7ec73fa6c68f8a8148db
+      <Button
+        style={{
+          backgroundColor: "red",
+          width: "100%",
+        }}
+        variant='white '
+        onClick={handleShow}
+      >
+        <img src='/assets/plus.png' className='card-img' alt='escalade' />{" "}
+      </Button>
 
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
@@ -42,11 +43,7 @@ export const AddCardCategorie = () => {
               <Form.Control type='text' placeholder='catégorie' />
             </FloatingLabel>
             <div>
-<<<<<<< HEAD
               <input className='text-primary' type='file' accept='image/*' />
-=======
-              <input className="text-primary" type="file" accept="image/*" />
->>>>>>> b4075adbc9dbe8efd4ba7ec73fa6c68f8a8148db
             </div>
 
             {/* <div className="d-flex justify-content-center">
