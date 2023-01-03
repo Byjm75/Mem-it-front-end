@@ -35,12 +35,12 @@ const Dashboard = () => {
               margin: '10px 0 0 ',
             }}
           >
-            <img
+            {/* <img
               className="col-3"
               src="../assets/profile-icon-png-917.png"
-              alt="photo de profile"
+              alt="profile"
               style={{ width: '4rem' }}
-            />
+            /> */}
             <h1
               style={{
                 color: 'lightslategrey',
@@ -63,8 +63,6 @@ const Dashboard = () => {
             </div>
           </div>
           <h3
-            // className="card-title"
-            // style={{ margin: '20px 0 0 20px' }}
             style={{
               width: '100%',
               position: 'relative',

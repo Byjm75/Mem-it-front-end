@@ -38,10 +38,13 @@ const Categorie = () => {
           // className="col-md-8 offset-md-2 "
         >
           {/* < Searchbar/> */}
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          {/* <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <h1 className="card-title" style={{ margin: '20px 0 0 20px' }}>
               Catégorie1
             </h1>
+           
+            <hr style={{ color: 'lightslategrey', fontWeight: 'bold' }} />
+
             <div>
               <input className="text-primary" type="file" accept="image/*" />
               <img
@@ -51,7 +54,34 @@ const Categorie = () => {
               />
             </div>
           </div>
-          <hr />
+          <hr /> */}
+
+          <div
+            style={{
+              width: '100%',
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'end',
+              alignItems: 'flex-end',
+              margin: '10px 0 0 ',
+            }}
+          >
+            <img
+              className="col-3"
+              src="../assets/profile-icon-png-917.png"
+              alt="profile"
+              style={{ width: '4rem' }}
+            />
+            <h1
+              style={{
+                color: 'lightslategrey',
+                fontWeight: 'bold',
+              }}
+            >
+              Catégorie{' '}
+            </h1>
+          </div>
+          <hr style={{ color: 'lightslategrey', fontWeight: 'bold' }} />
           <div className="card">
             <div className="card-header">
               <div
@@ -71,14 +101,7 @@ const Categorie = () => {
           </div>
         </div>
       </div>
-      <div
-        style={{
-          marginTop: '30px',
-          // position: 'fixed',
-          bottom: '0',
-          width: '100%',
-        }}
-      >
+      <div style={{ marginTop: '30px' }}>
         <Footer />
       </div>
     </div>

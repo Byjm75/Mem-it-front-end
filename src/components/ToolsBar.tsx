@@ -15,8 +15,8 @@ export const ToolsBar = () => {
             width: '100%',
           }}
         >
-          <div className="container-fluid" style={{ width: '100% ' }}>
-            <a className="navbar-brand" href="/" >
+          <div className="container-fluid" style={{ width: '30% ' }}>
+            <a className="navbar-brand" href="/">
               <img
                 src="/assets/logo.png"
                 alt="Mem-It"
@@ -25,9 +25,15 @@ export const ToolsBar = () => {
             </a>
           </div>
 
-          <div style={{ width: '100%', margin: '10px 30px 0' }}>
+          <div style={{ width: '80%', margin: '10px 0 0' }}>
             <Searchbar />
           </div>
+          <img
+            className="col-3"
+            src="../assets/profile-icon-png-917.png"
+            alt="profile"
+            style={{ width: '5rem', margin: '0 10px 0 0 ' }}
+          />
         </div>
       </nav>
     </div>
