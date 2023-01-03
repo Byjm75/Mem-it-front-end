@@ -1,5 +1,5 @@
 import React from 'react';
-import CardCategory from '../components/CardCategory';
+// import CardCategory from '../components/CardCategory';
 import CardPlus from '../components/CardPlus';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
@@ -23,7 +23,7 @@ const Categorie = () => {
           position: 'sticky',
           top: '0',
           overflow: 'hidden',
-          zIndex:  '1',
+          zIndex: '1',
         }}
       >
         <ToolsBar />
@@ -45,19 +45,19 @@ const Categorie = () => {
             >
               Catégorie 1
             </h1>
-           
+
             <hr style={{ color: 'lightslategrey', fontWeight: 'bold' }} />
 
             <div>
               <input className="text-primary" type="file" accept="image/*" />
               <img
                 src="../assets/profile-icon-png-917.png"
-                alt="photo de profile"
+                alt="profile"
                 style={{ width: '4em', margin: '5px 25px 0' }}
               />
             </div>
           </div>
-          <hr /> 
+          <hr />
 
           <div
             style={{
@@ -92,13 +92,13 @@ const Categorie = () => {
                 style={{ display: 'flex', justifyContent: 'space-around' }}
               >
                 <CardPlus />
+                {/* <CardCategory />
                 <CardCategory />
                 <CardCategory />
                 <CardCategory />
                 <CardCategory />
                 <CardCategory />
-                <CardCategory />
-                <CardCategory />
+                <CardCategory /> */}
               </div>
             </div>
           </div>
