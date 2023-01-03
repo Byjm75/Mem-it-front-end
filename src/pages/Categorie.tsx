@@ -44,7 +44,7 @@ const Categorie = () => {
             </h1>
             <img
               src="../assets/profile-icon-png-917.png"
-              alt="photo de profile"
+              alt="profile"
               style={{ width: '5em', margin: '5px 25px 0' }}
             />
           </div>
