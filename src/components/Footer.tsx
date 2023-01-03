@@ -1,11 +1,9 @@
 import React from 'react';
 
-export const Footer = () => { 
+export const Footer = () => {
   return (
     <div>
-      <section className="" 
-      style={{ position:'relative',bottom:'0' }}
-      >
+      <section className="">
         {/*  <!-- Footer -->**/}
         <footer
           className="text-center text-white"
@@ -16,12 +14,20 @@ export const Footer = () => {
             {/*      <!-- Section: CTA --> **/}
             <section className="">
               <p className="d-flex justify-content-center align-items-center">
-                <span className="me-3">Register for free</span>
+                <span
+                  className="me-3"
+                  style={{
+                    color: '#007872',
+                  }}
+                >
+                  Rejoignez nous gratuitement
+                </span>
                 <button
                   type="button"
                   className="btn btn-outline-light btn-rounded"
+                  style={{ backgroundColor: '#007872', borderColor: '#007872' }}
                 >
-                  Sign up!
+                  Inscription!
                 </button>
               </p>
             </section>
@@ -31,7 +37,7 @@ export const Footer = () => {
           {/*  <!-- Copyright --> **/}
           <div
             className="text-center p-3"
-            style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' , height:'40px'}}
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', height: '40px' }}
           >
             © 2020 Copyright:
             <a className="text-white" href="https://mdbootstrap.com/">

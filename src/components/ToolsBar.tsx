@@ -16,7 +16,7 @@ export const ToolsBar = () => {
           }}
         >
           <div className="container-fluid" style={{ width: '100% ' }}>
-            <a className="navbar-brand" href="/" >
+            <a className="navbar-brand" href="/dashboard">
               <img
                 src="/assets/logo.png"
                 alt="Mem-It"

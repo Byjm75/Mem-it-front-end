@@ -29,27 +29,24 @@ const Categorie = () => {
         <ToolsBar />
       </div>
       <div style={{ width: '100%', display: 'flex' }}>
-        <div style={{ position: 'fixed', zIndex: '1', overflow: 'hidden' }}>
-          <Sidebar />
-        </div>
+        {/* <div > */}
+        <Sidebar />
+        {/* </div> */}
         <div
           // className="col-3"
-          style={{ width: '60%', margin: '0 auto' }}
+          style={{ width: '80%', margin: '0 auto' }}
           // className="col-md-8 offset-md-2 "
         >
           {/* < Searchbar/> */}
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <h1 className="card-title" style={{ margin: '20px 0 0 20px' }}>
-              Catégorie1
+              Catégorie 1
             </h1>
-            <div>
-              <input className="text-primary" type="file" accept="image/*" />
-              <img
-                src="../assets/profile-icon-png-917.png"
-                alt="photo de profile"
-                style={{ width: '4em', margin: '5px 25px 0' }}
-              />
-            </div>
+            <img
+              src="../assets/profile-icon-png-917.png"
+              alt="profile"
+              style={{ width: '5em', margin: '5px 25px 0' }}
+            />
           </div>
           <hr />
           <div className="card">

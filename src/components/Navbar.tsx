@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-
 export const Navbar = () => {
   return (
     <div>
@@ -36,9 +35,10 @@ export const Navbar = () => {
                   to="/signin"
                   className="nav-link active"
                   style={{
-                    color: 'white',
+                    color: '#007872',
                     fontSize: '20px',
                     marginLeft: '30px',
+                    fontWeight:'bold',
                   }}
                 >
                   Connexion
@@ -49,9 +49,10 @@ export const Navbar = () => {
                   to="/signup"
                   className="nav-link active"
                   style={{
-                    color: 'white',
+                    color: '#007872',
                     fontSize: '20px',
                     marginLeft: '30px',
+                    fontWeight:'bold',
                   }}
                 >
                   Inscription
@@ -59,7 +60,6 @@ export const Navbar = () => {
               </li>
             </ul>
           </div>
-          {/* <img src="../assets/profil.png" alt="photo de profile"  style={{width:'7%'}}/> */}
         </div>
       </nav>
     </div>
