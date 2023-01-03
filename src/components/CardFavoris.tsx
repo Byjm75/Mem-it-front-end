@@ -2,7 +2,14 @@ import React from 'react';
 
 const CardFavoris = () => {
   return (
-    <div className="card" style={{ width: ' 17rem',margin:'0 0 10px ' }}>
+    <div
+      className="card"
+      style={{
+        width: ' 17rem',
+        margin: '0 0 10px ',
+        backgroundColor: 'rgba(180, 200, 200, 0.73)',
+      }}
+    >
       <div>
         <div
           className="btn btn- col-sm-12"
@@ -29,7 +36,7 @@ const CardFavoris = () => {
             borderRadius: '15px',
             width: '80%',
             margin: 'auto',
-            backgroundColor: '#9AAEB4',
+            backgroundColor: '#007872',
             color: 'white',
           }}
         >

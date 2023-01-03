@@ -39,7 +39,10 @@ const Categorie = () => {
         >
           {/* < Searchbar/> */}
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <h1 className="card-title" style={{ margin: '20px 0 0 20px' }}>
+            <h1
+              className="card-title"
+              style={{ margin: '20px 0 0 20px', color: '#007872' }}
+            >
               Catégorie 1
             </h1>
             <img

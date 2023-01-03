@@ -9,14 +9,8 @@ const Searchbar = () => {
           type="search"
           placeholder="Search"
           aria-label="Search"
+          
         />
-        <button
-          className="btn btn-primary profile-button"
-          type="submit"
-          style={{ backgroundColor: '#007872', borderColor: '#007872' }}
-        >
-          Search
-        </button>
       </form>
     </div>
   );
