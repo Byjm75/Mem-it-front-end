@@ -1,11 +1,9 @@
 import React from 'react';
-import { Navbar } from '../components/Navbar';
 import Footer from '../components/Footer';
 import CardPlus from '../components/CardPlus';
 import CardCategory from '../components/CardCategory';
 import CardFavoris from '../components/CardFavoris';
 import ToolsBar from '../components/ToolsBar';
-import Searchbar from '../components/Searchbar';
 import Sidebar from '../components/Sidebar';
 
 const Dashboard = () => {
@@ -27,17 +25,32 @@ const Dashboard = () => {
           <Sidebar />
         </div>{' '}
         <div style={{ width: '80%', margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <h1 className="card-title" style={{ margin: '20px 0 0 20px' }}>
-              Mon espace
-            </h1>
+          <div
+            style={{
+              width: '100%',
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'end',
+              alignItems: 'flex-end',
+              margin: '10px 0 0 ',
+            }}
+          >
             <img
+              className="col-3"
               src="../assets/profile-icon-png-917.png"
               alt="photo de profile"
-              style={{ width: '5em', margin: '5px 25px 0' }}
+              style={{ width: '4rem' }}
             />
+            <h1
+              style={{
+                color: 'lightslategrey',
+                fontWeight: 'bold',
+              }}
+            >
+              Mon espace
+            </h1>
           </div>
-          <hr />
+          <hr style={{ color: 'lightslategrey', fontWeight: 'bold' }} />
           <div className="card">
             <div className="card-header">
               <div
@@ -49,10 +62,27 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <h3 className="card-title" style={{ margin: '20px 0 0 20px' }}>
+          <h3
+            // className="card-title"
+            // style={{ margin: '20px 0 0 20px' }}
+            style={{
+              width: '100%',
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'end',
+              alignItems: 'flex-end',
+              margin: '10px 0 0 ',
+              padding: '5px 15px 7px',
+              color: '#FFFFFF',
+              fontWeight: 'bold',
+              border: '1px solid lightslategrey',
+              borderRadius: '5px',
+              backgroundColor: 'lightslategrey',
+            }}
+          >
             Derniers ajoûts{' '}
           </h3>
-          <hr />
+          <hr style={{ color: 'lightslategrey', fontWeight: 'bold' }} />
           <div className="card">
             <div className="card-header">
               <div
