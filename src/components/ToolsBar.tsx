@@ -1,4 +1,5 @@
 import React from 'react';
+import ProfilBtn from './ProfilBtn';
 import Searchbar from './Searchbar';
 
 export const ToolsBar = () => {
@@ -17,11 +18,7 @@ export const ToolsBar = () => {
         >
           <div className="container-fluid" style={{ width: '30% ' }}>
             <a className="navbar-brand" href="/">
-              <img
-                src="/assets/logo.png"
-                alt="Mem-It"
-                style={{ width: '4.5rem ' }}
-              />
+              <ProfilBtn/>
             </a>
           </div>
 
