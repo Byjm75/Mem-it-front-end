@@ -59,7 +59,7 @@ const Dashboard = () => {
             className="card-title"
             style={{ margin: '20px 0 0 20px', color: '#007872' }}
           >
-            Derniers ajouts{' '}
+            Derniers ajouts
           </h3>
           <hr />
           <div className="card">
