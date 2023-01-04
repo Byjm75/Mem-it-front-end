@@ -146,7 +146,7 @@ export const SignIn = () => {
       </MDBContainer>
       <div style={{ position: 'relative', width: '100%', bottom: '0' }}>
         <Footer />
-      </div>{' '}
+      </div>
     </div>
   );
 };

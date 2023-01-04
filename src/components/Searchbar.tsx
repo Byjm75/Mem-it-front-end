@@ -3,6 +3,7 @@ import React from 'react';
 const Searchbar = () => {
   return (
     <div>
+    <div>
       <form className="d-flex">
         <input
           className="form-control me-"

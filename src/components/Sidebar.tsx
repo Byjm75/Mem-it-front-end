@@ -11,6 +11,8 @@ const {
 } = cdbreact;
 
 const Sidebar = () => {
+
+  
   return (
     <CDBSidebar
       style={{
@@ -44,8 +46,8 @@ const Sidebar = () => {
             </a>
           </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon="credit-card" iconType="solid">
-            <a className="navbar-brand" href="/categorie">
-              Catégorie 1
+            <a className="navbar-brand" href="/profil">
+              Profil
             </a>
           </CDBSidebarMenuItem>
         </CDBSidebarMenu>

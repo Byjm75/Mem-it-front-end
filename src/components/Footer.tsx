@@ -1,6 +1,7 @@
 import React from 'react';
 
 export const Footer = () => {
+export const Footer = () => {
   return (
     <div>
       <section className="">
@@ -37,6 +38,7 @@ export const Footer = () => {
           {/*  <!-- Copyright --> **/}
           <div
             className="text-center p-3"
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', height: '40px' }}
             style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', height: '40px' }}
           >
             © 2020 Copyright:
