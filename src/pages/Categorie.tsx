@@ -1,22 +1,40 @@
-import React from 'react';
+import { useEffect } from 'react';
 import CardCategory from '../components/CardCategory';
 import CardPlus from '../components/CardPlus';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
+import { useState } from 'react';
+import axios from 'axios';
+
+export interface Categories {
+  id: string;
+  title: string;
+  image: string;
+  favoris: string;
+}
 
 const Categorie = () => {
-  return (
-    <div
-      className="position-sticky"
-      //   style={{
-      //     overflow: 'hidden',
-      //     position: '-webkit-sticky',
+  const [listCatDisplayed, setListCatDisplayed] = useState<Categories[] | null>(
+    []
+  );
 
-      //     top: '0',
-      //     width: '100%',
-      //   }}
-    >
+  useEffect(() => {
+    axios
+      .get('http://localhost:8085/api/categorie', {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      })
+      .then((res) => {
+        console.log(res)
+        setListCatDisplayed(res.data);
+      })
+      .catch((err) => {
+        console.log(err)
+        setListCatDisplayed(null);
+      });
+  }, []);
+  return (
+    <div className="position-sticky">
       <div
         style={{
           width: '100%',
@@ -29,21 +47,15 @@ const Categorie = () => {
         <ToolsBar />
       </div>
       <div style={{ width: '100%', display: 'flex' }}>
-        {/* <div > */}
         <Sidebar />
-        {/* </div> */}
-        <div
-          // className="col-3"
-          style={{ width: '80%', margin: '0 auto' }}
-          // className="col-md-8 offset-md-2 "
-        >
-          {/* < Searchbar/> */}
+
+        <div style={{ width: '80%', margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <h1
               className="card-title"
               style={{ margin: '20px 0 0 20px', color: '#007872' }}
             >
-              Catégorie 1
+              Catégories
             </h1>
             <img
               src="../assets/profile-icon-png-917.png"
@@ -58,14 +70,35 @@ const Categorie = () => {
                 className="card-tools row"
                 style={{ display: 'flex', justifyContent: 'space-around' }}
               >
-                <CardPlus />
-                <CardCategory />
-                <CardCategory />
-                <CardCategory />
-                <CardCategory />
-                <CardCategory />
-                <CardCategory />
-                <CardCategory />
+                {/* {listCatDisplayed ?(
+                 <ul>
+                   
+                 {listCatDisplayed.map((categorie, i) => (
+                  
+                    <li key={i}>
+                      {categorie.title}
+                    </li>)
+                 )
+                 }
+                 
+                 </ul>
+                 )
+                } */}
+                <div>
+                  {listCatDisplayed ? (
+                    <ul>
+                      {listCatDisplayed.map((categorie) => (
+                        <li key={categorie.id}>
+                          nom de la catégorie : {categorie.title}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div>
+                      Vous n'êtes pas connecté, donc vous ne verrez rien !
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>

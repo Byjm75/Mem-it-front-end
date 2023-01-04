@@ -1,22 +1,42 @@
-import { SyntheticEvent } from 'react';
+import { useEffect } from 'react';
 import Footer from '../components/Footer';
-import CardPlus from '../components/CardPlus';
-import CardFavoris from '../components/CardFavoris';
-import ToolsBar from '../components/ToolsBar';
 import Sidebar from '../components/Sidebar';
-import { useNavigate } from 'react-router-dom';
+import ToolsBar from '../components/ToolsBar';
 import { useState } from 'react';
+import axios from 'axios';
+import CardMemo from '../components/CardMemo';
+import CardPlus from '../components/CardPlus';
 
+export interface Memos {
+  title: string;
+  date_event: Date;
+  body: string;
+  image: string;
+  url: string;
+  date_creation: string;
+}
 
-const Dashboard = () => {
-  const navigate = useNavigate();
-  const profilElement = (e: SyntheticEvent) => {
-    e.preventDefault();
-    navigate('../profil');
-  };
+let listeMemos: Memos[] = [];
+
+const Memo = () => {
+  const [listmemoDisplayed, setListMemoDisplayed] = useState<Memos[]>([
+    ...listeMemos,
+  ]);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    axios
+      .get('http://localhost:8080/api/taches', {
+        headers: { authorization: `Bearer ${token}` },
+      })
+      .then((res) => {
+        listeMemos = res.data.data;
+        setListMemoDisplayed([...listeMemos]);
+      });
+  }, []);
 
   return (
-    <div>
+    <div className="position-sticky">
       <div
         style={{
           width: '100%',
@@ -27,22 +47,22 @@ const Dashboard = () => {
         }}
       >
         <ToolsBar />
-      </div>{' '}
+      </div>
       <div style={{ width: '100%', display: 'flex' }}>
         <Sidebar />
+
         <div style={{ width: '80%', margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <h1
               className="card-title"
               style={{ margin: '20px 0 0 20px', color: '#007872' }}
             >
-              Mon espace
+              Catégories
             </h1>
             <img
               src="../assets/profile-icon-png-917.png"
-              alt="profil"
+              alt="profile"
               style={{ width: '5em', margin: '5px 25px 0' }}
-              onClick={profilElement}
             />
           </div>
           <hr />
@@ -53,24 +73,14 @@ const Dashboard = () => {
                 style={{ display: 'flex', justifyContent: 'space-around' }}
               >
                 <CardPlus />
-                <CardFavoris />
-              </div>
-            </div>
-          </div>
-          <h3
-            className="card-title"
-            style={{ margin: '20px 0 0 20px', color: '#007872' }}
-          >
-            Derniers ajouts
-          </h3>
-          <hr />
-          <div className="card">
-            <div className="card-header">
-              <div
-                className="card-tools row"
-                style={{ display: 'flex', justifyContent: 'space-around' }}
-              >
-               
+
+                {listmemoDisplayed.map((memo, i) => (
+                  <ul key={i}>
+                    <li key={i}>
+                      <CardMemo carte={memo} />
+                    </li>
+                  </ul>
+                ))}
               </div>
             </div>
           </div>
@@ -83,4 +93,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Memo;

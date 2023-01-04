@@ -28,12 +28,15 @@ export const SignIn = () => {
     console.log(passwordElement.current?.value);
     axios
       .post('http://localhost:8085/api/auth/login', {
-        email: emailElement.current?.value,
+        pseudo: emailElement.current?.value,
         password: passwordElement.current?.value,
       })
-      .then((response: AxiosResponse<{ data: any }>) => {
+      .then((response: AxiosResponse) => {
+        const token = response.data.accessToken;
+        // Set le token dans le localstorage
+        localStorage.setItem('token', token);
         console.log('response ', response.data);
-        alert('Bravo vous êtes connecté!');
+        alert('Bon retour parmi nous!');
         navigate('/dashboard');
       });
     // try {

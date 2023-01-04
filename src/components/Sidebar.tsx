@@ -10,8 +10,6 @@ const {
 } = cdbreact;
 
 const Sidebar = () => {
-
-  
   return (
     <CDBSidebar
       style={{
@@ -39,8 +37,8 @@ const Sidebar = () => {
             </a>
           </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon="th-large">
-            <a className="navbar-brand" href="/">
-              Favoris
+            <a className="navbar-brand" href="/categorie">
+              Catégories
             </a>
           </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon="credit-card" iconType="solid">

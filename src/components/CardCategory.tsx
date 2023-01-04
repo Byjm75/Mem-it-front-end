@@ -1,6 +1,9 @@
 import React from 'react';
-
-const CardCategory = () => {
+import { Categories } from '../Pages/Categorie';
+interface CardcategoryProps{
+  carte : Categories;
+}
+const CardCategory = ({carte} : CardcategoryProps)  => {
   return (
     <div
       className="card"
@@ -35,7 +38,7 @@ const CardCategory = () => {
             color: 'white',
           }}
         >
-          Catégorie 1
+          Catégorie 
         </h5>
       </div>
     </div>
