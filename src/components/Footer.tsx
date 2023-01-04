@@ -1,21 +1,27 @@
 import React from 'react';
 
-export const Footer = () => { 
+export const Footer = () => {
   return (
     <div>
-      <section className="" style={{ position: 'relative', bottom: '0' }}>
+      <section className="">
         {/*  <!-- Footer -->**/}
         <footer
           className="text-center text-white"
-          style={{ backgroundColor: '#9AAEB4' }}
+          style={{ backgroundColor: '#111827' }}
         >
           {/*    <!-- Grid container -->**/}
           <div className="container p-4 pb-0">
             {/*      <!-- Section: CTA --> **/}
             <section className="">
               <p className="d-flex justify-content-center align-items-center">
-                <span className="me-3" style={{
-                    color: '#007872'}}>Rejoignez nous gratuitement</span>
+                <span
+                  className="me-3"
+                  style={{
+                    color: 'white',
+                  }}
+                >
+                  Rejoignez nous gratuitement
+                </span>
                 <button
                   type="button"
                   className="btn btn-outline-light btn-rounded"
@@ -38,9 +44,7 @@ export const Footer = () => {
               MDBootstrap.com
             </a>
           </div>
-          {/*  <!-- Copyright --> **/}
         </footer>
-        {/* <!-- Footer -->**/}
       </section>
     </div>
   );

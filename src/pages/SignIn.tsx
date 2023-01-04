@@ -27,7 +27,7 @@ export const SignIn = () => {
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     axios
-      .post('http://localhost:8081/api/auth/login', {
+      .post('http://localhost:8090/api/auth/login', {
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
       })
@@ -71,7 +71,9 @@ export const SignIn = () => {
           <MDBRow
             className="g-0 d-flex align-items-center"
             style={{
-              backgroundColor: 'rgba(180, 200, 200, 0.73)',
+              backgroundColor:
+                // 'rgba(180, 200, 200, 0.73)'
+                'black',
             }}
           >
             <MDBCol
@@ -92,7 +94,7 @@ export const SignIn = () => {
             </MDBCol>
 
             <MDBCol md="8">
-              <h1 style={{ textAlign: 'center', color: 'white' }}>
+              <h1 style={{ textAlign: 'center', color: '#806d42' }}>
                 Connectez vous
               </h1>
               <MDBCardBody
@@ -132,7 +134,7 @@ export const SignIn = () => {
 
                 <MDBBtn
                   className="mb-1 w-100"
-                  style={{ height: '40px' }}
+                  style={{ height: '40px'}}
                   onClick={handleSubmitForm}
                 >
                   Connexion{''}
@@ -142,7 +144,7 @@ export const SignIn = () => {
           </MDBRow>
         </MDBCard>
       </MDBContainer>
-      <div style={{ position: 'absolute', width: '100%', bottom: '0' }}>
+      <div style={{ position: 'relative', width: '100%', bottom: '0' }}>
         <Footer />
       </div>{' '}
     </div>

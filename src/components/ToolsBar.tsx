@@ -1,13 +1,20 @@
-import React from 'react';
-import ProfilBtn from './ProfilBtn';
+import React, { SyntheticEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
+// import ProfilBtn from './ProfilBtn';
 import Searchbar from './Searchbar';
 
 export const ToolsBar = () => {
+  const navigate = useNavigate();
+
+  const profilElement = (e: SyntheticEvent) => {
+    e.preventDefault();
+    navigate('../profil');
+  };
   return (
     <div>
       <nav
         className="navbar  ticky-top navbar-expand-"
-        style={{ backgroundColor: '#9AAEB4', width: '100%' }}
+        style={{ backgroundColor: 'black', width: '100%' }}
       >
         <div
           style={{
@@ -16,7 +23,10 @@ export const ToolsBar = () => {
             width: '100%',
           }}
         >
-          <div className="container-fluid" style={{ width: '100% ' }}>
+          <div
+            className="container-fluid"
+            style={{ width: '27% ', paddingLeft: '7px', margin: '0 auto 0 0' }}
+          >
             <a className="navbar-brand" href="/dashboard">
               <img
                 src="/assets/logo.png"
@@ -25,16 +35,32 @@ export const ToolsBar = () => {
               />
             </a>
           </div>
-
-          <div style={{ width: '80%', margin: '10px 0 0' }}>
-            <Searchbar />
+          <div
+            style={{
+              display: 'flex',
+              width: '100%',
+              justifyContent:'space-around'
+            }}
+          >
+            <div
+              style={{
+                width: '73%',
+                margin: '20px 0 0 0',
+              }}
+            >
+              <Searchbar />
+            </div>
+            {/* < ProfilBtn/> */}
+            <div >
+              <img
+                className="col-3"
+                src="../assets/profile-icon-png-917.png"
+                alt="profile"
+                style={{ width: '5.2rem', margin: '5px 0 0 ' }}
+                onClick={profilElement}
+              />
+            </div>
           </div>
-          <img
-            className="col-3"
-            src="../assets/profile-icon-png-917.png"
-            alt="profile"
-            style={{ width: '5rem', margin: '0 10px 0 0 ' }}
-          />
         </div>
       </nav>
     </div>

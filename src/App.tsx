@@ -8,6 +8,7 @@ import { Home } from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Categorie from './pages/Categorie';
 import  {SignIn} from './pages/SignIn';
+import Profil from './pages/Profil';
 const App = () => {
   return (
     <div>
@@ -18,7 +19,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categorie" element={<Categorie />} />
-          {/* <Route path="/profil" element={<Profil />} /> */}
+          <Route path="/profil" element={<Profil />} />
           <Route path="/signin" element={<SignIn />} />
         </Routes>
       </BrowserRouter>

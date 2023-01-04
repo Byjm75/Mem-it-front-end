@@ -9,7 +9,7 @@ const Searchbar = () => {
           type="search"
           placeholder="Search"
           aria-label="Search"
-          
+          style={{ borderColor: ' lightslategrey' }}
         />
       </form>
     </div>

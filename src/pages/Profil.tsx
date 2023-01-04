@@ -18,7 +18,7 @@ const Profil = () => {
     console.log(passwordElement.current?.value);
     console.log(ImageProfilElement.current?.value);
     axios
-      .patch('http://localhost:8081/api/auth/update', {
+      .patch('http://localhost:8090/api/auth/update', {
         pseudo: pseudoElement.current?.value,
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
@@ -31,30 +31,41 @@ const Profil = () => {
   };
   return (
     <div>
-        <ToolsBar/>
-{/* // style={{border:'solid 2px #9AAEB4', width:'70%',  margin:' 40px auto'}} */}
+      <ToolsBar />
+      {/* // style={{border:'solid 2px #9AAEB4', width:'70%',  margin:' 40px auto'}} */}
 
-      <div className="container rounded bg-' mt-5 mb-5 " style={{              backgroundColor: 'rgba(180, 200, 200, 0.73)'
-,display:'flex', justifyContent:'center', width:'60%'}}>
-        <div className="row" >
-          <div className="col-md-4 border-right">
+      <div
+        className="container rounded bg-' mt-5 mb-5 "
+        style={{
+          backgroundColor: 'black',
+          display: 'flex',
+          justifyContent: 'center',
+          width: '80%',
+        }}
+      >
+        <div className="row">
+          <div className="col-md-2 border-right">
             <div className="d-flex flex-column align-items-center text-center p-3 py-5">
               <img
-                className="rounded-circle mt-5"
-                width="150px"
+                // className="rounded-circle mt-5"
+                width="100px"
                 src="../assets/profile-icon-png-917.png"
                 alt="profil"
               />
             </div>
           </div>
-          <div className="col-md-8 border-right">
+          <div className="col-md-10 border-right">
             <div className="p-3 py-5">
               <div className="d-flex justify-content-between align-items-center mb-3">
-                <h4 className="text-right" style={{color:'#007872'}}>Modifier profil</h4>
+                <h4 className="text-right" style={{ color: '#007872' }}>
+                  Modifier profil
+                </h4>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
-                  <label className="labels" style={{color:'#007872'}}>Pseudo</label>
+                  <label className="labels" style={{ color: '#007872' }}>
+                    Pseudo
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -64,21 +75,12 @@ const Profil = () => {
                   />
                 </div>
               </div>
+
               <div className="row mt-3">
                 <div className="col-md-12">
-                  <label className="labels" style={{color:'#007872'}}>Image de profil</label>
-                  <input
-                    type="file"
-                    className="form-control"
-                    placeholder="image de profil"
-                    ref={ImageProfilElement}
-                    value=""
-                  />
-                </div>
-              </div>
-              <div className="row mt-3">
-                <div className="col-md-12">
-                  <label className="labels" style={{color:'#007872'}}>Adresse mail</label>
+                  <label className="labels" style={{ color: '#007872' }}>
+                    Adresse mail
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -90,7 +92,9 @@ const Profil = () => {
               </div>
               <div className="row mt-3">
                 <div className="col-md-12">
-                  <label className="labels" style={{color:'#007872'}}>Mot de passe</label>
+                  <label className="labels" style={{ color: '#007872' }}>
+                    Mot de passe
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -100,17 +104,44 @@ const Profil = () => {
                   />
                 </div>
               </div>
-              <div className="row mt-3"></div>
-              <div className="mt-5 text-center" >
-                <button
-                  className="btn btn-primary profile-button"
-                  type="button"
-                  onClick={handleSubmitForm}
-                  style={{backgroundColor:'#007872', borderColor:'#007872'}}
-                  
+              <div className="row" style={{ display: 'flex' }}>
+                <div className="column mt-3 col-6" style={{ width: '100%' }}>
+                  <div className="col-md-12">
+                    <label className="labels" style={{ color: '#007872' }}>
+                      Image de profil
+                    </label>
+                    <input
+                      type="file"
+                      className="form-control"
+                      placeholder="image de profil"
+                      ref={ImageProfilElement}
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div
+                  className="mt-4 text-center col-6"
+                  style={{
+                    width: '80%',
+                    marginRight: '0',
+                    display: 'flex',
+                    justifyContent: 'end',
+                  }}
                 >
-                  Sauvegarder modifications
-                </button>
+                  <button
+                    className="btn btn-primary profile-button col-md-12"
+                    type="button"
+                    onClick={handleSubmitForm}
+                    style={{
+                      // width: '100%',
+                      padding: '3px',
+                      backgroundColor: '#007872',
+                      borderColor: '#007872',
+                    }}
+                  >
+                    Sauvegarder modifications
+                  </button>
+                </div>
               </div>
             </div>
           </div>
