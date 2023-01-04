@@ -1,5 +1,5 @@
 import React from 'react';
-import { AddCardCategorie } from './AddCardCategorie';
+// import { AddCardCategorie } from './AddCardCategorie';
 
 const CardPlus = () => {
   return (
@@ -20,7 +20,7 @@ const CardPlus = () => {
             padding: '0.5rem',
           }}
         >
-          <AddCardCategorie />
+          {/* <AddCardCategorie /> */}
         </div>
       </div>
       <div className="card-body">

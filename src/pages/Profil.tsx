@@ -2,8 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import { FormEvent, useRef } from 'react';
 import Footer from '../components/Footer';
 import ToolsBar from '../components/ToolsBar';
-import Footer from '../components/Footer';
-import ToolsBar from '../components/ToolsBar';
+
 
 const Profil = () => {
   const pseudoElement = useRef<HTMLInputElement>(null);
