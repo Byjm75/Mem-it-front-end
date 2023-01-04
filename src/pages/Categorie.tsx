@@ -15,7 +15,7 @@ export interface Categories {
 }
 
 const Categorie = () => {
-  const [listCatDisplayed, setListCatDisplayed] = useState<Categories[] | null>(
+  const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>(
     []
   );
 
@@ -28,10 +28,8 @@ const Categorie = () => {
         console.log(res)
         setListCatDisplayed(res.data);
       })
-      .catch((err) => {
-        console.log(err)
-        setListCatDisplayed(null);
-      });
+      
+      ;
   }, []);
   return (
     <div className="position-sticky">
@@ -85,20 +83,21 @@ const Categorie = () => {
                  )
                 } */}
                 <div>
-                  {listCatDisplayed ? (
-                    <ul>
+                  
+                    
                       {listCatDisplayed.map((categorie) => (
                         <li key={categorie.id}>
-                          nom de la catégorie : {categorie.title}
+                          <CardCategory categoryAffich ={categorie}/>
                         </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <div>
-                      Vous n'êtes pas connecté, donc vous ne verrez rien !
-                    </div>
-                  )}
-                </div>
+                        
+                      ))}{" "}
+                   
+                  </div>
+                    
+                    
+                  
+              
+                
               </div>
             </div>
           </div>

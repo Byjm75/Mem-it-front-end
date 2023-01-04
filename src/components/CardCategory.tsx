@@ -1,9 +1,9 @@
 import React from 'react';
 import { Categories } from '../Pages/Categorie';
 interface CardcategoryProps{
-  carte : Categories;
+  categoryAffich : Categories;
 }
-const CardCategory = ({carte} : CardcategoryProps)  => {
+const CardCategory = ({categoryAffich} : CardcategoryProps)  => {
   return (
     <div
       className="card"
@@ -21,7 +21,7 @@ const CardCategory = ({carte} : CardcategoryProps)  => {
             borderColor: '#9AAEB4',
           }}
         >
-          <img src="/assets/escalade.jpg" className="card-img" alt="escalade" />
+          <img src={categoryAffich.image} alt ="illustration catégorie"/>
         </div>
       </div>
       <div className="card-body">
@@ -38,7 +38,7 @@ const CardCategory = ({carte} : CardcategoryProps)  => {
             color: 'white',
           }}
         >
-          Catégorie 
+          {categoryAffich.title} 
         </h5>
       </div>
     </div>
