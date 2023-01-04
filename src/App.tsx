@@ -1,29 +1,34 @@
-import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React from "react";
+import React from 'react';
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { SignUp } from './pages/SignUp';
+import { SignIn } from './pages/SignIn';
+import Dashboard from './pages/Dashboard';
+import Profil from './pages/Profil';
+import { Navbar } from './components/Navbar';
+import { Home } from './pages/Home';
+import Categorie from './pages/Categorie';
 
-import CategoriesForm from "./components/CategoriesForm";
-
-export const App = () => {
+const App = () => {
   return (
     <div>
-      <img
-        src={require("./assets/JPEG_example_flower.jpg")}
-        alt='logo'
-        width='50em'
-      />
+      
       <BrowserRouter>
-        <Navbar />
-        Ici un composant directement avec le nom
+        
         <Routes>
-          <Route path='/' element={<Home />} /> Ici une page avec son chemin
+          <Route path="/" element={<Home />} /> Ici une page avec son chemin
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/categorie" element={<Categorie />} />
+          <Route path="/profil" element={<Profil />} />
+          
         </Routes>
       </BrowserRouter>
       <div>
-        <CategoriesForm />
+       
       </div>
     </div>
   );
 };
+export default App;
