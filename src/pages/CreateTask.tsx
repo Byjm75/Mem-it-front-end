@@ -1,43 +1,42 @@
 import axios, { AxiosResponse } from 'axios';
-import { FormEvent, useEffect, useRef } from 'react';
+import React, { FormEvent, useRef } from 'react';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 
-export interface InterProfil {
-  pseudo: string;
-  image: string;
-  email: string;
-  password: string;
-}
-
-const Profil = () => {
-  const pseudoElement = useRef<HTMLInputElement>(null);
-  const ImageProfilElement = useRef<HTMLInputElement>(null);
-  const emailElement = useRef<HTMLInputElement>(null);
-  const passwordElement = useRef<HTMLInputElement>(null);
+const CreateTask = () => {
+  const titleElement = useRef<HTMLInputElement>(null);
+  const eventDateElement  = useRef<HTMLInputElement>(null);
+  const bodyElement = useRef<HTMLInputElement>(null);
+  const imageElement = useRef<HTMLInputElement>(null);
+  const urlElement = useRef<HTMLInputElement>(null);
+  
+  
 
   const handleSubmitForm = async (e: FormEvent) => {
     console.log('handleSubmitForm');
     e.preventDefault();
-    console.log(pseudoElement.current?.value);
-    console.log(emailElement.current?.value);
-    console.log(passwordElement.current?.value);
-    console.log(ImageProfilElement.current?.value);
+    console.log(titleElement.current?.value);
+    console.log(eventDateElement.current?.value);
+    console.log(bodyElement.current?.value);
+    console.log(imageElement.current?.value);
+    console.log(urlElement.current?.value);
     
-  
-    axios .patch('http://localhost:8085/api/auth/update', {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-        pseudo: pseudoElement.current?.value,
-        email: emailElement.current?.value,
-        password: passwordElement.current?.value,
-        ImageProfilElement: ImageProfilElement.current?.value,
-      })
+    axios
+      .post('http://localhost:8085/api/tache', {
+        title: titleElement.current?.value,
+        date_event: eventDateElement.current?.value,
+        body: bodyElement.current?.value,
+        image: imageElement.current?.value,
+        url: urlElement.current?.value,
+},
+{headers:{Authorization : `Bearer ${localStorage.getItem('token')}` }}
+)
       .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data);
-        alert('Profil mis à jour!');
+        alert('Nouveau mémo crée!');
       });
-  }
+  };
   return (
     <div>
       <div
@@ -50,7 +49,7 @@ const Profil = () => {
         }}
       >
         <ToolsBar />
-      </div>
+      </div>{' '}
       <div
         style={{
           display: 'flex',
@@ -80,57 +79,38 @@ const Profil = () => {
               <div className="p-3 py-5">
                 <div className="d-flex justify-content-between align-items-center mb-4">
                   <h4 className="text-right" style={{ color: '#007872' }}>
-                    Modifier profil
+                    Creer un mémo
                   </h4>
                 </div>
 
                 <div className="row mt-3" style={{ display: 'flex' }}>
                   <div className="col-md-4 border-right">
-                    <img
-                      width="100%"
-                      src="../assets/profile-icon-png-917.png"
-                      alt="profil"
-                    />
+                  
                   </div>
                   <div className="col-md-8">
                     <label className="labels" style={{ color: '#007872' }}>
-                      Pseudo
+                      Titre
                     </label>
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="pseudo"
-                      ref={pseudoElement}
-                     
-                    />
-                  </div>
-                </div>
-
-                <div className="row mt-3">
-                  <div className="col-md-12">
-                    <label className="labels" style={{ color: '#007872' }}>
-                      Adresse mail
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="modifier email"
-                      ref={emailElement}
+                      placeholder="Titre"
+                      ref={titleElement}
                       
                     />
-                  </div>
+                  
                 </div>
-                <div className="row mt-3">
-                  <div className="col-md-12">
+                 </div>
+                  <div className="col-md-8">
                     <label className="labels" style={{ color: '#007872' }}>
-                      Mot de passe
+                      Date de votre évènement
                     </label>
                     <input
-                      type="text"
+                      type="date"
                       className="form-control"
-                      placeholder="modifier mot de passe"
-                      ref={passwordElement}
-                     
+                      placeholder="Date de l'évènement"
+                      ref={eventDateElement}
+                      
                     />
                   </div>
                 </div>
@@ -144,11 +124,43 @@ const Profil = () => {
                         type="file"
                         className="form-control"
                         placeholder="image de profil"
-                        ref={ImageProfilElement}
+                        ref={imageElement}
                         
                       />
                     </div>
                   </div>
+                  
+                  <div className="row" style={{ display: 'flex' }}>
+                  <div className="column mt-3 col-6" style={{ width: '100%' }}>
+                    <div className="col-md-12">
+                      <label className="labels" style={{ color: '#007872' }}>
+                        Lien internet
+                      </label>
+                      <input
+                        type="url"
+                        className="form-control"
+                        placeholder="lien internet"
+                        ref={urlElement}
+                        
+                      />
+                    </div>
+                  </div>
+                  <div className="row" style={{ display: 'flex' }}>
+                  <div className="column mt-3 col-6" style={{ width: '100%' }}>
+                    <div className="col-md-12">
+                      <label className="labels" style={{ color: '#007872' }}>
+                        Description
+                      </label>
+                      <input
+                        type="textarea"
+                        className="form-control"
+                        placeholder="description"
+                        ref={bodyElement}
+                        
+                      />
+                    </div>
+                  </div>
+                  
                   <div
                     className="mt-4 text-center col-12"
                     style={{
@@ -176,6 +188,7 @@ const Profil = () => {
           </div>
         </div>
       </div>
+      </div>
       <div
         style={{
           marginTop: '30px',
@@ -186,9 +199,9 @@ const Profil = () => {
       >
         <Footer />
       </div>
-    </div>
-  )
+      
+      </div>
+      )}
 
-};
 
-export default Profil;
+export default CreateTask;

@@ -1,3 +1,4 @@
+import AddBtn from '../components/AddBtn';
 import CardFavoris from '../components/CardFavoris';
 import CardPlus from '../components/CardPlus';
 import Footer from '../components/Footer';
@@ -66,6 +67,7 @@ const Dashboard = () => {
           >
             <CardPlus />
             <CardFavoris />
+            <AddBtn/>
           </div>
           <div>
             <h2

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Memos } from '../pages/Memo';
+import { Memos } from '../Pages/Memo';
 
 interface CardmemoProps {
   carte: Memos;

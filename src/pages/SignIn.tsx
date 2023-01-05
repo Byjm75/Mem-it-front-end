@@ -37,7 +37,6 @@ export const SignIn = () => {
         localStorage.setItem('token', token);
         console.log('response ', response.data);
         alert('Bon retour parmi nous!');
-        alert('Bon retour parmi nous!');
         navigate('/dashboard');
       });
   };

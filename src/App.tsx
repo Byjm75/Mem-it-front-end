@@ -7,7 +7,10 @@ import { Home } from './Pages/Home';
 import Dashboard from './Pages/Dashboard';
 import Categorie from './Pages/Categorie';
 import { SignIn } from './Pages/SignIn';
+import CreateCategory from './Pages/CreateCategory';
+import CreateTask from './Pages/CreateTask';
 import Profil from './Pages/Profil';
+
 const App = () => {
   return (
     <div>
@@ -19,8 +22,10 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categorie" element={<Categorie />} />
-          <Route path="/profil" element={<Profil />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/createCategory" element={<CreateCategory />} />
+          <Route path="/createTask" element={<CreateTask />} />
+          <Route path="/profil" element={<Profil />} />
         </Routes>
       </BrowserRouter>
       <div>

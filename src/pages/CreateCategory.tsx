@@ -1,43 +1,37 @@
 import axios, { AxiosResponse } from 'axios';
-import { FormEvent, useEffect, useRef } from 'react';
+import React, { FormEvent, useRef } from 'react';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
+import { useNavigate } from 'react-router-dom';
 
-export interface InterProfil {
-  pseudo: string;
-  image: string;
-  email: string;
-  password: string;
-}
-
-const Profil = () => {
-  const pseudoElement = useRef<HTMLInputElement>(null);
-  const ImageProfilElement = useRef<HTMLInputElement>(null);
-  const emailElement = useRef<HTMLInputElement>(null);
-  const passwordElement = useRef<HTMLInputElement>(null);
-
+const CreateCategory = () => {
+    const titleElement = useRef<HTMLInputElement>(null);
+  const ImageElement = useRef<HTMLInputElement>(null);
+  const favElement = useRef<HTMLInputElement>(null);
+  
+const navigate=useNavigate()
   const handleSubmitForm = async (e: FormEvent) => {
     console.log('handleSubmitForm');
     e.preventDefault();
-    console.log(pseudoElement.current?.value);
-    console.log(emailElement.current?.value);
-    console.log(passwordElement.current?.value);
-    console.log(ImageProfilElement.current?.value);
+    console.log(titleElement.current?.value);
+    console.log(ImageElement.current?.value);
+    console.log(favElement.current?.value);
     
-  
-    axios .patch('http://localhost:8085/api/auth/update', {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-        pseudo: pseudoElement.current?.value,
-        email: emailElement.current?.value,
-        password: passwordElement.current?.value,
-        ImageProfilElement: ImageProfilElement.current?.value,
-      })
+    axios
+      .post('http://localhost:8085/api/categorie', 
+       
+       { title: titleElement.current?.value,
+        favori: favElement.current?.value,
+        image: ImageElement.current?.value,
+  },
+   {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
       .then((response: AxiosResponse<{ data: any }>) => {
-        console.log('response ', response.data);
-        alert('Profil mis à jour!');
+        console.log('response ', response.data);console.log(response, 'res')
+        alert('Nouvelle catégorie créée!');
+        navigate('/categorie')
       });
-  }
+  };
   return (
     <div>
       <div
@@ -50,7 +44,7 @@ const Profil = () => {
         }}
       >
         <ToolsBar />
-      </div>
+      </div>{' '}
       <div
         style={{
           display: 'flex',
@@ -80,56 +74,23 @@ const Profil = () => {
               <div className="p-3 py-5">
                 <div className="d-flex justify-content-between align-items-center mb-4">
                   <h4 className="text-right" style={{ color: '#007872' }}>
-                    Modifier profil
+                    Creer une catégorie
                   </h4>
                 </div>
 
                 <div className="row mt-3" style={{ display: 'flex' }}>
                   <div className="col-md-4 border-right">
-                    <img
-                      width="100%"
-                      src="../assets/profile-icon-png-917.png"
-                      alt="profil"
-                    />
+                  
                   </div>
                   <div className="col-md-8">
                     <label className="labels" style={{ color: '#007872' }}>
-                      Pseudo
+                      Titre
                     </label>
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="pseudo"
-                      ref={pseudoElement}
-                     
-                    />
-                  </div>
-                </div>
-
-                <div className="row mt-3">
-                  <div className="col-md-12">
-                    <label className="labels" style={{ color: '#007872' }}>
-                      Adresse mail
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="modifier email"
-                      ref={emailElement}
-                      
-                    />
-                  </div>
-                </div>
-                <div className="row mt-3">
-                  <div className="col-md-12">
-                    <label className="labels" style={{ color: '#007872' }}>
-                      Mot de passe
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="modifier mot de passe"
-                      ref={passwordElement}
+                      placeholder="Titre"
+                      ref={titleElement}
                      
                     />
                   </div>
@@ -138,13 +99,13 @@ const Profil = () => {
                   <div className="column mt-3 col-6" style={{ width: '100%' }}>
                     <div className="col-md-12">
                       <label className="labels" style={{ color: '#007872' }}>
-                        Image de profil
+                        Image de catégorie
                       </label>
                       <input
                         type="file"
                         className="form-control"
-                        placeholder="image de profil"
-                        ref={ImageProfilElement}
+                        placeholder="image de catégorie"
+                        ref={ImageElement}
                         
                       />
                     </div>
@@ -186,9 +147,7 @@ const Profil = () => {
       >
         <Footer />
       </div>
-    </div>
-  )
+      </div>
+      )}
 
-};
-
-export default Profil;
+export default CreateCategory;

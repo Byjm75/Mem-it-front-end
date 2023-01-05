@@ -1,9 +1,22 @@
 import React from 'react';
-import { Categories } from '../Pages/Categorie';
+import Categorie, { Categories } from '../Pages/Categorie';
 interface CardcategoryProps {
   categoryAffich: Categories;
 }
+const photoChange =()=>{
+  // let photo : string= categoryAffich.image
+  // if (photo===undefined)
+  // {photo="<img src='../assets/profile-icon-png-917.png' alt='categorie'"}
+  // else return photo= categoryAffich.image
+
+}
 const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
+  let photo : string= categoryAffich.image
+  if (photo===undefined)
+  {photo="<img src='../assets/profile-icon-png-917.png' alt='categorie'"}
+  else {photo= categoryAffich.image}
+  
+  
   return (
     <div
       className="card"
@@ -21,6 +34,7 @@ const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
             borderColor: 'white',
           }}
         >
+          
           <img src={categoryAffich.image} alt="illustration catégorie" />
         </div>
       </div>

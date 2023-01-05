@@ -15,7 +15,6 @@ export interface Categories {
 
 const Categorie = () => {
   const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>([]);
-
   useEffect(() => {
     axios
       .get('http://localhost:8085/api/categorie', {
