@@ -7,7 +7,7 @@ export const Footer = () => {
         {/*  <!-- Footer -->**/}
         <footer
           className="text-center text-white"
-          style={{ backgroundColor: '#9AAEB4' }}
+          style={{ backgroundColor: '#111827' }}
         >
           {/*    <!-- Grid container -->**/}
           <div className="container p-4 pb-0">
@@ -15,9 +15,9 @@ export const Footer = () => {
             <section className="">
               <p className="d-flex justify-content-center align-items-center">
                 <span
-                  className="me-3"
+                  className="me-2"
                   style={{
-                    color: '#007872',
+                    color: 'white',
                   }}
                 >
                   Rejoignez nous gratuitement
@@ -44,9 +44,7 @@ export const Footer = () => {
               MDBootstrap.com
             </a>
           </div>
-          {/*  <!-- Copyright --> **/}
         </footer>
-        {/* <!-- Footer -->**/}
       </section>
     </div>
   );

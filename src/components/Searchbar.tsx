@@ -5,11 +5,11 @@ const Searchbar = () => {
     <div>
       <form className="d-flex">
         <input
-          className="form-control me-2"
+          className="form-control me-"
           type="search"
           placeholder="Search"
           aria-label="Search"
-          
+          style={{ borderColor: ' lightslategrey' }}
         />
       </form>
     </div>

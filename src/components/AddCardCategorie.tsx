@@ -9,6 +9,7 @@ export const AddCardCategorie = () => {
   const handleShow = () => setShow(true);
   return (
     <>
+      
       <Button
         style={{
           backgroundColor: 'red',
@@ -17,7 +18,9 @@ export const AddCardCategorie = () => {
         variant="white "
         onClick={handleShow}
       >
+        {/* <a href="/" style={{ color: 'black' }}> */}
         <img src="/assets/plus.png" className="card-img" alt="escalade" />{' '}
+        {/* </a> */}
       </Button>
 
       <Modal show={show} onHide={handleClose} animation={false}>
