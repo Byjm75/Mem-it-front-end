@@ -6,7 +6,7 @@ import {
   Notifications,
   Settings,
 } from '@mui/icons-material';
-import { NavLink } from 'react-router-dom';
+
 
 const AdminTopBar = () => {
   return (
@@ -29,11 +29,13 @@ const AdminTopBar = () => {
         <div className='collapse navbar-collapse'>
           <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
             <li className='nav-item'>
-              <NavLink to='/UserAdmin'>
-                <a className='nav-link active' aria-current='page' href='/'>
-                  <PeopleAlt />
-                </a>
-              </NavLink>
+              <a
+                className='nav-link active'
+                aria-current='page'
+                href='/adminUsers'
+              >
+                <PeopleAlt />
+              </a>
             </li>
 
             <li className='nav-item'>
