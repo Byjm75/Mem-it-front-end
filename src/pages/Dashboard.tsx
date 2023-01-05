@@ -1,3 +1,4 @@
+import React from 'react';
 import CardFavoris from '../components/CardFavoris';
 import CardPlus from '../components/CardPlus';
 import Footer from '../components/Footer';
@@ -58,7 +59,7 @@ const Dashboard = () => {
           <hr />
 
           <div
-            className="card-tools row"
+            className='card-tools row'
             style={{
               display: 'flex',
               justifyContent: 'space-around',
@@ -86,7 +87,7 @@ const Dashboard = () => {
             <hr />
 
             <div
-              className="card-tools row"
+              className='card-tools row'
               style={{ display: 'flex', justifyContent: 'space-around' }}
             ></div>
           </div>

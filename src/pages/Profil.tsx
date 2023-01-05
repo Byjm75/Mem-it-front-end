@@ -18,7 +18,7 @@ const Profil = () => {
     console.log(passwordElement.current?.value);
     console.log(ImageProfilElement.current?.value);
     axios
-      .patch('http://localhost:8090/api/auth/update', {
+      .patch('http://localhost:8085/api/auth/update', {
         pseudo: pseudoElement.current?.value,
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
@@ -66,82 +66,82 @@ const Profil = () => {
             width: '62%',
           }}
         >
-          <div className="row">
-            <div className="col-md-10 border-right">
-              <div className="p-3 py-5">
-                <div className="d-flex justify-content-between align-items-center mb-4">
-                  <h4 className="text-right" style={{ color: '#007872' }}>
+          <div className='row'>
+            <div className='col-md-10 border-right'>
+              <div className='p-3 py-5'>
+                <div className='d-flex justify-content-between align-items-center mb-4'>
+                  <h4 className='text-right' style={{ color: '#007872' }}>
                     Modifier profil
                   </h4>
                 </div>
 
-                <div className="row mt-3" style={{ display: 'flex' }}>
-                  <div className="col-md-4 border-right">
+                <div className='row mt-3' style={{ display: 'flex' }}>
+                  <div className='col-md-4 border-right'>
                     <img
-                      width="100%"
-                      src="../assets/profile-icon-png-917.png"
-                      alt="profil"
+                      width='100%'
+                      src='../assets/profile-icon-png-917.png'
+                      alt='profil'
                     />
                   </div>
-                  <div className="col-md-8">
-                    <label className="labels" style={{ color: '#007872' }}>
+                  <div className='col-md-8'>
+                    <label className='labels' style={{ color: '#007872' }}>
                       Pseudo
                     </label>
                     <input
-                      type="text"
-                      className="form-control"
-                      placeholder="pseudo"
+                      type='text'
+                      className='form-control'
+                      placeholder='pseudo'
                       ref={pseudoElement}
-                      value=""
+                      value=''
                     />
                   </div>
                 </div>
 
-                <div className="row mt-3">
-                  <div className="col-md-12">
-                    <label className="labels" style={{ color: '#007872' }}>
+                <div className='row mt-3'>
+                  <div className='col-md-12'>
+                    <label className='labels' style={{ color: '#007872' }}>
                       Adresse mail
                     </label>
                     <input
-                      type="text"
-                      className="form-control"
-                      placeholder="modifier email"
+                      type='text'
+                      className='form-control'
+                      placeholder='modifier email'
                       ref={emailElement}
-                      value=""
+                      value=''
                     />
                   </div>
                 </div>
-                <div className="row mt-3">
-                  <div className="col-md-12">
-                    <label className="labels" style={{ color: '#007872' }}>
+                <div className='row mt-3'>
+                  <div className='col-md-12'>
+                    <label className='labels' style={{ color: '#007872' }}>
                       Mot de passe
                     </label>
                     <input
-                      type="text"
-                      className="form-control"
-                      placeholder="modifier mot de passe"
+                      type='text'
+                      className='form-control'
+                      placeholder='modifier mot de passe'
                       ref={passwordElement}
-                      value=""
+                      value=''
                     />
                   </div>
                 </div>
-                <div className="row" style={{ display: 'flex' }}>
-                  <div className="column mt-3 col-6" style={{ width: '100%' }}>
-                    <div className="col-md-12">
-                      <label className="labels" style={{ color: '#007872' }}>
+                <div className='row' style={{ display: 'flex' }}>
+                  <div className='column mt-3 col-6' style={{ width: '100%' }}>
+                    <div className='col-md-12'>
+                      <label className='labels' style={{ color: '#007872' }}>
                         Image de profil
                       </label>
                       <input
-                        type="file"
-                        className="form-control"
-                        placeholder="image de profil"
+                        type='file'
+                        className='form-control'
+                        placeholder='image de profil'
                         ref={ImageProfilElement}
-                        value=""
+                        value=''
                       />
                     </div>
                   </div>
                   <div
-                    className="mt-4 text-center col-12"
+                    className='mt-4 text-center col-12'
                     style={{
                       marginRight: '0',
                       display: 'flex',
@@ -149,8 +149,8 @@ const Profil = () => {
                     }}
                   >
                     <button
-                      className="btn btn-primary profile-button col-md-12"
-                      type="button"
+                      className='btn btn-primary profile-button col-md-12'
+                      type='button'
                       onClick={handleSubmitForm}
                       style={{
                         padding: '5px',

@@ -31,7 +31,7 @@ export const SignUp = () => {
     console.log(passwordElement.current?.value);
     console.log(ConfirmPasswordElement.current?.value);
     axios
-      .post('http://localhost:8081/api/users/sign', {
+      .post('http://localhost:8085/api/users/sign', {
         pseudo: pseudoElement.current?.value,
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
@@ -82,12 +82,12 @@ export const SignUp = () => {
               />
             </MDBCol>
 
-            <MDBCol md="8">
+            <MDBCol md='8'>
               <h1 style={{ textAlign: 'center', color: 'white' }}>
                 Inscrivez vous
               </h1>
               <MDBCardBody
-                className="form-floating mt-1"
+                className='form-floating mt-1'
                 style={{ color: 'white' }}
               >
                 <MDBInput
@@ -135,7 +135,7 @@ export const SignUp = () => {
                     id='flexCheckDefault'
                     label='Remember me'
                   />
-                  <a href="!#" style={{ color: 'black' }}>
+                  <a href='!#' style={{ color: 'black' }}>
                     Forgot password?
                   </a>
                 </div>
@@ -152,9 +152,8 @@ export const SignUp = () => {
           </MDBRow>
         </MDBCard>
       </MDBContainer>
-      <div style={{position:'absolute',width:'100%',bottom:'0'}}>
-
-      <Footer />
+      <div style={{ position: 'absolute', width: '100%', bottom: '0' }}>
+        <Footer />
       </div>
     </div>
   );

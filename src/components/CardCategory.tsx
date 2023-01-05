@@ -1,12 +1,12 @@
 import React from 'react';
-import { Categories } from '../Pages/Categorie';
+import { Categories } from '../pages/Categorie';
 interface CardcategoryProps {
   categoryAffich: Categories;
 }
 const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
   return (
     <div
-      className="card"
+      className='card'
       style={{
         width: ' 14rem',
         margin: '0 0 10px ',
@@ -15,18 +15,18 @@ const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
     >
       <div>
         <div
-          className="btn btn- col-sm-12"
+          className='btn btn- col-sm-12'
           style={{
             margin: '15px auto',
             borderColor: 'white',
           }}
         >
-          <img src={categoryAffich.image} alt="illustration catégorie" />
+          <img src={categoryAffich.image} alt='illustration catégorie' />
         </div>
       </div>
-      <div className="card-body">
+      <div className='card-body'>
         <h5
-          className="card-title"
+          className='card-title'
           style={{
             textAlign: 'center',
             border: 'solid 2px white',
