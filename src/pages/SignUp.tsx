@@ -20,8 +20,7 @@ export const SignUp = () => {
   const emailElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
   const ConfirmPasswordElement = useRef<HTMLInputElement>(null);
-  // const imageElement = useRef<HTMLInputElement>(null);
-  // Permet de naviguer directement sur une autre page après l'inscription
+
   const navigate = useNavigate();
 
   const handleSubmitForm = async (e: FormEvent) => {
@@ -43,11 +42,6 @@ export const SignUp = () => {
         alert('nouveau compte crée!');
         navigate('/signin');
       });
-    // try {
-    //   const response = await SignUp.post('/sign');
-    // } catch (err) {
-    //   console.error(err);
-    // }
   };
 
   return (
@@ -86,7 +80,6 @@ export const SignUp = () => {
                 className="form-floating mt-1"
                 style={{ color: '#806d42', fontSize: '17px' }}
               >
-                {/* <label htmlFor="pseudo">Pseudo</label> */}
                 <MDBInput
                   wrapperClass="mb-1"
                   id="form1"

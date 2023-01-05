@@ -4,14 +4,11 @@ export const Footer = () => {
   return (
     <div>
       <section className="">
-        {/*  <!-- Footer -->**/}
         <footer
           className="text-center text-white"
           style={{ backgroundColor: '#111827' }}
         >
-          {/*    <!-- Grid container -->**/}
           <div className="container p-4 pb-0">
-            {/*      <!-- Section: CTA --> **/}
             <section className="">
               <p className="d-flex justify-content-center align-items-center">
                 <span
@@ -31,10 +28,8 @@ export const Footer = () => {
                 </button>
               </p>
             </section>
-            {/*    <!-- Section: CTA --> **/}
           </div>
-          {/*   <!-- Grid container --> **/}
-          {/*  <!-- Copyright --> **/}
+
           <div
             className="text-center p-3"
             style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', height: '40px' }}

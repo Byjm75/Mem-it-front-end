@@ -40,29 +40,12 @@ export const SignIn = () => {
         alert('Bon retour parmi nous!');
         navigate('/dashboard');
       });
-
-    // .then((response: AxiosResponse<{ data: any }>) => {
-    //   console.log('response ', response.data);
-    //   alert('vous êtes connecté!');
-    //   navigate('/dashboard');
-    // });
-    // try {
-    //   const response = await SignUp.post('/sign');
-    // } catch (err) {
-    //   console.error(err);
-    // }
   };
 
   return (
-    <div
-    // style={{
-    //   backgroundColor: '#ABCDEF',
-    //   // overflow: 'hidden',
-    // }}
-    >
+    <div>
       <Navbar />
       <MDBContainer
-        // className="my-"
         style={{
           margin: '39px auto',
         }}
@@ -71,9 +54,7 @@ export const SignIn = () => {
           <MDBRow
             className="g-0 d-flex align-items-center"
             style={{
-              backgroundColor:
-                // 'rgba(180, 200, 200, 0.73)'
-                'black',
+              backgroundColor: 'black',
             }}
           >
             <MDBCol
@@ -134,7 +115,7 @@ export const SignIn = () => {
 
                 <MDBBtn
                   className="mb-1 w-100"
-                  style={{ height: '40px'}}
+                  style={{ height: '40px' }}
                   onClick={handleSubmitForm}
                 >
                   Connexion{''}
