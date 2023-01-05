@@ -9,10 +9,13 @@ export const AddCardCategorie = () => {
   const handleShow = () => setShow(true);
   return (
     <>
-      <Button
+      {/* <div
+        // type="button"
+        className="btn btn- col-sm-12"
         style={{
-          backgroundColor: 'red',
-          width: '100%',
+          // margin: '15px auto',
+          // borderColor: '#9AAEB4',
+          //   borderRadius: '30px',
         }}
       > */}
       {/* <img src="/assets/plus.png" className="card-img" alt="escalade" /> */}

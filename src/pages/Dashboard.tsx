@@ -127,9 +127,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      {/* </div>  */}
-      {/* </div>
-      </div> */}
+      
       <div style={{ marginTop: '30px' }}>
         <Footer />
       </div>

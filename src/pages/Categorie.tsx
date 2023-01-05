@@ -33,13 +33,16 @@ const Categorie = () => {
   }, []);
   return (
     <div
-    // style={{
-    //   width: '100%',
-    //   position: 'sticky',
-    //   top: '0',
-    //   overflow: 'hidden',
-    //   zIndex: '1',
-    // }}
+      style={
+        {
+          // width: '100%',
+          // position: 'sticky',
+          // top: '0',
+          // overflow: 'hidden',
+          // zIndex: '1',
+          // height: '100vh',
+        }
+      }
     >
       <div
         style={{
@@ -55,6 +58,7 @@ const Categorie = () => {
       <div
         style={{
           display: 'flex',
+          // height: '100vh',
           // position: 'fixed',
           // overflow: 'hidden',
           // zIndex: '1',
@@ -63,6 +67,7 @@ const Categorie = () => {
         <div
           // style={{ position: 'fixed', zIndex: '1', overflow: 'hidden' }}
           style={{
+            top: '5.5em',
             display: 'flex',
             position: 'fixed',
             overflow: 'hidden',
@@ -88,17 +93,7 @@ const Categorie = () => {
               margin: '10px 0 0 ',
             }}
           >
-            {/* <img
-              className="col-3"
-              src="../assets/profile-icon-png-917.png"
-              alt="profile"
-              style={{ width: '5em', margin: '5px 25px 0' }}
-            /> */}
             <h1
-              // style={{
-              //   color: 'lightslategrey',
-              //   fontWeight: 'bold',
-              // }}
               style={{
                 width: '100%',
                 position: 'relative',
@@ -106,12 +101,8 @@ const Categorie = () => {
                 justifyContent: 'end',
                 alignItems: 'flex-end',
                 margin: '10px 0 0 ',
-                // padding: '5px 15px 7px',
                 color: '#007872',
                 fontWeight: 'bold',
-                // border: '1px solid lightslategrey',
-                // borderRadius: '5px',
-                // backgroundColor: 'lightblue',
               }}
             >
               Catégorie{' '}
@@ -152,18 +143,30 @@ const Categorie = () => {
                     
                     
                   
-              
-                
-              </div>
+               {/* <CardPlus />
+            <CardPlus />
+            <CardPlus />
+            <CardPlus />
+            <CardPlus />
+            <CardPlus />
+            <CardPlus /> */}
+
+                              </div>
             </div>
           </div>
         </div>
       </div>
-      {/* </div> */}
-      {/* <div style={{ position: 'sticky', bottom: '0',overflow:'hidden',display:'flex' }}>
+      {/* <div
+        style={{
+          position: 'fixed',
+          bottom: '0',
+          overflow: 'hidden',
+          width: '100%',
+        }}
+      >
         <Footer />
       </div> */}
-      <div style={{ marginTop: '30px' }}>
+      <div style={{ marginTop: '60px' }}>
         <Footer />
       </div>
     </div>

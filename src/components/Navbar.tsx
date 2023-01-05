@@ -25,6 +25,7 @@ export const Navbar = () => {
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            style={{ backgroundColor: '#806d42' }}
           >
             <span className="navbar-toggler-icon"></span>
           </button>

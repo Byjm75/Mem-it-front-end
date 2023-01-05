@@ -15,7 +15,7 @@ export const Footer = () => {
             <section className="">
               <p className="d-flex justify-content-center align-items-center">
                 <span
-                  className="me-3"
+                  className="me-2"
                   style={{
                     color: 'white',
                   }}
