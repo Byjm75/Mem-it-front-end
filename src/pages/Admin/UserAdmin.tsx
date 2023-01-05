@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import '../../components/Admin/Topbar/AdminTopBar.css';
@@ -12,6 +12,8 @@ export interface Users {
 
 let listeUsers: Users[] = [];
 const UserAdmin = () => {
+  const textElement = useRef<HTMLTextAreaElement>;
+
   const [listUsersDisplayed, setListUsersDisplayed] = useState<Users[]>([
     ...listeUsers,
   ]);
@@ -31,7 +33,10 @@ const UserAdmin = () => {
       });
   }, []);
 
-  const handleSubmitForm = () => {};
+  const handleSubmitForm = (e: SyntheticEvent) => {
+    e.preventDefault();
+    console.log('saisi search bar ', textElement);
+  };
 
   return (
     <nav className='navbar navbar-expand-lg navbar-light bg-light'>
@@ -57,7 +62,8 @@ const UserAdmin = () => {
               type='search'
               placeholder='Search Users'
               aria-label='Search'
-              ref={handleSubmitForm}
+              onSubmit={handleSubmitForm}
+              ref={textElement}
             />
             <button className='btn btn-outline-success' type='submit'>
               Search
