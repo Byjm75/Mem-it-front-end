@@ -51,21 +51,21 @@ export const SignIn = () => {
       >
         <MDBCard>
           <MDBRow
-            className="g-0 d-flex align-items-center"
+            className='g-0 d-flex align-items-center'
             style={{
               backgroundColor: 'black',
             }}
           >
             <MDBCol
-              md="4"
+              md='4'
               style={{
                 height: '25.6rem',
               }}
             >
               <MDBCardImage
-                src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg"
-                alt="phone"
-                className="rounded-t-5 rounded-tr-lg-0"
+                src='https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg'
+                alt='phone'
+                className='rounded-t-5 rounded-tr-lg-0'
                 fluid
                 style={{
                   height: '25.6rem',
@@ -73,47 +73,47 @@ export const SignIn = () => {
               />
             </MDBCol>
 
-            <MDBCol md="8">
-              <h1 style={{ textAlign: 'center', color: '#806d42' }}>
+            <MDBCol md='8'>
+              <h1 style={{ textAlign: 'center', color: 'white' }}>
                 Connectez vous
               </h1>
               <MDBCardBody
-                className="form-floating mt-1"
+                className='form-floating mt-1'
                 style={{ color: 'white' }}
               >
                 <MDBInput
-                  wrapperClass="mb-1"
-                  label="Email"
-                  id="form1"
-                  type="email"
-                  className="form-control"
-                  placeholder="email@exemple.com"
+                  wrapperClass='mb-1'
+                  label='Email'
+                  id='form1'
+                  type='email'
+                  className='form-control'
+                  placeholder='email@exemple.com'
                   inputRef={emailElement}
                 />
                 <MDBInput
-                  wrapperClass="mb-1"
-                  label="mot de passe"
-                  id="form2"
-                  type="password"
-                  className="form-control"
-                  placeholder="mot de passe"
+                  wrapperClass='mb-1'
+                  label='mot de passe'
+                  id='form2'
+                  type='password'
+                  className='form-control'
+                  placeholder='mot de passe'
                   inputRef={passwordElement}
                 />
 
-                <div className="d-flex justify-content-between mx-1 mb-1">
+                <div className='d-flex justify-content-between mx-1 mb-1'>
                   <MDBCheckbox
-                    name="flexCheck"
-                    value=""
-                    id="flexCheckDefault"
-                    label="Remember me"
+                    name='flexCheck'
+                    value=''
+                    id='flexCheckDefault'
+                    label='Remember me'
                   />
-                  <a href="!#" style={{ color: 'black' }}>
+                  <a href='!#' style={{ color: 'black' }}>
                     Forgot password?
                   </a>
                 </div>
 
                 <MDBBtn
-                  className="mb-1 w-100"
+                  className='mb-1 w-100'
                   style={{ height: '40px' }}
                   onClick={handleSubmitForm}
                 >
