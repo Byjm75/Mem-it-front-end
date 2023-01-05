@@ -1,4 +1,5 @@
 import React from 'react';
+
 const cdbreact = require('cdbreact');
 const {
   CDBSidebar,
@@ -8,6 +9,7 @@ const {
   CDBSidebarMenuItem,
   CDBSidebarFooter,
 } = cdbreact;
+
 
 const Sidebar = () => {
   return (
