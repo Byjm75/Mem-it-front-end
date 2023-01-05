@@ -28,7 +28,7 @@ export const SignIn = () => {
     console.log(passwordElement.current?.value);
     axios
       .post('http://localhost:8085/api/auth/login', {
-        pseudo: emailElement.current?.value,
+        email: emailElement.current?.value,
         password: passwordElement.current?.value,
       })
 
