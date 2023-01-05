@@ -119,6 +119,9 @@ const Categorie = () => {
       >
         <Footer />
       </div> */}
+
+
+      
       <div style={{ marginTop: '60px' }}>
         <Footer />
       </div>
