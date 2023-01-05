@@ -2,7 +2,7 @@ import Chart from '../../components/Admin/Chart/Chart';
 import AdminTopBar from '../../components/Admin/Topbar/AdminTopBar';
 import './HomeAdmin.css';
 
-const Admin = () => {
+const HomeAdmin = () => {
   return (
     <div>
       <AdminTopBar />
@@ -13,4 +13,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default HomeAdmin;
