@@ -50,7 +50,6 @@ export const ToolsBar = () => {
             >
               <Searchbar />
             </div>
-            {/* < ProfilBtn/> */}
             <div >
               <img
                 className="col-3"

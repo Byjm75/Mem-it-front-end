@@ -1,6 +1,6 @@
 import React from 'react';
 import { AddCardCategorie } from './AddCardCategorie';
-// import { AddCardCategorie } from './AddCardCategorie';
+
 
 const CardPlus = () => {
   return (
@@ -35,7 +35,6 @@ const CardPlus = () => {
             margin: 'auto',
             backgroundColor: '#007872',
             padding: '10px',
-            // backgroundColor: 'lightslategrey',
 
             color: 'white',
           }}

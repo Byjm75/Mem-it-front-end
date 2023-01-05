@@ -33,16 +33,7 @@ const Categorie = () => {
   }, []);
   return (
     <div
-      style={
-        {
-          // width: '100%',
-          // position: 'sticky',
-          // top: '0',
-          // overflow: 'hidden',
-          // zIndex: '1',
-          // height: '100vh',
-        }
-      }
+     
     >
       <div
         style={{
@@ -58,14 +49,11 @@ const Categorie = () => {
       <div
         style={{
           display: 'flex',
-          // height: '100vh',
-          // position: 'fixed',
-          // overflow: 'hidden',
-          // zIndex: '1',
+         
         }}
       >
         <div
-          // style={{ position: 'fixed', zIndex: '1', overflow: 'hidden' }}
+        
           style={{
             top: '5.5em',
             display: 'flex',
@@ -77,11 +65,10 @@ const Categorie = () => {
           <Sidebar />
         </div>
         <div
-          // className="col-3"
+       
           style={{ width: '64%', margin: '0 auto' }}
-          // className="col-md-8 offset-md-2 "
+         
         >
-          {/* < Searchbar/> */}
 
           <div
             style={{
@@ -115,20 +102,7 @@ const Categorie = () => {
                 className="card-tools row"
                 style={{ display: 'flex', justifyContent: 'space-around' }}
               >
-                {/* {listCatDisplayed ?(
-                 <ul>
-                   
-                 {listCatDisplayed.map((categorie, i) => (
-                  
-                    <li key={i}>
-                      {categorie.title}
-                    </li>)
-                 )
-                 }
-                 
-                 </ul>
-                 )
-                } */}
+                
                 <div>
                   
                     
@@ -140,32 +114,12 @@ const Categorie = () => {
                       ))}{" "}
                    
                   </div>
-                    
-                    
-                  
-               {/* <CardPlus />
-            <CardPlus />
-            <CardPlus />
-            <CardPlus />
-            <CardPlus />
-            <CardPlus />
-            <CardPlus /> */}
 
                               </div>
             </div>
           </div>
         </div>
       </div>
-      {/* <div
-        style={{
-          position: 'fixed',
-          bottom: '0',
-          overflow: 'hidden',
-          width: '100%',
-        }}
-      >
-        <Footer />
-      </div> */}
       <div style={{ marginTop: '60px' }}>
         <Footer />
       </div>

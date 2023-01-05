@@ -28,7 +28,7 @@ export const SignIn = () => {
     console.log(passwordElement.current?.value);
     axios
       .post('http://localhost:8085/api/auth/login', {
-        pseudo: emailElement.current?.value,
+        email: emailElement.current?.value,
         password: passwordElement.current?.value,
       })
       .then((response: AxiosResponse) => {
@@ -40,29 +40,13 @@ export const SignIn = () => {
         alert('Bon retour parmi nous!');
         navigate('/dashboard');
       });
-
-    // .then((response: AxiosResponse<{ data: any }>) => {
-    //   console.log('response ', response.data);
-    //   alert('vous êtes connecté!');
-    //   navigate('/dashboard');
-    // });
-    // try {
-    //   const response = await SignUp.post('/sign');
-    // } catch (err) {
-    //   console.error(err);
-    // }
   };
 
   return (
     <div
-    // style={{
-    //   backgroundColor: '#ABCDEF',
-    //   // overflow: 'hidden',
-    // }}
     >
       <Navbar />
       <MDBContainer
-        // className="my-"
         style={{
           margin: '39px auto',
         }}
@@ -72,7 +56,6 @@ export const SignIn = () => {
             className="g-0 d-flex align-items-center"
             style={{
               backgroundColor:
-                // 'rgba(180, 200, 200, 0.73)'
                 'black',
             }}
           >

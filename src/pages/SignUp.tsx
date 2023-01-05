@@ -32,7 +32,7 @@ export const SignUp = () => {
     console.log(passwordElement.current?.value);
     console.log(ConfirmPasswordElement.current?.value);
     axios
-      .post('http://localhost:8090/api/auth/register', {
+      .post('http://localhost:8085/api/auth/register', {
         pseudo: pseudoElement.current?.value,
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
@@ -43,11 +43,7 @@ export const SignUp = () => {
         alert('nouveau compte crée!');
         navigate('/signin');
       });
-    // try {
-    //   const response = await SignUp.post('/sign');
-    // } catch (err) {
-    //   console.error(err);
-    // }
+   
   };
 
   return (
@@ -86,7 +82,7 @@ export const SignUp = () => {
                 className="form-floating mt-1"
                 style={{ color: '#806d42', fontSize: '17px' }}
               >
-                {/* <label htmlFor="pseudo">Pseudo</label> */}
+             
                 <MDBInput
                   wrapperClass="mb-1"
                   id="form1"
