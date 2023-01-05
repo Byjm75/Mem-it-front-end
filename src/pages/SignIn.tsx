@@ -33,7 +33,7 @@ export const SignIn = () => {
       })
 
       .then((response: AxiosResponse) => {
-        const token = response.data.token;
+        const token = response.data.accessToken;
         // Set le token dans le localstorage
         localStorage.setItem('token', token);
         console.log('response ', response.data);

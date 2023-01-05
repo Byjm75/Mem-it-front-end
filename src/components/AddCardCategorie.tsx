@@ -20,6 +20,8 @@ export const AddCardCategorie = () => {
         <img src="/assets/plus.png" className="card-img" alt="escalade" />{' '}
       </Button>
 
+
+
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
           <Modal.Title>Création d'une catégorie</Modal.Title>

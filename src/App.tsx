@@ -8,6 +8,8 @@ import Dashboard from './Pages/Dashboard';
 import Categorie from './Pages/Categorie';
 import { SignIn } from './Pages/SignIn';
 import Profil from './Pages/Profil';
+import CreateCategory from './Pages/CreateCategorie';
+import CreateTask from './Pages/CreateTask';
 const App = () => {
   return (
     <div>
@@ -19,6 +21,8 @@ const App = () => {
           <Route path="/categorie" element={<Categorie />} />
           <Route path="/profil" element={<Profil />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/createCategory" element={<CreateCategory />} />
+          <Route path="/createTask" element={<CreateTask />} />
         </Routes>
       </BrowserRouter>
     </div>

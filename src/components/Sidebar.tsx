@@ -1,4 +1,3 @@
-import React from 'react';
 const cdbreact = require('cdbreact');
 const {
   CDBSidebar,
@@ -28,8 +27,9 @@ const Sidebar = () => {
       <CDBSidebarContent>
         <CDBSidebarMenu>
           <CDBSidebarMenuItem icon="sticky-note">
-            <a className="navbar-brand" href="/">
+            <a className="navbar-brand" href="/ModalAddCategorie">
               Créer catégorie
+              
             </a>
           </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon="sticky-note">

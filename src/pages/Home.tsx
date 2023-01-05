@@ -100,10 +100,10 @@ export const Home = () => {
                         className="nav-link active"
                         style={{ color: 'white' }}
                       >
-                        {' '}
+                        
                         Inscription
                       </NavLink>
-                    </a>{' '}
+                    </a>
                   </button>
                   <button
                     type="button"
