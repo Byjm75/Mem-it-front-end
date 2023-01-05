@@ -9,7 +9,6 @@ export const AddCardCategorie = () => {
   const handleShow = () => setShow(true);
   return (
     <>
-      
       <Button
         style={{
           backgroundColor: 'red',
@@ -18,9 +17,7 @@ export const AddCardCategorie = () => {
         variant="white "
         onClick={handleShow}
       >
-        {/* <a href="/" style={{ color: 'black' }}> */}
         <img src="/assets/plus.png" className="card-img" alt="escalade" />{' '}
-        {/* </a> */}
       </Button>
 
       <Modal show={show} onHide={handleClose} animation={false}>
@@ -39,15 +36,6 @@ export const AddCardCategorie = () => {
             <div>
               <input className="text-primary" type="file" accept="image/*" />
             </div>
-
-            {/* <div className="d-flex justify-content-center">
-              <button
-                type="button"
-                className="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
-              >
-                Créer
-              </button>
-            </div> */}
           </form>
         </Modal.Body>
         <Modal.Footer>

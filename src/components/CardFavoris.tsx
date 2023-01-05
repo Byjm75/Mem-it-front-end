@@ -38,7 +38,7 @@ const CardFavoris = () => {
             margin: 'auto',
             backgroundColor: '#007872',
             padding: '10px',
-            // backgroundColor: 'lightslategrey',
+
             color: 'white',
           }}
         >

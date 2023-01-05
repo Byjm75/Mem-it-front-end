@@ -1,4 +1,3 @@
-import CardCategory from '../components/CardCategory';
 import CardFavoris from '../components/CardFavoris';
 import CardPlus from '../components/CardPlus';
 import Footer from '../components/Footer';
@@ -38,20 +37,9 @@ const Dashboard = () => {
               display: 'flex',
               justifyContent: 'end',
               alignItems: 'flex-end',
-              // margin: '10px 0 0 ',
             }}
           >
-            {/* <img
-              className="col-3"
-              src="../assets/profile-icon-png-917.png"
-              alt="profile"
-              style={{ width: '4rem' }}
-            /> */}
             <h1
-              // style={{
-              //   color: 'lightslategrey',
-              //   fontWeight: 'bold',
-              // }}
               style={{
                 width: '100%',
                 position: 'relative',
@@ -59,26 +47,21 @@ const Dashboard = () => {
                 justifyContent: 'end',
                 alignItems: 'flex-end',
                 margin: '10px 0 0 ',
-                // padding: '5px 15px 7px',
+
                 color: '#007872',
                 fontWeight: 'bold',
-                // border: '1px solid lightslategrey',
-                // borderRadius: '5px',
-                // backgroundColor: 'lightblue',
               }}
             >
               Mon espace
             </h1>
           </div>
           <hr />
-          {/* <div className="card">
-            <div className="card-header"> */}
+
           <div
             className="card-tools row"
             style={{
               display: 'flex',
               justifyContent: 'space-around',
-              // backgroundColor: 'black',
             }}
           >
             <CardPlus />
@@ -93,32 +76,22 @@ const Dashboard = () => {
                 justifyContent: 'end',
                 alignItems: 'flex-end',
                 margin: '10px 0 0 ',
-                // padding: '5px 15px 7px',
+
                 color: '#007872',
                 fontWeight: 'bold',
-                // border: '1px solid lightslategrey',
-                // borderRadius: '5px',
-                // backgroundColor: 'lightblue',
               }}
             >
               Derniers ajoûts{' '}
             </h2>
             <hr />
-            {/* <div className="card">
-            <div className="card-header"> */}
+
             <div
               className="card-tools row"
               style={{ display: 'flex', justifyContent: 'space-around' }}
-            >
-              <CardCategory />
-              <CardCategory />
-              <CardCategory />
-              <CardCategory />
-            </div>
+            ></div>
           </div>
         </div>
       </div>
-      
       <div style={{ marginTop: '30px' }}>
         <Footer />
       </div>

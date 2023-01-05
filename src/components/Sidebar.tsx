@@ -1,5 +1,4 @@
 import React from 'react';
-import CardPlus from './CardPlus';
 const cdbreact = require('cdbreact');
 const {
   CDBSidebar,
@@ -39,13 +38,13 @@ const Sidebar = () => {
             </a>
           </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon="th-large">
-            <a className="navbar-brand" href="/">
-              Organiser
+            <a className="navbar-brand" href="/categorie">
+              Catégories
             </a>
           </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon="credit-card" iconType="solid">
-            <a className="navbar-brand" href="/categorie">
-              Catégorie 1
+            <a className="navbar-brand" href="/profil">
+              Profil
             </a>
           </CDBSidebarMenuItem>
         </CDBSidebarMenu>
@@ -58,7 +57,7 @@ const Sidebar = () => {
         >
           <a className="navbar-brand" href="/signin">
             Déconnexion
-          </a>{' '}
+          </a>
         </div>
       </CDBSidebarFooter>
     </CDBSidebar>
