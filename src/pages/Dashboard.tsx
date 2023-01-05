@@ -1,4 +1,3 @@
-import CardCategory from '../components/CardCategory';
 import CardFavoris from '../components/CardFavoris';
 import CardPlus from '../components/CardPlus';
 import Footer from '../components/Footer';
@@ -19,47 +18,77 @@ const Dashboard = () => {
       >
         <ToolsBar />
       </div>{' '}
-      <div style={{ width: '100%', display: 'flex' }}>
-        <Sidebar />
-        <div style={{ width: '80%', margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <h1 className="card-title" style={{ margin: '20px 0 0 20px' }}>
+      <div>
+        <div
+          style={{
+            display: 'flex',
+            position: 'fixed',
+            overflow: 'hidden',
+            zIndex: '1',
+          }}
+        >
+          <Sidebar />
+        </div>
+        <div style={{ width: '64%', margin: '0 auto' }}>
+          <div
+            style={{
+              width: '100%',
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'end',
+              alignItems: 'flex-end',
+            }}
+          >
+            <h1
+              style={{
+                width: '100%',
+                position: 'relative',
+                display: 'flex',
+                justifyContent: 'end',
+                alignItems: 'flex-end',
+                margin: '10px 0 0 ',
+
+                color: '#007872',
+                fontWeight: 'bold',
+              }}
+            >
               Mon espace
             </h1>
-            <img
-              src="../assets/profile-icon-png-917.png"
-              alt="photo de profile"
-              style={{ width: '5em', margin: '5px 25px 0' }}
-            />
           </div>
           <hr />
-          <div className="card">
-            <div className="card-header">
-              <div
-                className="card-tools row"
-                style={{ display: 'flex', justifyContent: 'space-around' }}
-              >
-                <CardPlus />
-                <CardFavoris />
-              </div>
-            </div>
+
+          <div
+            className="card-tools row"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-around',
+            }}
+          >
+            <CardPlus />
+            <CardFavoris />
           </div>
-          <h3 className="card-title" style={{ margin: '20px 0 0 20px' }}>
-            Derniers ajoûts{' '}
-          </h3>
-          <hr />
-          <div className="card">
-            <div className="card-header">
-              <div
-                className="card-tools row"
-                style={{ display: 'flex', justifyContent: 'space-around' }}
-              >
-                <CardCategory />
-                <CardCategory />
-                <CardCategory />
-                <CardCategory />
-              </div>
-            </div>
+          <div>
+            <h2
+              style={{
+                width: '100%',
+                position: 'relative',
+                display: 'flex',
+                justifyContent: 'end',
+                alignItems: 'flex-end',
+                margin: '10px 0 0 ',
+
+                color: '#007872',
+                fontWeight: 'bold',
+              }}
+            >
+              Derniers ajoûts{' '}
+            </h2>
+            <hr />
+
+            <div
+              className="card-tools row"
+              style={{ display: 'flex', justifyContent: 'space-around' }}
+            ></div>
           </div>
         </div>
       </div>

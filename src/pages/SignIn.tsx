@@ -9,11 +9,11 @@ import {
   MDBInput,
   MDBCheckbox,
 } from 'mdb-react-ui-kit';
-import React, { FormEvent, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { FormEvent, useRef } from 'react';
 import { Navbar } from '../components/Navbar';
 import Footer from '../components/Footer';
 import axios, { AxiosResponse } from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export const SignIn = () => {
   const emailElement = useRef<HTMLInputElement>(null);
@@ -27,35 +27,21 @@ export const SignIn = () => {
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     axios
-      .post('http://localhost:8080/api/auth/login', {
+      .post('http://localhost:8081/api/auth/login', {
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
       })
-      .then((response: AxiosResponse) => {
-        const token = response.data.token;
-        // Set le token dans le localstorage
-        localStorage.setItem('token', token);
+      .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data);
         alert('Bon retour parmi nous!');
         navigate('/dashboard');
       });
-    // try {
-    //   const response = await SignUp.post('/sign');
-    // } catch (err) {
-    //   console.error(err);
-    // }
   };
 
   return (
-    <div
-    // style={{
-    //   backgroundColor: '#ABCDEF',
-    //   // overflow: 'hidden',
-    // }}
-    >
+    <div>
       <Navbar />
       <MDBContainer
-        // className="my-"
         style={{
           margin: '39px auto',
         }}
@@ -64,7 +50,7 @@ export const SignIn = () => {
           <MDBRow
             className='g-0 d-flex align-items-center'
             style={{
-              backgroundColor: 'rgba(180, 200, 200, 0.73)',
+              backgroundColor: 'black',
             }}
           >
             <MDBCol
@@ -84,7 +70,7 @@ export const SignIn = () => {
               />
             </MDBCol>
 
-            <MDBCol md='8'>
+            <MDBCol md="8">
               <h1 style={{ textAlign: 'center', color: 'white' }}>
                 Connectez vous
               </h1>
@@ -135,11 +121,9 @@ export const SignIn = () => {
           </MDBRow>
         </MDBCard>
       </MDBContainer>
-      <div style={{ position: 'absolute', width: '100%', bottom: '0' }}>
+      <div style={{ position: 'relative', width: '100%', bottom: '0' }}>
         <Footer />
-      </div>{' '}
+      </div>
     </div>
   );
 };
-
-// export default SignIn;

@@ -1,5 +1,4 @@
 import React from 'react';
-
 const cdbreact = require('cdbreact');
 const {
   CDBSidebar,
@@ -12,37 +11,53 @@ const {
 
 const Sidebar = () => {
   return (
-    <CDBSidebar style={{ backgroundColor: '#9AAEB4', width: '7rem',position:'sticky',top:'88px'}}>
+    <CDBSidebar
+      style={{
+        backgroundColor: 'black',
+        width: '5rem',
+        position: 'sticky',
+        top: '70px',
+        color: '#806d42',
+      }}
+    >
       <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
-        <a className="navbar-brand" href="/">
-          Home
+        <a className="navbar-brand" href="/dashboard">
+          Accueil
         </a>{' '}
       </CDBSidebarHeader>
       <CDBSidebarContent>
         <CDBSidebarMenu>
-          <CDBSidebarMenuItem icon="th-large">
+          <CDBSidebarMenuItem icon="sticky-note">
             <a className="navbar-brand" href="/">
-              Créer
+              Créer catégorie
             </a>
           </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon="sticky-note">
             <a className="navbar-brand" href="/">
-              Organiser
+              Créer mémo
+            </a>
+          </CDBSidebarMenuItem>
+          <CDBSidebarMenuItem icon="th-large">
+            <a className="navbar-brand" href="/categorie">
+              Catégories
             </a>
           </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon="credit-card" iconType="solid">
-            <a className="navbar-brand" href="/categorie">
-              Catégorie 1
+            <a className="navbar-brand" href="/profil">
+              Profil
             </a>
           </CDBSidebarMenuItem>
         </CDBSidebarMenu>
       </CDBSidebarContent>
 
       <CDBSidebarFooter style={{ textAlign: 'center' }}>
-        <div className="sidebar-btn-wrapper" style={{ padding: '20px 5px' }}>
+        <div
+          className="sidebar-btn-wrapper"
+          style={{ padding: '20px 5px', fontSize: '12px' }}
+        >
           <a className="navbar-brand" href="/signin">
             Déconnexion
-          </a>{' '}
+          </a>
         </div>
       </CDBSidebarFooter>
     </CDBSidebar>

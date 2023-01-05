@@ -10,7 +10,7 @@ import {
   MDBCheckbox,
   MDBBtn,
 } from 'mdb-react-ui-kit';
-import React, { FormEvent, useRef } from 'react';
+import { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { Navbar } from '../components/Navbar';
@@ -20,8 +20,7 @@ export const SignUp = () => {
   const emailElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
   const ConfirmPasswordElement = useRef<HTMLInputElement>(null);
-  // const imageElement = useRef<HTMLInputElement>(null);
-  // Permet de naviguer directement sur une autre page après l'inscription
+
   const navigate = useNavigate();
 
   const handleSubmitForm = async (e: FormEvent) => {
@@ -32,7 +31,7 @@ export const SignUp = () => {
     console.log(passwordElement.current?.value);
     console.log(ConfirmPasswordElement.current?.value);
     axios
-      .post('http://localhost:8080/api/auth/register', {
+      .post('http://localhost:8081/api/users/sign', {
         pseudo: pseudoElement.current?.value,
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
@@ -43,11 +42,6 @@ export const SignUp = () => {
         alert('nouveau compte crée!');
         navigate('/signin');
       });
-    // try {
-    //   const response = await SignUp.post('/sign');
-    // } catch (err) {
-    //   console.error(err);
-    // }
   };
 
   return (
@@ -68,7 +62,7 @@ export const SignUp = () => {
           <MDBRow
             className='g-0 d-flex align-items-center'
             style={{
-              backgroundColor: 'rgba(180, 200, 200, 0.73)',
+              backgroundColor: 'black',
             }}
           >
             <MDBCol
@@ -88,15 +82,14 @@ export const SignUp = () => {
               />
             </MDBCol>
 
-            <MDBCol md='8'>
+            <MDBCol md="8">
               <h1 style={{ textAlign: 'center', color: 'white' }}>
                 Inscrivez vous
               </h1>
               <MDBCardBody
-                className='form-floating mt-1'
+                className="form-floating mt-1"
                 style={{ color: 'white' }}
               >
-                {/* <label htmlFor="pseudo">Pseudo</label> */}
                 <MDBInput
                   wrapperClass='mb-1'
                   id='form1'
@@ -142,7 +135,7 @@ export const SignUp = () => {
                     id='flexCheckDefault'
                     label='Remember me'
                   />
-                  <a href='!#' style={{ color: 'black' }}>
+                  <a href="!#" style={{ color: 'black' }}>
                     Forgot password?
                   </a>
                 </div>
@@ -159,8 +152,9 @@ export const SignUp = () => {
           </MDBRow>
         </MDBCard>
       </MDBContainer>
-      <div style={{ position: 'absolute', width: '100%', bottom: '0' }}>
-        <Footer />
+      <div style={{position:'absolute',width:'100%',bottom:'0'}}>
+
+      <Footer />
       </div>
     </div>
   );

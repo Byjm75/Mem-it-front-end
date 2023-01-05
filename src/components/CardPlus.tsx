@@ -3,12 +3,19 @@ import { AddCardCategorie } from './AddCardCategorie';
 
 const CardPlus = () => {
   return (
-    <div className="card" style={{ width: ' 17rem', margin: '0 0 10px' }}>
+    <div
+      className="card"
+      style={{
+        width: ' 14rem',
+        margin: '0 0 10px',
+        backgroundColor: 'lightblue',
+      }}
+    >
       <div style={{ width: '95%', margin: '15px auto' }}>
         <div
           style={{
             width: '100%',
-            border: '1px solid #9AAEB4',
+            border: '1px solid white',
             borderRadius: '7px',
             padding: '0.5rem',
           }}
@@ -18,14 +25,16 @@ const CardPlus = () => {
       </div>
       <div className="card-body">
         <h5
-          className="card-title"
+          className="card-title "
           style={{
             textAlign: 'center',
-            border: 'solid 2px #9AAEB4',
-            borderRadius: '15px',
+            border: 'solid 2px white',
+            borderRadius: '10px',
             width: '80%',
             margin: 'auto',
-            backgroundColor: '#9AAEB4',
+            backgroundColor: '#007872',
+            padding: '10px',
+
             color: 'white',
           }}
         >
