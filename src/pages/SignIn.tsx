@@ -10,10 +10,10 @@ import {
   MDBCheckbox,
 } from 'mdb-react-ui-kit';
 import { FormEvent, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Navbar } from '../components/Navbar';
 import Footer from '../components/Footer';
 import axios, { AxiosResponse } from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export const SignIn = () => {
   const emailElement = useRef<HTMLInputElement>(null);
@@ -37,8 +37,15 @@ export const SignIn = () => {
         localStorage.setItem('token', token);
         console.log('response ', response.data);
         alert('Bon retour parmi nous!');
+        alert('Bon retour parmi nous!');
         navigate('/dashboard');
       });
+
+    // .then((response: AxiosResponse<{ data: any }>) => {
+    //   console.log('response ', response.data);
+    //   alert('vous êtes connecté!');
+    //   navigate('/dashboard');
+    // });
     // try {
     //   const response = await SignUp.post('/sign');
     // } catch (err) {
@@ -64,7 +71,9 @@ export const SignIn = () => {
           <MDBRow
             className="g-0 d-flex align-items-center"
             style={{
-              backgroundColor: 'rgba(180, 200, 200, 0.73)',
+              backgroundColor:
+                // 'rgba(180, 200, 200, 0.73)'
+                'black',
             }}
           >
             <MDBCol
@@ -85,7 +94,7 @@ export const SignIn = () => {
             </MDBCol>
 
             <MDBCol md="8">
-              <h1 style={{ textAlign: 'center', color: 'white' }}>
+              <h1 style={{ textAlign: 'center', color: '#806d42' }}>
                 Connectez vous
               </h1>
               <MDBCardBody
@@ -125,7 +134,7 @@ export const SignIn = () => {
 
                 <MDBBtn
                   className="mb-1 w-100"
-                  style={{ height: '40px' }}
+                  style={{ height: '40px'}}
                   onClick={handleSubmitForm}
                 >
                   Connexion{''}
@@ -135,7 +144,7 @@ export const SignIn = () => {
           </MDBRow>
         </MDBCard>
       </MDBContainer>
-      <div>
+      <div style={{ position: 'relative', width: '100%', bottom: '0' }}>
         <Footer />
       </div>
     </div>

@@ -13,14 +13,15 @@ const Sidebar = () => {
   return (
     <CDBSidebar
       style={{
-        backgroundColor: '#9AAEB4',
-        width: '7rem',
+        backgroundColor: 'black',
+        width: '5rem',
         position: 'sticky',
-        top: '88px',
+        top: '70px',
+        color: '#806d42',
       }}
     >
       <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand" href="/dashboard">
           Accueil
         </a>{' '}
       </CDBSidebarHeader>
@@ -50,7 +51,10 @@ const Sidebar = () => {
       </CDBSidebarContent>
 
       <CDBSidebarFooter style={{ textAlign: 'center' }}>
-        <div className="sidebar-btn-wrapper" style={{ padding: '20px 5px' }}>
+        <div
+          className="sidebar-btn-wrapper"
+          style={{ padding: '20px 5px', fontSize: '12px' }}
+        >
           <a className="navbar-brand" href="/signin">
             Déconnexion
           </a>{' '}

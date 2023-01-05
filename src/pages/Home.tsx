@@ -147,7 +147,7 @@ export const Home = () => {
         </div>
       </div>
       {/* <Caroussel /> */}
-      <div>
+      <div style={{ marginTop: '30px' }}>
         <Footer />
       </div>
     </div>

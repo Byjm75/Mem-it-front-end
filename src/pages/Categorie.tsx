@@ -32,7 +32,15 @@ const Categorie = () => {
       ;
   }, []);
   return (
-    <div className="position-sticky">
+    <div
+    // style={{
+    //   width: '100%',
+    //   position: 'sticky',
+    //   top: '0',
+    //   overflow: 'hidden',
+    //   zIndex: '1',
+    // }}
+    >
       <div
         style={{
           width: '100%',
@@ -44,22 +52,70 @@ const Categorie = () => {
       >
         <ToolsBar />
       </div>
-      <div style={{ width: '100%', display: 'flex' }}>
-        <Sidebar />
+      <div
+        style={{
+          display: 'flex',
+          // position: 'fixed',
+          // overflow: 'hidden',
+          // zIndex: '1',
+        }}
+      >
+        <div
+          // style={{ position: 'fixed', zIndex: '1', overflow: 'hidden' }}
+          style={{
+            display: 'flex',
+            position: 'fixed',
+            overflow: 'hidden',
+            zIndex: '1',
+          }}
+        >
+          <Sidebar />
+        </div>
+        <div
+          // className="col-3"
+          style={{ width: '64%', margin: '0 auto' }}
+          // className="col-md-8 offset-md-2 "
+        >
+          {/* < Searchbar/> */}
 
-        <div style={{ width: '80%', margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <h1
-              className="card-title"
-              style={{ margin: '20px 0 0 20px', color: '#007872' }}
-            >
-              Catégories
-            </h1>
-            <img
+          <div
+            style={{
+              width: '100%',
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'end',
+              alignItems: 'flex-end',
+              margin: '10px 0 0 ',
+            }}
+          >
+            {/* <img
+              className="col-3"
               src="../assets/profile-icon-png-917.png"
               alt="profile"
               style={{ width: '5em', margin: '5px 25px 0' }}
-            />
+            /> */}
+            <h1
+              // style={{
+              //   color: 'lightslategrey',
+              //   fontWeight: 'bold',
+              // }}
+              style={{
+                width: '100%',
+                position: 'relative',
+                display: 'flex',
+                justifyContent: 'end',
+                alignItems: 'flex-end',
+                margin: '10px 0 0 ',
+                // padding: '5px 15px 7px',
+                color: '#007872',
+                fontWeight: 'bold',
+                // border: '1px solid lightslategrey',
+                // borderRadius: '5px',
+                // backgroundColor: 'lightblue',
+              }}
+            >
+              Catégorie{' '}
+            </h1>
           </div>
           <hr />
           <div className="card">
@@ -103,7 +159,11 @@ const Categorie = () => {
           </div>
         </div>
       </div>
-      <div>
+      {/* </div> */}
+      {/* <div style={{ position: 'sticky', bottom: '0',overflow:'hidden',display:'flex' }}>
+        <Footer />
+      </div> */}
+      <div style={{ marginTop: '30px' }}>
         <Footer />
       </div>
     </div>

@@ -6,7 +6,7 @@ export const Navbar = () => {
     <div>
       <nav
         className="navbar sticky-top navbar-expand-lg"
-        style={{ backgroundColor: '#9AAEB4' }}
+        style={{ backgroundColor: 'black', width: '100%' }}
       >
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
@@ -35,10 +35,10 @@ export const Navbar = () => {
                   to="/signin"
                   className="nav-link active"
                   style={{
-                    color: '#007872',
-                    fontSize: '20px',
+                    color: '#806d42',
+                    fontSize: '24px',
                     marginLeft: '30px',
-                    fontWeight:'bold',
+                    fontWeight: 'bold',
                   }}
                 >
                   Connexion
@@ -49,10 +49,10 @@ export const Navbar = () => {
                   to="/signup"
                   className="nav-link active"
                   style={{
-                    color: '#007872',
-                    fontSize: '20px',
+                    color: '#806d42',
+                    fontSize: '24px',
                     marginLeft: '30px',
-                    fontWeight:'bold',
+                    fontWeight: 'bold',
                   }}
                 >
                   Inscription
