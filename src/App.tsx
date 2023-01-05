@@ -9,7 +9,6 @@ import Dashboard from './pages/Dashboard';
 import Categorie from './pages/Categorie';
 import { SignIn } from './pages/SignIn';
 import Profil from './pages/Profil';
-import Admin from './pages/Admin/HomeAdmin';
 const App = () => {
   return (
     <div>

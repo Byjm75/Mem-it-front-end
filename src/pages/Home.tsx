@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import { Carroussel } from '../components/Caroussel';
 import Footer from '../components/Footer';
 import { Navbar } from '../components/Navbar';
