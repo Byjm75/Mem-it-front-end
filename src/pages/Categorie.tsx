@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import CardCategory from '../components/CardCategory';
 import Footer from '../components/Footer';
-import Sidebar from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 import { useState } from 'react';
 import axios from 'axios';
-
+import Side
 export interface Categories {
   id: string;
   title: string;
