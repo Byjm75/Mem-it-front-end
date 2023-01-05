@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import Caroussel, { Carroussel } from '../components/Caroussel';
+import { Carroussel } from '../components/Caroussel';
 import Footer from '../components/Footer';
 import { Navbar } from '../components/Navbar';
 
@@ -94,7 +94,7 @@ export const Home = () => {
                       borderRadius: '15px',
                     }}
                   >
-                    <a className="navbar-brand" href="/signup">
+                    <a className='navbar-brand' href='/signup'>
                       Inscription
                     </a>{' '}
                   </button>

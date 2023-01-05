@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard';
 import Categorie from './pages/Categorie';
 import { SignIn } from './pages/SignIn';
 import Profil from './pages/Profil';
+import Admin from './pages/Admin/HomeAdmin';
 const App = () => {
   return (
     <div>
@@ -20,6 +21,8 @@ const App = () => {
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/profil' element={<Profil />} />
           <Route path='/categorie' element={<Categorie />} />
+          <Route path='/admin' element={<HomeAdmin />} />
+          <Route path='/adminUsers' element={<UserAdmin />} />
         </Routes>
       </BrowserRouter>
     </div>
