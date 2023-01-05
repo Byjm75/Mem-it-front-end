@@ -57,7 +57,7 @@ const Sidebar = () => {
         >
           <a className="navbar-brand" href="/signin">
             Déconnexion
-          </a>{' '}
+          </a>
         </div>
       </CDBSidebarFooter>
     </CDBSidebar>

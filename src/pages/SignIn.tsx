@@ -43,8 +43,7 @@ export const SignIn = () => {
   };
 
   return (
-    <div
-    >
+    <div>
       <Navbar />
       <MDBContainer
         style={{
@@ -55,8 +54,7 @@ export const SignIn = () => {
           <MDBRow
             className="g-0 d-flex align-items-center"
             style={{
-              backgroundColor:
-                'black',
+              backgroundColor: 'black',
             }}
           >
             <MDBCol
@@ -117,7 +115,7 @@ export const SignIn = () => {
 
                 <MDBBtn
                   className="mb-1 w-100"
-                  style={{ height: '40px'}}
+                  style={{ height: '40px' }}
                   onClick={handleSubmitForm}
                 >
                   Connexion{''}

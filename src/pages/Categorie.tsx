@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import CardCategory from '../components/CardCategory';
-import CardPlus from '../components/CardPlus';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
@@ -15,9 +14,7 @@ export interface Categories {
 }
 
 const Categorie = () => {
-  const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>(
-    []
-  );
+  const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>([]);
 
   useEffect(() => {
     axios
@@ -25,16 +22,12 @@ const Categorie = () => {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
       .then((res) => {
-        console.log(res)
+        console.log(res);
         setListCatDisplayed(res.data);
-      })
-      
-      ;
+      });
   }, []);
   return (
-    <div
-     
-    >
+    <div>
       <div
         style={{
           width: '100%',
@@ -49,13 +42,10 @@ const Categorie = () => {
       <div
         style={{
           display: 'flex',
-         
         }}
       >
         <div
-        
           style={{
-            top: '5.5em',
             display: 'flex',
             position: 'fixed',
             overflow: 'hidden',
@@ -64,12 +54,7 @@ const Categorie = () => {
         >
           <Sidebar />
         </div>
-        <div
-       
-          style={{ width: '64%', margin: '0 auto' }}
-         
-        >
-
+        <div style={{ width: '64%', margin: '0 auto' }}>
           <div
             style={{
               width: '100%',
@@ -88,11 +73,12 @@ const Categorie = () => {
                 justifyContent: 'end',
                 alignItems: 'flex-end',
                 margin: '10px 0 0 ',
+
                 color: '#007872',
                 fontWeight: 'bold',
               }}
             >
-              Catégorie{' '}
+              Catégorie
             </h1>
           </div>
           <hr />
@@ -102,25 +88,20 @@ const Categorie = () => {
                 className="card-tools row"
                 style={{ display: 'flex', justifyContent: 'space-around' }}
               >
-                
                 <div>
-                  
-                    
-                      {listCatDisplayed.map((categorie) => (
-                        <li key={categorie.id}>
-                          <CardCategory categoryAffich ={categorie}/>
-                        </li>
-                        
-                      ))}{" "}
-                   
-                  </div>
-
-                              </div>
+                  {listCatDisplayed.map((categorie) => (
+                    <li key={categorie.id}>
+                      <CardCategory categoryAffich={categorie} />
+                    </li>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div style={{ marginTop: '60px' }}>
+
+      <div style={{ marginTop: '30px' }}>
         <Footer />
       </div>
     </div>

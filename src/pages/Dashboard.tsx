@@ -3,18 +3,8 @@ import CardPlus from '../components/CardPlus';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
-import { useNavigate } from 'react-router-dom';
-import { SyntheticEvent, useState } from 'react';
-import CardCategory from '../components/CardCategory';
-
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-  const profilElement = (e: SyntheticEvent) => {
-    e.preventDefault();
-    navigate('../profil');
-  };
-
   return (
     <div>
       <div
@@ -47,12 +37,9 @@ const Dashboard = () => {
               display: 'flex',
               justifyContent: 'end',
               alignItems: 'flex-end',
-          
             }}
           >
-           
             <h1
-             
               style={{
                 width: '100%',
                 position: 'relative',
@@ -60,23 +47,21 @@ const Dashboard = () => {
                 justifyContent: 'end',
                 alignItems: 'flex-end',
                 margin: '10px 0 0 ',
-              
+
                 color: '#007872',
                 fontWeight: 'bold',
-              
               }}
             >
               Mon espace
             </h1>
           </div>
           <hr />
-        
+
           <div
             className="card-tools row"
             style={{
               display: 'flex',
               justifyContent: 'space-around',
-            
             }}
           >
             <CardPlus />
@@ -91,26 +76,22 @@ const Dashboard = () => {
                 justifyContent: 'end',
                 alignItems: 'flex-end',
                 margin: '10px 0 0 ',
-               
+
                 color: '#007872',
                 fontWeight: 'bold',
-                
               }}
             >
               Derniers ajoûts{' '}
             </h2>
             <hr />
-           
+
             <div
               className="card-tools row"
               style={{ display: 'flex', justifyContent: 'space-around' }}
-            >
-              
-            </div>
+            ></div>
           </div>
         </div>
       </div>
-      
       <div style={{ marginTop: '30px' }}>
         <Footer />
       </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { AddCardCategorie } from './AddCardCategorie';
 
-
 const CardPlus = () => {
   return (
     <div

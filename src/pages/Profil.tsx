@@ -4,14 +4,12 @@ import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 
-
 const Profil = () => {
   const pseudoElement = useRef<HTMLInputElement>(null);
   const ImageProfilElement = useRef<HTMLInputElement>(null);
   const emailElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
 
- 
   const handleSubmitForm = async (e: FormEvent) => {
     console.log('handleSubmitForm');
     e.preventDefault();
@@ -47,7 +45,6 @@ const Profil = () => {
       <div
         style={{
           display: 'flex',
-       
         }}
       >
         <div
@@ -70,7 +67,6 @@ const Profil = () => {
           }}
         >
           <div className="row">
-           
             <div className="col-md-10 border-right">
               <div className="p-3 py-5">
                 <div className="d-flex justify-content-between align-items-center mb-4">
@@ -79,16 +75,13 @@ const Profil = () => {
                   </h4>
                 </div>
 
-                <div className="row mt-3" style={{display:'flex'}}>
+                <div className="row mt-3" style={{ display: 'flex' }}>
                   <div className="col-md-4 border-right">
-                   
-                      <img
-                        
-                        width="100%"
-                        src="../assets/profile-icon-png-917.png"
-                        alt="profil"
-                      />
-                   
+                    <img
+                      width="100%"
+                      src="../assets/profile-icon-png-917.png"
+                      alt="profil"
+                    />
                   </div>
                   <div className="col-md-8">
                     <label className="labels" style={{ color: '#007872' }}>
@@ -150,7 +143,6 @@ const Profil = () => {
                   <div
                     className="mt-4 text-center col-12"
                     style={{
-                     
                       marginRight: '0',
                       display: 'flex',
                       justifyContent: 'end',
@@ -161,7 +153,6 @@ const Profil = () => {
                       type="button"
                       onClick={handleSubmitForm}
                       style={{
-                      
                         padding: '5px',
                         backgroundColor: '#007872',
                         borderColor: 'white',
@@ -174,14 +165,12 @@ const Profil = () => {
               </div>
             </div>
           </div>
-
-         
         </div>
       </div>
       <div
         style={{
           marginTop: '30px',
-          
+
           bottom: '0',
           width: '100%',
         }}

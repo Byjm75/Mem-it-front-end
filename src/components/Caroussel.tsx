@@ -6,7 +6,6 @@ const Carroussel = () => {
       id="carouselExampleDark"
       className="carousel carousel slide"
       data-bs-ride="carousel"
-      
     >
       <div className="carousel-indicators">
         <button
@@ -94,5 +93,3 @@ const Carroussel = () => {
 };
 
 export default Carroussel;
-
-

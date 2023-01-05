@@ -1,9 +1,8 @@
 import React from 'react';
 import { Memos } from '../pages/Memo';
 
-
 interface CardmemoProps {
-  carte: Memos
+  carte: Memos;
 }
 const CardMemo = ({ carte }: CardmemoProps) => {
   return (

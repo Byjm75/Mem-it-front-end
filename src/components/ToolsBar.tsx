@@ -1,6 +1,6 @@
 import React, { SyntheticEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import ProfilBtn from './ProfilBtn';
+
 import Searchbar from './Searchbar';
 
 export const ToolsBar = () => {
@@ -39,7 +39,7 @@ export const ToolsBar = () => {
             style={{
               display: 'flex',
               width: '100%',
-              justifyContent:'space-around'
+              justifyContent: 'space-around',
             }}
           >
             <div
@@ -50,7 +50,8 @@ export const ToolsBar = () => {
             >
               <Searchbar />
             </div>
-            <div >
+
+            <div>
               <img
                 className="col-3"
                 src="../assets/profile-icon-png-917.png"
