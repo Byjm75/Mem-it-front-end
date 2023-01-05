@@ -4,20 +4,17 @@ export const Footer = () => {
   return (
     <div>
       <section className="">
-        {/*  <!-- Footer -->**/}
         <footer
           className="text-center text-white"
-          style={{ backgroundColor: '#9AAEB4' }}
+          style={{ backgroundColor: '#111827' }}
         >
-          {/*    <!-- Grid container -->**/}
           <div className="container p-4 pb-0">
-            {/*      <!-- Section: CTA --> **/}
             <section className="">
               <p className="d-flex justify-content-center align-items-center">
                 <span
-                  className="me-3"
+                  className="me-2"
                   style={{
-                    color: '#007872',
+                    color: 'white',
                   }}
                 >
                   Rejoignez nous gratuitement
@@ -31,10 +28,8 @@ export const Footer = () => {
                 </button>
               </p>
             </section>
-            {/*    <!-- Section: CTA --> **/}
           </div>
-          {/*   <!-- Grid container --> **/}
-          {/*  <!-- Copyright --> **/}
+
           <div
             className="text-center p-3"
             style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', height: '40px' }}
@@ -44,9 +39,7 @@ export const Footer = () => {
               MDBootstrap.com
             </a>
           </div>
-          {/*  <!-- Copyright --> **/}
         </footer>
-        {/* <!-- Footer -->**/}
       </section>
     </div>
   );

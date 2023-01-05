@@ -34,14 +34,12 @@ export const Home = () => {
             className="card  row"
             style={{
               width: '100%',
-              // margin: '5px auto',
+
               padding: '10px',
               display: 'flex',
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'center',
-              //borderColor: 'none',
-              // borderRadius: '15px',
             }}
           >
             <div className="col-sm-6">
@@ -84,27 +82,10 @@ export const Home = () => {
                   className="space row"
                   style={{ display: 'flex', justifyContent: 'space-between' }}
                 >
-                  {/* <button
-                    type="button"
-                    className="btn btn-success"
-                    style={{
-                      // position: 'absolute',
-                      // right: '1%',
-                      // bottom: '1%',
-                      borderRadius: '15px',
-                      fontSize: '25px',
-                      padding: '0px 30px',
-                    }}
-                  >
-                    Demo
-                  </button> */}
-
                   <button
                     type="button"
                     className="btn btn-danger col-sm-12"
                     style={{
-                      // position: 'absolute',
-                      // right: '0%',
                       fontSize: '30px',
                       padding: '0px 40px',
 
@@ -128,8 +109,6 @@ export const Home = () => {
                     type="button"
                     className="btn btn-success col-sm-12"
                     style={{
-                      // position: 'absolute',
-                      // right: '0%',
                       fontSize: '30px',
                       padding: '0px 40px',
                       backgroundColor: '#007872',
@@ -146,8 +125,8 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      {/* <Caroussel /> */}
-      <div>
+
+      <div style={{ marginTop: '30px' }}>
         <Footer />
       </div>
     </div>

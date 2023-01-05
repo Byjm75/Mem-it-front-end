@@ -1,13 +1,16 @@
 import React from 'react';
-
-const CardCategory = () => {
+import { Categories } from '../Pages/Categorie';
+interface CardcategoryProps {
+  categoryAffich: Categories;
+}
+const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
   return (
     <div
       className="card"
       style={{
-        width: ' 17rem',
+        width: ' 14rem',
         margin: '0 0 10px ',
-        backgroundColor: 'rgba(180, 200, 200, 0.73)',
+        backgroundColor: 'lightblue',
       }}
     >
       <div>
@@ -15,10 +18,10 @@ const CardCategory = () => {
           className="btn btn- col-sm-12"
           style={{
             margin: '15px auto',
-            borderColor: '#9AAEB4',
+            borderColor: 'white',
           }}
         >
-          <img src="/assets/escalade.jpg" className="card-img" alt="escalade" />
+          <img src={categoryAffich.image} alt="illustration catégorie" />
         </div>
       </div>
       <div className="card-body">
@@ -26,16 +29,17 @@ const CardCategory = () => {
           className="card-title"
           style={{
             textAlign: 'center',
-            border: 'solid 2px #9AAEB4',
-            borderRadius: '15px',
+            border: 'solid 2px white',
+            borderRadius: '10px',
             width: '80%',
             margin: ' auto',
             backgroundColor: '#007872',
+            padding: '10px',
 
             color: 'white',
           }}
         >
-          Catégorie 1
+          {categoryAffich.title}
         </h5>
       </div>
     </div>
