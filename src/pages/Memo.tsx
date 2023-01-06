@@ -26,7 +26,7 @@ const Memo = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     axios
-      .get('http://localhost:8080/api/taches', {
+      .get('http://localhost:8085/api/taches', {
         headers: { authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -59,30 +59,21 @@ const Memo = () => {
             >
               Catégories
             </h1>
-            <img
-              src="../assets/profile-icon-png-917.png"
-              alt="profile"
-              style={{ width: '5em', margin: '5px 25px 0' }}
-            />
           </div>
           <hr />
-          <div className="card">
-            <div className="card-header">
-              <div
-                className="card-tools row"
-                style={{ display: 'flex', justifyContent: 'space-around' }}
-              >
-                <CardPlus />
-
-                {listmemoDisplayed.map((memo, i) => (
-                  <ul key={i}>
-                    <li key={i}>
-                      <CardMemo carte={memo} />
-                    </li>
-                  </ul>
-                ))}
-              </div>
-            </div>
+          {/* <div className="card">
+            <div className="card-header"> */}
+          <div className="card-tools row" style={{ display: 'flex' }}>
+            <CardPlus />
+            {listmemoDisplayed.map((memo, i) => (
+              <ul key={i}>
+                <li key={i}>
+                  <CardMemo carte={memo} />
+                </li>
+              </ul>
+            ))}
+            {/* </div>
+            </div> */}
           </div>
         </div>
       </div>

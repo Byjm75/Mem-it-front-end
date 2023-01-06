@@ -18,7 +18,7 @@ const Profil = () => {
     console.log(passwordElement.current?.value);
     console.log(ImageProfilElement.current?.value);
     axios
-      .patch('http://localhost:8090/api/auth/update', {
+      .patch('http://localhost:8085/api/auth/update', {
         pseudo: pseudoElement.current?.value,
         email: emailElement.current?.value,
         password: passwordElement.current?.value,

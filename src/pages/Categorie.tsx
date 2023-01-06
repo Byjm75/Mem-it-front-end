@@ -5,6 +5,7 @@ import Sidebar from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 import { useState } from 'react';
 import axios from 'axios';
+import CardPlus from '../components/CardPlus';
 
 export interface Categories {
   id: string;
@@ -82,21 +83,22 @@ const Categorie = () => {
             </h1>
           </div>
           <hr />
-          <div className="card">
-            <div className="card-header">
+          {/* <div className="card">
+            <div className="card-header"> */}
               <div
                 className="card-tools row"
                 style={{ display: 'flex', justifyContent: 'space-around' }}
               >
                 <div>
+                  <CardPlus/>
                   {listCatDisplayed.map((categorie) => (
                     <li key={categorie.id}>
                       <CardCategory categoryAffich={categorie} />
                     </li>
                   ))}
                 </div>
-              </div>
-            </div>
+              {/* </div>
+            </div> */}
           </div>
         </div>
       </div>

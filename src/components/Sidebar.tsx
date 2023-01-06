@@ -33,7 +33,7 @@ const Sidebar = () => {
             </a>
           </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon="sticky-note">
-            <a className="navbar-brand" href="/">
+            <a className="navbar-brand" href="/memo">
               Créer mémo
             </a>
           </CDBSidebarMenuItem>

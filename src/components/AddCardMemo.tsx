@@ -43,7 +43,10 @@ export const AddCardMemo = () => {
             Fermer
           </Button>
           <Button variant="success" onClick={handleClose}>
-            Créer
+            <a className="navbar-brand" href="/memo">
+              Créer
+            </a>{' '}
+            
           </Button>
         </Modal.Footer>
       </Modal>
