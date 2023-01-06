@@ -5,6 +5,10 @@ import Sidebar from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 
 const Profil = () => {
+
+  
+    const token = localStorage.getItem('token')
+  
   const pseudoElement = useRef<HTMLInputElement>(null);
   const ImageProfilElement = useRef<HTMLInputElement>(null);
   const emailElement = useRef<HTMLInputElement>(null);
@@ -17,8 +21,11 @@ const Profil = () => {
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     console.log(ImageProfilElement.current?.value);
+
+    
     axios
       .patch('http://localhost:8090/api/auth/update', {
+        headers: { authorization: `Bearer ${token}` },
         pseudo: pseudoElement.current?.value,
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
@@ -28,7 +35,7 @@ const Profil = () => {
         console.log('response ', response.data);
         alert('Profil mis à jour!');
       });
-  };
+    }
   return (
     <div>
       <div

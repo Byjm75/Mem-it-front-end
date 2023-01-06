@@ -1,10 +1,12 @@
 import axios, { AxiosResponse } from 'axios';
-import React, { FormEvent, useRef } from 'react';
+import { FormEvent, useRef } from 'react';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 
 const CreateCategory = () => {
+
+  const token = localStorage.getItem('token');
   const titleElement = useRef<HTMLInputElement>(null);
   const ImageElement = useRef<HTMLInputElement>(null);
   const favElement = useRef<HTMLInputElement>(null);
@@ -15,8 +17,12 @@ const CreateCategory = () => {
     console.log(titleElement.current?.value);
     console.log(favElement.current?.value);
     console.log(ImageElement.current?.value);
+  
+    
+    
     axios
       .patch('http://localhost:8085/api/auth/update', {
+        headers: { authorization: `Bearer ${token}` },
         title: titleElement.current?.value,
         favoris: favElement.current?.value,
         image: ImageElement.current?.value,
@@ -25,7 +31,7 @@ const CreateCategory = () => {
         console.log('response ', response.data);
         alert('Profil mis à jour!');
       });
-  };
+  }
   return (
     <div>
       <div
@@ -83,7 +89,6 @@ const CreateCategory = () => {
                       className="form-control"
                       placeholder="Titre"
                       ref={titleElement}
-                      value=""
                     />
                   </div>
                 </div>
@@ -98,7 +103,6 @@ const CreateCategory = () => {
                         className="form-control"
                         placeholder="image de profil"
                         ref={ImageElement}
-                        value=""
                       />
                     </div>
                   </div>
@@ -120,7 +124,7 @@ const CreateCategory = () => {
                         borderColor: 'white',
                       }}
                     >
-                      Sauvegarder modifications
+                      Nouvelle catégorie
                     </button>
                   </div>
                 </div>

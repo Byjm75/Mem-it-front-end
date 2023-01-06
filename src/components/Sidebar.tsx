@@ -27,13 +27,12 @@ const Sidebar = () => {
       <CDBSidebarContent>
         <CDBSidebarMenu>
           <CDBSidebarMenuItem icon="sticky-note">
-            <a className="navbar-brand" href="/ModalAddCategorie">
+            <a className="navbar-brand" href="/createCategorie">
               Créer catégorie
-              
             </a>
           </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon="sticky-note">
-            <a className="navbar-brand" href="/">
+            <a className="navbar-brand" href="/createTask">
               Créer mémo
             </a>
           </CDBSidebarMenuItem>

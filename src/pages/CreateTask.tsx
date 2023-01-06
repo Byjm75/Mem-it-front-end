@@ -1,10 +1,13 @@
 import axios, { AxiosResponse } from 'axios';
-import React, { FormEvent, useRef } from 'react';
+import { FormEvent, useRef } from 'react';
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 
 const CreateTask = () => {
+
+  
+  const token = localStorage.getItem('token');
   const titleElement = useRef<HTMLInputElement>(null);
   const eventDateElement = useRef<HTMLInputElement>(null);
   const bodyElement = useRef<HTMLInputElement>(null);
@@ -20,8 +23,10 @@ const CreateTask = () => {
     console.log(imageElement.current?.value);
     console.log(urlElement.current?.value);
 
+    
     axios
       .post('http://localhost:8085/api/tache', {
+        headers: { authorization: `Bearer ${token}` },
         title: titleElement.current?.value,
         date_event: eventDateElement.current?.value,
         body: imageElement.current?.value,
@@ -32,7 +37,7 @@ const CreateTask = () => {
         console.log('response ', response.data);
         alert('Nouveau mémo crée!');
       });
-  };
+    }
   return (
     <div>
       <div

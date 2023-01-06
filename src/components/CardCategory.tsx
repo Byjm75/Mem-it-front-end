@@ -1,4 +1,3 @@
-import React from 'react';
 import { Categories } from '../Pages/Categorie';
 interface CardcategoryProps {
   categoryAffich: Categories;

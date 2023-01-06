@@ -1,4 +1,3 @@
-import React from 'react';
 import { Memos } from '../Pages/Memo';
 
 interface CardmemoProps {
