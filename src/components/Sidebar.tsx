@@ -9,7 +9,7 @@ const {
   CDBSidebarFooter,
 } = cdbreact;
 
-const Sidebar = () => {
+export const Sidebar = () => {
   return (
     <CDBSidebar
       style={{
@@ -28,12 +28,11 @@ const Sidebar = () => {
       <CDBSidebarContent>
         <CDBSidebarMenu>
           <CDBSidebarMenuItem icon="sticky-note">
-            <a className="navbar-brand" href="/">
-              Créer catégorie
+            <a className="navbar-brand" href="/createCategory">Créer une catégorie
             </a>
           </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon="sticky-note">
-            <a className="navbar-brand" href="/memo">
+            <a className="navbar-brand" href="/createTask">
               Créer mémo
             </a>
           </CDBSidebarMenuItem>
@@ -64,4 +63,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+;

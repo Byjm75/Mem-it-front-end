@@ -1,6 +1,7 @@
 import React, { SyntheticEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 import Searchbar from './Searchbar';
 
 export const ToolsBar = () => {
@@ -8,12 +9,12 @@ export const ToolsBar = () => {
 
   const profilElement = (e: SyntheticEvent) => {
     e.preventDefault();
-    navigate('../profil');
+    navigate('/profil');
   };
   return (
     <div>
       <nav
-        className="navbar  ticky-top navbar-expand-"
+        className='navbar  ticky-top navbar-expand-'
         style={{ backgroundColor: 'black', width: '100%' }}
       >
         <div
@@ -24,13 +25,13 @@ export const ToolsBar = () => {
           }}
         >
           <div
-            className="container-fluid"
+            className='container-fluid'
             style={{ width: '27% ', paddingLeft: '7px', margin: '0 auto 0 0' }}
           >
-            <a className="navbar-brand" href="/dashboard">
+            <a className='navbar-brand' href='/dashboard'>
               <img
-                src="/assets/logo.png"
-                alt="Mem-It"
+                src='/assets/logo.png'
+                alt='Mem-It'
                 style={{ width: '4.5rem ' }}
               />
             </a>
@@ -53,9 +54,9 @@ export const ToolsBar = () => {
 
             <div>
               <img
-                className="col-3"
-                src="../assets/profile-icon-png-917.png"
-                alt="profile"
+                className='col-3'
+                src='../assets/profile-icon-png-917.png'
+                alt='profile'
                 style={{ width: '5.2rem', margin: '5px 0 0 ' }}
                 onClick={profilElement}
               />
