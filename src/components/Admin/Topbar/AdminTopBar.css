@@ -1,5 +1,5 @@
-.container-fluid {
-  background-color: rgb(137, 131, 131);
+/* .container-fluid {
+  background-color:806d42;
   display: flex;
   justify-content: flex-end;
 }
@@ -15,14 +15,14 @@
 .collapse navbar-collapse {
   color: rgb(190, 165, 27);
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .nav-item {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .d-flex {
   width: 100vh;
-}
+} */

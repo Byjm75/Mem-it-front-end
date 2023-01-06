@@ -62,6 +62,7 @@ const AddBtn = () => {
       .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data);
         alert('Nouveau mémo crée!');
+        navigate('/dashboard')
       });
   };
 
