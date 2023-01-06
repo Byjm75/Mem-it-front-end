@@ -1,5 +1,4 @@
 import React from 'react';
-
 const cdbreact = require('cdbreact');
 const {
   CDBSidebar,
@@ -10,8 +9,7 @@ const {
   CDBSidebarFooter,
 } = cdbreact;
 
-
-const Sidebar = () => {
+export const Sidebar = () => {
   return (
     <CDBSidebar
       style={{
@@ -22,16 +20,13 @@ const Sidebar = () => {
         color: '#806d42',
       }}
     >
-      <CDBSidebarHeader prefix={<i className='fa fa-bars' />}>
-        <a className='navbar-brand' href='/dashboard'>
+      <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
+        <a className="navbar-brand" href="/dashboard">
           Accueil
         </a>{' '}
       </CDBSidebarHeader>
       <CDBSidebarContent>
         <CDBSidebarMenu>
-          <CDBSidebarMenuItem icon='sticky-note'>
-            <a className='navbar-brand' href='/'>
-              Créer catégorie
           <CDBSidebarMenuItem icon="sticky-note">
             <a className="navbar-brand" href="/createCategory">Créer une catégorie
             </a>
@@ -41,19 +36,14 @@ const Sidebar = () => {
               Créer mémo
             </a>
           </CDBSidebarMenuItem>
-          <CDBSidebarMenuItem icon='th-large'>
-            <a className='navbar-brand' href='/categorie'>
+          <CDBSidebarMenuItem icon="th-large">
+            <a className="navbar-brand" href="/categorie">
               Catégories
             </a>
           </CDBSidebarMenuItem>
-          <CDBSidebarMenuItem icon='credit-card' iconType='solid'>
-            <a className='navbar-brand' href='/profil'>
+          <CDBSidebarMenuItem icon="credit-card" iconType="solid">
+            <a className="navbar-brand" href="/profil">
               Profil
-            </a>
-          </CDBSidebarMenuItem>
-          <CDBSidebarMenuItem icon='credit-card' iconType='solid'>
-            <a className='navbar-brand' href='/admin'>
-              Support admin
             </a>
           </CDBSidebarMenuItem>
         </CDBSidebarMenu>
@@ -61,10 +51,10 @@ const Sidebar = () => {
 
       <CDBSidebarFooter style={{ textAlign: 'center' }}>
         <div
-          className='sidebar-btn-wrapper'
+          className="sidebar-btn-wrapper"
           style={{ padding: '20px 5px', fontSize: '12px' }}
         >
-          <a className='navbar-brand' href='/signin'>
+          <a className="navbar-brand" href="/signin">
             Déconnexion
           </a>
         </div>
@@ -73,4 +63,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+;

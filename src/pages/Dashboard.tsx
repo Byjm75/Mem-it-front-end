@@ -3,8 +3,8 @@ import React from 'react';
 import CardFavoris from '../components/CardFavoris';
 import CardPlus from '../components/CardPlus';
 import Footer from '../components/Footer';
-import 
 import ToolsBar from '../components/ToolsBar';
+import {Sidebar} from '../components/Sidebar';
 
 const Dashboard = () => {
   return (

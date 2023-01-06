@@ -4,7 +4,9 @@ import Footer from '../components/Footer';
 import ToolsBar from '../components/ToolsBar';
 import { useState } from 'react';
 import axios from 'axios';
-import Side
+import {Sidebar} from '../components/Sidebar';
+
+
 export interface Categories {
   id: string;
   title: string;
@@ -48,9 +50,8 @@ const Categorie = () => {
             position: 'fixed',
             overflow: 'hidden',
             zIndex: '1',
-          }}
-        >
-          <Sidebar />
+          }}>
+        <Sidebar/>
         </div>
         <div style={{ width: '64%', margin: '0 auto' }}>
           <div

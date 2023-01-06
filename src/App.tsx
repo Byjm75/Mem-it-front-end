@@ -1,16 +1,16 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { SignUp } from './pages/SignUp';
-import HomeAdmin from './pages/Admin/HomeAdmin';
-import UserAdmin from './pages/Admin/UserAdmin';
-import { Home } from './pages/Home';
-import Dashboard from './pages/Dashboard';
-import Categorie from './pages/Categorie';
-import { SignIn } from './pages/SignIn';
+import { SignUp } from './Pages/SignUp';
+import HomeAdmin from './Pages/Admin/HomeAdmin';
+import UserAdmin from './Pages/Admin/UserAdmin';
+import { Home } from './Pages/Home';
+import Dashboard from './Pages/Dashboard';
+import Categorie from './Pages/Categorie';
+import { SignIn } from './Pages/SignIn';
 import CreateCategory from './Pages/CreateCategory';
 import CreateTask from './Pages/CreateTask';
-import Profil from './pages/Profil';
+import Profil from './Pages/Profil';
 
 const App = () => {
   return (
@@ -27,6 +27,8 @@ const App = () => {
           <Route path='/categorie' element={<Categorie />} />
           <Route path='/admin' element={<HomeAdmin />} />
           <Route path='/adminUsers' element={<UserAdmin />} />
+          <Route path='/createCategory' element={<CreateCategory />} />
+          <Route path='/createTask' element={<CreateTask/>} />
         </Routes>
       </BrowserRouter>
       <div>

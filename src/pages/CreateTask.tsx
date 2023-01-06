@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef } from 'react';
 import Footer from '../components/Footer';
-import Sidebar from '../components/Sidebar';
+import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 
 const CreateTask = () => {
