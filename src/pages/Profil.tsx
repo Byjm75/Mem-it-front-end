@@ -1,14 +1,22 @@
 import axios, { AxiosResponse } from 'axios';
-import { FormEvent, useEffect, useRef } from 'react';
+import { FormEvent, useRef } from 'react';
 import Footer from '../components/Footer';
-import {Sidebar} from '../components/Sidebar';
+import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
+import jwtDecode from 'jwt-decode';
 
 export interface InterProfil {
+  id: string;
   pseudo: string;
   image: string;
   email: string;
   password: string;
+}
+
+interface DecodTokenType {
+  utilisateur: InterProfil;
+  exp: number;
+  iat: number;
 }
 
 const Profil = () => {
@@ -24,20 +32,32 @@ const Profil = () => {
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     console.log(ImageProfilElement.current?.value);
-    
-  
-    axios .patch('http://localhost:8085/api/auth/update', {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-        pseudo: pseudoElement.current?.value,
-        email: emailElement.current?.value,
-        password: passwordElement.current?.value,
-        ImageProfilElement: ImageProfilElement.current?.value,
-      })
-      .then((response: AxiosResponse<{ data: any }>) => {
-        console.log('response ', response.data);
-        alert('Profil mis à jour!');
-      });
-  }
+
+    const accessToken = localStorage.getItem('token');
+    if (accessToken) {
+      const decodToken: DecodTokenType = jwtDecode(accessToken);
+
+      console.log('Token décodé:', decodToken);
+
+      axios
+        .patch(
+          `http://localhost:8085/api/auth/update/${decodToken.utilisateur.id}`,
+          {
+            pseudo: pseudoElement.current?.value,
+            email: emailElement.current?.value,
+            password: passwordElement.current?.value,
+            ImageProfilElement: ImageProfilElement.current?.value,
+          },
+          {
+            headers: { Authorization: `Bearer ${accessToken}` },
+          }
+        )
+        .then((response: AxiosResponse<{ data: any }>) => {
+          console.log('response ', response.data);
+          alert('Profil mis à jour!');
+        });
+    }
+  };
   return (
     <div>
       <div
@@ -101,7 +121,6 @@ const Profil = () => {
                       className='form-control'
                       placeholder='pseudo'
                       ref={pseudoElement}
-                     
                     />
                   </div>
                 </div>
@@ -116,7 +135,6 @@ const Profil = () => {
                       className='form-control'
                       placeholder='modifier email'
                       ref={emailElement}
-                      
                     />
                   </div>
                 </div>
@@ -130,7 +148,6 @@ const Profil = () => {
                       className='form-control'
                       placeholder='modifier mot de passe'
                       ref={passwordElement}
-                     
                     />
                   </div>
                 </div>
@@ -145,7 +162,6 @@ const Profil = () => {
                         className='form-control'
                         placeholder='image de profil'
                         ref={ImageProfilElement}
-                        
                       />
                     </div>
                   </div>
@@ -187,8 +203,7 @@ const Profil = () => {
         <Footer />
       </div>
     </div>
-  )
-
+  );
 };
 
 export default Profil;
