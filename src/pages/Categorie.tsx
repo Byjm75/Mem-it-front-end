@@ -88,7 +88,7 @@ const Categorie = () => {
                 style={{ display: 'flex', justifyContent: 'space-around' }}
               >
                 <div>
-                  <CardPlus/>
+                  {/* <CardPlus/> */}
                   {listCatDisplayed.map((categorie) => (
                     <li key={categorie.id}>
                       <CardCategory categoryAffich={categorie} />
