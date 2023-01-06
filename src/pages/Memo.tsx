@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import Footer from '../components/Footer';
-import Sidebar from '../components/Sidebar';
-import ToolsBar from '../components/ToolsBar';
-import { useState } from 'react';
-import axios from 'axios';
-import CardMemo from '../components/CardMemo';
-import CardPlus from '../components/CardPlus';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import CardMemo from "../components/CardMemo";
+import CardPlus from "../components/CardPlus";
+import Footer from "../components/Footer";
+import { Sidebar } from "../components/Sidebar";
+import ToolsBar from "../components/ToolsBar";
+
 
 export interface Memos {
   title: string;

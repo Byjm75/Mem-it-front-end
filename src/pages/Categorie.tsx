@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import CardCategory from '../components/CardCategory';
 import Footer from '../components/Footer';
-import Sidebar from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 import { useState } from 'react';
 import axios from 'axios';
+import {Sidebar} from '../components/Sidebar';
+
 
 export interface Categories {
   id: string;
@@ -15,7 +16,6 @@ export interface Categories {
 
 const Categorie = () => {
   const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>([]);
-
   useEffect(() => {
     axios
       .get('http://localhost:8085/api/categorie', {
@@ -50,9 +50,8 @@ const Categorie = () => {
             position: 'fixed',
             overflow: 'hidden',
             zIndex: '1',
-          }}
-        >
-          <Sidebar />
+          }}>
+        <Sidebar/>
         </div>
         <div style={{ width: '64%', margin: '0 auto' }}>
           <div

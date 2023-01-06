@@ -6,7 +6,7 @@ interface CardmemoProps {
 const CardMemo = ({ carte }: CardmemoProps) => {
   return (
     <div
-      className="card"
+      className='card'
       style={{
         width: ' 17rem',
         margin: '0 0 10px ',
@@ -15,18 +15,18 @@ const CardMemo = ({ carte }: CardmemoProps) => {
     >
       <div>
         <div
-          className="btn btn- col-sm-12"
+          className='btn btn- col-sm-12'
           style={{
             margin: '15px auto',
             borderColor: '#9AAEB4',
           }}
         >
-          <img src="/assets/escalade.jpg" className="card-img" alt="escalade" />
+          <img src='/assets/escalade.jpg' className='card-img' alt='escalade' />
         </div>
       </div>
-      <div className="card-body">
+      <div className='card-body'>
         <h5
-          className="card-title"
+          className='card-title'
           style={{
             textAlign: 'center',
             border: 'solid 2px #9AAEB4',
