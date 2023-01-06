@@ -1,8 +1,15 @@
 import axios, { AxiosResponse } from 'axios';
-import { FormEvent, useRef } from 'react';
+import { FormEvent, useEffect, useRef } from 'react';
 import Footer from '../components/Footer';
-import Sidebar from '../components/Sidebar';
+import {Sidebar} from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
+
+export interface InterProfil {
+  pseudo: string;
+  image: string;
+  email: string;
+  password: string;
+}
 
 const Profil = () => {
   const pseudoElement = useRef<HTMLInputElement>(null);
@@ -17,8 +24,10 @@ const Profil = () => {
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     console.log(ImageProfilElement.current?.value);
-    axios
-      .patch('http://localhost:8085/api/auth/update', {
+    
+  
+    axios .patch('http://localhost:8085/api/auth/update', {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         pseudo: pseudoElement.current?.value,
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
@@ -28,7 +37,7 @@ const Profil = () => {
         console.log('response ', response.data);
         alert('Profil mis à jour!');
       });
-  };
+  }
   return (
     <div>
       <div
@@ -41,7 +50,7 @@ const Profil = () => {
         }}
       >
         <ToolsBar />
-      </div>{' '}
+      </div>
       <div
         style={{
           display: 'flex',
@@ -92,7 +101,7 @@ const Profil = () => {
                       className='form-control'
                       placeholder='pseudo'
                       ref={pseudoElement}
-                      value=''
+                     
                     />
                   </div>
                 </div>
@@ -107,7 +116,7 @@ const Profil = () => {
                       className='form-control'
                       placeholder='modifier email'
                       ref={emailElement}
-                      value=''
+                      
                     />
                   </div>
                 </div>
@@ -121,7 +130,7 @@ const Profil = () => {
                       className='form-control'
                       placeholder='modifier mot de passe'
                       ref={passwordElement}
-                      value=''
+                     
                     />
                   </div>
                 </div>
@@ -136,7 +145,7 @@ const Profil = () => {
                         className='form-control'
                         placeholder='image de profil'
                         ref={ImageProfilElement}
-                        value=''
+                        
                       />
                     </div>
                   </div>
@@ -178,7 +187,8 @@ const Profil = () => {
         <Footer />
       </div>
     </div>
-  );
+  )
+
 };
 
 export default Profil;

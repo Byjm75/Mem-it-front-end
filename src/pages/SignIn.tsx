@@ -31,7 +31,10 @@ export const SignIn = () => {
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
       })
-      .then((response: AxiosResponse<{ data: any }>) => {
+      .then((response: AxiosResponse) => {
+        const token = response.data.accessToken;
+        // Set le token dans le localstorage
+        localStorage.setItem('token', token);
         console.log('response ', response.data);
         alert('Bon retour parmi nous!');
         navigate('/dashboard');

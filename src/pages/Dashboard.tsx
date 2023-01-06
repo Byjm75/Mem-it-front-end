@@ -1,9 +1,10 @@
+import AddBtn from '../components/AddBtn';
 import React from 'react';
 import CardFavoris from '../components/CardFavoris';
 import CardPlus from '../components/CardPlus';
 import Footer from '../components/Footer';
-import Sidebar from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
+import {Sidebar} from '../components/Sidebar';
 
 const Dashboard = () => {
   return (
@@ -67,6 +68,7 @@ const Dashboard = () => {
           >
             <CardPlus />
             <CardFavoris />
+            <AddBtn/>
           </div>
           <div>
             <h2
