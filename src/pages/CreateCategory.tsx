@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import ToolsBar from '../components/ToolsBar';
 import { useNavigate } from 'react-router-dom';
 import { Sidebar } from '../components/Sidebar';
+import FooterConnect from '../components/FooterConnect';
 
 const CreateCategory = () => {
     const titleElement = useRef<HTMLInputElement>(null);
@@ -80,9 +81,7 @@ const navigate=useNavigate()
                 </div>
 
                 <div className="row mt-3" style={{ display: 'flex' }}>
-                  <div className="col-md-4 border-right">
-                  
-                  </div>
+                  <div className="col-md-4 border-right"></div>
                   <div className="col-md-8">
                     <label className="labels" style={{ color: '#007872' }}>
                       Titre
@@ -92,7 +91,6 @@ const navigate=useNavigate()
                       className="form-control"
                       placeholder="Titre"
                       ref={titleElement}
-                     
                     />
                   </div>
                 </div>
@@ -107,7 +105,6 @@ const navigate=useNavigate()
                         className="form-control"
                         placeholder="image de catégorie"
                         ref={ImageElement}
-                        
                       />
                     </div>
                   </div>
@@ -146,9 +143,9 @@ const navigate=useNavigate()
           width: '100%',
         }}
       >
-        <Footer />
+        <FooterConnect />
       </div>
-      </div>
-      )}
+    </div>
+  );}
 
 export default CreateCategory;

@@ -1,12 +1,47 @@
-import { useState } from 'react';
+import axios, { AxiosResponse } from 'axios';
+import { FormEvent, useRef, useState } from 'react';
 import { FloatingLabel, Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { useNavigate } from 'react-router-dom';
 
 export const AddCardMemo = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const titleElement = useRef<HTMLInputElement>(null);
+  const ImageElement = useRef<HTMLInputElement>(null);
+  const favElement = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+  const handleSubmitForm = async (e: FormEvent) => {
+    console.log('handleSubmitForm');
+    e.preventDefault();
+    console.log(titleElement.current?.value);
+    console.log(ImageElement.current?.value);
+    console.log(favElement.current?.value);
+
+    axios
+      .post(
+        'http://localhost:8085/api/tache',
+
+        {
+          title: titleElement.current?.value,
+          favori: favElement.current?.value,
+          image: ImageElement.current?.value,
+        },
+        {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        }
+      )
+      .then((response: AxiosResponse<{ data: any }>) => {
+        console.log('response ', response.data);
+        console.log(response, 'res');
+        alert('Nouveau mémo créé!');
+        handleClose();
+      });
+  };
+
   return (
     <>
       <Button
@@ -17,7 +52,7 @@ export const AddCardMemo = () => {
         variant="white "
         onClick={handleShow}
       >
-        <img src="/assets/plus.png" className="card-img" alt="escalade" />{' '}
+        <img src="/assets/plus.png" className="card-img" alt="ajouter un mémo" />{' '}
       </Button>
 
       <Modal show={show} onHide={handleClose} animation={false}>
@@ -31,10 +66,15 @@ export const AddCardMemo = () => {
               label="Mémo"
               className="mb-3"
             >
-              <Form.Control type="text" placeholder="mémo" />
+              <Form.Control type="text" placeholder="mémo" ref={titleElement} />
             </FloatingLabel>
             <div>
-              <input className="text-primary" type="file" accept="image/*" />
+              <input
+                className="text-primary"
+                type="file"
+                accept="image/*"
+                ref={ImageElement}
+              />
             </div>
           </form>
         </Modal.Body>
@@ -42,11 +82,8 @@ export const AddCardMemo = () => {
           <Button variant="danger" onClick={handleClose}>
             Fermer
           </Button>
-          <Button variant="success" onClick={handleClose}>
-            <a className="navbar-brand" href="/memo">
+          <Button variant="success" onClick={handleSubmitForm}>
               Créer
-            </a>{' '}
-            
           </Button>
         </Modal.Footer>
       </Modal>

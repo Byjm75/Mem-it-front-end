@@ -5,6 +5,9 @@ import ToolsBar from '../components/ToolsBar';
 import { useState } from 'react';
 import axios from 'axios';
 import {Sidebar} from '../components/Sidebar';
+import { wrap } from 'module';
+import FooterConnect from '../components/FooterConnect';
+import AddBtn from '../components/AddBtn';
 
 
 export interface Categories {
@@ -50,8 +53,9 @@ const Categorie = () => {
             position: 'fixed',
             overflow: 'hidden',
             zIndex: '1',
-          }}>
-        <Sidebar/>
+          }}
+        >
+          <Sidebar />
         </div>
         <div style={{ width: '64%', margin: '0 auto' }}>
           <div
@@ -83,26 +87,43 @@ const Categorie = () => {
           <hr />
           {/* <div className="card">
             <div className="card-header"> */}
-              <div
-                className="card-tools row"
-                style={{ display: 'flex', justifyContent: 'space-around' }}
-              >
-                <div>
-                  {/* <CardPlus/> */}
-                  {listCatDisplayed.map((categorie) => (
-                    <li key={categorie.id}>
-                      <CardCategory categoryAffich={categorie} />
-                    </li>
-                  ))}
-                </div>
-              {/* </div>
+          <div
+            className="card-tools row"
+            // style={{ display: 'flex', justifyContent: 'space-around' }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-bettwen',
+                flexWrap: 'wrap',
+                listStyle: 'none',
+              }}
+            >
+              {/* <CardPlus/> */}
+              {listCatDisplayed.map((categorie) => (
+                <li key={categorie.id}>
+                  <CardCategory categoryAffich={categorie} />
+                </li>
+              ))}
+            </div>
+            {/* </div>
             </div> */}
           </div>
         </div>
+        <div style={{ position: 'fixed', right: '15px', bottom: '115px' }}>
+          <AddBtn />
+        </div>
       </div>
 
-      <div style={{ marginTop: '30px' }}>
-        <Footer />
+      <div
+        style={{
+          marginTop: '30px',
+          position: 'relative',
+          bottom: '0',
+          width: '100%',
+        }}
+      >
+        <FooterConnect />
       </div>
     </div>
   );
