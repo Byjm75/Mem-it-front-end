@@ -1,22 +1,33 @@
-import React from 'react';
+import { useEffect } from 'react';
 import CardCategory from '../components/CardCategory';
-import CardPlus from '../components/CardPlus';
 import Footer from '../components/Footer';
-import Sidebar from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
+import { useState } from 'react';
+import axios from 'axios';
+import {Sidebar} from '../components/Sidebar';
+
+
+export interface Categories {
+  id: string;
+  title: string;
+  image: string;
+  favoris: string;
+}
 
 const Categorie = () => {
+  const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>([]);
+  useEffect(() => {
+    axios
+      .get('http://localhost:8085/api/categorie', {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      })
+      .then((res) => {
+        console.log(res);
+        setListCatDisplayed(res.data);
+      });
+  }, []);
   return (
-    <div
-      className="position-sticky"
-      //   style={{
-      //     overflow: 'hidden',
-      //     position: '-webkit-sticky',
-
-      //     top: '0',
-      //     width: '100%',
-      //   }}
-    >
+    <div>
       <div
         style={{
           width: '100%',
@@ -28,28 +39,46 @@ const Categorie = () => {
       >
         <ToolsBar />
       </div>
-      <div style={{ width: '100%', display: 'flex' }}>
-        <div style={{ position: 'fixed', zIndex: '1', overflow: 'hidden' }}>
-          <Sidebar />
-        </div>
+      <div
+        style={{
+          display: 'flex',
+        }}
+      >
         <div
-          // className="col-3"
-          style={{ width: '60%', margin: '0 auto' }}
-          // className="col-md-8 offset-md-2 "
-        >
-          {/* < Searchbar/> */}
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <h1 className="card-title" style={{ margin: '20px 0 0 20px' }}>
-              Catégorie1
+          style={{
+            display: 'flex',
+            position: 'fixed',
+            overflow: 'hidden',
+            zIndex: '1',
+          }}>
+        <Sidebar/>
+        </div>
+        <div style={{ width: '64%', margin: '0 auto' }}>
+          <div
+            style={{
+              width: '100%',
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'end',
+              alignItems: 'flex-end',
+              margin: '10px 0 0 ',
+            }}
+          >
+            <h1
+              style={{
+                width: '100%',
+                position: 'relative',
+                display: 'flex',
+                justifyContent: 'end',
+                alignItems: 'flex-end',
+                margin: '10px 0 0 ',
+
+                color: '#007872',
+                fontWeight: 'bold',
+              }}
+            >
+              Catégorie
             </h1>
-            <div>
-              <input className="text-primary" type="file" accept="image/*" />
-              <img
-                src="../assets/profile-icon-png-917.png"
-                alt="photo de profile"
-                style={{ width: '4em', margin: '5px 25px 0' }}
-              />
-            </div>
           </div>
           <hr />
           <div className="card">
@@ -58,27 +87,20 @@ const Categorie = () => {
                 className="card-tools row"
                 style={{ display: 'flex', justifyContent: 'space-around' }}
               >
-                <CardPlus />
-                <CardCategory />
-                <CardCategory />
-                <CardCategory />
-                <CardCategory />
-                <CardCategory />
-                <CardCategory />
-                <CardCategory />
+                <div>
+                  {listCatDisplayed.map((categorie) => (
+                    <li key={categorie.id}>
+                      <CardCategory categoryAffich={categorie} />
+                    </li>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div
-        style={{
-          marginTop: '30px',
-          // position: 'fixed',
-          bottom: '0',
-          width: '100%',
-        }}
-      >
+
+      <div style={{ marginTop: '30px' }}>
         <Footer />
       </div>
     </div>

@@ -14,6 +14,12 @@ import { useNavigate } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
 import Footer from "../components/Footer";
 import axios, { AxiosResponse } from "axios";
+} from 'mdb-react-ui-kit';
+import { FormEvent, useRef } from 'react';
+import { Navbar } from '../components/Navbar';
+import Footer from '../components/Footer';
+import axios, { AxiosResponse } from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export const SignIn = () => {
   const emailElement = useRef<HTMLInputElement>(null);
@@ -28,41 +34,28 @@ export const SignIn = () => {
     console.log(passwordElement.current?.value);
     axios
       .post("http://localhost:8081/api/auth/login", {
+      .post('http://localhost:8085/api/auth/login', {
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
       })
-
       .then((response: AxiosResponse) => {
-        const token = response.data.token;
+        const token = response.data.accessToken;
         // Set le token dans le localstorage
         localStorage.setItem("token", token);
         console.log("response ", response.data);
         alert("Bon retour parmi nous!");
         navigate("/dashboard");
+        localStorage.setItem('token', token);
+        console.log('response ', response.data);
+        window.alert('Bon retour parmi nous!');
+        navigate('/dashboard');
       });
-
-    // .then((response: AxiosResponse<{ data: any }>) => {
-    //   console.log('response ', response.data);
-    //   alert('vous êtes connecté!');
-    //   navigate('/dashboard');
-    // });
-    // try {
-    //   const response = await SignUp.post('/sign');
-    // } catch (err) {
-    //   console.error(err);
-    // }
   };
 
   return (
-    <div
-    // style={{
-    //   backgroundColor: '#ABCDEF',
-    //   // overflow: 'hidden',
-    // }}
-    >
+    <div>
       <Navbar />
       <MDBContainer
-        // className="my-"
         style={{
           margin: "39px auto",
         }}
@@ -72,6 +65,7 @@ export const SignIn = () => {
             className='g-0 d-flex align-items-center'
             style={{
               backgroundColor: "rgba(180, 200, 200, 0.73)",
+              backgroundColor: 'black',
             }}
           >
             <MDBCol
@@ -93,11 +87,15 @@ export const SignIn = () => {
 
             <MDBCol md='8'>
               <h1 style={{ textAlign: "center", color: "white" }}>
+            <MDBCol md='8'>
+              <h1 style={{ textAlign: 'center', color: 'white' }}>
                 Connectez vous
               </h1>
               <MDBCardBody
                 className='form-floating mt-1'
                 style={{ color: "white" }}
+                className='form-floating mt-1'
+                style={{ color: 'white' }}
               >
                 <MDBInput
                   wrapperClass='mb-1'
@@ -106,7 +104,7 @@ export const SignIn = () => {
                   type='email'
                   className='form-control'
                   placeholder='email@exemple.com'
-                  ref={emailElement}
+                  inputRef={emailElement}
                 />
                 <MDBInput
                   wrapperClass='mb-1'
@@ -115,7 +113,7 @@ export const SignIn = () => {
                   type='password'
                   className='form-control'
                   placeholder='mot de passe'
-                  ref={passwordElement}
+                  inputRef={passwordElement}
                 />
 
                 <div className='d-flex justify-content-between mx-1 mb-1'>
@@ -126,6 +124,7 @@ export const SignIn = () => {
                     label='Remember me'
                   />
                   <a href='!#' style={{ color: "black" }}>
+                  <a href='!#' style={{ color: 'black' }}>
                     Forgot password?
                   </a>
                 </div>
@@ -133,6 +132,8 @@ export const SignIn = () => {
                 <MDBBtn
                   className='mb-1 w-100'
                   style={{ height: "40px" }}
+                  className='mb-1 w-100'
+                  style={{ height: '40px' }}
                   onClick={handleSubmitForm}
                 >
                   Connexion{""}
@@ -143,10 +144,10 @@ export const SignIn = () => {
         </MDBCard>
       </MDBContainer>
       <div style={{ position: "absolute", width: "100%", bottom: "0" }}>
+      <div style={{ position: 'relative', width: '100%', bottom: '0' }}>
         <Footer />
       </div>{" "}
+      </div>
     </div>
   );
 };
-
-// export default SignIn;

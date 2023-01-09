@@ -1,10 +1,11 @@
-import React from "react";
-import Footer from "../components/Footer";
-import CardPlus from "../components/CardPlus";
-import CardCategory from "../components/CardCategory";
+import AddBtn from "../components/AddBtn";
+import React, { useEffect, useState } from "react";
 import CardFavoris from "../components/CardFavoris";
+import CardPlus from "../components/CardPlus";
+import Footer from "../components/Footer";
 import ToolsBar from "../components/ToolsBar";
-import Sidebar from "../components/Sidebar";
+import { Sidebar } from "../components/Sidebar";
+import jwtDecode from "jwt-decode";
 
 const Dashboard = () => {
   return (
@@ -20,11 +21,18 @@ const Dashboard = () => {
       >
         <ToolsBar />
       </div>{" "}
-      <div style={{ width: "100%", display: "flex" }}>
-        <div style={{ position: "fixed", zIndex: "1", overflow: "hidden" }}>
+      <div>
+        <div
+          style={{
+            display: "flex",
+            position: "fixed",
+            overflow: "hidden",
+            zIndex: "1",
+          }}
+        >
           <Sidebar />
-        </div>{" "}
-        <div style={{ width: "80%", margin: "0 auto" }}>
+        </div>
+        <div style={{ width: "64%", margin: "0 auto" }}>
           <div
             style={{
               width: "100%",
@@ -32,7 +40,6 @@ const Dashboard = () => {
               display: "flex",
               justifyContent: "end",
               alignItems: "flex-end",
-              margin: "10px 0 0 ",
             }}
           >
             <img
@@ -43,58 +50,55 @@ const Dashboard = () => {
             />
             <h1
               style={{
-                color: "lightslategrey",
+                width: "100%",
+                position: "relative",
+                display: "flex",
+                justifyContent: "end",
+                alignItems: "flex-end",
+                margin: "10px 0 0 ",
+
+                color: "#007872",
                 fontWeight: "bold",
               }}
             >
               Mon espace
             </h1>
           </div>
-          <hr style={{ color: "lightslategrey", fontWeight: "bold" }} />
-          <div className='card'>
-            <div className='card-header'>
-              <div
-                className='card-tools row'
-                style={{ display: "flex", justifyContent: "space-around" }}
-              >
-                <CardPlus />
-                <CardFavoris />
-              </div>
-            </div>
-          </div>
-          <h3
-            // className="card-title"
-            // style={{ margin: '20px 0 0 20px' }}
+          <hr />
+
+          <div
+            className='card-tools row'
             style={{
-              width: "100%",
-              position: "relative",
               display: "flex",
-              justifyContent: "end",
-              alignItems: "flex-end",
-              margin: "10px 0 0 ",
-              padding: "5px 15px 7px",
-              color: "#FFFFFF",
-              fontWeight: "bold",
-              border: "1px solid lightslategrey",
-              borderRadius: "5px",
-              backgroundColor: "lightslategrey",
+              justifyContent: "space-around",
             }}
           >
-            Derniers ajoûts{" "}
-          </h3>
-          <hr style={{ color: "lightslategrey", fontWeight: "bold" }} />
-          <div className='card'>
-            <div className='card-header'>
-              <div
-                className='card-tools row'
-                style={{ display: "flex", justifyContent: "space-around" }}
-              >
-                <CardCategory />
-                <CardCategory />
-                <CardCategory />
-                <CardCategory />
-              </div>
-            </div>
+            <CardPlus />
+            <CardFavoris />
+            <AddBtn />
+          </div>
+          <div>
+            <h2
+              style={{
+                width: "100%",
+                position: "relative",
+                display: "flex",
+                justifyContent: "end",
+                alignItems: "flex-end",
+                margin: "10px 0 0 ",
+
+                color: "#007872",
+                fontWeight: "bold",
+              }}
+            >
+              Derniers ajoûts{" "}
+            </h2>
+            <hr />
+
+            <div
+              className='card-tools row'
+              style={{ display: "flex", justifyContent: "space-around" }}
+            ></div>
           </div>
         </div>
       </div>

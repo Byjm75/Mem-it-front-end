@@ -1,5 +1,4 @@
-// import { Caroussel } from '../components/Caroussel';
-import Caroussel from "../components/Caroussel";
+import { Carroussel } from "../components/Caroussel";
 import Footer from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 
@@ -30,33 +29,16 @@ export const Home = () => {
             color: "cadetblue",
           }}
         >
-          {/* <hr style={{ color: '#EDC26A' }} />
-          <h1
-            style={{
-              fontSize: '50px',
-              margin: '15px auto',
-              backgroundColor: '#EDC26A',
-              padding: '10px',
-              color: 'white',
-              borderColor: '#EDC26A',
-              borderRadius: '15px 40px',
-            }}
-          >
-            MEM-IT
-          </h1>
-          <hr style={{ color: '#EDC26A' }} /> */}
           <div
             className='card  row'
             style={{
               width: "100%",
-              // margin: '5px auto',
+
               padding: "10px",
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
               justifyContent: "center",
-              // borderColor: '#EDC26A',
-              // borderRadius: '15px',
             }}
           >
             <div className='col-sm-6'>
@@ -66,7 +48,7 @@ export const Home = () => {
                   margin: "0 auto",
                   backgroundColor: "#9AAEB4",
                   padding: "10px",
-                  color: "white",
+                  color: "#007872",
                   borderColor: "#EDC26A",
                   borderRadius: "70px 15px 70px 0",
                 }}
@@ -74,7 +56,7 @@ export const Home = () => {
                 MEM-IT
               </h1>
 
-              <Caroussel />
+              <Carroussel />
             </div>
             <div className='col-sm-6'>
               <div
@@ -99,27 +81,10 @@ export const Home = () => {
                   className='space row'
                   style={{ display: "flex", justifyContent: "space-between" }}
                 >
-                  {/* <button
-                    type="button"
-                    className="btn btn-success"
-                    style={{
-                      // position: 'absolute',
-                      // right: '1%',
-                      // bottom: '1%',
-                      borderRadius: '15px',
-                      fontSize: '25px',
-                      padding: '0px 30px',
-                    }}
-                  >
-                    Demo
-                  </button> */}
-
                   <button
                     type='button'
                     className='btn btn-danger col-sm-12'
                     style={{
-                      // position: 'absolute',
-                      // right: '0%',
                       fontSize: "30px",
                       padding: "0px 40px",
 
@@ -136,13 +101,11 @@ export const Home = () => {
                     type='button'
                     className='btn btn-success col-sm-12'
                     style={{
-                      // position: 'absolute',
-                      // right: '0%',
                       fontSize: "30px",
                       padding: "0px 40px",
-
+                      backgroundColor: "#007872",
                       marginTop: "30px",
-                      borderColor: "#EDC26A",
+                      borderColor: "#007872",
                       borderRadius: "15px",
                     }}
                   >
@@ -154,10 +117,10 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      {/* <Caroussel /> */}
-      <div style={{ position: "absolute", width: "100%", bottom: "0" }}>
+
+      <div style={{ marginTop: "30px" }}>
         <Footer />
-      </div>{" "}
+      </div>
     </div>
   );
 };

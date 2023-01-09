@@ -1,33 +1,59 @@
 import React from 'react';
+import { Categories } from '../Pages/Categorie';
 
-const CardCategory = () => {
+interface CardcategoryProps {
+  categoryAffich: Categories;
+}
+const photoChange =()=>{
+  // let photo : string= categoryAffich.image
+  // if (photo===undefined)
+  // {photo="<img src='../assets/profile-icon-png-917.png' alt='categorie'"}
+  // else return photo= categoryAffich.image
+
+}
+const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
+  let photo : string= categoryAffich.image
+  if (photo===undefined)
+  {photo="<img src='../assets/profile-icon-png-917.png' alt='categorie'"}
+  else {photo= categoryAffich.image}
+  
+  
   return (
-    <div className="card" style={{ width: ' 14rem', margin: '0 0 10px ' }}>
+    <div
+      className='card'
+      style={{
+        width: ' 14rem',
+        margin: '0 0 10px ',
+        backgroundColor: 'lightblue',
+      }}
+    >
       <div>
         <div
-          className="btn btn- col-sm-12"
+          className='btn btn- col-sm-12'
           style={{
             margin: '15px auto',
-            borderColor: '#9AAEB4',
+            borderColor: 'white',
           }}
         >
-          <img src="/assets/escalade.jpg" className="card-img" alt="escalade" />
+          <img src={categoryAffich.image} alt='illustration catégorie' />
         </div>
       </div>
-      <div className="card-body">
+      <div className='card-body'>
         <h5
-          className="card-title"
+          className='card-title'
           style={{
             textAlign: 'center',
-            border: 'solid 2px #9AAEB4',
-            borderRadius: '15px',
+            border: 'solid 2px white',
+            borderRadius: '10px',
             width: '80%',
             margin: ' auto',
-            backgroundColor: '#9AAEB4',
+            backgroundColor: '#007872',
+            padding: '10px',
+
             color: 'white',
           }}
         >
-          Catégorie 1
+          {categoryAffich.title}
         </h5>
       </div>
     </div>
