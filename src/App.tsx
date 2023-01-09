@@ -3,17 +3,17 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import { Home } from './Pages/Home';
 // import Profil from './Pages/Profil';
-import { SignUp } from './pages/SignUp';
-import { SignIn } from './pages/SignIn';
-import HomeAdmin from './pages/Admin/HomeAdmin';
-import UserAdmin from './pages/Admin/UserAdmin';
-import Dashboard from './pages/Dashboard';
-import Categorie from './pages/Categorie';
-import CreateCategory from './pages/CreateCategory';
-import CreateTask from './pages/CreateTask';
-import { Home } from './pages/Home';
-import Profil from './pages/Profil';
-import Memos from './pages/Memos';
+import { SignUp } from './Pages/SignUp';
+import { SignIn } from './Pages/SignIn';
+import HomeAdmin from './Pages/Admin/HomeAdmin';
+import UserAdmin from './Pages/Admin/UserAdmin';
+import Dashboard from './Pages/Dashboard';
+import Categorie from './Pages/Categorie';
+import CreateCategory from './Pages/CreateCategory';
+import CreateTask from './Pages/CreateTask';
+import { Home } from './Pages/Home';
+import Profil from './Pages/Profil';
+import Memos from './Pages/Memos';
 
 const App = () => {
   return (
