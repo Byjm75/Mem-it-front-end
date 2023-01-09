@@ -1,12 +1,16 @@
 import AddBtn from '../components/AddBtn';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CardFavoris from '../components/CardFavoris';
 import CardPlus from '../components/CardPlus';
 import Footer from '../components/Footer';
 import ToolsBar from '../components/ToolsBar';
-import {Sidebar} from '../components/Sidebar';
+import { Sidebar } from '../components/Sidebar';
+import jwtDecode from 'jwt-decode';
 
 const Dashboard = () => {
+
+  
+
   return (
     <div>
       <div
@@ -29,7 +33,7 @@ const Dashboard = () => {
             zIndex: '1',
           }}
         >
-          <Sidebar />
+          <Sidebar/>
         </div>
         <div style={{ width: '64%', margin: '0 auto' }}>
           <div
@@ -68,7 +72,7 @@ const Dashboard = () => {
           >
             <CardPlus />
             <CardFavoris />
-            <AddBtn/>
+            <AddBtn />
           </div>
           <div>
             <h2

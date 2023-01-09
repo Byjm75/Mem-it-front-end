@@ -1,21 +1,33 @@
 import axios, { AxiosResponse } from 'axios';
-import { FormEvent, useEffect, useRef } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import Footer from '../components/Footer';
-import {Sidebar} from '../components/Sidebar';
+import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
+import jwtDecode from 'jwt-decode';
+import { UserData } from './Admin/HomeAdmin';
 
-export interface InterProfil {
-  pseudo: string;
-  image: string;
-  email: string;
-  password: string;
+export interface DecodTokenType {
+  utilisateur: UserData;
+  exp: number;
+  iat: number;
 }
 
 const Profil = () => {
+  const [userToken, setUserToken] = useState<UserData>();
+
   const pseudoElement = useRef<HTMLInputElement>(null);
   const ImageProfilElement = useRef<HTMLInputElement>(null);
   const emailElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem('token');
+    if (accessToken) {
+      const decodToken: DecodTokenType = jwtDecode(accessToken);
+      console.log('Token décodé page Profil:', decodToken);
+      setUserToken(decodToken.utilisateur);
+    }
+  }, []);
 
   const handleSubmitForm = async (e: FormEvent) => {
     console.log('handleSubmitForm');
@@ -24,20 +36,27 @@ const Profil = () => {
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     console.log(ImageProfilElement.current?.value);
-    
-  
-    axios .patch('http://localhost:8085/api/auth/update', {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-        pseudo: pseudoElement.current?.value,
-        email: emailElement.current?.value,
-        password: passwordElement.current?.value,
-        ImageProfilElement: ImageProfilElement.current?.value,
-      })
+
+    const accessToken = localStorage.getItem('token');
+    axios
+      .patch(
+        `http://localhost:8085/api/auth/update/${userToken?.id}`,
+        {
+          pseudo: pseudoElement.current?.value,
+          email: emailElement.current?.value,
+          password: passwordElement.current?.value,
+          ImageProfilElement: ImageProfilElement.current?.value,
+        },
+        {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        }
+      )
       .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data);
         alert('Profil mis à jour!');
       });
-  }
+  };
+
   return (
     <div>
       <div
@@ -101,7 +120,6 @@ const Profil = () => {
                       className='form-control'
                       placeholder='pseudo'
                       ref={pseudoElement}
-                     
                     />
                   </div>
                 </div>
@@ -116,7 +134,6 @@ const Profil = () => {
                       className='form-control'
                       placeholder='modifier email'
                       ref={emailElement}
-                      
                     />
                   </div>
                 </div>
@@ -130,7 +147,6 @@ const Profil = () => {
                       className='form-control'
                       placeholder='modifier mot de passe'
                       ref={passwordElement}
-                     
                     />
                   </div>
                 </div>
@@ -145,7 +161,6 @@ const Profil = () => {
                         className='form-control'
                         placeholder='image de profil'
                         ref={ImageProfilElement}
-                        
                       />
                     </div>
                   </div>
@@ -187,8 +202,7 @@ const Profil = () => {
         <Footer />
       </div>
     </div>
-  )
-
+  );
 };
 
 export default Profil;
