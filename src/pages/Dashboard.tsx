@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import ToolsBar from '../components/ToolsBar';
 import { Sidebar } from '../components/Sidebar';
 import jwtDecode from 'jwt-decode';
+import FooterConnect from '../components/FooterConnect';
 
 const Dashboard = () => {
 
@@ -33,18 +34,8 @@ const Dashboard = () => {
               zIndex: '1',
             }}
           >
-            <Sidebar />
-          </div>
-          <div style={{ width: '64%', margin: '0 auto' }}>
-            <div
-              style={{
-                width: '100%',
-                position: 'relative',
-                display: 'flex',
-                justifyContent: 'end',
-                alignItems: 'flex-end',
-              }}
-            >
+           
+            
               <h1
                 style={{
                   width: '100%',
@@ -114,17 +105,8 @@ const Dashboard = () => {
             <FooterConnect />
           </div>
         </div>
-        {/* <div
-        style={{
-          marginTop: '30px',
-          position: 'relative',
-          bottom: '0',
-          width: '100%',
-        }}
-      >
-        <FooterConnect />
-      </div> */}
-    </div>
+      
+  
   );
 };
 
