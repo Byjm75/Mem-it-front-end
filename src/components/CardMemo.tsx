@@ -1,5 +1,5 @@
 import React from 'react';
-import { Memos } from '../pages/Memos';
+import { Memos } from '../Pages/Memos';
 import { AddCardCategorie } from './AddCardCategorie';
 import { AddCardMemo } from './AddCardMemo';
 
