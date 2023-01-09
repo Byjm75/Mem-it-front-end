@@ -1,20 +1,19 @@
 import React, { SyntheticEvent } from 'react';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import '../../components/Admin/Topbar/AdminTopBar.css';
+import { UserData } from './HomeAdmin';
+import ToolsBar from '../../components/ToolsBar';
 
-export interface Users {
-  email: string;
-  pseudo: string;
-  password: number;
-  picture?: string;
+export interface TableUsers {
+  users: UserData;
 }
 
-let listeUsers: Users[] = [];
 const UserAdmin = () => {
   const textElement = useRef<HTMLTextAreaElement>;
 
-  const [listUsersDisplayed, setListUsersDisplayed] = useState<Users[]>([
+  let listeUsers: UserData[] = [];
+
+  const [listUsersDisplayed, setListUsersDisplayed] = useState<UserData[]>([
     ...listeUsers,
   ]);
 
@@ -39,39 +38,36 @@ const UserAdmin = () => {
   };
 
   return (
-    <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-      <div className='container-fluid'>
-        <a className='navbar-brand' href='#'>
-          DASHBOARD ADMIN MEM-IT
-        </a>
-        <button
-          className='navbar-toggler'
-          type='button'
-          data-bs-toggle='collapse'
-          data-bs-target='#navbarSupportedContent'
-          aria-controls='navbarSupportedContent'
-          aria-expanded='false'
-          aria-label='Toggle navigation'
-        >
-          <span className='navbar-toggler-icon'></span>
-        </button>
-        <div className='collapse navbar-collapse' id='navbarSupportedContent'>
-          <form className='d-flex'>
-            <input
-              className='form-control me-2'
-              type='search'
-              placeholder='Search Users'
-              aria-label='Search'
-              onSubmit={handleSubmitForm}
-              ref={textElement}
-            />
-            <button className='btn btn-outline-success' type='submit'>
-              Search
-            </button>
-          </form>
-        </div>
-      </div>
-    </nav>
+    <div>
+      <ToolsBar />
+      <table className='table table-striped'>
+        <thead className='thead-dark'>
+          <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Pseudo</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {listUsersDisplayed.map((user, i) => (
+            <tr key={i}>
+              <td>{user.id}</td>
+              <td>{user.email}</td>
+              <td>{user.pseudo}</td>
+              <td>
+                <button type='button' className='btn btn-success'>
+                  Success
+                </button>
+                <button type='button' className='btn btn-danger'>
+                  Supprimer
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
