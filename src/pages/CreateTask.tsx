@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef } from 'react';
 import Footer from '../components/Footer';
+import FooterConnect from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 
@@ -78,7 +79,7 @@ const CreateTask = () => {
         >
           <div className='row'>
             <div className='col-md-10 border-right'>
-              <div className='p-3 py-5'>
+              <div className='p-3 py-4'>
                 <div className='d-flex justify-content-between align-items-center mb-4'>
                   <h4 className='text-right' style={{ color: '#007872' }}>
                     Creer un mémo
@@ -111,9 +112,9 @@ const CreateTask = () => {
                   />
                 </div>
               </div>
-              <div className='row' style={{ display: 'flex' }}>
-                <div className='column mt-3 col-6' style={{ width: '100%' }}>
-                  <div className='col-md-12'>
+              <div className='row py-4' style={{ display: 'flex' }}>
+                <div className='column mt-3 col-6 ' style={{ width: '100%' }}>
+                  <div className='col-md-12 '>
                     <label className='labels' style={{ color: '#007872' }}>
                       Image de profil
                     </label>
@@ -194,7 +195,7 @@ const CreateTask = () => {
           width: '100%',
         }}
       >
-        <Footer />
+        <FooterConnect />
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import ToolsBar from '../components/ToolsBar';
 import { useNavigate } from 'react-router-dom';
 import { Sidebar } from '../components/Sidebar';
+import FooterConnect from '../components/FooterConnect';
 
 const CreateCategory = () => {
   const titleElement = useRef<HTMLInputElement>(null);
@@ -148,7 +149,7 @@ const CreateCategory = () => {
           width: '100%',
         }}
       >
-        <Footer />
+        <FooterConnect />
       </div>
     </div>
   );
