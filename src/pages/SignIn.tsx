@@ -36,7 +36,7 @@ export const SignIn = () => {
         // Set le token dans le localstorage
         localStorage.setItem('token', token);
         console.log('response ', response.data);
-        alert('Bon retour parmi nous!');
+        window.alert('Bon retour parmi nous!');
         navigate('/dashboard');
       });
   };
