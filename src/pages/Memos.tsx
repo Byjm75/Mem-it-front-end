@@ -4,19 +4,12 @@ import AddBtn from '../components/AddBtn';
 import CardMemo from '../components/CardMemo';
 // import CardPlus from "../components/CardPlus";
 import CardPlusMemo from '../components/CardPlusMemo';
-import Footer from '../components/Footer';
 import FooterConnect from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
+import { Memos } from '../interface/Interface';
 
-export interface Memos {
-  title: string;
-  date_event: Date;
-  body: string;
-  image: string;
-  url: string;
-  date_creation: string;
-}
+
 
 let listeMemos: Memos[] = [];
 

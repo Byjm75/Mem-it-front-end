@@ -5,12 +5,8 @@ import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 import jwtDecode from 'jwt-decode';
 import { UserData } from './Admin/HomeAdmin';
+import { DecodTokenType } from '../interface/Interface';
 
-export interface DecodTokenType {
-  utilisateur: UserData;
-  exp: number;
-  iat: number;
-}
 
 const Profil = () => {
   const [userToken, setUserToken] = useState<UserData>();

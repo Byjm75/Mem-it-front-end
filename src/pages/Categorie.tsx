@@ -8,13 +8,9 @@ import { Sidebar } from '../components/Sidebar';
 import { wrap } from 'module';
 import FooterConnect from '../components/FooterConnect';
 import AddBtn from '../components/AddBtn';
+import { Categories } from '../interface/Interface';
 
-export interface Categories {
-  id: string;
-  title: string;
-  image: string;
-  favoris: string;
-}
+
 
 const Categorie = () => {
   const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>([]);
