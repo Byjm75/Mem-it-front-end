@@ -1,5 +1,5 @@
 import React from 'react';
-import { Categories } from '../pages/Categorie';
+import { Categories } from '../Pages/Categorie';
 
 interface CardcategoryProps {
   categoryAffich: Categories;

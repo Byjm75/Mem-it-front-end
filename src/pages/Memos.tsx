@@ -36,7 +36,7 @@ const Memo = () => {
   }, []);
 
   return (
-    <div className="position-sticky">
+    <div className='position-sticky'>
       <div
         style={{
           width: '100%',
@@ -70,7 +70,7 @@ const Memo = () => {
         >
           <div>
             <h1
-              className="card-title"
+              className='card-title'
               style={{
                 width: '100%',
                 position: 'relative',
@@ -87,7 +87,7 @@ const Memo = () => {
           </div>
           <hr />
 
-          <div className="  ">
+          <div className='  '>
             <div
               style={{
                 display: 'flex',
