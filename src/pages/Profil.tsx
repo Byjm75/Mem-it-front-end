@@ -1,8 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
-import { FormEvent, useEffect, useRef } from 'react';
-import Footer from '../components/Footer';
+import { FormEvent,  useRef } from 'react';
 import FooterConnect from '../components/FooterConnect';
-import {Sidebar} from '../components/Sidebar';
+import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 
 export interface InterProfil {
@@ -25,9 +24,9 @@ const Profil = () => {
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     console.log(ImageProfilElement.current?.value);
-    
-  
-    axios .patch('http://localhost:8085/api/auth/update', {
+
+    axios
+      .patch('http://localhost:8085/api/auth/update', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         pseudo: pseudoElement.current?.value,
         email: emailElement.current?.value,
@@ -38,7 +37,7 @@ const Profil = () => {
         console.log('response ', response.data);
         alert('Profil mis à jour!');
       });
-  }
+  };
   return (
     <div>
       <div
@@ -185,7 +184,6 @@ const Profil = () => {
       </div>
     </div>
   );
-
 };
 
 export default Profil;
