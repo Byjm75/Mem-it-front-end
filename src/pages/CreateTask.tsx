@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef } from 'react';
 import Footer from '../components/Footer';
+import FooterConnect from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 
@@ -76,7 +77,7 @@ const CreateTask = () => {
         >
           <div className="row">
             <div className="col-md-10 border-right">
-              <div className="p-3 py-5">
+              <div className="p-3 py-4">
                 <div className="d-flex justify-content-between align-items-center mb-4">
                   <h4 className="text-right" style={{ color: '#007872' }}>
                     Creer un mémo
@@ -84,9 +85,7 @@ const CreateTask = () => {
                 </div>
 
                 <div className="row mt-3" style={{ display: 'flex' }}>
-                  <div className="col-md-4 border-right">
-                  
-                  </div>
+                  <div className="col-md-4 border-right"></div>
                   <div className="col-md-8">
                     <label className="labels" style={{ color: '#007872' }}>
                       Titre
@@ -96,41 +95,37 @@ const CreateTask = () => {
                       className="form-control"
                       placeholder="Titre"
                       ref={titleElement}
-                      
                     />
-                  
+                  </div>
                 </div>
-                 </div>
-                  <div className="col-md-8">
+                <div className="col-md-8">
+                  <label className="labels" style={{ color: '#007872' }}>
+                    Date de votre évènement
+                  </label>
+                  <input
+                    type="date"
+                    className="form-control"
+                    placeholder="Date de l'évènement"
+                    ref={eventDateElement}
+                  />
+                </div>
+              </div>
+              <div className="row py-4" style={{ display: 'flex' }}>
+                <div className="column mt-3 col-6 " style={{ width: '100%' }}>
+                  <div className="col-md-12 ">
                     <label className="labels" style={{ color: '#007872' }}>
-                      Date de votre évènement
+                      Image de profil
                     </label>
                     <input
-                      type="date"
+                      type="file"
                       className="form-control"
-                      placeholder="Date de l'évènement"
-                      ref={eventDateElement}
-                      
+                      placeholder="image de profil"
+                      ref={imageElement}
                     />
                   </div>
                 </div>
+
                 <div className="row" style={{ display: 'flex' }}>
-                  <div className="column mt-3 col-6" style={{ width: '100%' }}>
-                    <div className="col-md-12">
-                      <label className="labels" style={{ color: '#007872' }}>
-                        Image de profil
-                      </label>
-                      <input
-                        type="file"
-                        className="form-control"
-                        placeholder="image de profil"
-                        ref={imageElement}
-                        
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="row" style={{ display: 'flex' }}>
                   <div className="column mt-3 col-6" style={{ width: '100%' }}>
                     <div className="col-md-12">
                       <label className="labels" style={{ color: '#007872' }}>
@@ -141,53 +136,54 @@ const CreateTask = () => {
                         className="form-control"
                         placeholder="lien internet"
                         ref={urlElement}
-                        
                       />
                     </div>
                   </div>
                   <div className="row" style={{ display: 'flex' }}>
-                  <div className="column mt-3 col-6" style={{ width: '100%' }}>
-                    <div className="col-md-12">
-                      <label className="labels" style={{ color: '#007872' }}>
-                        Description
-                      </label>
-                      <input
-                        type="textarea"
-                        className="form-control"
-                        placeholder="description"
-                        ref={bodyElement}
-                        
-                      />
+                    <div
+                      className="column mt-3 col-6"
+                      style={{ width: '100%' }}
+                    >
+                      <div className="col-md-12">
+                        <label className="labels" style={{ color: '#007872' }}>
+                          Description
+                        </label>
+                        <input
+                          type="textarea"
+                          className="form-control"
+                          placeholder="description"
+                          ref={bodyElement}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div
-                    className="mt-4 text-center col-12"
-                    style={{
-                      marginRight: '0',
-                      display: 'flex',
-                      justifyContent: 'end',
-                    }}
-                  >
-                    <button
-                      className="btn btn-primary profile-button col-md-12"
-                      type="button"
-                      onClick={handleSubmitForm}
+
+                    <div
+                      className="mt-4 text-center col-12"
                       style={{
-                        padding: '5px',
-                        backgroundColor: '#007872',
-                        borderColor: 'white',
+                        marginRight: '0',
+                        display: 'flex',
+                        justifyContent: 'end',
                       }}
                     >
-                      Sauvegarder modifications
-                    </button>
+                      <button
+                        className="btn btn-primary profile-button col-md-12"
+                        type="button"
+                        onClick={handleSubmitForm}
+                        style={{
+                          padding: '5px',
+                          backgroundColor: '#007872',
+                          borderColor: 'white',
+                        }}
+                      >
+                        Sauvegarder modifications
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
       <div
         style={{
@@ -197,11 +193,10 @@ const CreateTask = () => {
           width: '100%',
         }}
       >
-        <Footer />
+        <FooterConnect />
       </div>
-      
-      </div>
-      )}
+    </div>
+  );}
 
 
 export default CreateTask;

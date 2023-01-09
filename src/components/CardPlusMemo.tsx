@@ -1,13 +1,16 @@
-import { AddCardCategorie } from './AddCardCategorie';
+import React from 'react';
+// import { AddCardCategorie } from './AddCardCategorie';
+import { AddCardMemo } from './AddCardMemo';
 
-const CardPlus = () => {
+const CardPlusMemo = () => {
   return (
     <div
       className="card"
       style={{
-        width: ' 14rem',
-        borderRadius: '5%',
-        margin: '0 0 10px',
+        width: ' 13rem',
+        height: '17rem',
+                borderRadius: '1rem',
+        margin: '0 30px 30px 0',
         backgroundColor: 'lightblue',
       }}
     >
@@ -20,7 +23,7 @@ const CardPlus = () => {
             padding: '0.5rem',
           }}
         >
-          <AddCardCategorie />
+          <AddCardMemo />
         </div>
       </div>
       <div className="card-body">
@@ -39,7 +42,7 @@ const CardPlus = () => {
           }}
         >
           <a className="navbar-brand" href="/categorie">
-            Catégorie
+            mémos
           </a>
         </h5>
       </div>
@@ -47,4 +50,4 @@ const CardPlus = () => {
   );
 };
 
-export default CardPlus;
+export default CardPlusMemo;
