@@ -5,10 +5,9 @@ import { UserData } from '../Pages/Admin/HomeAdmin';
 import { DecodTokenType } from '../Pages/Profil';
 import Searchbar from './Searchbar';
 import {
-  Logout,
   PeopleAlt,
   Notifications,
-  Settings,
+  AdminPanelSettings,
 } from '@mui/icons-material';
 
 export const ToolsBar = () => {
@@ -34,7 +33,8 @@ export const ToolsBar = () => {
   return (
     <div>
       <nav
-        className='navbar  ticky-top navbar-expand-'
+        className='navbar  ticky-top navbar-expand d-inline-flex
+        '
         style={{ backgroundColor: 'black', width: '100%' }}
       >
         <div
@@ -71,36 +71,69 @@ export const ToolsBar = () => {
             >
               <Searchbar />
             </div>
-            {userToken?.role === 'admin' && (
-              <div className='collapse navbar-collapse'>
-                <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-                  <li className='nav-item'>
-                    <a
-                      className='nav-link active'
-                      aria-current='page'
-                      href='/adminUsers'
-                    >
-                      <PeopleAlt />
-                    </a>
-                  </li>
-                  <li className='nav-item'>
-                    <a className='nav-link active' aria-current='page' href='#'>
-                      <Notifications />
-                    </a>
-                  </li>
-                  <li className='nav-item'>
-                    <a className='nav-link active' aria-current='page' href='#'>
-                      <Settings />
-                    </a>
-                  </li>
-                  <li className='nav-item'>
-                    <a className='nav-link active' aria-current='page' href='#'>
-                      <Logout />
-                    </a>
-                  </li>
-                </ul>
+            {userToken?.role === 'admin' ? (
+              <div className='container-fluid d-flex'>
+                <button
+                  className='navbar-toggler'
+                  type='button'
+                  data-bs-toggle='collapse'
+                  data-bs-target='#navbarSupportedContent'
+                  aria-controls='navbarSupportedContent'
+                  aria-expanded='false'
+                  aria-label='Toggle navigation'
+                >
+                  <span className='navbar-toggler-icon'></span>
+                </button>
+                <div
+                  className='collapse navbar-collapse d-flex justify-content-around '
+                  id='navbarSupportedContent'
+                >
+                  <ul className='navbar-nav'>
+                    <li className='nav-item active'>
+                      <a
+                        className='nav-link active'
+                        style={{ color: '#806d42' }}
+                        aria-current='page'
+                        href='/admin'
+                      >
+                        <AdminPanelSettings />
+                      </a>
+                    </li>
+
+                    <li className='nav-item'>
+                      <a
+                        className='nav-link active'
+                        style={{ color: '#806d42' }}
+                        aria-current='page'
+                        href='/adminUsers'
+                      >
+                        <PeopleAlt />
+                      </a>
+                    </li>
+                    <li className='nav-item '>
+                      <a
+                        className='nav-link active'
+                        style={{ color: '#806d42' }}
+                        aria-current='page'
+                        href='#'
+                      >
+                        <Notifications />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <img
+                    className='col-3'
+                    src='../assets/profile-icon-png-917.png'
+                    alt='profile'
+                    style={{ width: '5.2rem', margin: '5px 0 0 ' }}
+                    onClick={profilElement}
+                  />
+                </div>
               </div>
-            )}<div>
+            ) : (
+              <div>
                 <img
                   className='col-3'
                   src='../assets/profile-icon-png-917.png'
@@ -109,6 +142,7 @@ export const ToolsBar = () => {
                   onClick={profilElement}
                 />
               </div>
+            )}
           </div>
         </div>
       </nav>

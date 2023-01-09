@@ -6,6 +6,7 @@ import { DecodTokenType } from '../Pages/Profil';
 const cdbreact = require('cdbreact');
 const {
   CDBSidebar,
+  CDBSidebarMenu,
   CDBSidebarContent,
   CDBSidebarHeader,
   CDBSidebarMenuItem,
@@ -45,7 +46,7 @@ export const Sidebar = () => {
         </a>{' '}
       </CDBSidebarHeader>
       <CDBSidebarContent>
-        <CDBSidebar>
+        <CDBSidebarMenu>
           <CDBSidebarMenuItem icon='sticky-note'>
             <a className='navbar-brand' href='/createCategory'>
               Créer une catégorie
@@ -61,21 +62,13 @@ export const Sidebar = () => {
               Catégories
             </a>
           </CDBSidebarMenuItem>
-          <CDBSidebarMenuItem icon='credit-card' iconType='solid'>
+          <CDBSidebarMenuItem icon='user' iconType='solid'>
             <a className='navbar-brand' href='/profil'>
               Profil
             </a>
           </CDBSidebarMenuItem>
-          {/* && ternaire du if sans avoir besoin de définir le else à la
-          différence du ? qui à besoin de : */}
-          {userToken?.role === 'admin' && (
-            <CDBSidebarMenuItem icon='table' iconType='solid'>
-              <a className='navbar-brand' href='/admin'>
-                Support Admin
-              </a>
-            </CDBSidebarMenuItem>
-          )}
-        </CDBSidebar>
+         
+        </CDBSidebarMenu>
       </CDBSidebarContent>
 
       <CDBSidebarFooter style={{ textAlign: 'center' }}>

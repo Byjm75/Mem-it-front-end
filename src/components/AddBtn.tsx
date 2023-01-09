@@ -68,7 +68,7 @@ const AddBtn = () => {
 
   return (
     <div className="App">
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="danger" onClick={handleShow} style={{padding:'0px 25px', fontSize:'45px'}}>
         +
       </Button>
 
