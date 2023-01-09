@@ -1,9 +1,6 @@
 import React from 'react';
-import { Memos } from '../interface/Interface';
+import { CardmemoProps } from '../interface/Interface';
 
-interface CardmemoProps {
-  carte: Memos;
-}
 const CardMemo = ({ carte }: CardmemoProps) => {
   return (
     <div

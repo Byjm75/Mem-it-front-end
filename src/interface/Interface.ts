@@ -1,4 +1,4 @@
-import { UserData } from "../Pages/Admin/HomeAdmin";
+import { UserData } from '../Pages/Admin/HomeAdmin';
 
 export interface Memos {
   title: string;
@@ -26,3 +26,6 @@ export interface CardcategoryProps {
   categoryAffich: Categories;
 }
 
+export interface CardmemoProps {
+  carte: Memos;
+}
