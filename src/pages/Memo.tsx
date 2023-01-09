@@ -1,11 +1,10 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import CardMemo from "../components/CardMemo";
-import CardPlus from "../components/CardPlus";
-import Footer from "../components/Footer";
-import { Sidebar } from "../components/Sidebar";
-import ToolsBar from "../components/ToolsBar";
-
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import CardMemo from '../components/CardMemo';
+import CardPlus from '../components/CardPlus';
+import Footer from '../components/Footer';
+import { Sidebar } from '../components/Sidebar';
+import ToolsBar from '../components/ToolsBar';
 
 export interface Memos {
   title: string;
@@ -36,7 +35,7 @@ const Memo = () => {
   }, []);
 
   return (
-    <div className="position-sticky">
+    <div className='position-sticky'>
       <div
         style={{
           width: '100%',
@@ -54,22 +53,22 @@ const Memo = () => {
         <div style={{ width: '80%', margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <h1
-              className="card-title"
+              className='card-title'
               style={{ margin: '20px 0 0 20px', color: '#007872' }}
             >
               Catégories
             </h1>
             <img
-              src="../assets/profile-icon-png-917.png"
-              alt="profile"
+              src='../assets/profile-icon-png-917.png'
+              alt='profile'
               style={{ width: '5em', margin: '5px 25px 0' }}
             />
           </div>
           <hr />
-          <div className="card">
-            <div className="card-header">
+          <div className='card'>
+            <div className='card-header'>
               <div
-                className="card-tools row"
+                className='card-tools row'
                 style={{ display: 'flex', justifyContent: 'space-around' }}
               >
                 <CardPlus />

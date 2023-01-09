@@ -4,8 +4,7 @@ import Footer from '../components/Footer';
 import ToolsBar from '../components/ToolsBar';
 import { useState } from 'react';
 import axios from 'axios';
-import {Sidebar} from '../components/Sidebar';
-
+import { Sidebar } from '../components/Sidebar';
 
 export interface Categories {
   id: string;
@@ -50,8 +49,9 @@ const Categorie = () => {
             position: 'fixed',
             overflow: 'hidden',
             zIndex: '1',
-          }}>
-        <Sidebar/>
+          }}
+        >
+          <Sidebar />
         </div>
         <div style={{ width: '64%', margin: '0 auto' }}>
           <div
@@ -81,10 +81,10 @@ const Categorie = () => {
             </h1>
           </div>
           <hr />
-          <div className="card">
-            <div className="card-header">
+          <div className='card'>
+            <div className='card-header'>
               <div
-                className="card-tools row"
+                className='card-tools row'
                 style={{ display: 'flex', justifyContent: 'space-around' }}
               >
                 <div>
