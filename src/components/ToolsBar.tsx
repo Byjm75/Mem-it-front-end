@@ -1,8 +1,8 @@
 import jwtDecode from 'jwt-decode';
 import { SyntheticEvent, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { UserData } from '../Pages/Admin/HomeAdmin';
-import { DecodTokenType } from '../Interface/Interface';
+
+import { DecodTokenType, UserData } from '../Interface/Interface';
 import {
   PeopleAlt,
   Notifications,
