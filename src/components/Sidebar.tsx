@@ -1,31 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { json } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
+import { useEffect, useState } from 'react';
+import { UserData } from '../Pages/Admin/HomeAdmin';
+import { DecodTokenType } from '../Pages/Profil';
+
 const cdbreact = require('cdbreact');
 const {
   CDBSidebar,
   CDBSidebarContent,
   CDBSidebarHeader,
-  CDBSidebarMenu,
   CDBSidebarMenuItem,
   CDBSidebarFooter,
 } = cdbreact;
 
 export const Sidebar = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [userToken, setUserToken] = useState<UserData>();
 
   useEffect(() => {
-    const loggedUser = localStorage.getItem('utilisateur');
-    if (loggedUser) {
-      const foundUser = JSON.parse(loggedUser);
-      setEmail(foundUser);
+    const accessToken = localStorage.getItem('token');
+    if (accessToken) {
+      const decodToken: DecodTokenType = jwtDecode(accessToken);
+      console.log('Token décodé Sidebar:', decodToken);
+      setUserToken(decodToken.utilisateur);
     }
   }, []);
 
   const handleLogout = () => {
-    setEmail('');
-    setPassword('');
-    localStorage.clear();
+    // Permets de ne pas effacer toutes les informations dans le localStorage
+    localStorage.removeItem('token');
   };
 
   return (
@@ -65,12 +66,16 @@ export const Sidebar = () => {
               Profil
             </a>
           </CDBSidebarMenuItem>
-          <CDBSidebarMenuItem icon="lock" iconType="solid">
-            <a className="navbar-brand" href="/admin">
-              Support Admin
-            </a>
-          </CDBSidebarMenuItem>
-        </CDBSidebarMenu>
+          {/* && ternaire du if sans avoir besoin de définir le else à la
+          différence du ? qui à besoin de : */}
+          {userToken?.role === 'admin' && (
+            <CDBSidebarMenuItem icon='table' iconType='solid'>
+              <a className='navbar-brand' href='/admin'>
+                Support Admin
+              </a>
+            </CDBSidebarMenuItem>
+          )}
+        </CDBSidebar>
       </CDBSidebarContent>
 
       <CDBSidebarFooter style={{ textAlign: 'center' }}>

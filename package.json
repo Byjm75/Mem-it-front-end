@@ -23,6 +23,7 @@
     "canvas": "^2.11.0",
     "cdbreact": "^1.5.4",
     "font-awesome": "^4.7.0",
+    "jwt-decode": "^3.1.2",
     "lodash": "^4.17.21",
     "mdb-react-ui-kit": "^5.0.0",
     "mdbootstrap": "^4.20.0",
