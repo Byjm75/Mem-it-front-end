@@ -5,7 +5,7 @@ import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 import jwtDecode from 'jwt-decode';
 import { UserData } from './Admin/HomeAdmin';
-import { DecodTokenType } from '../interface/Interface';
+import { DecodTokenType } from '../Interface/Interface';
 
 
 const Profil = () => {
@@ -171,7 +171,7 @@ const Profil = () => {
                     <button
                       className='btn btn-primary profile-button col-md-12'
                       type='button'
-                      onClick={handleSubmitForm}
+                      
                       style={{
                         padding: '5px',
                         backgroundColor: '#007872',

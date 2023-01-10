@@ -7,7 +7,7 @@ import CardPlusMemo from '../components/CardPlusMemo';
 import FooterConnect from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
-import { Memos } from '../interface/Interface';
+import { Memos } from '../Interface/Interface';
 
 
 
