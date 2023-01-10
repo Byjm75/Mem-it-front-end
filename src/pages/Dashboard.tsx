@@ -111,13 +111,13 @@ const Dashboard = () => {
       {/* <div
         style={{
           marginTop: '30px',
-          position: 'fixed',
+          position: 'relative',
           bottom: '0',
           width: '100%',
         }}
       >
         <FooterConnect />
-      </div>
+      </div> */}
     </div>
   );
 };
