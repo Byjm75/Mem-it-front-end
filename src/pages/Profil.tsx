@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { FormEvent,  useRef } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import FooterConnect from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
@@ -191,16 +191,9 @@ const Profil = () => {
           </div>
         </div>
       </div>
-      <div
-        style={{
-          marginTop: '30px',
-          position: 'relative',
-          bottom: '0',
-          width: '100%',
-        }}
-      >
-        <FooterConnect />
-      </div>
+      <div style={{ height: '150px' }}></div>
+
+      <FooterConnect />
     </div>
   );
 };

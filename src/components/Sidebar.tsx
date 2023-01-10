@@ -8,12 +8,14 @@ const {
   CDBSidebar,
   CDBSidebarContent,
   CDBSidebarHeader,
+  CDBSidebarMenu,
   CDBSidebarMenuItem,
   CDBSidebarFooter,
 } = cdbreact;
 
 export const Sidebar = () => {
   const [userToken, setUserToken] = useState<UserData>();
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
   useEffect(() => {
     const accessToken = localStorage.getItem('token');
@@ -21,6 +23,9 @@ export const Sidebar = () => {
       const decodToken: DecodTokenType = jwtDecode(accessToken);
       console.log('Token décodé Sidebar:', decodToken);
       setUserToken(decodToken.utilisateur);
+      if (decodToken.utilisateur.role === 'admin') {
+        setIsAdmin(true);
+      }
     }
   }, []);
 
@@ -68,14 +73,17 @@ export const Sidebar = () => {
           </CDBSidebarMenuItem>
           {/* && ternaire du if sans avoir besoin de définir le else à la
           différence du ? qui à besoin de : */}
-          {userToken?.role === 'admin' && (
-            <CDBSidebarMenuItem icon='table' iconType='solid'>
-              <a className='navbar-brand' href='/admin'>
+
+          {isAdmin ? (
+            <CDBSidebarMenuItem icon="table" iconType="solid">
+              <a className="navbar-brand" href="/admin">
                 Support Admin
               </a>
             </CDBSidebarMenuItem>
+          ) : (
+            <></>
           )}
-        </CDBSidebar>
+        </CDBSidebarMenu>
       </CDBSidebarContent>
 
       <CDBSidebarFooter style={{ textAlign: 'center' }}>

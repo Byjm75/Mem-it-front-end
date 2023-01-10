@@ -1,14 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { useEffect } from 'react';
 import CardCategory from '../components/CardCategory';
-import Footer from '../components/Footer';
 import ToolsBar from '../components/ToolsBar';
 import { useState } from 'react';
 import axios from 'axios';
-import {Sidebar} from '../components/Sidebar';
-import { wrap } from 'module';
+import { Sidebar } from '../components/Sidebar';
 import FooterConnect from '../components/FooterConnect';
 import AddBtn from '../components/AddBtn';
-
 
 export interface Categories {
   id: string;
@@ -17,8 +15,11 @@ export interface Categories {
   favoris: string;
 }
 
-const Categorie = () => {
+ const Categorie = () => {
   const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>([]);
+
+  
+
   useEffect(() => {
     axios
       .get('http://localhost:8085/api/categorie', {
@@ -29,6 +30,16 @@ const Categorie = () => {
         setListCatDisplayed(res.data);
       });
   }, []);
+
+
+
+
+   
+
+
+
+    
+
   return (
     <div>
       <div
@@ -85,12 +96,8 @@ const Categorie = () => {
             </h1>
           </div>
           <hr />
-          {/* <div className="card">
-            <div className="card-header"> */}
-          <div
-            className="card-tools row"
-            // style={{ display: 'flex', justifyContent: 'space-around' }}
-          >
+
+          <div className="card-tools row">
             <div
               style={{
                 display: 'flex',
@@ -103,6 +110,7 @@ const Categorie = () => {
               {listCatDisplayed.map((categorie) => (
                 <li key={categorie.id}>
                   <CardCategory categoryAffich={categorie} />
+                  
                 </li>
               ))}
             </div>
@@ -110,21 +118,15 @@ const Categorie = () => {
             </div> */}
           </div>
         </div>
+      </div>
+      <div style={{ height: '150px' }}>
+        {' '}
         <div style={{ position: 'fixed', right: '15px', bottom: '115px' }}>
           <AddBtn />
         </div>
       </div>
 
-      <div
-        style={{
-          marginTop: '30px',
-          position: 'relative',
-          bottom: '0',
-          width: '100%',
-        }}
-      >
-        <FooterConnect />
-      </div>
+      <FooterConnect />
     </div>
   );
 };

@@ -19,19 +19,19 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-        
         {/*Ici un composant directement avec le nom**/}
         <Routes>
-          <Route path='/' element={<Home />} /> Ici une page avec son chemin
-          <Route path='/signin' element={<SignIn />} />
-          <Route path='/signup' element={<SignUp />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/profil' element={<Profil  />} />
-          <Route path='/categorie' element={<Categorie />} />
-          <Route path='/admin' element={<HomeAdmin />} />
-          <Route path='/adminUsers' element={<UserAdmin />} />
-          <Route path='/createCategory' element={<CreateCategory />} />
-          <Route path='/createTask' element={<CreateTask />} />
+          <Route path="/" element={<Home />} /> Ici une page avec son chemin
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profil" element={<Profil />} />
+          <Route path="/categorie" element={<Categorie />} />
+          <Route path="/memo" element={<Memos />} />
+          <Route path="/admin" element={<HomeAdmin />} />
+          <Route path="/adminUsers" element={<UserAdmin />} />
+          <Route path="/createCategory" element={<CreateCategory />} />
+          <Route path="/createTask" element={<CreateTask />} />
         </Routes>
       </BrowserRouter>
       <div></div>
