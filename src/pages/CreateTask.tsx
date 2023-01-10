@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef } from 'react';
-import Footer from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
 import FooterConnect from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
@@ -11,6 +11,8 @@ const CreateTask = () => {
   const bodyElement = useRef<HTMLInputElement>(null);
   const imageElement = useRef<HTMLInputElement>(null);
   const urlElement = useRef<HTMLInputElement>(null);
+
+  const navigate=useNavigate()
 
   const handleSubmitForm = async (e: FormEvent) => {
     console.log('handleSubmitForm');
@@ -38,6 +40,8 @@ const CreateTask = () => {
       .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data);
         alert('Nouveau mémo crée!');
+                navigate('/tache')
+
       });
   };
   return (
@@ -93,9 +97,9 @@ const CreateTask = () => {
                       Titre
                     </label>
                     <input
-                      type='text'
-                      className='form-control'
-                      placeholder='Titre'
+                      type="text"
+                      className="form-control"
+                      placeholder="Titre"
                       ref={titleElement}
                     />
                   </div>
@@ -134,9 +138,9 @@ const CreateTask = () => {
                         Lien internet
                       </label>
                       <input
-                        type='url'
-                        className='form-control'
-                        placeholder='lien internet'
+                        type="url"
+                        className="form-control"
+                        placeholder="lien internet"
                         ref={urlElement}
                       />
                     </div>
@@ -187,17 +191,10 @@ const CreateTask = () => {
           </div>
         </div>
       </div>
-      <div
-        style={{
-          marginTop: '30px',
-
-          bottom: '0',
-          width: '100%',
-        }}
-      >
+      <div style={{ height: '150px' }}></div>
+      
         <FooterConnect />
       </div>
-    </div>
   );
 };
 

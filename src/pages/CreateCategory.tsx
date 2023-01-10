@@ -1,13 +1,15 @@
 import axios, { AxiosResponse } from 'axios';
-import React, { FormEvent, useRef } from 'react';
-import Footer from '../components/Footer';
-
+import React, { FormEvent, useRef, useState } from 'react';
 import ToolsBar from '../components/ToolsBar';
 import { useNavigate } from 'react-router-dom';
 import { Sidebar } from '../components/Sidebar';
 import FooterConnect from '../components/FooterConnect';
 
+type State = string;
+
 const CreateCategory = () => {
+  const [image, setImage] = useState<State>('');
+
   const titleElement = useRef<HTMLInputElement>(null);
   const ImageElement = useRef<HTMLInputElement>(null);
   const favElement = useRef<HTMLInputElement>(null);
@@ -40,6 +42,60 @@ const CreateCategory = () => {
         navigate('/categorie');
       });
   };
+
+  const getBase64Image = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsArrayBuffer(file);
+      reader.onloadend = () => {
+        const arrayBuffer = reader.result as ArrayBuffer;
+        if (!arrayBuffer) {
+          reject(new Error('Failed to read file'));
+        }
+        const base64Image = Buffer.from(arrayBuffer).toString('base64');
+        resolve(base64Image);
+      };
+      reader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
+  const handleFileChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files = event.target.files?.[0];
+    if (!files) {
+      return;
+    }
+    const base64Image = await getBase64Image(files);
+    setImage(base64Image);
+  };
+
+  const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    axios
+      .post(
+        'https://httpbin.org/post',
+        {
+          image,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          maxContentLength: Infinity,
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <div>
       <div
@@ -103,15 +159,15 @@ const CreateCategory = () => {
                 <div className='row' style={{ display: 'flex' }}>
                   <div className='column mt-3 col-6' style={{ width: '100%' }}>
                     <div className='col-md-12'>
-                      <label className='labels' style={{ color: '#007872' }}>
-                        Image de catégorie
-                      </label>
-                      <input
-                        type='file'
-                        className='form-control'
-                        placeholder='image de catégorie'
-                        ref={ImageElement}
-                      />
+                      <form onSubmit={handleSubmit}>
+                        <label htmlFor='file'>Select image:</label>
+                        <input
+                          type='file'
+                          id='file'
+                          onChange={handleFileChange}
+                        />
+                        <button type='submit'>Upload image</button>
+                      </form>
                     </div>
                   </div>
                   <div
@@ -141,16 +197,9 @@ const CreateCategory = () => {
           </div>
         </div>
       </div>
-      <div
-        style={{
-          marginTop: '30px',
-
-          bottom: '0',
-          width: '100%',
-        }}
-      >
+      <div style={{ height: '150px' }}></div>
+      
         <FooterConnect />
-      </div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ import CardPlusMemo from '../components/CardPlusMemo';
 import FooterConnect from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
-import { Memos } from '../interface/Interface';
+import { Memos } from '../Interface/Interface';
 
 
 
@@ -123,19 +123,14 @@ const Memo = () => {
           </div>
         </div>
       </div>
-      <div style={{ position: 'fixed', right: '15px', bottom: '115px' }}>
-        <AddBtn />
+
+      <div style={{ height: '150px' }}>
+        <div style={{ position: 'fixed', right: '15px', bottom: '115px' }}>
+          <AddBtn />
+        </div>
       </div>
-      <div
-        style={{
-          marginTop: '30px',
-          position: 'relative',
-          bottom: '0',
-          width: '100%',
-        }}
-      >
-        <FooterConnect />
-      </div>
+
+      <FooterConnect />
     </div>
   );
 };

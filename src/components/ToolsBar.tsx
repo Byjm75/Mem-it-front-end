@@ -1,9 +1,8 @@
 import jwtDecode from 'jwt-decode';
 import { SyntheticEvent, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { UserData } from '../Pages/Admin/HomeAdmin';
-import { DecodTokenType } from '../interface/Interface';
-import Searchbar from './Searchbar';
+
+import { DecodTokenType, UserData } from '../Interface/Interface';
 import {
   PeopleAlt,
   Notifications,
@@ -69,7 +68,15 @@ export const ToolsBar = () => {
                 margin: '20px 0 0 0',
               }}
             >
-              <Searchbar />
+              {location.pathname !== '/createCategory' && (
+                <input
+                  className='form-control me-'
+                  type='search'
+                  placeholder='Search'
+                  aria-label='Search'
+                  style={{ borderColor: ' lightslategrey' }}
+                />
+              )}
             </div>
             {userToken?.role === 'admin' ? (
               <div className='container-fluid d-flex'>
@@ -92,32 +99,36 @@ export const ToolsBar = () => {
                     <li className='nav-item active'>
                       <a
                         className='nav-link active'
-                        style={{ color: '#806d42' }}
+                        // style={{ color: '#806d42' }}
                         aria-current='page'
                         href='/admin'
                       >
-                        <AdminPanelSettings />
+                        <AdminPanelSettings
+                          style={{ color: '#806d42', fontSize: '50px' }}
+                        />
                       </a>
                     </li>
 
                     <li className='nav-item'>
                       <a
                         className='nav-link active'
-                        style={{ color: '#806d42' }}
                         aria-current='page'
                         href='/adminUsers'
                       >
-                        <PeopleAlt />
+                        <PeopleAlt
+                          style={{ color: '#806d42', fontSize: '50px' }}
+                        />
                       </a>
                     </li>
                     <li className='nav-item '>
                       <a
                         className='nav-link active'
-                        style={{ color: '#806d42' }}
                         aria-current='page'
                         href='#'
                       >
-                        <Notifications />
+                        <Notifications
+                          style={{ color: '#806d42', fontSize: '50px' }}
+                        />
                       </a>
                     </li>
                   </ul>

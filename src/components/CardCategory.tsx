@@ -1,11 +1,12 @@
 import React from 'react';
-import { CardcategoryProps, Categories } from '../interface/Interface';
+import { CardcategoryProps, Categories } from '../Interface/Interface';
+import Dropdown from './Dropdown'
 
 const photoChange = () => {
-  // let photo : string= categoryAffich.image
+  // let photo : string= this.categoryAffich.image
   // if (photo===undefined)
   // {photo="<img src='../assets/profile-icon-png-917.png' alt='categorie'"}
-  // else return photo= categoryAffich.image
+  // else return photo
 };
 const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
   let photo: string = categoryAffich.image;
@@ -15,17 +16,19 @@ const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
     photo = categoryAffich.image;
   }
 
+  
   return (
     <div
       className='card'
       style={{
         width: ' 13rem',
-        height: '17rem',
+        // height: '17rem',
         borderRadius: '5%',
         margin: '0 10px 10px ',
         backgroundColor: 'lightblue',
       }}
     >
+      <Dropdown category={categoryAffich} />
       <div style={{ width: '95%', margin: '15px auto' }}>
         <div
           className='btn btn- col-sm-12'
@@ -34,7 +37,11 @@ const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
             borderColor: 'white',
           }}
         >
-          <img src={categoryAffich.image} alt='illustration catégorie' />
+          <img
+            src={categoryAffich.image}
+            alt="illustration catégorie"
+            style={{ width: '100%' }}
+          />
         </div>
       </div>
       <div className='card-body'>
@@ -44,7 +51,7 @@ const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
             textAlign: 'center',
             border: 'solid 2px white',
             borderRadius: '10px',
-            width: '80%',
+            // width: '80%',
             margin: ' auto',
             backgroundColor: '#007872',
             padding: '10px',

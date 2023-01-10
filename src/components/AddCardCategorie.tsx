@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import axios, { AxiosResponse } from 'axios';
 import { FormEvent, useRef, useState } from 'react';
 import { FloatingLabel, Form } from 'react-bootstrap';
@@ -9,6 +10,7 @@ export const AddCardCategorie = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  // const deleteShow = () => setShow(false);
   const titleElement = useRef<HTMLInputElement>(null);
   const ImageElement = useRef<HTMLInputElement>(null);
   const favElement = useRef<HTMLInputElement>(null);
@@ -19,6 +21,8 @@ export const AddCardCategorie = () => {
     console.log(titleElement.current?.value);
     console.log(ImageElement.current?.value);
     console.log(favElement.current?.value);
+
+   
     
     axios
       .post('http://localhost:8085/api/categorie', 
@@ -34,6 +38,13 @@ export const AddCardCategorie = () => {
         navigate('/categorie')
       });
   };
+  //  function deleteShow(id: any) {
+  //   // const deleteShow = (id: any) => {
+  //     const updateShows = [...shows].filter((show: { id: any; }) => show.id !== id)
+
+  //     setShows(updateShows)
+
+  //   }([]) ;
   return (
     <>
       <Button
@@ -60,10 +71,19 @@ export const AddCardCategorie = () => {
               label="Catégorie"
               className="mb-3"
             >
-              <Form.Control type="text" placeholder="catégorie" ref={titleElement} />
+              <Form.Control
+                type="text"
+                placeholder="catégorie"
+                ref={titleElement}
+              />
             </FloatingLabel>
             <div>
-              <input className="text-primary" type="file" accept="image/*" ref={ImageElement} />
+              <input
+                className="text-primary"
+                type="file"
+                accept="image/*"
+                ref={ImageElement}
+              />
             </div>
           </form>
         </Modal.Body>
@@ -74,6 +94,7 @@ export const AddCardCategorie = () => {
           <Button variant="success" onClick={handleSubmitForm}>
             Créer
           </Button>
+          
         </Modal.Footer>
       </Modal>
     </>
