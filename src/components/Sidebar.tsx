@@ -1,11 +1,12 @@
 import jwtDecode from 'jwt-decode';
 import { useEffect, useState } from 'react';
 import { UserData } from '../Pages/Admin/HomeAdmin';
-import { DecodTokenType } from '../Pages/Profil';
+import { DecodTokenType } from '../interface/Interface';
 
 const cdbreact = require('cdbreact');
 const {
   CDBSidebar,
+  CDBSidebarMenu,
   CDBSidebarContent,
   CDBSidebarHeader,
   CDBSidebarMenuItem,
@@ -39,51 +40,43 @@ export const Sidebar = () => {
         color: '#806d42',
       }}
     >
-      <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
-        <a className="navbar-brand" href="/dashboard">
+      <CDBSidebarHeader prefix={<i className='fa fa-bars' />}>
+        <a className='navbar-brand' href='/dashboard'>
           Accueil
         </a>{' '}
       </CDBSidebarHeader>
       <CDBSidebarContent>
-        <CDBSidebar>
+        <CDBSidebarMenu>
           <CDBSidebarMenuItem icon='sticky-note'>
             <a className='navbar-brand' href='/createCategory'>
               Créer une catégorie
             </a>
           </CDBSidebarMenuItem>
-          <CDBSidebarMenuItem icon="sticky-note">
-            <a className="navbar-brand" href="/createTask">
+          <CDBSidebarMenuItem icon='sticky-note'>
+            <a className='navbar-brand' href='/createTask'>
               Créer mémo
             </a>
           </CDBSidebarMenuItem>
-          <CDBSidebarMenuItem icon="th-large">
-            <a className="navbar-brand" href="/categorie">
+          <CDBSidebarMenuItem icon='th-large'>
+            <a className='navbar-brand' href='/categorie'>
               Catégories
             </a>
           </CDBSidebarMenuItem>
-          <CDBSidebarMenuItem icon="user" iconType="solid">
-            <a className="navbar-brand" href="/profil">
+          <CDBSidebarMenuItem icon='user' iconType='solid'>
+            <a className='navbar-brand' href='/profil'>
               Profil
             </a>
           </CDBSidebarMenuItem>
-          {/* && ternaire du if sans avoir besoin de définir le else à la
-          différence du ? qui à besoin de : */}
-          {userToken?.role === 'admin' && (
-            <CDBSidebarMenuItem icon='table' iconType='solid'>
-              <a className='navbar-brand' href='/admin'>
-                Support Admin
-              </a>
-            </CDBSidebarMenuItem>
-          )}
-        </CDBSidebar>
+         
+        </CDBSidebarMenu>
       </CDBSidebarContent>
 
       <CDBSidebarFooter style={{ textAlign: 'center' }}>
         <div
-          className="sidebar-btn-wrapper"
+          className='sidebar-btn-wrapper'
           style={{ padding: '20px 5px', fontSize: '12px' }}
         >
-          <a className="navbar-brand" href="/signin" onClick={handleLogout}>
+          <a className='navbar-brand' href='/signin' onClick={handleLogout}>
             Déconnexion
           </a>
         </div>

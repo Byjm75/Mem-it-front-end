@@ -1,17 +1,12 @@
 import AddBtn from '../components/AddBtn';
-import React, { useEffect, useState } from 'react';
 import CardFavoris from '../components/CardFavoris';
 import CardPlus from '../components/CardPlus';
 import Footer from '../components/Footer';
 import ToolsBar from '../components/ToolsBar';
-import { Sidebar } from '../components/Sidebar';
-import jwtDecode from 'jwt-decode';
+import {Sidebar} from '../components/Sidebar';
 import FooterConnect from '../components/FooterConnect';
 
 const Dashboard = () => {
-
-  
-
   return (
     <div style={{ height: '100vh' }}>
         <div
@@ -23,9 +18,9 @@ const Dashboard = () => {
             zIndex: '1',
           }}
         >
-          <Sidebar/>
-        </div>
-        <div style={{ width: '64%', margin: '0 auto' }}>
+          <ToolsBar />
+        </div>{' '}
+        <div>
           <div
             style={{
               display: 'flex',
@@ -54,26 +49,25 @@ const Dashboard = () => {
             </div>
             <hr />
 
-          <div
-            className='card-tools row'
-            style={{
-              display: 'flex',
-              justifyContent: 'space-around',
-            }}
-          >
-            <CardPlus />
-            <CardFavoris />
-            <AddBtn />
-          </div>
-          <div>
-            <h2
+            <div
+              className="card-tools row"
               style={{
-                width: '100%',
-                position: 'relative',
                 display: 'flex',
-                justifyContent: 'end',
-                alignItems: 'flex-end',
-                margin: '10px 0 0 ',
+                justifyContent: 'space-around',
+              }}
+            >
+              <CardPlus />
+              <CardFavoris />
+            </div>
+            <div>
+              <h2
+                style={{
+                  width: '100%',
+                  position: 'relative',
+                  display: 'flex',
+                  justifyContent: 'end',
+                  alignItems: 'flex-end',
+                  margin: '10px 0 0 ',
 
                   color: '#007872',
                   fontWeight: 'bold',
