@@ -4,19 +4,12 @@ import AddBtn from '../components/AddBtn';
 import CardMemo from '../components/CardMemo';
 // import CardPlus from "../components/CardPlus";
 import CardPlusMemo from '../components/CardPlusMemo';
-import Footer from '../components/Footer';
 import FooterConnect from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
+import { Memos } from '../interface/Interface';
 
-export interface Memos {
-  title: string;
-  date_event: Date;
-  body: string;
-  image: string;
-  url: string;
-  date_creation: string;
-}
+
 
 let listeMemos: Memos[] = [];
 
@@ -36,7 +29,7 @@ const Memo = () => {
   }, []);
 
   return (
-    <div className="position-sticky">
+    <div className='position-sticky'>
       <div
         style={{
           width: '100%',
@@ -70,7 +63,7 @@ const Memo = () => {
         >
           <div>
             <h1
-              className="card-title"
+              className='card-title'
               style={{
                 width: '100%',
                 position: 'relative',
@@ -87,7 +80,7 @@ const Memo = () => {
           </div>
           <hr />
 
-          <div className="  ">
+          <div className='  '>
             <div
               style={{
                 display: 'flex',

@@ -1,63 +1,33 @@
 import React from 'react';
-import { Memos } from '../Pages/Memos';
-import { AddCardCategorie } from './AddCardCategorie';
-import { AddCardMemo } from './AddCardMemo';
+import { Memos } from '../interface/Interface';
 
 interface CardmemoProps {
   carte: Memos;
 }
-
-const photoChange = () => {
-  // let photo : string= categoryAffich.image
-  // if (photo===undefined)
-  // {photo="<img src='../assets/profile-icon-png-917.png' alt='categorie'"}
-  // else return photo= categoryAffich.image
-};
-
 const CardMemo = ({ carte }: CardmemoProps) => {
-  let photo: string = carte.image;
-  if (photo === undefined) {
-    photo = "<img src='../assets/profile-icon-png-917.png' alt='categorie'";
-  } else {
-    photo = carte.image;
-  }
-
   return (
     <div
-      className="card"
+      className='card'
       style={{
-        width: ' 13rem',
-        height: '17rem',
-        borderRadius: '5%',
+        width: ' 17rem',
         margin: '0 0 10px ',
-        backgroundColor: 'lightblue',
-        
+        backgroundColor: 'rgba(180, 200, 200, 0.73)',
       }}
     >
-      <div style={{ width: '95%', margin: '15px auto' }}>
-        {/* <div
-          style={{
-            width: '100%',
-            border: '1px solid white',
-            borderRadius: '7px',
-            padding: '0.5rem',
-          }}
-        >
-          <AddCardMemo />
-        </div> */}
+      <div>
         <div
-          className="btn btn- col-sm-12"
+          className='btn btn- col-sm-12'
           style={{
             margin: '15px auto',
-            borderColor: 'white',
+            borderColor: '#9AAEB4',
           }}
         >
-          <img src={carte.image} alt="illustration mémo" />
+          <img src='/assets/escalade.jpg' className='card-img' alt='escalade' />
         </div>
       </div>
-      <div className="card-body">
+      <div className='card-body'>
         <h5
-          className="card-title"
+          className='card-title'
           style={{
             textAlign: 'center',
             border: 'solid 2px #9AAEB4',
@@ -70,9 +40,7 @@ const CardMemo = ({ carte }: CardmemoProps) => {
             color: 'white',
           }}
         >
-          <a className="navbar-brand" href="/memo">
-            {carte.title}
-          </a>
+          Memo
         </h5>
       </div>
     </div>

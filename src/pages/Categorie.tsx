@@ -5,15 +5,12 @@ import ToolsBar from '../components/ToolsBar';
 import { useState } from 'react';
 import axios from 'axios';
 import { Sidebar } from '../components/Sidebar';
+import { wrap } from 'module';
 import FooterConnect from '../components/FooterConnect';
 import AddBtn from '../components/AddBtn';
+import { Categories } from '../interface/Interface';
 
-export interface Categories {
-  id: string;
-  title: string;
-  image: string;
-  favoris: string;
-}
+
 
  const Categorie = () => {
   const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>([]);
@@ -96,8 +93,12 @@ export interface Categories {
             </h1>
           </div>
           <hr />
-
-          <div className="card-tools row">
+          {/* <div className="card">
+            <div className="card-header"> */}
+          <div
+            className='card-tools row'
+            // style={{ display: 'flex', justifyContent: 'space-around' }}
+          >
             <div
               style={{
                 display: 'flex',

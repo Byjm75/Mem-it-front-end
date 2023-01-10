@@ -14,6 +14,17 @@ import CreateTask from './Pages/CreateTask';
 import { Home } from './Pages/Home';
 import Profil from './Pages/Profil';
 import Memos from './Pages/Memos';
+import { SignUp } from './Pages/SignUp';
+import { SignIn } from './Pages/SignIn';
+import HomeAdmin from './Pages/Admin/HomeAdmin';
+import UserAdmin from './Pages/Admin/UserAdmin';
+import Dashboard from './Pages/Dashboard';
+import Categorie from './Pages/Categorie';
+import CreateCategory from './Pages/CreateCategory';
+import CreateTask from './Pages/CreateTask';
+import { Home } from './Pages/Home';
+import Profil from './Pages/Profil';
+import Memos from './Pages/Memos';
 
 const App = () => {
   return (
@@ -32,6 +43,7 @@ const App = () => {
           <Route path="/adminUsers" element={<UserAdmin />} />
           <Route path="/createCategory" element={<CreateCategory />} />
           <Route path="/createTask" element={<CreateTask />} />
+          <Route path="/memo" element={<Memos />} />
         </Routes>
       </BrowserRouter>
       <div></div>

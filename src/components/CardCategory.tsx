@@ -1,10 +1,6 @@
 import React from 'react';
-import { Categories } from '../Pages/Categorie';
-import Dropdown from './Dropdown';
+import { CardcategoryProps, Categories } from '../interface/Interface';
 
-interface CardcategoryProps {
-  categoryAffich: Categories;
-}
 const photoChange = () => {
   // let photo : string= this.categoryAffich.image
   // if (photo===undefined)
@@ -22,7 +18,7 @@ const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
   
   return (
     <div
-      className="card"
+      className='card'
       style={{
         width: ' 13rem',
         // height: '17rem',
@@ -34,7 +30,7 @@ const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
       <Dropdown category={categoryAffich} />
       <div style={{ width: '95%', margin: '15px auto' }}>
         <div
-          className="btn btn- col-sm-12"
+          className='btn btn- col-sm-12'
           style={{
             margin: '15px auto',
             borderColor: 'white',
@@ -47,9 +43,9 @@ const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
           />
         </div>
       </div>
-      <div className="card-body">
+      <div className='card-body'>
         <h5
-          className="card-title"
+          className='card-title'
           style={{
             textAlign: 'center',
             border: 'solid 2px white',
@@ -63,7 +59,7 @@ const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
           }}
         >
           {' '}
-          <a className="navbar-brand" href="/memo">
+          <a className='navbar-brand' href='/memo'>
             {categoryAffich.title}
           </a>
         </h5>
