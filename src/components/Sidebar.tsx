@@ -1,12 +1,11 @@
 import jwtDecode from 'jwt-decode';
 import { useEffect, useState } from 'react';
 import { UserData } from '../Pages/Admin/HomeAdmin';
-import { DecodTokenType } from '../interface/Interface';
+import { DecodTokenType } from '../Interface/Interface';
 
 const cdbreact = require('cdbreact');
 const {
   CDBSidebar,
-  CDBSidebarMenu,
   CDBSidebarContent,
   CDBSidebarHeader,
   CDBSidebarMenu,

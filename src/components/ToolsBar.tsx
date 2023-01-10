@@ -2,7 +2,7 @@ import jwtDecode from 'jwt-decode';
 import { SyntheticEvent, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { UserData } from '../Pages/Admin/HomeAdmin';
-import { DecodTokenType } from '../interface/Interface';
+import { DecodTokenType } from '../Interface/Interface';
 import Searchbar from './Searchbar';
 import {
   PeopleAlt,

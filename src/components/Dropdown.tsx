@@ -3,7 +3,8 @@ import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { Categories } from '../Pages/Categorie';
+import { Categories } from '../Interface/Interface';
+import  Categorie  from '../Pages/Categorie';
 
 interface DropdownProps {
   category: Categories;

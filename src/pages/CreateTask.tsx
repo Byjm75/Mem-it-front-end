@@ -195,7 +195,6 @@ const CreateTask = () => {
       
         <FooterConnect />
       </div>
-    </div>
   );
 };
 
