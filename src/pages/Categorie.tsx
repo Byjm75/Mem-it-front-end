@@ -8,7 +8,7 @@ import { Sidebar } from '../components/Sidebar';
 import { wrap } from 'module';
 import FooterConnect from '../components/FooterConnect';
 import AddBtn from '../components/AddBtn';
-import { Categories } from '../interface/Interface';
+import { Categories } from '../Interface/Interface';
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardcategoryProps, Categories } from '../interface/Interface';
+import { CardcategoryProps, Categories } from '../Interface/Interface';
 
 const photoChange = () => {
   // let photo : string= categoryAffich.image

@@ -1,12 +1,10 @@
 import React, { SyntheticEvent } from 'react';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import { UserData } from './HomeAdmin';
 import ToolsBar from '../../components/ToolsBar';
+import { UserData } from '../../Interface/Interface';
 
-export interface TableUsers {
-  users: UserData;
-}
+
 
 const UserAdmin = () => {
   const textElement = useRef<HTMLTextAreaElement>;

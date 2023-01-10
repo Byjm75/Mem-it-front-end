@@ -4,8 +4,7 @@ import Footer from '../components/Footer';
 import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 import jwtDecode from 'jwt-decode';
-import { UserData } from './Admin/HomeAdmin';
-import { DecodTokenType } from '../Interface/Interface';
+import { DecodTokenType, UserData } from '../Interface/Interface';
 
 
 const Profil = () => {

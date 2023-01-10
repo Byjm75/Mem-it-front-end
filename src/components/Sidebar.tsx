@@ -1,7 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import { useEffect, useState } from 'react';
-import { UserData } from '../Pages/Admin/HomeAdmin';
-import { DecodTokenType } from '../interface/Interface';
+import { DecodTokenType, UserData } from '../Interface/Interface';
 
 const cdbreact = require('cdbreact');
 const {

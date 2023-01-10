@@ -1,13 +1,12 @@
 import jwtDecode from 'jwt-decode';
 import { SyntheticEvent, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { UserData } from '../Pages/Admin/HomeAdmin';
-import { DecodTokenType } from '../Interface/Interface';
 import {
   PeopleAlt,
   Notifications,
   AdminPanelSettings,
 } from '@mui/icons-material';
+import { DecodTokenType, UserData } from '../Interface/Interface';
 
 export const ToolsBar = () => {
   const location = useLocation();
