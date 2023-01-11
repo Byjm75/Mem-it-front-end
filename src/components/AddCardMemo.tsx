@@ -52,7 +52,11 @@ export const AddCardMemo = () => {
         variant="white "
         onClick={handleShow}
       >
-        <img src="/assets/plus.png" className="card-img" alt="ajouter un mémo" />{' '}
+        <img
+          src="/assets/plus.png"
+          className="card-img"
+          alt="ajouter un mémo"
+        />{' '}
       </Button>
 
       <Modal show={show} onHide={handleClose} animation={false}>
@@ -83,7 +87,7 @@ export const AddCardMemo = () => {
             Fermer
           </Button>
           <Button variant="success" onClick={handleSubmitForm}>
-              Créer
+            Créer
           </Button>
         </Modal.Footer>
       </Modal>

@@ -1,6 +1,7 @@
 
 
 export interface Memos {
+  id: string;
   title: string;
   date_event: Date;
   body: string;
@@ -27,7 +28,7 @@ export interface CardcategoryProps {
 }
 
 export interface CardmemoProps {
-  carte: Memos;
+  memoAffich: Memos;
 }
 
 export interface TableUsers {

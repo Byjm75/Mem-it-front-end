@@ -1,4 +1,4 @@
-import React, { SyntheticEvent } from 'react';
+import { SyntheticEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 const ProfilBtn = () => {
   const navigate = useNavigate();
