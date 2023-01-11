@@ -9,8 +9,6 @@ import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 import { Memos } from '../Interface/Interface';
 
-
-
 let listeMemos: Memos[] = [];
 
 const Memo = () => {
@@ -27,7 +25,7 @@ const Memo = () => {
         setListMemoDisplayed(res.data);
       });
   }, []);
-
+  const handleUserInput = (userInputText: string) =>{}
   return (
     <div className='position-sticky'>
       <div
@@ -39,7 +37,7 @@ const Memo = () => {
           zIndex: '1',
         }}
       >
-        <ToolsBar />
+        <ToolsBar onSearch={handleUserInput} />
       </div>
       <div style={{ width: '100%', display: 'flex' }}>
         <div

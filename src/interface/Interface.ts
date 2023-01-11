@@ -42,3 +42,7 @@ export interface UserData {
   password: string;
   role: string;
 }
+
+export interface SearchBarProps {
+  onSearch: (userInput: string) => void;
+}

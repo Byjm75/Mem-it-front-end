@@ -13,7 +13,7 @@ const HomeAdmin = () => {
   }
   return (
     <div>
-      <ToolsBar />
+      {/* <ToolsBar /> */}
       <div className='home'>
         <Chart />
       </div>

@@ -1,13 +1,13 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef, useState } from 'react';
-import ToolsBar from '../components/ToolsBar';
+import {ToolsBar} from '../components/ToolsBar';
 import { useNavigate } from 'react-router-dom';
 import { Sidebar } from '../components/Sidebar';
 import FooterConnect from '../components/FooterConnect';
 
 type State = string;
 
-const CreateCategory = () => {
+export const CreateCategory = () => {
   const [image, setImage] = useState<State>('');
 
   const titleElement = useRef<HTMLInputElement>(null);
@@ -107,7 +107,9 @@ const CreateCategory = () => {
           zIndex: '1',
         }}
       >
-        <ToolsBar />
+        <ToolsBar onSearch={function (userInput: string): void {
+          throw new Error('Function not implemented.');
+        } } />
       </div>{' '}
       <div
         style={{
@@ -198,10 +200,7 @@ const CreateCategory = () => {
         </div>
       </div>
       <div style={{ height: '150px' }}></div>
-      
-        <FooterConnect />
+      <FooterConnect />
     </div>
   );
 };
-
-export default CreateCategory;

@@ -5,17 +5,13 @@ import ToolsBar from '../components/ToolsBar';
 import { useState } from 'react';
 import axios from 'axios';
 import { Sidebar } from '../components/Sidebar';
-import { wrap } from 'module';
 import FooterConnect from '../components/FooterConnect';
 import AddBtn from '../components/AddBtn';
 import { Categories } from '../Interface/Interface';
 
-
-
- const Categorie = () => {
+let dataCateg: Categories[] = [];
+const Categorie = () => {
   const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>([]);
-
-  
 
   useEffect(() => {
     axios
@@ -24,18 +20,25 @@ import { Categories } from '../Interface/Interface';
       })
       .then((res) => {
         console.log(res);
+        dataCateg = res.data;
         setListCatDisplayed(res.data);
       });
   }, []);
 
-
-
-
-   
-
-
-
-    
+  const handleUserInput = (userInputText: string) => {
+    console.log("qu'a tapé mon user ? : ", userInputText);
+    let catTemporaire = [...listCatDisplayed];
+    if (userInputText.length > 0) {
+      catTemporaire = catTemporaire.filter((e) =>
+        e.title.includes(userInputText)
+      );
+      setListCatDisplayed(catTemporaire);
+      console.log('ma nouvelle listeState après search : ', listCatDisplayed);
+      console.log('ma nouvelle liste après search : ', catTemporaire);
+    } else {
+      setListCatDisplayed(dataCateg);
+    }
+  };
 
   return (
     <div>
@@ -48,7 +51,7 @@ import { Categories } from '../Interface/Interface';
           zIndex: '1',
         }}
       >
-        <ToolsBar />
+        <ToolsBar onSearch={handleUserInput} />
       </div>
       <div
         style={{
@@ -111,7 +114,6 @@ import { Categories } from '../Interface/Interface';
               {listCatDisplayed.map((categorie) => (
                 <li key={categorie.id}>
                   <CardCategory categoryAffich={categorie} />
-                  
                 </li>
               ))}
             </div>

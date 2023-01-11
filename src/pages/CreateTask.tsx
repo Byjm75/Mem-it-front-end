@@ -55,7 +55,9 @@ const CreateTask = () => {
           zIndex: '1',
         }}
       >
-        <ToolsBar />
+        <ToolsBar onSearch={function (userInput: string): void {
+          throw new Error('Function not implemented.');
+        } } />
       </div>{' '}
       <div
         style={{

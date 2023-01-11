@@ -35,7 +35,7 @@ const UserAdmin = () => {
 
   return (
     <div>
-      <ToolsBar />
+      {/* <ToolsBar onSearch={} /> */}
       <table className='table table-striped'>
         <thead className='thead-dark'>
           <tr>
