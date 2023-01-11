@@ -28,10 +28,11 @@ const CardMemo = ({ carte }: CardmemoProps) => {
           style={{
             textAlign: 'center',
             border: 'solid 2px #9AAEB4',
-            borderRadius: '15px',
-            width: '80%',
+            borderRadius: '10px',
+            // width: '80%',
             margin: ' auto',
             backgroundColor: '#007872',
+            padding:'10px' ,
 
             color: 'white',
           }}

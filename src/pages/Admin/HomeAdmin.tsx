@@ -1,14 +1,10 @@
 import jwtDecode from 'jwt-decode';
 import Chart from '../../components/Admin/Chart/Chart';
 import ToolsBar from '../../components/ToolsBar';
-import { DecodTokenType, TableUsers, UserData } from '../../Interface/Interface'; 
+import { DecodTokenType, UserData } from '../../Interface/Interface';
 import './HomeAdmin.css';
 
-
-
 const HomeAdmin = () => {
- 
-
   const accessToken = localStorage.getItem('token');
   if (accessToken) {
     const decodToken: DecodTokenType = jwtDecode(accessToken);

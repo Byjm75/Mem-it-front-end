@@ -4,8 +4,6 @@ import axios from 'axios';
 import ToolsBar from '../../components/ToolsBar';
 import { UserData } from '../../Interface/Interface';
 
-
-
 const UserAdmin = () => {
   const textElement = useRef<HTMLTextAreaElement>;
 

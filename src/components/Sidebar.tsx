@@ -5,15 +5,16 @@ import { DecodTokenType, UserData } from '../Interface/Interface';
 const cdbreact = require('cdbreact');
 const {
   CDBSidebar,
-  CDBSidebarMenu,
   CDBSidebarContent,
   CDBSidebarHeader,
+  CDBSidebarMenu,
   CDBSidebarMenuItem,
   CDBSidebarFooter,
 } = cdbreact;
 
 export const Sidebar = () => {
   const [userToken, setUserToken] = useState<UserData>();
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
   useEffect(() => {
     const accessToken = localStorage.getItem('token');
@@ -21,6 +22,9 @@ export const Sidebar = () => {
       const decodToken: DecodTokenType = jwtDecode(accessToken);
       console.log('Token décodé Sidebar:', decodToken);
       setUserToken(decodToken.utilisateur);
+      if (decodToken.utilisateur.role === 'admin') {
+        setIsAdmin(true);
+      }
     }
   }, []);
 
@@ -46,8 +50,8 @@ export const Sidebar = () => {
       </CDBSidebarHeader>
       <CDBSidebarContent>
         <CDBSidebarMenu>
-          <CDBSidebarMenuItem icon='sticky-note'>
-            <a className='navbar-brand' href='/createCategory'>
+          <CDBSidebarMenuItem icon="sticky-note">
+            <a className="navbar-brand" href="/createCategory">
               Créer une catégorie
             </a>
           </CDBSidebarMenuItem>
@@ -66,7 +70,18 @@ export const Sidebar = () => {
               Profil
             </a>
           </CDBSidebarMenuItem>
-         
+          {/* && ternaire du if sans avoir besoin de définir le else à la
+          différence du ? qui à besoin de : */}
+
+          {isAdmin ? (
+            <CDBSidebarMenuItem icon="table" iconType="solid">
+              <a className="navbar-brand" href="/admin">
+                Support Admin
+              </a>
+            </CDBSidebarMenuItem>
+          ) : (
+            <></>
+          )}
         </CDBSidebarMenu>
       </CDBSidebarContent>
 

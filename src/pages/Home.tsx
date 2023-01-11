@@ -16,7 +16,7 @@ export const Home = () => {
       >
         <Navbar />
       </div>
-      <div className='container' style={{ margin: 'auto' }}>
+      <div className="container" style={{ margin: 'auto' }}>
         <div
           style={{
             width: '100%',
@@ -30,7 +30,7 @@ export const Home = () => {
           }}
         >
           <div
-            className='card  row'
+            className="card  row"
             style={{
               width: '100%',
 
@@ -41,7 +41,7 @@ export const Home = () => {
               justifyContent: 'center',
             }}
           >
-            <div className='col-sm-6'>
+            <div className="col-sm-6">
               <h1
                 style={{
                   fontSize: '40px',
@@ -58,7 +58,7 @@ export const Home = () => {
 
               <Carroussel />
             </div>
-            <div className='col-sm-6'>
+            <div className="col-sm-6">
               <div
                 style={{
                   width: '100%',
@@ -78,12 +78,12 @@ export const Home = () => {
                 </p>
                 <hr />
                 <div
-                  className='space row'
+                  className="space row"
                   style={{ display: 'flex', justifyContent: 'space-between' }}
                 >
                   <button
-                    type='button'
-                    className='btn btn-danger col-sm-12'
+                    type="button"
+                    className="btn btn-danger col-sm-12"
                     style={{
                       fontSize: '30px',
                       padding: '0px 40px',
@@ -93,13 +93,13 @@ export const Home = () => {
                       borderRadius: '15px',
                     }}
                   >
-                    <a className='navbar-brand' href='/signup'>
+                    <a className="navbar-brand" href="/signup">
                       Inscription
                     </a>{' '}
                   </button>
                   <button
-                    type='button'
-                    className='btn btn-success col-sm-12'
+                    type="button"
+                    className="btn btn-success col-sm-12"
                     style={{
                       fontSize: '30px',
                       padding: '0px 40px',
@@ -117,10 +117,9 @@ export const Home = () => {
           </div>
         </div>
       </div>
+      <div style={{ height: '150px' }}></div>
 
-      <div style={{ marginTop: '30px' }}>
         <Footer />
-      </div>
     </div>
   );
 };

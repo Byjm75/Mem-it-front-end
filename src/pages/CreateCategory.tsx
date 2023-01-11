@@ -197,16 +197,9 @@ const CreateCategory = () => {
           </div>
         </div>
       </div>
-      <div
-        style={{
-          marginTop: '30px',
-
-          bottom: '0',
-          width: '100%',
-        }}
-      >
+      <div style={{ height: '150px' }}></div>
+      
         <FooterConnect />
-      </div>
     </div>
   );
 };
