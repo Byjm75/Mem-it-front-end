@@ -2,14 +2,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import AddBtn from '../components/AddBtn';
 import CardMemo from '../components/CardMemo';
-// import CardPlus from "../components/CardPlus";
+
 import CardPlusMemo from '../components/CardPlusMemo';
 import FooterConnect from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 import { Memos } from '../Interface/Interface';
-
-
 
 let listeMemos: Memos[] = [];
 
@@ -29,7 +27,7 @@ const Memo = () => {
   }, []);
 
   return (
-    <div className='position-sticky'>
+    <div className="position-sticky">
       <div
         style={{
           width: '100%',
@@ -63,7 +61,7 @@ const Memo = () => {
         >
           <div>
             <h1
-              className='card-title'
+              className="card-title"
               style={{
                 width: '100%',
                 position: 'relative',
@@ -80,30 +78,19 @@ const Memo = () => {
           </div>
           <hr />
 
-          <div className='  '>
+          <div className="  ">
             <div
               style={{
                 display: 'flex',
                 justifyContent: 'space-bettwen',
                 flexWrap: 'wrap',
-                // left: '25px',
-                // position: 'sticky',
-                // left: '20px',
+                
               }}
             >
               <div>
                 <CardPlusMemo />
               </div>
-              {/* <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-bettwen',
-                  flexWrap: 'wrap',
-                  // left: '25px',
-                  // position: 'sticky',
-                  // left: '20px',
-                }}
-              > */}
+              
               {listmemoDisplayed.map((memo, i) => (
                 <ul key={i}>
                   <li
@@ -114,11 +101,11 @@ const Memo = () => {
                       right: '30px',
                     }}
                   >
-                    <CardMemo carte={memo} />
+                    <CardMemo memoAffich={memo} />
                   </li>
                 </ul>
               ))}
-              {/* </div> */}
+             
             </div>
           </div>
         </div>

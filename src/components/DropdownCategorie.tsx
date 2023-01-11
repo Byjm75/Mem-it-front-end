@@ -1,15 +1,15 @@
 import axios, { AxiosResponse } from 'axios';
-import React, { FormEvent, useEffect, useRef, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { Categories } from '../Interface/Interface';
-import  Categorie  from '../Pages/Categorie';
+
 
 interface DropdownProps {
   category: Categories;
 }
-const Dropdown = ({ category }: DropdownProps) => {
+const DropdownCategorie = ({ category }: DropdownProps) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -89,7 +89,7 @@ const Dropdown = ({ category }: DropdownProps) => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Dropdown button {category.id}
+          Dropdown button 
         </Button>
         <ul className="dropdown-menu">
           <li>
@@ -144,4 +144,4 @@ const Dropdown = ({ category }: DropdownProps) => {
   );
 };
 
-export default Dropdown;
+export default DropdownCategorie;
