@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
+
 import axios, { AxiosResponse } from 'axios';
 import { FormEvent, useRef, useState } from 'react';
 import { FloatingLabel, Form } from 'react-bootstrap';
@@ -10,7 +10,6 @@ export const AddCardCategorie = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  // const deleteShow = () => setShow(false);
   const titleElement = useRef<HTMLInputElement>(null);
   const ImageElement = useRef<HTMLInputElement>(null);
   const favElement = useRef<HTMLInputElement>(null);
@@ -38,13 +37,7 @@ export const AddCardCategorie = () => {
         navigate('/categorie')
       });
   };
-  //  function deleteShow(id: any) {
-  //   // const deleteShow = (id: any) => {
-  //     const updateShows = [...shows].filter((show: { id: any; }) => show.id !== id)
-
-  //     setShows(updateShows)
-
-  //   }([]) ;
+  
   return (
     <>
       <Button
@@ -58,7 +51,7 @@ export const AddCardCategorie = () => {
         <img src="/assets/plus.png" className="card-img" alt="escalade" />{' '}
       </Button>
 
-      {/* <Button onClick={() => deleteShow(show)}>Delete</Button> */}
+      
 
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>

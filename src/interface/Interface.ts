@@ -1,6 +1,8 @@
 
 
 export interface Memos {
+  map(arg0: (memo: Memos, i: import("react").Key | null | undefined) => JSX.Element): unknown;
+  id: any;
   title: string;
   date_event: Date;
   body: string;
@@ -16,6 +18,7 @@ export interface DecodTokenType {
 }
 
 export interface Categories {
+  map(arg0: (memo: Memos, i: import("react").Key | null | undefined) => JSX.Element): unknown;
   id: string;
   title: string;
   image: string;
@@ -27,8 +30,12 @@ export interface CardcategoryProps {
 }
 
 export interface CardmemoProps {
-  carte: Memos;
+  memoAffich: Memos;
 }
+
+// export interface CardmemoProps {
+//   carte: Memos;
+// }
 
 export interface TableUsers {
   users: UserData;
@@ -41,4 +48,8 @@ export interface UserData {
   email: string;
   password: string;
   role: string;
+}
+
+export interface DropdownProps {
+  category: Categories;
 }

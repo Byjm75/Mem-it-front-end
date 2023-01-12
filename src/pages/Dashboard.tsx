@@ -97,13 +97,17 @@ const Dashboard = () => {
             <AddBtn />
           </div>
         </div>
+        <div style={{ height: '150px' }}>
+          <div style={{ position: 'fixed', right: '15px', bottom: '115px' }}>
+          </div>
+        </div>
         <div
-          style={{
-            marginTop: '30px',
-            position: 'fixed',
-            bottom: '0',
-            width: '100%',
-          }}
+          // style={{
+          //   marginTop: '30px',
+          //   position: 'fixed',
+          //   bottom: '0',
+          //   width: '100%',
+          // }}
         >
           <FooterConnect />
         </div>

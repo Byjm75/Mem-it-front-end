@@ -6,7 +6,12 @@ export const Footer = () => {
       <section className="">
         <footer
           className="text-center text-white"
-          style={{ backgroundColor: '#111827' }}
+          style={{
+            backgroundColor: '#111827',
+            position: 'fixed',
+            bottom: '0',
+            width: '100%',
+          }}
         >
           <div className="container p-4 pb-0">
             <section className="">

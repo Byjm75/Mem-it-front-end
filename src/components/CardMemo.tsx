@@ -1,43 +1,61 @@
-import React from 'react';
 import { CardmemoProps } from '../Interface/Interface';
 
-const CardMemo = ({ carte }: CardmemoProps) => {
+import DropdownMemo from './DropdownMemo';
+
+const CardMemo = ({ memoAffich }: CardmemoProps) => {
+  let photo: string = memoAffich.image;
+  if (photo === undefined) {
+    photo = "<img src='../assets/profile-icon-png-917.png' alt='categorie'";
+  } else {
+    photo = memoAffich.image;
+  }
+
   return (
     <div
-      className='card'
+      className="card"
       style={{
-        width: ' 17rem',
-        margin: '0 0 10px ',
-        backgroundColor: 'rgba(180, 200, 200, 0.73)',
+        width: ' 13.5rem',
+        // height: '17rem',
+        borderRadius: '5%',
+        margin: '0 10px 10px ',
+        backgroundColor: 'lightblue',
       }}
     >
-      <div>
+      <DropdownMemo memo={memoAffich} />
+      <div style={{ width: '95%', margin: '15px auto' }}>
         <div
-          className='btn btn- col-sm-12'
+          className="btn btn- col-sm-12"
           style={{
             margin: '15px auto',
-            borderColor: '#9AAEB4',
+            borderColor: 'white',
           }}
         >
-          <img src='/assets/escalade.jpg' className='card-img' alt='escalade' />
+          <img
+            src={memoAffich.image}
+            alt="illustration memo"
+            style={{ width: '100%' }}
+          />
         </div>
       </div>
-      <div className='card-body'>
+      <div className="card-body">
         <h5
-          className='card-title'
+          className="card-title"
           style={{
             textAlign: 'center',
-            border: 'solid 2px #9AAEB4',
+            border: 'solid 2px white',
             borderRadius: '10px',
-            // width: '80%',
+
             margin: ' auto',
             backgroundColor: '#007872',
-            padding:'10px' ,
+            padding: '10px',
 
             color: 'white',
           }}
         >
-          Memo
+          {' '}
+          <a className="navbar-brand" href="/memo">
+            {memoAffich.title}
+          </a>
         </h5>
       </div>
     </div>

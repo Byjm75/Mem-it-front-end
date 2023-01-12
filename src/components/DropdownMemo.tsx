@@ -3,21 +3,22 @@ import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { Categories, DropdownProps } from '../Interface/Interface';
-import  Categorie  from '../Pages/Categorie';
+import { Memos } from '../Interface/Interface';
 
-// interface DropdownProps {
-//   category: Categories;
-// }
-const Dropdown = ({ category }: DropdownProps) => {
+interface DropdownProps {
+  memo: Memos;
+}
+const DropdownMemo = ({ memo }: DropdownProps) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [categories, setCategories] = useState<Categories | undefined>();
+  const [memos, setMemos] = useState<Memos | undefined>();
 
   const titleElement = useRef<HTMLInputElement>(null);
+  const date_eventElement = useRef<HTMLInputElement>(null);
+  const bodyElement = useRef<HTMLInputElement>(null);
   const ImageElement = useRef<HTMLInputElement>(null);
-  const favElement = useRef<HTMLInputElement>(null);
+  const urlElement = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
   const handleSubmitForm = async (e: FormEvent) => {
@@ -25,18 +26,22 @@ const Dropdown = ({ category }: DropdownProps) => {
     e.preventDefault();
 
     console.log(titleElement.current?.value);
+    console.log(date_eventElement.current?.value);
+    console.log(bodyElement.current?.value);
     console.log(ImageElement.current?.value);
-    console.log(favElement.current?.value);
-  
+    console.log(urlElement.current?.value);
+
     //   useEffect(() => {
     axios
       .patch(
-        `http://localhost:8085/api/categorie/${category.id}`,
+        `http://localhost:8085/api/tache/${memo.id}`,
 
         {
           title: titleElement.current?.value,
-          favori: favElement.current?.value,
+          date_event: date_eventElement.current?.value,
+          bodyElement: bodyElement.current?.value,
           image: ImageElement.current?.value,
+          urlElement: urlElement.current?.value,
         },
         {
           headers: {
@@ -48,40 +53,36 @@ const Dropdown = ({ category }: DropdownProps) => {
         console.log('response ', response.data.data);
 
         console.log(response, 'res');
-        alert('Catégorie modifiée!');
-        setCategories(response.data.data);
+        alert('Memo modifiée!');
+        setMemos(response.data.data);
         handleClose();
-        axios.get('http://localhost:8085/api/categorie/');
+        axios.get('http://localhost:8085/api/tache/');
       });
-    }
-//   },[]);
-        // useEffect(() => {
+  };
+  //   },[]);
+  // useEffect(() => {
 
   const handleClickForm = async () => {
-    await (
-      axios
-        .delete(
-        `http://localhost:8085/api/categorie/${category.id}`,
-      {
+    await axios
+      .delete(`http://localhost:8085/api/tache/${memo.id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
-      }
-    )
-    .then((response: AxiosResponse<{ data: any }>) => {
+        },
+      })
+      .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data.data);
 
         console.log(response, 'res');
         alert('Catégorie modifiée!');
-        setCategories(response.data.data);
+        setMemos(response.data.data);
         handleClose();
-        axios.get('http://localhost:8085/api/categorie/');
-      }));
-     };
-    // },[]);
+        axios.get('http://localhost:8085/api/tache/');
+      });
+  };
+  // },[]);
 
   return (
-    <div >
+    <div>
       <div className="dropdown">
         <Button
           className="btn btn-secondary dropdown-toggle"
@@ -96,10 +97,9 @@ const Dropdown = ({ category }: DropdownProps) => {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Dropdown button 
+          Dropdown button
         </Button>
         <ul className="dropdown-menu dropdown-menu-dark">
-          
           <li>
             <Button
               className="btn btn-success"
@@ -124,20 +124,16 @@ const Dropdown = ({ category }: DropdownProps) => {
       </div>
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
-          <Modal.Title>Modifier catégorie</Modal.Title>
+          <Modal.Title>Modifier memo</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form>
             <FloatingLabel
               controlId="floatingInput"
-              label="Catégorie"
+              label="Memo"
               className="mb-3"
             >
-              <Form.Control
-                type="text"
-                placeholder="catégorie"
-                ref={titleElement}
-              />
+              <Form.Control type="text" placeholder="memo" ref={titleElement} />
             </FloatingLabel>
             <div>
               <Form.Control
@@ -162,4 +158,4 @@ const Dropdown = ({ category }: DropdownProps) => {
   );
 };
 
-export default Dropdown;
+export default DropdownMemo;

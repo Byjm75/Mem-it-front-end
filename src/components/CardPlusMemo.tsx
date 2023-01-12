@@ -10,7 +10,8 @@ const CardPlusMemo = () => {
         width: ' 13rem',
         height: '17rem',
                 borderRadius: '1rem',
-        margin: '0 30px 30px 0',
+                
+        margin: '0 50px 30px 0',
         backgroundColor: 'lightblue',
       }}
     >

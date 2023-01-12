@@ -2,7 +2,7 @@ import React from 'react';
 
 export const FooterConnect = () => {
   return (
-    <div style={{position:'fixed',bottom:'0', width:'100%'}}>
+    <div style={{ position: 'relative', bottom: '0', width: '100%' }}>
       <section className="">
         <footer
           className="text-center text-white"

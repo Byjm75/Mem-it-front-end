@@ -43,10 +43,20 @@ export const SignIn = () => {
 
   return (
     <div>
-      <Navbar />
+      <div
+        style={{
+          width: '100%',
+          position: 'sticky',
+          top: '0',
+          overflow: 'hidden',
+          zIndex: '1',
+        }}
+      >
+        <Navbar />
+      </div>
       <MDBContainer
         style={{
-          margin: '39px auto',
+          margin: '25px auto'
         }}
       >
         <MDBCard>
@@ -126,7 +136,7 @@ export const SignIn = () => {
       </MDBContainer>
       <div style={{ height: '150px' }}></div>
 
-        <Footer />
+      <Footer />
     </div>
   );
 };

@@ -6,7 +6,9 @@ const CardPlus = () => {
     <div
       className="card"
       style={{
-        width: ' 14rem',
+        width: ' 13rem',
+        height: '17rem',
+
         borderRadius: '5%',
         margin: '0 0 10px',
         backgroundColor: 'lightblue',

@@ -2,12 +2,7 @@ import React from 'react';
 import { CardcategoryProps, Categories } from '../Interface/Interface';
 import Dropdown from './Dropdown'
 
-const photoChange = () => {
-  // let photo : string= this.categoryAffich.image
-  // if (photo===undefined)
-  // {photo="<img src='../assets/profile-icon-png-917.png' alt='categorie'"}
-  // else return photo
-};
+
 const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
   let photo: string = categoryAffich.image;
   if (photo === undefined) {
@@ -19,9 +14,9 @@ const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
   
   return (
     <div
-      className='card'
+      className="card"
       style={{
-        width: ' 13rem',
+        width: ' 13.5rem',
         // height: '17rem',
         borderRadius: '5%',
         margin: '0 10px 10px ',
@@ -31,22 +26,23 @@ const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
       <Dropdown category={categoryAffich} />
       <div style={{ width: '95%', margin: '15px auto' }}>
         <div
-          className='btn btn- col-sm-12'
+          className="btn btn- col-sm-12"
           style={{
             margin: '15px auto',
             borderColor: 'white',
+            backgroundColor: 'white',
           }}
         >
           <img
             src={categoryAffich.image}
             alt="illustration catégorie"
-            style={{ width: '100%' }}
+            style={{ width: '100%', borderRadius: '5px' }}
           />
         </div>
       </div>
-      <div className='card-body'>
+      <div className="card-body">
         <h5
-          className='card-title'
+          className="card-title"
           style={{
             textAlign: 'center',
             border: 'solid 2px white',
@@ -60,7 +56,7 @@ const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
           }}
         >
           {' '}
-          <a className='navbar-brand' href='/memo'>
+          <a className="navbar-brand" href="/memo">
             {categoryAffich.title}
           </a>
         </h5>

@@ -1,5 +1,6 @@
+/* eslint-disable array-callback-return */
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { Key, useEffect, useState } from 'react';
 import AddBtn from '../components/AddBtn';
 import CardMemo from '../components/CardMemo';
 // import CardPlus from "../components/CardPlus";
@@ -8,8 +9,9 @@ import FooterConnect from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import ToolsBar from '../components/ToolsBar';
 import { Memos } from '../Interface/Interface';
-
-
+import Categorie from './Categorie';
+import { Categories } from '../Interface/Interface';
+import { Category } from '@mui/icons-material';
 
 let listeMemos: Memos[] = [];
 
@@ -29,7 +31,7 @@ const Memo = () => {
   }, []);
 
   return (
-    <div className='position-sticky'>
+    <div className="position-sticky">
       <div
         style={{
           width: '100%',
@@ -55,15 +57,14 @@ const Memo = () => {
 
         <div
           style={{
-            width: '64%',
-            margin: '0 auto',
+            width: '70%',
+            margin: '0 45px 0 auto',
             position: 'relative',
-            left: '25px',
           }}
         >
           <div>
             <h1
-              className='card-title'
+              // className="card-title"
               style={{
                 width: '100%',
                 position: 'relative',
@@ -80,46 +81,34 @@ const Memo = () => {
           </div>
           <hr />
 
-          <div className='  '>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-bettwen',
-                flexWrap: 'wrap',
-                // left: '25px',
-                // position: 'sticky',
-                // left: '20px',
-              }}
-            >
-              <div>
-                <CardPlusMemo />
-              </div>
-              {/* <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-bettwen',
-                  flexWrap: 'wrap',
-                  // left: '25px',
-                  // position: 'sticky',
-                  // left: '20px',
-                }}
-              > */}
-              {listmemoDisplayed.map((memo, i) => (
-                <ul key={i}>
-                  <li
-                    key={i}
-                    style={{
-                      listStyleType: 'none',
-                      position: 'relative',
-                      right: '30px',
-                    }}
-                  >
-                    <CardMemo carte={memo} />
-                  </li>
-                </ul>
-              ))}
-              {/* </div> */}
+          <div
+            className=""
+            style={{
+              display: 'flex',
+              justifyContent: 'space-bettwen',
+              flexWrap: 'wrap',
+              width: '100%',
+            }}
+          >
+            <div>
+              <CardPlusMemo />
             </div>
+
+            {listmemoDisplayed.map((memo: Memos, i: Key | null | undefined) => (
+              <ul key={i}>
+                <li
+                  key={i}
+                  style={{
+                    listStyleType: 'none',
+                    position: 'relative',
+                    right: '40px',
+                    width: '100%',
+                  }}
+                >
+                  <CardMemo memoAffich={memo} />
+                </li>
+              </ul>
+            ))}
           </div>
         </div>
       </div>
