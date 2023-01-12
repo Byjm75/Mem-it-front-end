@@ -84,7 +84,12 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
             >
               {location.pathname !== '/createCategory' &&
                 location.pathname !== '/createTask' && (
-                  <input type='text' onChange={handleChange} />
+                  <input
+                    className='form-control mr-sm-2'
+                    type='search'
+                    placeholder='taper votre recherche'
+                    onChange={handleChange}
+                  />
                 )}
             </div>
             {userToken?.role === 'admin' ? (
@@ -108,7 +113,6 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
                     <li className='nav-item active'>
                       <a
                         className='nav-link active'
-                        // style={{ color: '#806d42' }}
                         aria-current='page'
                         href='/admin'
                       >

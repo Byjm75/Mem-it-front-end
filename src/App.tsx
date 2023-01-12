@@ -9,7 +9,7 @@ import {UserAdmin} from './Pages/Admin/UserAdmin';
 import {Dashboard} from './Pages/Dashboard';
 import {Categorie} from './Pages/Categorie';
 import {CreateCategory} from './Pages/CreateCategory';
-import {CreateTask} from './Pages/CreateTask';
+import {CreateTask} from './Pages/CreateMemo';
 import { Home } from './Pages/Home';
 import {Profil} from './Pages/Profil';
 import {Memos} from './Pages/Memos';

@@ -3,7 +3,6 @@ import React, { ChangeEvent, FormEvent, useRef, useState } from 'react';
 import { ToolsBar } from '../components/ToolsBar';
 import { useNavigate } from 'react-router-dom';
 import { Sidebar } from '../components/Sidebar';
-import { blob } from 'stream/consumers';
 import { FooterConnect } from '../components/FooterConnect';
 
 export const CreateCategory = () => {
@@ -67,6 +66,7 @@ export const CreateCategory = () => {
         });
     }
     navigate('/categorie');
+    window.location.reload()
   };
 
   return (
@@ -122,16 +122,6 @@ export const CreateCategory = () => {
                 <div className='row mt-3' style={{ display: 'flex' }}>
                   <div className='col-md-4 border-right'></div>
                   <div className='col-md-8'>
-                    {/* <label className="labels" style={{ color: '#007872' }}>
-                      Titre
-                    </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Titre"
-                      ref={titleElement}
-                     
-                    /> */}
                     <form onSubmit={handleSubmit}>
                       <input type='text' ref={titleElement} />
                       <label htmlFor='file'>Select image:</label>
@@ -155,20 +145,7 @@ export const CreateCategory = () => {
                       display: 'flex',
                       justifyContent: 'end',
                     }}
-                  >
-                    {/* <button
-                      className="btn btn-primary profile-button col-md-12"
-                      type="button"
-                      onClick={handleSubmitForm}
-                      style={{
-                        padding: '5px',
-                        backgroundColor: '#007872',
-                        borderColor: 'white',
-                      }}
-                    >
-                      Sauvegarder modifications
-                    </button> */}
-                  </div>
+                  ></div>
                 </div>
               </div>
             </div>

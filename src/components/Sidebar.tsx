@@ -50,8 +50,8 @@ export const Sidebar = () => {
       </CDBSidebarHeader>
       <CDBSidebarContent>
         <CDBSidebarMenu>
-          <CDBSidebarMenuItem icon="sticky-note">
-            <a className="navbar-brand" href="/createCategory">
+          <CDBSidebarMenuItem icon='sticky-note'>
+            <a className='navbar-brand' href='/createCategory'>
               Créer une catégorie
             </a>
           </CDBSidebarMenuItem>
@@ -66,6 +66,11 @@ export const Sidebar = () => {
             </a>
           </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon='th-large'>
+            <a className='navbar-brand' href='/memo'>
+              Memos
+            </a>
+          </CDBSidebarMenuItem>
+          <CDBSidebarMenuItem icon='th-large'>
             <a className='navbar-brand' href='/categorie'>
               Memos à classer
             </a>
@@ -75,7 +80,6 @@ export const Sidebar = () => {
               Profil
             </a>
           </CDBSidebarMenuItem>
-         
         </CDBSidebarMenu>
       </CDBSidebarContent>
 

@@ -1,18 +1,16 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import {AddBtn} from '../components/AddBtn';
-import {CardMemo} from '../components/CardMemo';
-import {FooterConnect} from '../components/FooterConnect';
+import { AddBtn } from '../components/AddBtn';
+import { CardMemo } from '../components/CardMemo';
+import { FooterConnect } from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
-import {ToolsBar} from '../components/ToolsBar';
+import { ToolsBar } from '../components/ToolsBar';
 import { MemosProps } from '../Interface/Interface';
 
 let listeMemos: MemosProps[] = [];
-let filteredMemos: string[] = [];
 
 export const Memos = () => {
   const [listmemoDisplayed, setListMemoDisplayed] = useState<MemosProps[]>([]);
-  
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -25,9 +23,22 @@ export const Memos = () => {
         setListMemoDisplayed(res.data);
       });
   }, []);
-  const handleUserInput = (userInputText: string) =>{}
+  const handleUserInput = (userInputText: string) => {
+    console.log("qu'a tapé mon user ? : ", userInputText);
+    let catTemporaire = [...listmemoDisplayed];
+    if (userInputText.length > 0) {
+      catTemporaire = catTemporaire.filter((e) =>
+        e.title.includes(userInputText)
+      );
+      setListMemoDisplayed(catTemporaire);
+      console.log('ma nouvelle listeState après search : ', listmemoDisplayed);
+      console.log('ma nouvelle liste après search : ', catTemporaire);
+    } else {
+      setListMemoDisplayed(listeMemos);
+    }
+  };
   return (
-    <div className="position-sticky">
+    <div className='position-sticky'>
       <div
         style={{
           width: '100%',
@@ -61,7 +72,7 @@ export const Memos = () => {
         >
           <div>
             <h1
-              className="card-title"
+              className='card-title'
               style={{
                 width: '100%',
                 position: 'relative',
@@ -78,17 +89,14 @@ export const Memos = () => {
           </div>
           <hr />
 
-          <div className="  ">
+          <div className='  '>
             <div
               style={{
                 display: 'flex',
                 justifyContent: 'space-bettwen',
                 flexWrap: 'wrap',
-                
               }}
             >
-              
-              
               {listmemoDisplayed.map((memo, i) => (
                 <ul key={i}>
                   <li
@@ -103,7 +111,6 @@ export const Memos = () => {
                   </li>
                 </ul>
               ))}
-             
             </div>
           </div>
         </div>
@@ -119,4 +126,3 @@ export const Memos = () => {
     </div>
   );
 };
-

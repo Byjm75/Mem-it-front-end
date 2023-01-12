@@ -1,14 +1,11 @@
-import React, { SyntheticEvent } from 'react';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import {ToolsBar} from '../../components/ToolsBar';
+import { ToolsBar } from '../../components/ToolsBar';
 import { UserData } from '../../Interface/Interface';
 
+let listeUsers: UserData[] = [];
+
 export const UserAdmin = () => {
-  const textElement = useRef<HTMLTextAreaElement>;
-
-  let listeUsers: UserData[] = [];
-
   const [listUsersDisplayed, setListUsersDisplayed] = useState<UserData[]>([
     ...listeUsers,
   ]);
@@ -28,14 +25,24 @@ export const UserAdmin = () => {
       });
   }, []);
 
-  const handleSubmitForm = (e: SyntheticEvent) => {
-    e.preventDefault();
-    console.log('saisi search bar ', textElement);
+  const handleUserInput = (userInputText: string) => {
+    console.log("qu'a tapé mon user ? : ", userInputText);
+    let catTemporaire = [...listUsersDisplayed];
+    if (userInputText.length > 0) {
+      catTemporaire = catTemporaire.filter((e) =>
+        e.email.includes(userInputText)
+      );
+      setListUsersDisplayed(catTemporaire);
+      console.log('ma nouvelle listeState après search : ', listUsersDisplayed);
+      console.log('ma nouvelle liste après search : ', catTemporaire);
+    } else {
+      setListUsersDisplayed(listeUsers);
+    }
   };
 
   return (
     <div>
-      {/* <ToolsBar onSearch={} /> */}
+      <ToolsBar onSearch={handleUserInput} />
       <table className='table table-striped'>
         <thead className='thead-dark'>
           <tr>
@@ -48,7 +55,7 @@ export const UserAdmin = () => {
         <tbody>
           {listUsersDisplayed.map((user, i) => (
             <tr key={i}>
-              <td>{user.id}</td>
+              <td className='button mr-3'>{user.id}</td>
               <td>{user.email}</td>
               <td>{user.pseudo}</td>
               <td>
@@ -66,4 +73,3 @@ export const UserAdmin = () => {
     </div>
   );
 };
-

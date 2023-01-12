@@ -3,7 +3,6 @@ import { FormEvent, useRef, useState } from 'react';
 import { FloatingLabel, Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { useNavigate } from 'react-router-dom';
 
 export const AddCardMemo = () => {
   const [show, setShow] = useState(false);

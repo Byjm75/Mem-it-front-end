@@ -53,7 +53,7 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         alert('Memo modifiée!');
         setMemos(response.data.data);
         handleClose();
-        axios.get('http://localhost:8085/api/tache/');
+        window.location.reload();
       });
   };
   //   },[]);
@@ -73,22 +73,20 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         alert('Catégorie modifiée!');
         setMemos(response.data.data);
         handleClose();
-        axios.get('http://localhost:8085/api/tache/');
+        window.location.reload();
       });
   };
   // },[]);
 
   return (
     <div>
-      <div className='dropdown'>
+      <div className='dropdown d-flex justify-content-end'>
         <Button
-          className='btn btn-secondary dropdown-toggle'
+          className='btn btn-danger dropdown-toggle'
           type='button'
           data-bs-toggle='dropdown'
           aria-expanded='false'
-        >
-          
-        </Button>
+        ></Button>
         <ul className='dropdown-menu'>
           <li>
             <Button type='button' onClick={handleShow}>

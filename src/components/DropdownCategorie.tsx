@@ -47,7 +47,7 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
         alert('Catégorie modifiée!');
         setCategories(response.data.data);
         handleClose();
-        axios.get('http://localhost:8085/api/categorie/');
+        window.location.reload();
       });
   };
   //   },[]);
@@ -67,23 +67,21 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
         alert('Catégorie modifiée!');
         setCategories(response.data.data);
         handleClose();
-        axios.get('http://localhost:8085/api/categorie/');
+        window.location.reload();
       });
   };
   // },[]);
 
   return (
     <div>
-      <div className='dropdown'>
+      <div className='dropdown d-flex justify-content-end'>
         <Button
-          className='btn btn-secondary dropdown-toggle'
+          className='btn btn-danger dropdown-toggle'
           type='button'
           data-bs-toggle='dropdown'
           aria-expanded='false'
-        >
-          
-        </Button>
-        <ul className='dropdown-menu'>
+        ></Button>
+        <ul className='dropdown-menu p-4 '>
           <li>
             <Button type='button' onClick={handleShow}>
               Modifier
@@ -135,4 +133,3 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
     </div>
   );
 };
-
