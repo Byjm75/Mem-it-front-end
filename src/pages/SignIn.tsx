@@ -11,7 +11,7 @@ import {
 } from 'mdb-react-ui-kit';
 import { FormEvent, useRef } from 'react';
 import { Navbar } from '../components/Navbar';
-import Footer from '../components/Footer';
+import {FooterConnect} from '../components/FooterConnect';
 import axios, { AxiosResponse } from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -126,7 +126,7 @@ export const SignIn = () => {
       </MDBContainer>
       <div style={{ height: '150px' }}></div>
 
-        <Footer />
+        <FooterConnect />
     </div>
   );
 };

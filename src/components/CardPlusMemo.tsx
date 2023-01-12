@@ -2,7 +2,7 @@ import React from 'react';
 // import { AddCardCategorie } from './AddCardCategorie';
 import { AddCardMemo } from './AddCardMemo';
 
-const CardPlusMemo = () => {
+export const CardPlusMemo = () => {
   return (
     <div
       className="card"
@@ -50,4 +50,3 @@ const CardPlusMemo = () => {
   );
 };
 
-export default CardPlusMemo;

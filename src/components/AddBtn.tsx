@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import axios, { AxiosResponse } from 'axios';
 
-const AddBtn = () => {
+ export const AddBtn = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -225,4 +225,3 @@ const AddBtn = () => {
   );
 };
 
-export default AddBtn;

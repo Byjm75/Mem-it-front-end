@@ -8,11 +8,9 @@ import {ToolsBar} from '../components/ToolsBar';
 import { MemosProps } from '../Interface/Interface';
 
 let listeMemos: MemosProps[] = [];
-let filteredMemos: string[] = [];
 
-export const Memos = () => {
+export const MemosUncat = () => {
   const [listmemoDisplayed, setListMemoDisplayed] = useState<MemosProps[]>([]);
-  
 
   useEffect(() => {
     const token = localStorage.getItem('token');

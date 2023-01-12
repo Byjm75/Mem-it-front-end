@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 import { useEffect } from 'react';
-import CardCategory from '../components/CardCategory';
-import ToolsBar from '../components/ToolsBar';
+import {CardCategory} from '../components/CardCategory';
+import {ToolsBar} from '../components/ToolsBar';
 import { useState } from 'react';
 import axios from 'axios';
 import { Sidebar } from '../components/Sidebar';
-import FooterConnect from '../components/FooterConnect';
-import AddBtn from '../components/AddBtn';
+import {FooterConnect} from '../components/FooterConnect';
+import {AddBtn} from '../components/AddBtn';
 import { Categories } from '../Interface/Interface';
 
 let dataCateg: Categories[] = [];
-const Categorie = () => {
+export const Categorie = () => {
   const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>([]);
 
   useEffect(() => {
@@ -96,11 +96,10 @@ const Categorie = () => {
             </h1>
           </div>
           <hr />
-          {/* <div className="card">
-            <div className="card-header"> */}
+          
           <div
             className='card-tools row'
-            // style={{ display: 'flex', justifyContent: 'space-around' }}
+ 
           >
             <div
               style={{
@@ -110,15 +109,13 @@ const Categorie = () => {
                 listStyle: 'none',
               }}
             >
-              {/* <CardPlus/> */}
               {listCatDisplayed.map((categorie) => (
                 <li key={categorie.id}>
                   <CardCategory categoryAffich={categorie} />
                 </li>
               ))}
             </div>
-            {/* </div>
-            </div> */}
+            
           </div>
         </div>
       </div>
@@ -134,4 +131,3 @@ const Categorie = () => {
   );
 };
 
-export default Categorie;

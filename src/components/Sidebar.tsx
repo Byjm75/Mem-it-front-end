@@ -65,6 +65,11 @@ export const Sidebar = () => {
               Catégories
             </a>
           </CDBSidebarMenuItem>
+          <CDBSidebarMenuItem icon='th-large'>
+            <a className='navbar-brand' href='/categorie'>
+              Memos à classer
+            </a>
+          </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon='user' iconType='solid'>
             <a className='navbar-brand' href='/profil'>
               Profil

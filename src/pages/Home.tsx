@@ -1,6 +1,6 @@
 import { Carroussel } from '../components/Caroussel';
-import Footer from '../components/Footer';
 import { Navbar } from '../components/Navbar';
+import {FooterConnect} from '../components/FooterConnect';
 
 export const Home = () => {
   return (
@@ -119,7 +119,7 @@ export const Home = () => {
       </div>
       <div style={{ height: '150px' }}></div>
 
-        <Footer />
+        <FooterConnect />
     </div>
   );
 };

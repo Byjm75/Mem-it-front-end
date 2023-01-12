@@ -12,7 +12,7 @@ import {
 } from 'mdb-react-ui-kit';
 import { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../components/Footer';
+import {FooterConnect} from '../components/FooterConnect';
 import { Navbar } from '../components/Navbar';
 
 export const SignUp = () => {
@@ -46,17 +46,12 @@ export const SignUp = () => {
 
   return (
     <div
-    // style={{
-    //   backgroundColor: '#ABCDEF',
-    //   overflow: 'hidden',
-    // }}
+    
     >
       <Navbar />
       <MDBContainer
         className='my-2'
-        // style={{
-        //   height: '30rem',
-        // }}
+       
       >
         <MDBCard>
           <MDBRow
@@ -153,7 +148,7 @@ export const SignUp = () => {
         </MDBCard>
       </MDBContainer>
       <div style={{height:'150px'}}></div>
-        <Footer />
+        <FooterConnect />
     </div>
   );
 };

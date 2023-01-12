@@ -1,8 +1,8 @@
 import { CardmemoProps } from '../Interface/Interface';
 
-import DropdownMemo from './DropdownMemo';
+import {DropdownMemo} from './DropdownMemo';
 
-const CardMemo = ({ memoAffich }: CardmemoProps) => {
+export const CardMemo = ({ memoAffich }: CardmemoProps) => {
   let photo: string = memoAffich.image;
   if (photo === undefined) {
     photo = "<img src='../assets/profile-icon-png-917.png' alt='categorie'";
@@ -62,4 +62,3 @@ const CardMemo = ({ memoAffich }: CardmemoProps) => {
   );
 };
 
-export default CardMemo;

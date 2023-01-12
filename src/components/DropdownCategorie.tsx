@@ -3,13 +3,9 @@ import { FormEvent, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { Categories } from '../Interface/Interface';
+import { Categories, DropdownPropsCat } from '../Interface/Interface';
 
-
-interface DropdownProps {
-  category: Categories;
-}
-const DropdownCategorie = ({ category }: DropdownProps) => {
+export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -27,7 +23,7 @@ const DropdownCategorie = ({ category }: DropdownProps) => {
     console.log(titleElement.current?.value);
     console.log(ImageElement.current?.value);
     console.log(favElement.current?.value);
-  
+
     //   useEffect(() => {
     axios
       .patch(
@@ -53,22 +49,18 @@ const DropdownCategorie = ({ category }: DropdownProps) => {
         handleClose();
         axios.get('http://localhost:8085/api/categorie/');
       });
-    }
-//   },[]);
-        // useEffect(() => {
+  };
+  //   },[]);
+  // useEffect(() => {
 
   const handleClickForm = async () => {
-    await (
-      axios
-        .delete(
-        `http://localhost:8085/api/categorie/${category.id}`,
-      {
+    await axios
+      .delete(`http://localhost:8085/api/categorie/${category.id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
-        }
-      }
-    )
-    .then((response: AxiosResponse<{ data: any }>) => {
+        },
+      })
+      .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data.data);
 
         console.log(response, 'res');
@@ -76,29 +68,29 @@ const DropdownCategorie = ({ category }: DropdownProps) => {
         setCategories(response.data.data);
         handleClose();
         axios.get('http://localhost:8085/api/categorie/');
-      }));
-     };
-    // },[]);
+      });
+  };
+  // },[]);
 
   return (
     <div>
-      <div className="dropdown">
+      <div className='dropdown'>
         <Button
-          className="btn btn-secondary dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
+          className='btn btn-secondary dropdown-toggle'
+          type='button'
+          data-bs-toggle='dropdown'
+          aria-expanded='false'
         >
-          Dropdown button 
+          
         </Button>
-        <ul className="dropdown-menu">
+        <ul className='dropdown-menu'>
           <li>
-            <Button type="button" onClick={handleShow}>
+            <Button type='button' onClick={handleShow}>
               Modifier
             </Button>
           </li>
           <li>
-            <Button type="button" onClick={handleClickForm}>
+            <Button type='button' onClick={handleClickForm}>
               Supprimer
             </Button>
           </li>
@@ -111,31 +103,31 @@ const DropdownCategorie = ({ category }: DropdownProps) => {
         <Modal.Body>
           <form>
             <FloatingLabel
-              controlId="floatingInput"
-              label="Catégorie"
-              className="mb-3"
+              controlId='floatingInput'
+              label='Catégorie'
+              className='mb-3'
             >
               <Form.Control
-                type="text"
-                placeholder="catégorie"
+                type='text'
+                placeholder='catégorie'
                 ref={titleElement}
               />
             </FloatingLabel>
             <div>
               <Form.Control
-                className="text-primary"
-                type="file"
-                accept="image/*"
+                className='text-primary'
+                type='file'
+                accept='image/*'
                 ref={ImageElement}
               ></Form.Control>
             </div>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={handleClose}>
+          <Button variant='danger' onClick={handleClose}>
             Fermer
           </Button>
-          <Button variant="success" onClick={handleSubmitForm}>
+          <Button variant='success' onClick={handleSubmitForm}>
             Modifier
           </Button>
         </Modal.Footer>
@@ -144,4 +136,3 @@ const DropdownCategorie = ({ category }: DropdownProps) => {
   );
 };
 
-export default DropdownCategorie;

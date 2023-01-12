@@ -92,4 +92,3 @@ export const FooterConnect = () => {
   );
 };
 
-export default FooterConnect;

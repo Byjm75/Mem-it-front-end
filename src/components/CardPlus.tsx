@@ -1,6 +1,6 @@
 import { AddCardCategorie } from './AddCardCategorie';
 
-const CardPlus = () => {
+export const CardPlus = () => {
   return (
     <div
       className="card"
@@ -47,4 +47,3 @@ const CardPlus = () => {
   );
 };
 
-export default CardPlus;

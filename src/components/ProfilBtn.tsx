@@ -1,6 +1,7 @@
 import { SyntheticEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-const ProfilBtn = () => {
+
+export const ProfilBtn = () => {
   const navigate = useNavigate();
   const profilElement = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -19,4 +20,3 @@ const ProfilBtn = () => {
   );
 };
 
-export default ProfilBtn;

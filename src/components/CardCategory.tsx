@@ -1,13 +1,43 @@
+import { useEffect, useState } from 'react';
 import { CardcategoryProps } from '../Interface/Interface';
-import DropdownCategorie from './DropdownCategorie';
+import {DropdownCategorie} from './DropdownCategorie';
 
-const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
-  let photo: string = categoryAffich.image;
-  if (photo === undefined) {
-    photo = "<img src='../assets/profile-icon-png-917.png' alt='categorie'";
-  } else {
-    photo = categoryAffich.image;
+export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {    const [listImgDisplayed, setListImgDisplayed] = useState<string>();
+  console.log('bonjour je suis votre url : ', categoryAffich.image)
+
+  useEffect(() =>{
+  if (categoryAffich.image==='https://www.lacourdespetits.com/wp-content/uploads/2015/12/logo_lacourdespetits.jpg')
+  {
+    console.log("image de base")
+    setListImgDisplayed('https://www.lacourdespetits.com/wp-content/uploads/2015/12/logo_lacourdespetits.jpg');
   }
+  if(categoryAffich.image!=='https://www.lacourdespetits.com/wp-content/uploads/2015/12/logo_lacourdespetits.jpg'){
+   console.log("image sur mesure")
+    fetch  (`http://localhost:8085/api/image/${categoryAffich.image}`,{
+    headers:  {Authorization: `Bearer ${localStorage.getItem('token')}` }})
+    
+    .then((resp) => resp.blob())
+    .then((image) =>{
+      const reader = new FileReader();
+      
+      reader.readAsDataURL(image);
+      reader.onloadend = () => {
+        let base64Data = reader.result;
+        if(base64Data) {
+         setListImgDisplayed(base64Data.toString());
+        }
+        
+      }
+    })
+      .then((res) => {
+      })
+      ;
+      
+
+  
+    }
+  
+},[])
 
   return (
     <div
@@ -30,7 +60,7 @@ const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
           }}
         >
           <img
-            src={categoryAffich.image}
+            src={listImgDisplayed}
             alt="illustration catégorie"
             style={{ width: '100%' }}
           />
@@ -61,4 +91,3 @@ const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
   );
 };
 
-export default CardCategory;

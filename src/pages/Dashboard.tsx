@@ -1,20 +1,13 @@
-import AddBtn from '../components/AddBtn';
-import CardFavoris from '../components/CardFavoris';
-import CardPlus from '../components/CardPlus';
-import ToolsBar from '../components/ToolsBar';
+import {AddBtn} from '../components/AddBtn';
+import {CardPlus} from '../components/CardPlus';
+import {ToolsBar} from '../components/ToolsBar';
 import { Sidebar } from '../components/Sidebar';
-import FooterConnect from '../components/FooterConnect';
+import {FooterConnect} from '../components/FooterConnect';
 
-const Dashboard = () => {
-
-
+export const Dashboard = () => {
   const handleUserInput = (userInputText: string)=> {
   
 }
-
-
-
-
   return (
     <div style={{ height: '100vh' }}>
       <div
@@ -75,7 +68,7 @@ const Dashboard = () => {
             }}
           >
             <CardPlus />
-            <CardFavoris />
+            
           </div>
           <div>
             <h2
@@ -130,4 +123,3 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;

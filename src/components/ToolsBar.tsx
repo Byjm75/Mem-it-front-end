@@ -174,4 +174,3 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
     </div>
   );
 };
-export default ToolsBar;

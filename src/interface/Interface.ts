@@ -1,6 +1,6 @@
 
 
-export interface Memos {
+export interface MemosProps {
   id: string;
   title: string;
   date_event: Date;
@@ -28,7 +28,15 @@ export interface CardcategoryProps {
 }
 
 export interface CardmemoProps {
-  memoAffich: Memos;
+  memoAffich: MemosProps;
+}
+
+export interface DropdownPropsMemo {
+  memo: MemosProps;
+}
+
+export interface DropdownPropsCat {
+  category: Categories;
 }
 
 export interface TableUsers {

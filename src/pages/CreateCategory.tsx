@@ -1,99 +1,72 @@
 import axios, { AxiosResponse } from 'axios';
-import React, { FormEvent, useRef, useState } from 'react';
-import {ToolsBar} from '../components/ToolsBar';
+import React, { ChangeEvent, FormEvent, useRef, useState } from 'react';
+import { ToolsBar } from '../components/ToolsBar';
 import { useNavigate } from 'react-router-dom';
 import { Sidebar } from '../components/Sidebar';
-import FooterConnect from '../components/FooterConnect';
-
-type State = string;
+import { blob } from 'stream/consumers';
+import { FooterConnect } from '../components/FooterConnect';
 
 export const CreateCategory = () => {
-  const [image, setImage] = useState<State>('');
+  const navigate = useNavigate();
 
   const titleElement = useRef<HTMLInputElement>(null);
-  const ImageElement = useRef<HTMLInputElement>(null);
-  const favElement = useRef<HTMLInputElement>(null);
 
-  const navigate = useNavigate();
-  const handleSubmitForm = async (e: FormEvent) => {
-    console.log('handleSubmitForm');
-    e.preventDefault();
-    console.log(titleElement.current?.value);
-    console.log(ImageElement.current?.value);
-    console.log(favElement.current?.value);
+  const [file, setFile] = useState<File>();
 
-    axios
-      .post(
-        'http://localhost:8085/api/categorie',
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let files = event.target.files?.[0];
 
-        {
-          title: titleElement.current?.value,
-          favori: favElement.current?.value,
-          image: ImageElement.current?.value,
-        },
-        {
-          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-        }
-      )
-      .then((response: AxiosResponse<{ data: any }>) => {
-        console.log('response ', response.data);
-        console.log(response, 'res');
-        alert('Nouvelle catégorie créée!');
-        navigate('/categorie');
-      });
-  };
-
-  const getBase64Image = (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsArrayBuffer(file);
-      reader.onloadend = () => {
-        const arrayBuffer = reader.result as ArrayBuffer;
-        if (!arrayBuffer) {
-          reject(new Error('Failed to read file'));
-        }
-        const base64Image = Buffer.from(arrayBuffer).toString('base64');
-        resolve(base64Image);
-      };
-      reader.onerror = (error) => {
-        reject(error);
-      };
-    });
-  };
-
-  const handleFileChange = async (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const files = event.target.files?.[0];
     if (!files) {
       return;
     }
-    const base64Image = await getBase64Image(files);
-    setImage(base64Image);
+    setFile(files);
   };
 
   const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log(file);
+    console.log(titleElement.current?.value);
+    if (file && titleElement.current?.value) {
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('categorieTitle', titleElement.current.value);
 
-    axios
-      .post(
-        'https://httpbin.org/post',
-        {
-          image,
+      axios({
+        method: 'post',
+        url: 'http://localhost:8085/api/image/upload',
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          maxContentLength: Infinity,
-        }
-      )
-      .then((response) => {
-        console.log(response.data);
       })
-      .catch((error) => {
-        console.error(error);
-      });
+        .then((response: any) => {
+          console.log(response.data);
+        })
+        .catch((error: any) => {
+          console.error(error);
+        });
+    }
+    const inputTitle = titleElement.current?.value;
+    if ((file === undefined || null) && (inputTitle !== undefined || null)) {
+      axios
+        .post(
+          'http://localhost:8085/api/categorie',
+
+          { title: titleElement.current?.value, image: '' },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        )
+        .then((response: AxiosResponse<{ data: any }>) => {
+          console.log('response ', response.data);
+          console.log(response, 'res');
+          alert('Nouvelle catégorie créée!');
+        });
+    }
+    navigate('/categorie');
   };
 
   return (
@@ -107,9 +80,11 @@ export const CreateCategory = () => {
           zIndex: '1',
         }}
       >
-        <ToolsBar onSearch={function (userInput: string): void {
-          throw new Error('Function not implemented.');
-        } } />
+        <ToolsBar
+          onSearch={function (userInput: string): void {
+            throw new Error('Function not implemented.');
+          }}
+        />
       </div>{' '}
       <div
         style={{
@@ -127,7 +102,7 @@ export const CreateCategory = () => {
           <Sidebar />
         </div>
         <div
-          className="container rounded bg-' mt-5 mb-5 "
+          className='container rounded bg-4 mt-5 mb-5 '
           style={{
             display: 'flex',
             backgroundColor: 'black',
@@ -147,30 +122,31 @@ export const CreateCategory = () => {
                 <div className='row mt-3' style={{ display: 'flex' }}>
                   <div className='col-md-4 border-right'></div>
                   <div className='col-md-8'>
-                    <label className='labels' style={{ color: '#007872' }}>
+                    {/* <label className="labels" style={{ color: '#007872' }}>
                       Titre
                     </label>
                     <input
-                      type='text'
-                      className='form-control'
-                      placeholder='Titre'
+                      type="text"
+                      className="form-control"
+                      placeholder="Titre"
                       ref={titleElement}
-                    />
+                     
+                    /> */}
+                    <form onSubmit={handleSubmit}>
+                      <input type='text' ref={titleElement} />
+                      <label htmlFor='file'>Select image:</label>
+                      <input
+                        type='file'
+                        id='file'
+                        onChange={handleFileChange}
+                      />
+                      <button type='submit'>Upload image</button>
+                    </form>
                   </div>
                 </div>
                 <div className='row' style={{ display: 'flex' }}>
                   <div className='column mt-3 col-6' style={{ width: '100%' }}>
-                    <div className='col-md-12'>
-                      <form onSubmit={handleSubmit}>
-                        <label htmlFor='file'>Select image:</label>
-                        <input
-                          type='file'
-                          id='file'
-                          onChange={handleFileChange}
-                        />
-                        <button type='submit'>Upload image</button>
-                      </form>
-                    </div>
+                    <div className='col-md-12'></div>
                   </div>
                   <div
                     className='mt-4 text-center col-12'
@@ -180,9 +156,9 @@ export const CreateCategory = () => {
                       justifyContent: 'end',
                     }}
                   >
-                    <button
-                      className='btn btn-primary profile-button col-md-12'
-                      type='button'
+                    {/* <button
+                      className="btn btn-primary profile-button col-md-12"
+                      type="button"
                       onClick={handleSubmitForm}
                       style={{
                         padding: '5px',
@@ -191,7 +167,7 @@ export const CreateCategory = () => {
                       }}
                     >
                       Sauvegarder modifications
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
@@ -199,8 +175,20 @@ export const CreateCategory = () => {
           </div>
         </div>
       </div>
-      <div style={{ height: '150px' }}></div>
-      <FooterConnect />
+      <div
+        style={{
+          marginTop: '30px',
+
+          bottom: '0',
+          width: '100%',
+        }}
+      >
+        <FooterConnect />
+      </div>
     </div>
   );
 };
+
+function setImage(arg0: string) {
+  throw new Error('Function not implemented.');
+}

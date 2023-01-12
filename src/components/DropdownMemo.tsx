@@ -3,17 +3,13 @@ import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { Memos } from '../Interface/Interface';
+import { DropdownPropsMemo } from '../Interface/Interface';
 
-
-interface DropdownProps {
-  memo: Memos;
-}
-const DropdownMemo = ({ memo }: DropdownProps) => {
+export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [memos, setMemos] = useState<Memos | undefined>();
+  const [memos, setMemos] = useState<DropdownPropsMemo | undefined>();
 
   const titleElement = useRef<HTMLInputElement>(null);
   const date_eventElement = useRef<HTMLInputElement>(null);
@@ -42,7 +38,7 @@ const DropdownMemo = ({ memo }: DropdownProps) => {
           date_event: date_eventElement.current?.value,
           bodyElement: bodyElement.current?.value,
           image: ImageElement.current?.value,
-          urlElement: urlElement.current?.value
+          urlElement: urlElement.current?.value,
         },
         {
           headers: {
@@ -84,23 +80,23 @@ const DropdownMemo = ({ memo }: DropdownProps) => {
 
   return (
     <div>
-      <div className="dropdown">
+      <div className='dropdown'>
         <Button
-          className="btn btn-secondary dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
+          className='btn btn-secondary dropdown-toggle'
+          type='button'
+          data-bs-toggle='dropdown'
+          aria-expanded='false'
         >
-          Dropdown button 
+          
         </Button>
-        <ul className="dropdown-menu">
+        <ul className='dropdown-menu'>
           <li>
-            <Button type="button" onClick={handleShow}>
+            <Button type='button' onClick={handleShow}>
               Modifier
             </Button>
           </li>
           <li>
-            <Button type="button" onClick={handleClickForm}>
+            <Button type='button' onClick={handleClickForm}>
               Supprimer
             </Button>
           </li>
@@ -113,31 +109,27 @@ const DropdownMemo = ({ memo }: DropdownProps) => {
         <Modal.Body>
           <form>
             <FloatingLabel
-              controlId="floatingInput"
-              label="Memo"
-              className="mb-3"
+              controlId='floatingInput'
+              label='Memo'
+              className='mb-3'
             >
-              <Form.Control
-                type="text"
-                placeholder="memo"
-                ref={titleElement}
-              />
+              <Form.Control type='text' placeholder='memo' ref={titleElement} />
             </FloatingLabel>
             <div>
               <Form.Control
-                className="text-primary"
-                type="file"
-                accept="image/*"
+                className='text-primary'
+                type='file'
+                accept='image/*'
                 ref={ImageElement}
               ></Form.Control>
             </div>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={handleClose}>
+          <Button variant='danger' onClick={handleClose}>
             Fermer
           </Button>
-          <Button variant="success" onClick={handleSubmitForm}>
+          <Button variant='success' onClick={handleSubmitForm}>
             Modifier
           </Button>
         </Modal.Footer>
@@ -145,5 +137,3 @@ const DropdownMemo = ({ memo }: DropdownProps) => {
     </div>
   );
 };
-
-export default DropdownMemo;
