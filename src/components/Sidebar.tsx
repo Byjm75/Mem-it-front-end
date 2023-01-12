@@ -1,8 +1,9 @@
-import jwtDecode from 'jwt-decode';
-import { useEffect, useState } from 'react';
-import { DecodTokenType, UserData } from '../Interface/Interface';
+// import jwtDecode from 'jwt-decode';
+import jwtDecode from "jwt-decode";
+import { useEffect, useState } from "react";
+import { DecodTokenType, UserData } from "../Interface/Interface";
 
-const cdbreact = require('cdbreact');
+const cdbreact = require("cdbreact");
 const {
   CDBSidebar,
   CDBSidebarContent,
@@ -17,12 +18,12 @@ export const Sidebar = () => {
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
   useEffect(() => {
-    const accessToken = localStorage.getItem('token');
+    const accessToken = localStorage.getItem("token");
     if (accessToken) {
       const decodToken: DecodTokenType = jwtDecode(accessToken);
-      console.log('Token décodé Sidebar:', decodToken);
+      console.log("Token décodé Sidebar:", decodToken);
       setUserToken(decodToken.utilisateur);
-      if (decodToken.utilisateur.role === 'admin') {
+      if (decodToken.utilisateur.role === "admin") {
         setIsAdmin(true);
       }
     }
@@ -30,28 +31,28 @@ export const Sidebar = () => {
 
   const handleLogout = () => {
     // Permets de ne pas effacer toutes les informations dans le localStorage
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
   };
 
   return (
     <CDBSidebar
       style={{
-        backgroundColor: 'black',
-        width: '5rem',
-        position: 'sticky',
-        top: '70px',
-        color: '#806d42',
+        backgroundColor: "black",
+        width: "5rem",
+        position: "sticky",
+        top: "70px",
+        color: "#806d42",
       }}
     >
       <CDBSidebarHeader prefix={<i className='fa fa-bars' />}>
         <a className='navbar-brand' href='/dashboard'>
           Accueil
-        </a>{' '}
+        </a>{" "}
       </CDBSidebarHeader>
       <CDBSidebarContent>
         <CDBSidebarMenu>
-          <CDBSidebarMenuItem icon="sticky-note">
-            <a className="navbar-brand" href="/createCategory">
+          <CDBSidebarMenuItem icon='sticky-note'>
+            <a className='navbar-brand' href='/createCategory'>
               Créer une catégorie
             </a>
           </CDBSidebarMenuItem>
@@ -74,8 +75,8 @@ export const Sidebar = () => {
           différence du ? qui à besoin de : */}
 
           {isAdmin ? (
-            <CDBSidebarMenuItem icon="table" iconType="solid">
-              <a className="navbar-brand" href="/admin">
+            <CDBSidebarMenuItem icon='table' iconType='solid'>
+              <a className='navbar-brand' href='/admin'>
                 Support Admin
               </a>
             </CDBSidebarMenuItem>
@@ -85,10 +86,10 @@ export const Sidebar = () => {
         </CDBSidebarMenu>
       </CDBSidebarContent>
 
-      <CDBSidebarFooter style={{ textAlign: 'center' }}>
+      <CDBSidebarFooter style={{ textAlign: "center" }}>
         <div
           className='sidebar-btn-wrapper'
-          style={{ padding: '20px 5px', fontSize: '12px' }}
+          style={{ padding: "20px 5px", fontSize: "12px" }}
         >
           <a className='navbar-brand' href='/signin' onClick={handleLogout}>
             Déconnexion
