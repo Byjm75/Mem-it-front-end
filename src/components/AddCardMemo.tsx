@@ -13,7 +13,6 @@ export const AddCardMemo = () => {
   const titleElement = useRef<HTMLInputElement>(null);
   const ImageElement = useRef<HTMLInputElement>(null);
   const favElement = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate();
   const handleSubmitForm = async (e: FormEvent) => {
     console.log('handleSubmitForm');
     e.preventDefault();
@@ -49,10 +48,14 @@ export const AddCardMemo = () => {
           backgroundColor: 'red',
           width: '100%',
         }}
-        variant="white "
+        variant='white '
         onClick={handleShow}
       >
-        <img src="/assets/plus.png" className="card-img" alt="ajouter un mémo" />{' '}
+        <img
+          src='/assets/plus.png'
+          className='card-img'
+          alt='ajouter un mémo'
+        />{' '}
       </Button>
 
       <Modal show={show} onHide={handleClose} animation={false}>
@@ -62,28 +65,28 @@ export const AddCardMemo = () => {
         <Modal.Body>
           <form>
             <FloatingLabel
-              controlId="floatingInput"
-              label="Mémo"
-              className="mb-3"
+              controlId='floatingInput'
+              label='Mémo'
+              className='mb-3'
             >
-              <Form.Control type="text" placeholder="mémo" ref={titleElement} />
+              <Form.Control type='text' placeholder='mémo' ref={titleElement} />
             </FloatingLabel>
             <div>
               <input
-                className="text-primary"
-                type="file"
-                accept="image/*"
+                className='text-primary'
+                type='file'
+                accept='image/*'
                 ref={ImageElement}
               />
             </div>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={handleClose}>
+          <Button variant='danger' onClick={handleClose}>
             Fermer
           </Button>
-          <Button variant="success" onClick={handleSubmitForm}>
-              Créer
+          <Button variant='success' onClick={handleSubmitForm}>
+            Créer
           </Button>
         </Modal.Footer>
       </Modal>

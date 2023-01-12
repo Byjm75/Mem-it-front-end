@@ -65,23 +65,17 @@ export const Sidebar = () => {
               Catégories
             </a>
           </CDBSidebarMenuItem>
+          <CDBSidebarMenuItem icon='th-large'>
+            <a className='navbar-brand' href='/categorie'>
+              Memos à classer
+            </a>
+          </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon='user' iconType='solid'>
             <a className='navbar-brand' href='/profil'>
               Profil
             </a>
           </CDBSidebarMenuItem>
-          {/* && ternaire du if sans avoir besoin de définir le else à la
-          différence du ? qui à besoin de : */}
-
-          {isAdmin ? (
-            <CDBSidebarMenuItem icon="table" iconType="solid">
-              <a className="navbar-brand" href="/admin">
-                Support Admin
-              </a>
-            </CDBSidebarMenuItem>
-          ) : (
-            <></>
-          )}
+         
         </CDBSidebarMenu>
       </CDBSidebarContent>
 

@@ -1,11 +1,11 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import FooterConnect from '../components/FooterConnect';
+import {FooterConnect} from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
-import ToolsBar from '../components/ToolsBar';
+import {ToolsBar} from '../components/ToolsBar';
 
-const CreateTask = () => {
+export const CreateTask = () => {
   const titleElement = useRef<HTMLInputElement>(null);
   const eventDateElement = useRef<HTMLInputElement>(null);
   const bodyElement = useRef<HTMLInputElement>(null);
@@ -55,7 +55,9 @@ const CreateTask = () => {
           zIndex: '1',
         }}
       >
-        <ToolsBar />
+        <ToolsBar onSearch={function (userInput: string): void {
+          throw new Error('Function not implemented.');
+        } } />
       </div>{' '}
       <div
         style={{
@@ -198,4 +200,3 @@ const CreateTask = () => {
   );
 };
 
-export default CreateTask;

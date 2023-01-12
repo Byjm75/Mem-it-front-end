@@ -1,13 +1,10 @@
 import React, { SyntheticEvent } from 'react';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import ToolsBar from '../../components/ToolsBar';
+import {ToolsBar} from '../../components/ToolsBar';
 import { UserData } from '../../Interface/Interface';
 
-
-
-
-const UserAdmin = () => {
+export const UserAdmin = () => {
   const textElement = useRef<HTMLTextAreaElement>;
 
   let listeUsers: UserData[] = [];
@@ -38,7 +35,7 @@ const UserAdmin = () => {
 
   return (
     <div>
-      <ToolsBar />
+      {/* <ToolsBar onSearch={} /> */}
       <table className='table table-striped'>
         <thead className='thead-dark'>
           <tr>
@@ -70,4 +67,3 @@ const UserAdmin = () => {
   );
 };
 
-export default UserAdmin;

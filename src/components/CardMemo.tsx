@@ -1,8 +1,8 @@
 import { CardmemoProps } from '../Interface/Interface';
 
-import DropdownMemo from './DropdownMemo';
+import {DropdownMemo} from './DropdownMemo';
 
-const CardMemo = ({ memoAffich }: CardmemoProps) => {
+export const CardMemo = ({ memoAffich }: CardmemoProps) => {
   let photo: string = memoAffich.image;
   if (photo === undefined) {
     photo = "<img src='../assets/profile-icon-png-917.png' alt='categorie'";
@@ -14,7 +14,7 @@ const CardMemo = ({ memoAffich }: CardmemoProps) => {
     <div
       className="card"
       style={{
-        width: ' 13.5rem',
+        width: ' 13rem',
         // height: '17rem',
         borderRadius: '5%',
         margin: '0 10px 10px ',
@@ -62,4 +62,3 @@ const CardMemo = ({ memoAffich }: CardmemoProps) => {
   );
 };
 
-export default CardMemo;

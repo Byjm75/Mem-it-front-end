@@ -1,12 +1,13 @@
-import AddBtn from '../components/AddBtn';
-import CardFavoris from '../components/CardFavoris';
-import CardPlus from '../components/CardPlus';
-import Footer from '../components/Footer';
-import ToolsBar from '../components/ToolsBar';
+import {AddBtn} from '../components/AddBtn';
+import {CardPlus} from '../components/CardPlus';
+import {ToolsBar} from '../components/ToolsBar';
 import { Sidebar } from '../components/Sidebar';
-import FooterConnect from '../components/FooterConnect';
+import {FooterConnect} from '../components/FooterConnect';
 
-const Dashboard = () => {
+export const Dashboard = () => {
+  const handleUserInput = (userInputText: string)=> {
+  
+}
   return (
     <div style={{ height: '100vh' }}>
       <div
@@ -18,7 +19,7 @@ const Dashboard = () => {
           zIndex: '1',
         }}
       >
-        <ToolsBar />
+        <ToolsBar onSearch={handleUserInput} />
       </div>{' '}
       <div>
         <div
@@ -60,14 +61,14 @@ const Dashboard = () => {
           <hr />
 
           <div
-            className="card-tools row"
+            className='card-tools row'
             style={{
               display: 'flex',
               justifyContent: 'space-around',
             }}
           >
             <CardPlus />
-            <CardFavoris />
+            
           </div>
           <div>
             <h2
@@ -89,7 +90,7 @@ const Dashboard = () => {
             <hr />
 
             <div
-              className="card-tools row"
+              className='card-tools row'
               style={{ display: 'flex', justifyContent: 'space-around' }}
             ></div>
           </div>
@@ -126,4 +127,3 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;

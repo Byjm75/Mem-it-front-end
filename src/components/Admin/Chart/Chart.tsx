@@ -61,7 +61,7 @@ const data = [
   },
 ];
 
-const Chart = () => {
+export const Chart = () => {
   return (
     <div className='chart'>
       <h3 className='chartTitle'>Trafic utilisateurs</h3>
@@ -77,4 +77,3 @@ const Chart = () => {
   );
 };
 
-export default Chart;

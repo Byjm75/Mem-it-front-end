@@ -1,7 +1,5 @@
-import React from 'react';
 
-const InscriptionBtn = () => {
+export const InscriptionBtn = () => {
   return <div></div>;
 };
 
-export default InscriptionBtn;

@@ -1,14 +1,10 @@
 import jwtDecode from 'jwt-decode';
-import Chart from '../../components/Admin/Chart/Chart';
-import ToolsBar from '../../components/ToolsBar';
+import {Chart} from '../../components/Admin/Chart/Chart';
+import {ToolsBar} from '../../components/ToolsBar';
 import { DecodTokenType, UserData } from '../../Interface/Interface';
 import './HomeAdmin.css';
 
-
-
-const HomeAdmin = () => {
-  
-
+export const HomeAdmin = () => {
   const accessToken = localStorage.getItem('token');
   if (accessToken) {
     const decodToken: DecodTokenType = jwtDecode(accessToken);
@@ -17,7 +13,7 @@ const HomeAdmin = () => {
   }
   return (
     <div>
-      <ToolsBar />
+      {/* <ToolsBar /> */}
       <div className='home'>
         <Chart />
       </div>
@@ -25,4 +21,3 @@ const HomeAdmin = () => {
   );
 };
 
-export default HomeAdmin;

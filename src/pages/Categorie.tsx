@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 import { useEffect } from 'react';
-import CardCategory from '../components/CardCategory';
-import ToolsBar from '../components/ToolsBar';
+import {CardCategory} from '../components/CardCategory';
+import {ToolsBar} from '../components/ToolsBar';
 import { useState } from 'react';
 import axios from 'axios';
 import { Sidebar } from '../components/Sidebar';
-import FooterConnect from '../components/FooterConnect';
-import AddBtn from '../components/AddBtn';
+import {FooterConnect} from '../components/FooterConnect';
+import {AddBtn} from '../components/AddBtn';
 import { Categories } from '../Interface/Interface';
-import CardPlus from '../components/CardPlus';
-import Footer from '../components/Footer';
 
-const Categorie = () => {
+let dataCateg: Categories[] = [];
+export const Categorie = () => {
   const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>([]);
 
   useEffect(() => {
@@ -21,9 +20,25 @@ const Categorie = () => {
       })
       .then((res) => {
         console.log(res);
+        dataCateg = res.data;
         setListCatDisplayed(res.data);
       });
   }, []);
+
+  const handleUserInput = (userInputText: string) => {
+    console.log("qu'a tapé mon user ? : ", userInputText);
+    let catTemporaire = [...listCatDisplayed];
+    if (userInputText.length > 0) {
+      catTemporaire = catTemporaire.filter((e) =>
+        e.title.includes(userInputText)
+      );
+      setListCatDisplayed(catTemporaire);
+      console.log('ma nouvelle listeState après search : ', listCatDisplayed);
+      console.log('ma nouvelle liste après search : ', catTemporaire);
+    } else {
+      setListCatDisplayed(dataCateg);
+    }
+  };
 
   return (
     <div className="position-sticky">
@@ -36,7 +51,7 @@ const Categorie = () => {
           zIndex: '1',
         }}
       >
-        <ToolsBar />
+        <ToolsBar onSearch={handleUserInput} />
       </div>
       <div style={{ width: '100%', display: 'flex' }}>
         <div
@@ -75,7 +90,7 @@ const Categorie = () => {
             </h1>
           </div>
           <hr />
-
+          
           <div
             className=" "
             style={{
@@ -112,4 +127,3 @@ const Categorie = () => {
   );
 };
 
-export default Categorie;
