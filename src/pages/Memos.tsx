@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { AddBtn } from '../components/AddBtn';
 import { CardMemo } from '../components/CardMemo';
 import { FooterConnect } from '../components/FooterConnect';
@@ -11,6 +12,8 @@ let listeMemos: MemosProps[] = [];
 
 export const Memos = () => {
   const [listmemoDisplayed, setListMemoDisplayed] = useState<MemosProps[]>([]);
+  let { categoryId } = useParams();
+  console.log("l'id catégorie", categoryId);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -19,8 +22,12 @@ export const Memos = () => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        listeMemos = res.data;
-        setListMemoDisplayed(res.data);
+        listeMemos = res.data.filter((memo: MemosProps) => {
+          if (memo.categorie_) {
+            return memo.categorie_.id === categoryId;
+          }
+        });
+        setListMemoDisplayed(listeMemos);
       });
   }, []);
   const handleUserInput = (userInputText: string) => {

@@ -16,6 +16,7 @@ export const Sidebar = () => {
   const [userToken, setUserToken] = useState<UserData>();
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
+  const handleClose = () => setShow(false);
   useEffect(() => {
     const accessToken = localStorage.getItem('token');
     if (accessToken) {
@@ -56,15 +57,11 @@ export const Sidebar = () => {
             </a>
           </CDBSidebarMenuItem>
           <CDBSidebarMenuItem icon='sticky-note'>
-            <a className='navbar-brand' href='/createTask'>
+            <a className='navbar-brand' href='/createMemo'>
               Créer mémo
             </a>
           </CDBSidebarMenuItem>
-          <CDBSidebarMenuItem icon='th-large'>
-            <a className='navbar-brand' href='/categorie'>
-              Catégories
-            </a>
-          </CDBSidebarMenuItem>
+          
           <CDBSidebarMenuItem icon='th-large'>
             <a className='navbar-brand' href='/memo'>
               Memos
@@ -96,3 +93,6 @@ export const Sidebar = () => {
     </CDBSidebar>
   );
 };
+function setShow(arg0: boolean) {
+  throw new Error('Function not implemented.');
+}

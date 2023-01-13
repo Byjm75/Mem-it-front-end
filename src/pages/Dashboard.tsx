@@ -1,13 +1,43 @@
 import {AddBtn} from '../components/AddBtn';
-import {CardPlus} from '../components/CardPlus';
 import {ToolsBar} from '../components/ToolsBar';
 import { Sidebar } from '../components/Sidebar';
 import {FooterConnect} from '../components/FooterConnect';
+import { Categories } from '../Interface/Interface';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { CardCategory } from '../components/CardCategory';
 
+let dataCateg: Categories[] = [];
 export const Dashboard = () => {
-  const handleUserInput = (userInputText: string)=> {
+  const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>([]);
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:8085/api/categorie', {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      })
+      .then((res) => {
+        console.log(res);
+        dataCateg = res.data;
+        setListCatDisplayed(res.data);
+      });
+  }, []);
+  const handleUserInput = (userInputText: string) => {
+    console.log("qu'a tapé mon user ? : ", userInputText);
+    let catTemporaire = [...listCatDisplayed];
+    if (userInputText.length > 0) {
+      catTemporaire = catTemporaire.filter((e) =>
+        e.title.includes(userInputText)
+      );
+      setListCatDisplayed(catTemporaire);
+      console.log('ma nouvelle listeState après search : ', listCatDisplayed);
+      console.log('ma nouvelle liste après search : ', catTemporaire);
+    } else {
+      setListCatDisplayed(dataCateg);
+    }
+  };
   
-}
+
   return (
     <div style={{ height: '100vh' }}>
       <div
@@ -42,23 +72,37 @@ export const Dashboard = () => {
               alignItems: 'flex-end',
             }}
           >
-            <h1
+            
+            <div
               style={{
-                width: '100%',
-                position: 'relative',
                 display: 'flex',
-                justifyContent: 'end',
-                alignItems: 'flex-end',
-                margin: '10px 0 0 ',
-
-                color: '#007872',
-                fontWeight: 'bold',
+                justifyContent: 'space-bettwen',
+                flexWrap: 'wrap',
+                listStyle: 'none',
               }}
             >
-              Mon espace
-            </h1>
+              <h1
+                style={{
+                  width: '100%',
+                  position: 'relative',
+                  display: 'flex',
+                  justifyContent: 'end',
+                  alignItems: 'flex-end',
+                  margin: '10px 0 0 ',
+
+                  color: '#007872',
+                  fontWeight: 'bold',
+                }}
+              >
+                Mes catégories
+              </h1>
+              {listCatDisplayed.map((categorie) => (
+                <li key={categorie.id}>
+                  <CardCategory categoryAffich={categorie} />
+                </li>
+              ))}
+            </div>
           </div>
-          <hr />
 
           <div
             className='card-tools row'
@@ -66,27 +110,8 @@ export const Dashboard = () => {
               display: 'flex',
               justifyContent: 'space-around',
             }}
-          >
-            <CardPlus />
-         
-          </div>
+          ></div>
           <div>
-            <h2
-              style={{
-                width: '100%',
-                position: 'relative',
-                display: 'flex',
-                justifyContent: 'end',
-                alignItems: 'flex-end',
-                margin: '10px 0 0 ',
-
-                color: '#007872',
-                fontWeight: 'bold',
-              }}
-            >
-              Derniers ajoûts{' '}
-            </h2>
-
             <hr />
 
             <div
@@ -109,16 +134,6 @@ export const Dashboard = () => {
           <FooterConnect />
         </div>
       </div>
-      {/* <div
-        style={{
-          marginTop: '30px',
-          position: 'relative',
-          bottom: '0',
-          width: '100%',
-        }}
-      >
-        <FooterConnect />
-      </div> */}
     </div>
   );
 };

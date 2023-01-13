@@ -1,8 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
-import { FormEvent, useRef, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import { Categories, DropdownPropsCat } from '../Interface/Interface';
 
 export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
@@ -14,8 +13,9 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
   const titleElement = useRef<HTMLInputElement>(null);
   const ImageElement = useRef<HTMLInputElement>(null);
   const favElement = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate();
 
+
+  
   const handleSubmitForm = async (e: FormEvent) => {
     console.log('handleSubmitForm');
     e.preventDefault();
@@ -23,35 +23,33 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
     console.log(titleElement.current?.value);
     console.log(ImageElement.current?.value);
     console.log(favElement.current?.value);
+    
+      axios
+        .patch(
+          `http://localhost:8085/api/categorie/${category.id}`,
 
-    //   useEffect(() => {
-    axios
-      .patch(
-        `http://localhost:8085/api/categorie/${category.id}`,
-
-        {
-          title: titleElement.current?.value,
-          favori: favElement.current?.value,
-          image: ImageElement.current?.value,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          {
+            title: titleElement.current?.value,
+            favori: favElement.current?.value,
+            image: ImageElement.current?.value,
           },
-        }
-      )
-      .then((response: AxiosResponse<{ data: any }>) => {
-        console.log('response ', response.data.data);
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        )
+        .then((response: AxiosResponse<{ data: any }>) => {
+          console.log('response ', response.data.data);
 
-        console.log(response, 'res');
-        alert('Catégorie modifiée!');
-        setCategories(response.data.data);
-        handleClose();
-        window.location.reload();
-      });
-  };
-  //   },[]);
-  // useEffect(() => {
+          console.log(response, 'res');
+          alert('Catégorie modifiée!');
+          setCategories(response.data.data);
+          handleClose();
+          window.location.reload();
+        });
+    }
+  
 
   const handleClickForm = async () => {
     await axios

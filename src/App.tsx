@@ -7,15 +7,18 @@ import { SignIn } from './Pages/SignIn';
 import {HomeAdmin} from './Pages/Admin/HomeAdmin';
 import {UserAdmin} from './Pages/Admin/UserAdmin';
 import {Dashboard} from './Pages/Dashboard';
-import {Categorie} from './Pages/Categorie';
 import {CreateCategory} from './Pages/CreateCategory';
-import {CreateTask} from './Pages/CreateMemo';
 import { Home } from './Pages/Home';
 import {Profil} from './Pages/Profil';
 import {Memos} from './Pages/Memos';
 import { MemosUncat } from './Pages/MemosUncat';
+import { CreateMemo } from './Pages/CreateMemo';
+
+
+
 
 export const App = () => {
+  
   return (
     <div>
       <BrowserRouter>
@@ -26,13 +29,11 @@ export const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profil" element={<Profil />} />
-          <Route path="/categorie" element={<Categorie />} />
-          <Route path="/memo" element={<Memos />} />
+          <Route path="/memo/:categoryId" element={<Memos />} />
           <Route path="/admin" element={<HomeAdmin />} />
           <Route path="/adminUsers" element={<UserAdmin />} />
           <Route path="/createCategory" element={<CreateCategory />} />
-          <Route path="/createTask" element={<CreateTask />} />
-          <Route path="/memo" element={<Memos />} />
+          <Route path="/createMemo" element={<CreateMemo />} />
           <Route path="/memoUncut" element={<MemosUncat />} />
         </Routes>
       </BrowserRouter>

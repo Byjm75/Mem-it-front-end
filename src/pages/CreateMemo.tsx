@@ -6,7 +6,7 @@ import { ScrollCat } from '../components/ScrollCat';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 
-export const CreateTask = () => {
+export const CreateMemo = () => {
   const titleElement = useRef<HTMLInputElement>(null);
   const eventDateElement = useRef<HTMLInputElement>(null);
   const bodyElement = useRef<HTMLInputElement>(null);
@@ -89,18 +89,18 @@ export const CreateTask = () => {
             <div className='col-md-10 border-right'>
               <div className='p-3 py-4'>
                 <div className='d-flex justify-content-between align-items-center mb-4'>
-                  <h4 className='text-right' style={{ color: '#007872' }}>
-                    Creer un mémo
+                  <h4 className='text-right' style={{ color: '#806d42',fontWeight:'bold' }}>
+                    Créer un mémo
                   </h4>
                 </div>
-                <label className='labels' style={{ color: '#007872' }}>
+                <label className='labels' style={{ color: '#806d42',fontWeight:'bold' }}>
                   Catégorie de votre mémo
                 </label>
                 <ScrollCat />
                 <div className='row' style={{ display: 'flex' }}>
                   <div className='column mt-3 col-6' style={{ width: '100%' }}>
                     <div className='col-md-12'>
-                      <label className='labels' style={{ color: '#007872' }}>
+                      <label className='labels' style={{ color: '#806d42',fontWeight:'bold' }}>
                         Titre de votre mémo
                       </label>
                       <input
@@ -113,7 +113,7 @@ export const CreateTask = () => {
                   </div>
 
                   <div className='col-md-12 mt-4'>
-                    <label className='labels' style={{ color: '#007872' }}>
+                    <label className='labels' style={{ color: '#806d42',fontWeight:'bold' }}>
                       Date de votre évènement
                     </label>
                     <input
@@ -126,7 +126,7 @@ export const CreateTask = () => {
                 </div>
                 <div className='column mt-3 col-6 ' style={{ width: '100%' }}>
                   <div className='col-md-12 '>
-                    <label className='labels' style={{ color: '#007872' }}>
+                    <label className='labels' style={{ color: '#806d42',fontWeight:'bold' }}>
                       Image de votre profil
                     </label>
                     <input
@@ -143,7 +143,7 @@ export const CreateTask = () => {
                       style={{ width: '100%' }}
                     >
                       <div className='col-md-12'>
-                        <label className='labels' style={{ color: '#007872' }}>
+                        <label className='labels' style={{ color: '#806d42',fontWeight:"bold" }}>
                           Lien internet
                         </label>
                         <input
@@ -162,9 +162,9 @@ export const CreateTask = () => {
                         <div className='col-md-12'>
                           <label
                             className='labels'
-                            style={{ color: '#007872' }}
+                            style={{ color: '#806d42',fontWeight:'bold' }}
                           >
-                            Description
+                            Contenu
                           </label>
                           <input
                             type='textarea'
@@ -189,7 +189,7 @@ export const CreateTask = () => {
                           onClick={handleSubmitForm}
                           style={{
                             padding: '5px',
-                            backgroundColor: '#007872',
+                            backgroundColor: '#806d42',
                             borderColor: 'white',
                           }}
                         >
