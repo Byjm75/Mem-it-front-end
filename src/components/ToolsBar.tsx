@@ -42,9 +42,9 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
   return (
     <div>
       <nav
-        className='navbar  ticky-top navbar-expand d-inline-flex
+        className='navbar  sticky-top navbar-expand d-inline-flex
         '
-        style={{ backgroundColor: 'black', width: '100%' }}
+        style={{ backgroundColor: 'black', width: '100%', position:'fixed' }}
       >
         <div
           style={{
@@ -84,7 +84,7 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
             >
               {location.pathname !== '/createCategory' &&
                 location.pathname !== '/createTask' && (
-                  <input type='text' onChange={handleChange} />
+                  <input  type='text' onChange={handleChange} style={{width:'100%'}}/>
                 )}
             </div>
             {userToken?.role === 'admin' ? (

@@ -3,6 +3,7 @@ import React, { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {FooterConnect} from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
+import SideBBar from '../components/SideBBar';
 import {ToolsBar} from '../components/ToolsBar';
 
 export const CreateTask = () => {
@@ -72,7 +73,7 @@ export const CreateTask = () => {
             zIndex: '1',
           }}
         >
-          <Sidebar />
+          <SideBBar />
         </div>
         <div
           className="container rounded bg-' mt-5 mb-5 "

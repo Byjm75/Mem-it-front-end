@@ -74,23 +74,32 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
 
   return (
     <div>
-      <div className='dropdown'>
+      <div className="dropdown d-flex justify-content-end
+ ">
         <Button
-          className='btn btn-secondary dropdown-toggle'
-          type='button'
-          data-bs-toggle='dropdown'
-          aria-expanded='false'
-        >
-          
-        </Button>
-        <ul className='dropdown-menu'>
+          className="btn btn-danger dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        ></Button>
+        <ul className="dropdown-menu  bg-dark" style={{width:'100%'}}>
           <li>
-            <Button type='button' onClick={handleShow}>
+            <Button
+              className="btn btn-success"
+              type="button"
+              style={{ width: '100%', marginBottom: '5px' }}
+              onClick={handleShow}
+            >
               Modifier
             </Button>
           </li>
           <li>
-            <Button type='button' onClick={handleClickForm}>
+            <Button
+              className="btn btn-danger"
+              type="button"
+              style={{ width: '100%' }}
+              onClick={handleClickForm}
+            >
               Supprimer
             </Button>
           </li>
@@ -103,31 +112,31 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
         <Modal.Body>
           <form>
             <FloatingLabel
-              controlId='floatingInput'
-              label='Catégorie'
-              className='mb-3'
+              controlId="floatingInput"
+              label="Catégorie"
+              className="mb-3"
             >
               <Form.Control
-                type='text'
-                placeholder='catégorie'
+                type="text"
+                placeholder="catégorie"
                 ref={titleElement}
               />
             </FloatingLabel>
             <div>
               <Form.Control
-                className='text-primary'
-                type='file'
-                accept='image/*'
+                className="text-primary"
+                type="file"
+                accept="image/*"
                 ref={ImageElement}
               ></Form.Control>
             </div>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='danger' onClick={handleClose}>
+          <Button variant="danger" onClick={handleClose}>
             Fermer
           </Button>
-          <Button variant='success' onClick={handleSubmitForm}>
+          <Button variant="success" onClick={handleSubmitForm}>
             Modifier
           </Button>
         </Modal.Footer>

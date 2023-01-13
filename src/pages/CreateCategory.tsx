@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Sidebar } from '../components/Sidebar';
 import { blob } from 'stream/consumers';
 import { FooterConnect } from '../components/FooterConnect';
+import SideBBar from '../components/SideBBar';
 
 export const CreateCategory = () => {
   const navigate = useNavigate();
@@ -99,7 +100,7 @@ export const CreateCategory = () => {
             zIndex: '1',
           }}
         >
-          <Sidebar />
+          <SideBBar />
         </div>
         <div
           className='container rounded bg-4 mt-5 mb-5 '

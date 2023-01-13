@@ -4,6 +4,7 @@ import { AddBtn } from '../components/AddBtn';
 import { CardMemo } from '../components/CardMemo';
 import { FooterConnect } from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
+import SideBBar from '../components/SideBBar';
 import { ToolsBar } from '../components/ToolsBar';
 import { MemosProps } from '../Interface/Interface';
 
@@ -47,7 +48,7 @@ export const Memos = () => {
             zIndex: '1',
           }}
         >
-          <Sidebar />
+          <SideBBar />
         </div>
 
         <div

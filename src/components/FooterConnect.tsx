@@ -14,33 +14,7 @@ export const FooterConnect = () => {
             // width:'90%'
             // }}
           >
-            <section
-              className=""
-
-              //   style={{
-              //     // width:'80%',
-              //     display: 'flex',
-              //     justifyContent: 'space-arround',
-              //   }}
-            >
-              {/* <p className="d-flex justify-content-center align-items-center">
-                <span
-                  className="me-2"
-                  style={{
-                    color: 'white',
-                  }}
-                >
-                  Rejoignez nous gratuitement
-                </span>
-                <button
-                  type="button"
-                  className="btn btn-outline-light btn-rounded"
-                  style={{ backgroundColor: '#007872', borderColor: '#007872' }}
-                >
-                  Inscription!
-                </button>
-              </p> */}
-
+            <section className="">
               {/* <!-- Facebook --> */}
               <a
                 className="btn btn-primary"
@@ -48,6 +22,7 @@ export const FooterConnect = () => {
                 href="https://www.facebook.com/"
                 role="button"
               >
+                Facebook
                 <i className="fab fa-facebook-f"></i>
                 {/* <span className="badge bg-danger ms-2">8</span> */}
               </a>
@@ -59,6 +34,7 @@ export const FooterConnect = () => {
                 href="https://www.instagram.com/"
                 role="button"
               >
+                Instagram
                 <i className="fab fa-instagram"></i>
                 {/* <span className="badge bg-danger ms-2">8</span> */}
               </a>
@@ -81,14 +57,10 @@ export const FooterConnect = () => {
             className="text-center p-3"
             style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)', height: '40px' }}
           >
-            © 2020 Copyright:
-            <a className="text-white" href="https://mdbootstrap.com/">
-              MDBootstrap.com
-            </a>
+            © 2023 Copyright: Team MEM-IT
           </div>
         </footer>
       </section>
     </div>
   );
 };
-

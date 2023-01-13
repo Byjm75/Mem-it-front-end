@@ -5,6 +5,7 @@ import { Sidebar } from '../components/Sidebar';
 import {ToolsBar} from '../components/ToolsBar';
 import jwtDecode from 'jwt-decode';
 import { DecodTokenType, UserData } from '../Interface/Interface';
+import SideBBar from '../components/SideBBar';
 
 export const Profil = () => {
   const [userToken, setUserToken] = useState<UserData>();
@@ -79,7 +80,7 @@ export const Profil = () => {
             zIndex: '1',
           }}
         >
-          <Sidebar />
+          <SideBBar />
         </div>
         <div
           className="container rounded bg-' mt-5 mb-5 "

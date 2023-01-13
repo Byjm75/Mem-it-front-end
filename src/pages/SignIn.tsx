@@ -36,7 +36,9 @@ export const SignIn = () => {
         // Set le token dans le localstorage
         localStorage.setItem('token', token);
         console.log('response ', response.data);
-        window.alert('Bon retour parmi nous!');
+       
+        window.alert(' Bon retour parmi nous!') 
+      
         navigate('/dashboard');
       });
   };
@@ -56,7 +58,7 @@ export const SignIn = () => {
       </div>
       <MDBContainer
         style={{
-          margin: '25px auto'
+          margin: '25px auto',
         }}
       >
         <MDBCard>
@@ -123,11 +125,15 @@ export const SignIn = () => {
                 </div>
 
                 <MDBBtn
-                  className="mb-1 w-100"
+                  className="mb-1 w-100 "
                   style={{ height: '40px' }}
                   onClick={handleSubmitForm}
+                  // <div className="alert alert-success" role="alert">
+                  //   'Bon retour parmi nous!'
+                  // </div>;
+                  role="alert"
                 >
-                  Connexion{''}
+                  Connexion
                 </MDBBtn>
               </MDBCardBody>
             </MDBCol>
@@ -136,7 +142,7 @@ export const SignIn = () => {
       </MDBContainer>
       <div style={{ height: '150px' }}></div>
 
-        <FooterConnect />
+      <FooterConnect />
     </div>
   );
 };

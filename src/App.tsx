@@ -3,17 +3,17 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { SignUp } from './Pages/SignUp';
-import { SignIn } from './Pages/SignIn';
 import {HomeAdmin} from './Pages/Admin/HomeAdmin';
 import {UserAdmin} from './Pages/Admin/UserAdmin';
 import {Dashboard} from './Pages/Dashboard';
-import {Categorie} from './Pages/Categorie';
+// import {Categorie} from './Pages/Categorie';
 import {CreateCategory} from './Pages/CreateCategory';
 import {CreateTask} from './Pages/CreateTask';
 import { Home } from './Pages/Home';
 import {Profil} from './Pages/Profil';
 import {Memos} from './Pages/Memos';
 import { MemosUncat } from './Pages/MemosUncat';
+import { SignIn } from './Pages/SignIn';
 
 export const App = () => {
   return (
@@ -26,7 +26,7 @@ export const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profil" element={<Profil />} />
-          <Route path="/categorie" element={<Categorie />} />
+          <Route path="/categorie" element={<Dashboard />} />
           <Route path="/memo" element={<Memos />} />
           <Route path="/admin" element={<HomeAdmin />} />
           <Route path="/adminUsers" element={<UserAdmin />} />
