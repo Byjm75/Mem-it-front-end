@@ -2,11 +2,11 @@ import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {FooterConnect} from '../components/FooterConnect';
-import { Sidebar } from '../components/Sidebar';
 import SideBBar from '../components/SideBBar';
 import {ToolsBar} from '../components/ToolsBar';
 
 export const CreateTask = () => {
+
   const titleElement = useRef<HTMLInputElement>(null);
   const eventDateElement = useRef<HTMLInputElement>(null);
   const bodyElement = useRef<HTMLInputElement>(null);

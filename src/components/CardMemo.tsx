@@ -12,51 +12,55 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
 
   return (
     <div
-      className="card"
+      className=""
       style={{
-        width: ' 13rem',
-        // height: '17rem',
+        width: ' 13.5rem',
+        height: '17rem',
         borderRadius: '5%',
-        margin: '0 10px 10px ',
-        backgroundColor: 'lightblue',
+        margin: ' 20px 0 ',
+        backgroundColor: 'black',
+        borderColor: '#806d42',
       }}
     >
       <DropdownMemo memo={memoAffich} />
-      <div style={{ width: '95%', margin: '15px auto' }}>
+      <div style={{ width: '87%', margin: '3px auto' }}>
         <div
           className="btn btn- col-sm-12"
           style={{
+            height: '12.7em',
             margin: '15px auto',
-            borderColor: 'white',
+            border: ' solid 2px #806d42',
+            backgroundColor: 'black',
           }}
         >
+          {/* <div className="card-body"> */}
+          <h5
+            className="card-title"
+            style={{
+              textAlign: 'center',
+              border: 'solid 2px #806d42',
+              borderRadius: '7px',
+              // width: '80%',
+              margin: ' auto',
+              backgroundColor: '#806d42',
+              padding: '10px',
+
+              color: 'white',
+            }}
+          >
+            {' '}
+            <a className="navbar-brand" href="/memo">
+              {memoAffich.title}
+            </a>
+          </h5>
+          {/* </div> */}
+
           <img
             src={memoAffich.image}
             alt="illustration memo"
-            style={{ width: '100%' }}
+            style={{ width: '100%', borderRadius: '7px', marginTop: '4px' }}
           />
         </div>
-      </div>
-      <div className="card-body">
-        <h5
-          className="card-title"
-          style={{
-            textAlign: 'center',
-            border: 'solid 2px white',
-            borderRadius: '10px',
-
-            margin: ' auto',
-            backgroundColor: '#007872',
-            padding: '10px',
-
-            color: 'white',
-          }}
-        >
-          {' '}
-          <a className="navbar-brand" href="/memo">
-            {memoAffich.title}
-          </a>
-        </h5>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ import {
 } from 'mdb-react-ui-kit';
 import { FormEvent, useRef } from 'react';
 import { Navbar } from '../components/Navbar';
-import {FooterConnect} from '../components/FooterConnect';
+import { FooterConnect } from '../components/FooterConnect';
 import axios, { AxiosResponse } from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -36,9 +36,10 @@ export const SignIn = () => {
         // Set le token dans le localstorage
         localStorage.setItem('token', token);
         console.log('response ', response.data);
-       
-        window.alert(' Bon retour parmi nous!') 
-      
+
+        window.alert(' Bon retour parmi nous!');
+        // window.location.reload();
+
         navigate('/dashboard');
       });
   };

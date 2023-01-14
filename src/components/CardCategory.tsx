@@ -49,29 +49,30 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
         borderRadius: '5%',
         margin: ' 20px 0 ',
         backgroundColor: 'black',
+        borderColor: '#806d42',
       }}
     >
       <DropdownCategorie category={categoryAffich} />
-      <div style={{ width: '87%', margin: '3px auto', }}>
+      <div style={{ width: '87%', margin: '3px auto' }}>
         <div
           className="btn btn- col-sm-12"
           style={{
             height: '12.7em',
             margin: '15px auto',
-            borderColor: 'white',
+            border: ' solid 2px #806d42',
             backgroundColor: 'black',
           }}
         >
-          <div className="card-body">
+          {/* <div className="card-body" style={{ border: ' solid#806d42 5px'  }}> */}
             <h5
               className="card-title"
               style={{
                 textAlign: 'center',
-                border: 'solid 2px white',
+                border: 'solid 2px #806d42',
                 borderRadius: '7px',
                 // width: '80%',
                 margin: ' auto',
-                backgroundColor: '#007872',
+                backgroundColor: '#806d42',
                 padding: '10px',
 
                 color: 'white',
@@ -82,12 +83,12 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
                 {categoryAffich.title}
               </a>
             </h5>
-          </div>
+          {/* </div> */}
 
           <img
             src={listImgDisplayed}
             alt="illustration catégorie"
-            style={{ width: '100%', borderRadius: '7px',marginTop:'4px' }}
+            style={{ width: '100%', borderRadius: '7px', marginTop: '4px' }}
           />
         </div>
       </div>

@@ -2,7 +2,6 @@ import axios, { AxiosResponse } from 'axios';
 import React, { ChangeEvent, FormEvent, useRef, useState } from 'react';
 import { ToolsBar } from '../components/ToolsBar';
 import { useNavigate } from 'react-router-dom';
-import { Sidebar } from '../components/Sidebar';
 import { blob } from 'stream/consumers';
 import { FooterConnect } from '../components/FooterConnect';
 import SideBBar from '../components/SideBBar';
@@ -72,6 +71,7 @@ export const CreateCategory = () => {
 
   return (
     <div>
+      
       <div
         style={{
           width: '100%',
@@ -92,6 +92,8 @@ export const CreateCategory = () => {
           display: 'flex',
         }}
       >
+        
+      
         <div
           style={{
             display: 'flex',
@@ -102,6 +104,7 @@ export const CreateCategory = () => {
         >
           <SideBBar />
         </div>
+        
         <div
           className='container rounded bg-4 mt-5 mb-5 '
           style={{
@@ -111,9 +114,10 @@ export const CreateCategory = () => {
             width: '62%',
           }}
         >
+          
           <div className='row'>
             <div className='col-md-10 border-right'>
-              <div className='p-3 py-5'>
+              <div className='p-5 py-8'>
                 <div className='d-flex justify-content-between align-items-center mb-4'>
                   <h4 className='text-right' style={{ color: '#007872' }}>
                     Creer une catégorie

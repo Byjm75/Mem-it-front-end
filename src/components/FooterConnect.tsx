@@ -6,49 +6,46 @@ export const FooterConnect = () => {
       <section className="">
         <footer
           className="text-center text-white"
-          style={{ backgroundColor: '#111827' }}
+          style={{ backgroundColor: '#111827' , width: '100%' }}
         >
           <div
-            className="container p-4 pb-0"
-            // style={{
-            // width:'90%'
-            // }}
+            className="container p-1 pb-0"
+           
           >
-            <section className="">
+            <section className="" style={{padding:'5px 0'}}>
               {/* <!-- Facebook --> */}
               <a
                 className="btn btn-primary"
-                style={{ backgroundColor: ' #3b5998', margin: '0 10px' }}
+                style={{ backgroundColor: ' #3b5998', margin: '0 7px' }}
                 href="https://www.facebook.com/"
                 role="button"
               >
                 Facebook
                 <i className="fab fa-facebook-f"></i>
-                {/* <span className="badge bg-danger ms-2">8</span> */}
-              </a>
-              {/* <!-- Instagram --> */}
+                </a>
+               
               <a
                 className="btn btn-primary position-relative"
                 data-mdb-ripple-unbound="true"
-                style={{ backgroundColor: '#ac2bac', margin: '0 10px' }}
+                style={{ backgroundColor: '#ac2bac', margin: '0 7px' }}
                 href="https://www.instagram.com/"
                 role="button"
               >
                 Instagram
                 <i className="fab fa-instagram"></i>
-                {/* <span className="badge bg-danger ms-2">8</span> */}
+                
               </a>
 
               {/* <!-- Twitter --> */}
               <a
                 className="btn btn-primary position-relative"
                 data-mdb-ripple-unbound="true"
-                style={{ backgroundColor: '#55acee', margin: '0 10px' }}
+                style={{ backgroundColor: '#55acee', margin: '0 7px' }}
                 href="https://twitter.com/"
                 role="button"
               >
                 Twitter <i className="fab fa-twitter ms-1"></i>
-                {/* <span className="badge bg-danger ms-2">8</span> */}
+                
               </a>
             </section>
           </div>

@@ -1,7 +1,5 @@
 import { AddBtn } from '../components/AddBtn';
-import { CardPlus } from '../components/CardPlus';
 import { ToolsBar } from '../components/ToolsBar';
-import { Sidebar } from '../components/Sidebar';
 import { FooterConnect } from '../components/FooterConnect';
 import SideBBar from '../components/SideBBar';
 import { CardCategory } from '../components/CardCategory';
@@ -42,7 +40,7 @@ export const Dashboard = () => {
     }
   };
   return (
-    <div style={{ height: '100vh' }}>
+    <div className="position-sticky">
       <div
         style={{
           width: '100%',
@@ -65,18 +63,11 @@ export const Dashboard = () => {
         >
           <SideBBar />
         </div>
-        <div style={{ width: '70%', margin: ' 0 100px 0 auto' }}>
-          <div
-            style={{
-              width: '100%',
-              position: 'relative',
-              display: 'flex',
-              justifyContent: 'end',
-              alignItems: 'flex-end',
-            }}
-          >
-            <div style={{ height: '150px' }}></div>
+        <div style={{ height: '90px' }}></div>
+        <div style={{ width: '70%', margin: ' auto' }}>
+          <div>
             <h1
+              className=""
               style={{
                 width: '100%',
                 position: 'relative',
@@ -84,7 +75,7 @@ export const Dashboard = () => {
                 justifyContent: 'end',
                 alignItems: 'flex-end',
                 margin: '37px 0 0 ',
-
+                borderBottom: ' 4mm ridge #007872',
                 color: '#007872',
                 fontWeight: 'bold',
               }}
@@ -92,24 +83,23 @@ export const Dashboard = () => {
               Mon espace
             </h1>
           </div>
-          <hr />
 
           <div
-            className="card-tools "
+            className=" "
             style={{
+              width: '100%',
               display: 'flex',
               flexWrap: 'wrap',
-              justifyContent: 'space-bettwen',
+              justifyContent: 'flex-end',
             }}
           >
-            {/* <CardPlus /> */}
             {listCatDisplayed.map((categorie, i) => (
               <ul key={i}>
                 <li
                   key={categorie.id}
                   style={{
                     listStyleType: 'none',
-                    width: '100%',
+                    margin: '0 10px',
                   }}
                 >
                   <CardCategory categoryAffich={categorie} />
@@ -117,20 +107,14 @@ export const Dashboard = () => {
               </ul>
             ))}{' '}
           </div>
-
-          <div style={{ position: 'fixed', right: '15px', bottom: '120px' }}>
+        </div>
+        <div style={{ height: '150px' }}>
+          <div style={{ position: 'fixed', right: '15px', bottom: '115px' }}>
             <AddBtn />
           </div>
         </div>
-        <div style={{ height: '150px' }}>
-          <div
-            style={{ position: 'fixed', right: '15px', bottom: '115px' }}
-          ></div>
-        </div>
-        <div>
-          <FooterConnect />
-        </div>
       </div>
+      <FooterConnect />
     </div>
   );
 };

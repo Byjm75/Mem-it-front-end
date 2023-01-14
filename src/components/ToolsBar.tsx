@@ -42,9 +42,9 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
   return (
     <div>
       <nav
-        className='navbar  sticky-top navbar-expand d-inline-flex
-        '
-        style={{ backgroundColor: 'black', width: '100%', position:'fixed' }}
+        className="navbar  sticky-top navbar-expand d-inline-flex
+        "
+        style={{ backgroundColor: 'black', width: '100%', position: 'fixed' }}
       >
         <div
           style={{
@@ -54,17 +54,17 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
           }}
         >
           <div
-            className='container-fluid'
+            className="container-fluid"
             style={{
               width: '27% ',
               paddingLeft: '7px',
               margin: '0 auto 0 0',
             }}
           >
-            <a className='navbar-brand' href='/dashboard'>
+            <a className="navbar-brand" href="/dashboard">
               <img
-                src='/assets/logo.png'
-                alt='Mem-It'
+                src="/assets/logo.png"
+                alt="Mem-It"
                 style={{ width: '4.5rem ' }}
               />
             </a>
@@ -84,33 +84,37 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
             >
               {location.pathname !== '/createCategory' &&
                 location.pathname !== '/createTask' && (
-                  <input  type='text' onChange={handleChange} style={{width:'100%'}}/>
+                  <input
+                    type="text"
+                    onChange={handleChange}
+                    style={{ width: '100%' }}
+                  />
                 )}
             </div>
             {userToken?.role === 'admin' ? (
-              <div className='container-fluid d-flex'>
+              <div className="container-fluid d-flex">
                 <button
-                  className='navbar-toggler'
-                  type='button'
-                  data-bs-toggle='collapse'
-                  data-bs-target='#navbarSupportedContent'
-                  aria-controls='navbarSupportedContent'
-                  aria-expanded='false'
-                  aria-label='Toggle navigation'
+                  className="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
                 >
-                  <span className='navbar-toggler-icon'></span>
+                  <span className="navbar-toggler-icon"></span>
                 </button>
                 <div
-                  className='collapse navbar-collapse d-flex justify-content-around '
-                  id='navbarSupportedContent'
+                  className="collapse navbar-collapse d-flex justify-content-around "
+                  id="navbarSupportedContent"
                 >
-                  <ul className='navbar-nav'>
-                    <li className='nav-item active'>
+                  <ul className="navbar-nav">
+                    <li className="nav-item active">
                       <a
-                        className='nav-link active'
+                        className="nav-link active"
                         // style={{ color: '#806d42' }}
-                        aria-current='page'
-                        href='/admin'
+                        aria-current="page"
+                        href="/admin"
                       >
                         <AdminPanelSettings
                           style={{ color: '#806d42', fontSize: '50px' }}
@@ -118,22 +122,22 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
                       </a>
                     </li>
 
-                    <li className='nav-item'>
+                    <li className="nav-item">
                       <a
-                        className='nav-link active'
-                        aria-current='page'
-                        href='/adminUsers'
+                        className="nav-link active"
+                        aria-current="page"
+                        href="/adminUsers"
                       >
                         <PeopleAlt
                           style={{ color: '#806d42', fontSize: '50px' }}
                         />
                       </a>
                     </li>
-                    <li className='nav-item '>
+                    <li className="nav-item ">
                       <a
-                        className='nav-link active'
-                        aria-current='page'
-                        href='#'
+                        className="nav-link active"
+                        aria-current="page"
+                        href="#"
                       >
                         <Notifications
                           style={{ color: '#806d42', fontSize: '50px' }}
@@ -144,9 +148,9 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
                 </div>
                 <div>
                   <img
-                    className='col-3'
-                    src='../assets/profile-icon-png-917.png'
-                    alt='profile'
+                    className="col-3"
+                    src="../assets/profile-icon-png-917.png"
+                    alt="profile"
                     style={{ width: '5.2rem', margin: '5px 0 0 ' }}
                     onClick={profilElement}
                   />
@@ -155,9 +159,9 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
             ) : (
               <div>
                 <img
-                  className='col-3'
-                  src='../assets/profile-icon-png-917.png'
-                  alt='profile'
+                  className="col-3"
+                  src="../assets/profile-icon-png-917.png"
+                  alt="profile"
                   style={{
                     width: '5.2rem',
                     margin: '5px 0 0 ',
@@ -166,6 +170,7 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
                   }}
                   onClick={profilElement}
                 />
+                
               </div>
             )}
           </div>

@@ -2,6 +2,7 @@ import jwtDecode from 'jwt-decode';
 import React, { useEffect, useState } from 'react';
 import { DecodTokenType, UserData } from '../Interface/Interface';
 
+
 function SideBBar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,12 +25,13 @@ function SideBBar() {
     // Permets de ne pas effacer toutes les informations dans le localStorage
     localStorage.removeItem('token');
   };
+  
   return (
     <div
       style={{
         backgroundColor: 'black',
         width: '17rem',
-        position:'fixed',
+        position: 'fixed',
         // zIndex: 1,
         top: '5.63rem',
         color: '#806d42',
@@ -37,14 +39,36 @@ function SideBBar() {
       }}
     >
       <button
-        style={{ backgroundColor: '#806d42', width: '100%' }}
+        style={{
+          backgroundColor: '#806d42',
+          width: '100%',
+          border: 'none',
+          fontSize: '24px',
+        }}
         onClick={() => setIsOpen(!isOpen)}
       >
         Menu
       </button>
       {isOpen && (
-        <div className="sidebar" style={{ padding: '0 17px' }}>
-          <a className="navbar-brand " href="/dashboard">
+        <div className="sidebar" style={{ padding: '0 17px 15px' }}>
+          <a
+           
+            className="navbar-brand "
+            href="/dashboard"
+          >
+            <svg
+            
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-house-door"
+              viewBox="0 0 16 16"
+            >
+              
+              <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z" />
+            </svg>{' '}
+           
             Accueil
           </a>{' '}
           <hr />
@@ -125,11 +149,10 @@ function SideBBar() {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  className="bi bi-person-bounding-box"
+                  className="bi bi-person-fill"
                   viewBox="0 0 16 16"
                 >
-                  <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z" />
-                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                 </svg>{' '}
                 Profil
               </a>
@@ -137,6 +160,16 @@ function SideBBar() {
           </ul>
           <hr />
           <a className="navbar-brand" href="/signin" onClick={handleLogout}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              className="bi bi-plug"
+              viewBox="0 0 16 16"
+            >
+              <path d="M6 0a.5.5 0 0 1 .5.5V3h3V.5a.5.5 0 0 1 1 0V3h1a.5.5 0 0 1 .5.5v3A3.5 3.5 0 0 1 8.5 10c-.002.434-.01.845-.04 1.22-.041.514-.126 1.003-.317 1.424a2.083 2.083 0 0 1-.97 1.028C6.725 13.9 6.169 14 5.5 14c-.998 0-1.61.33-1.974.718A1.922 1.922 0 0 0 3 16H2c0-.616.232-1.367.797-1.968C3.374 13.42 4.261 13 5.5 13c.581 0 .962-.088 1.218-.219.241-.123.4-.3.514-.55.121-.266.193-.621.23-1.09.027-.34.035-.718.037-1.141A3.5 3.5 0 0 1 4 6.5v-3a.5.5 0 0 1 .5-.5h1V.5A.5.5 0 0 1 6 0zM5 4v2.5A2.5 2.5 0 0 0 7.5 9h1A2.5 2.5 0 0 0 11 6.5V4H5z" />
+            </svg>{' '}
             Déconnexion
           </a>
         </div>

@@ -80,23 +80,48 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
 
   return (
     <div>
-      <div className='dropdown'>
+      <div className="dropstart  d-flex justify-content-end">
         <Button
-          className='btn btn-secondary dropdown-toggle'
-          type='button'
-          data-bs-toggle='dropdown'
-          aria-expanded='false'
+          className="btn btn-secondary "
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          style={{
+            fontSize: '10px',
+            backgroundColor: '#806d42',
+            borderColor: '#806d42',
+          }}
         >
-          
+          {' '}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-three-dots"
+            viewBox="0 0 16 16"
+          >
+            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+          </svg>{' '}
         </Button>
-        <ul className='dropdown-menu'>
+        <ul className="dropdown-menu bg-dark" style={{ width: '50%' }}>
           <li>
-            <Button type='button' onClick={handleShow}>
+            <Button
+              className="btn btn-success"
+              type="button"
+              style={{ width: '100%', marginBottom: '5px' }}
+              onClick={handleShow}
+            >
               Modifier
             </Button>
           </li>
           <li>
-            <Button type='button' onClick={handleClickForm}>
+            <Button
+              className="btn btn-danger"
+              type="button"
+              style={{ width: '100%' }}
+              onClick={handleClickForm}
+            >
               Supprimer
             </Button>
           </li>
@@ -109,27 +134,27 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         <Modal.Body>
           <form>
             <FloatingLabel
-              controlId='floatingInput'
-              label='Memo'
-              className='mb-3'
+              controlId="floatingInput"
+              label="Memo"
+              className="mb-3"
             >
-              <Form.Control type='text' placeholder='memo' ref={titleElement} />
+              <Form.Control type="text" placeholder="memo" ref={titleElement} />
             </FloatingLabel>
             <div>
               <Form.Control
-                className='text-primary'
-                type='file'
-                accept='image/*'
+                className="text-primary"
+                type="file"
+                accept="image/*"
                 ref={ImageElement}
               ></Form.Control>
             </div>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='danger' onClick={handleClose}>
+          <Button variant="danger" onClick={handleClose}>
             Fermer
           </Button>
-          <Button variant='success' onClick={handleSubmitForm}>
+          <Button variant="success" onClick={handleSubmitForm}>
             Modifier
           </Button>
         </Modal.Footer>
