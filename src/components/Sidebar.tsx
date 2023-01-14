@@ -83,7 +83,7 @@ export const Sidebar = () => {
             </li>
             <hr />
             <li>
-              <a className='navbar-brand' href='/createTask'>
+              <a className='navbar-brand' href='/createMemo'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='18'

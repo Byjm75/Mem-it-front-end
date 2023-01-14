@@ -151,7 +151,11 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
                     className='col-3'
                     src='../assets/profile-icon-png-917.png'
                     alt='profile'
-                    style={{ width: '5.2rem', margin: '5px 0 0 ' }}
+                    style={{
+                      width: '5.2rem',
+                      margin: '5px 0 0 ',
+                      color: '#806d42',
+                    }}
                     onClick={profilElement}
                   />
                 </div>

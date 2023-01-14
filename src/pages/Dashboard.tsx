@@ -89,7 +89,7 @@ export const Dashboard = () => {
                   alignItems: 'flex-end',
                   margin: '10px 0 0 ',
 
-                  color: '#007872',
+                  color: '#806d42',
                   fontWeight: 'bold',
                 }}
               >

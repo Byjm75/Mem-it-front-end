@@ -67,7 +67,7 @@ export const MemosUncat = () => {
                 justifyContent: 'end',
                 alignItems: 'flex-end',
                 margin: '10px 0 0 ',
-                color: '#007872',
+                color: '#806d42',
                 fontWeight: 'bold',
               }}
             >

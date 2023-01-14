@@ -116,7 +116,10 @@ export const CreateCategory = () => {
                 <div className='col-md-10 border-right'>
                   <div className='p-3 py-5'>
                     <div className='d-flex justify-content-between align-items-center mb-4'>
-                      <h4 className='text-right' style={{ color: '#806d42' }}>
+                      <h4
+                        className='text-right'
+                        style={{ color: '#806d42', fontWeight: 'bold' }}
+                      >
                         Creer une catégorie
                       </h4>
                     </div>

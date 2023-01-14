@@ -99,7 +99,10 @@ export const Profil = () => {
             <div className='col-md-10 border-right'>
               <div className='p-3 py-5'>
                 <div className='d-flex justify-content-between align-items-center mb-4'>
-                  <h4 className='text-right' style={{ color: '#007872' }}>
+                  <h4
+                    className='text-right'
+                    style={{ color: '#806d42', fontWeight: 'bold' }}
+                  >
                     Modifier profil
                   </h4>
                 </div>
@@ -113,7 +116,10 @@ export const Profil = () => {
                     />
                   </div>
                   <div className='col-md-8'>
-                    <label className='labels' style={{ color: '#007872' }}>
+                    <label
+                      className='labels'
+                      style={{ color: '#806d42', fontWeight: 'bold' }}
+                    >
                       Pseudo
                     </label>
                     <input
@@ -127,7 +133,10 @@ export const Profil = () => {
 
                 <div className='row mt-3'>
                   <div className='col-md-12'>
-                    <label className='labels' style={{ color: '#007872' }}>
+                    <label
+                      className='labels'
+                      style={{ color: '#806d42', fontWeight: 'bold' }}
+                    >
                       Adresse mail
                     </label>
                     <input
@@ -140,7 +149,10 @@ export const Profil = () => {
                 </div>
                 <div className='row mt-3'>
                   <div className='col-md-12'>
-                    <label className='labels' style={{ color: '#007872' }}>
+                    <label
+                      className='labels'
+                      style={{ color: '#806d42', fontWeight: 'bold' }}
+                    >
                       Mot de passe
                     </label>
                     <input
@@ -154,7 +166,10 @@ export const Profil = () => {
                 <div className='row' style={{ display: 'flex' }}>
                   <div className='column mt-3 col-6' style={{ width: '100%' }}>
                     <div className='col-md-12'>
-                      <label className='labels' style={{ color: '#007872' }}>
+                      <label
+                        className='labels'
+                        style={{ color: '#806d42', fontWeight: 'bold' }}
+                      >
                         Image de profil
                       </label>
                       <input
@@ -179,7 +194,7 @@ export const Profil = () => {
                       onClick={handleSubmitForm}
                       style={{
                         padding: '5px',
-                        backgroundColor: '#007872',
+                        backgroundColor: '#806d42',
                         borderColor: 'white',
                       }}
                     >
