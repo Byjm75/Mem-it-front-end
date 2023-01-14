@@ -1,17 +1,17 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { SignUp } from './Pages/SignUp';
-import { SignIn } from './Pages/SignIn';
-import {HomeAdmin} from './Pages/Admin/HomeAdmin';
-import {UserAdmin} from './Pages/Admin/UserAdmin';
-import {Dashboard} from './Pages/Dashboard';
-import {CreateCategory} from './Pages/CreateCategory';
-import { Home } from './Pages/Home';
-import {Profil} from './Pages/Profil';
-import {Memos} from './Pages/Memos';
-import { MemosUncat } from './Pages/MemosUncat';
-import { CreateMemo } from './Pages/CreateMemo';
+import { SignUp } from './pages/SignUp';
+import { SignIn } from './pages/SignIn';
+import {HomeAdmin} from './pages/Admin/HomeAdmin';
+import {UserAdmin} from './pages/Admin/UserAdmin';
+import {Dashboard} from './pages/Dashboard';
+import {CreateCategory} from './pages/CreateCategory';
+import { Home } from './pages/Home';
+import {Profil} from './pages/Profil';
+import {Memos} from './pages/Memos';
+import { MemosUncat } from './pages/MemosUncat';
+import { CreateMemo } from './pages/CreateMemo';
 
 
 
