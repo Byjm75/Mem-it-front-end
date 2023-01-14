@@ -8,7 +8,6 @@ import { ToolsBar } from '../components/ToolsBar';
 import { MemosProps } from '../Interface/Interface';
 
 let listeMemos: MemosProps[] = [];
-let filteredMemos: string[] = [];
 
 export const Memos = () => {
   const [listmemoDisplayed, setListMemoDisplayed] = useState<MemosProps[]>([]);
@@ -20,13 +19,17 @@ export const Memos = () => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        listeMemos = res.data;
-        setListMemoDisplayed(res.data);
+        listeMemos = res.data.filter((memo: MemosProps) => {
+          if (memo.categorie_) {
+            return memo.categorie_.id === categoryId;
+          }
+        });
+        setListMemoDisplayed(listeMemos);
       });
   }, []);
   const handleUserInput = (userInputText: string) => {};
   return (
-    <div className="position-sticky">
+    <div className='position-sticky'>
       <div
         style={{
           width: '100%',

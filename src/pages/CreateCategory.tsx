@@ -66,7 +66,8 @@ export const CreateCategory = () => {
           alert('Nouvelle catégorie créée!');
         });
     }
-    navigate('/categorie');
+    navigate('/dashboard');
+    window.location.reload();
   };
 
   return (
@@ -106,7 +107,7 @@ export const CreateCategory = () => {
         </div>
         
         <div
-          className='container rounded bg-4 mt-5 mb-5 '
+          className='container rounded bg-4 mt-5 '
           style={{
             display: 'flex',
             backgroundColor: 'black',
@@ -114,68 +115,79 @@ export const CreateCategory = () => {
             width: '62%',
           }}
         >
-          
-          <div className='row'>
-            <div className='col-md-10 border-right'>
-              <div className='p-5 py-8'>
-                <div className='d-flex justify-content-between align-items-center mb-4'>
-                  <h4 className='text-right' style={{ color: '#007872' }}>
-                    Creer une catégorie
-                  </h4>
-                </div>
-
-                <div className='row mt-3' style={{ display: 'flex' }}>
-                  <div className='col-md-4 border-right'></div>
-                  <div className='col-md-8'>
-                    {/* <label className="labels" style={{ color: '#007872' }}>
-                      Titre
+          <div className=' row py-6'>
+            <form onSubmit={handleSubmit}>
+              <div className='row'>
+                <div className='col-md-10 border-right'>
+                  <div className='p-3 py-5'>
+                    <div className='d-flex justify-content-between align-items-center mb-4'>
+                      <h4
+                        className='text-right'
+                        style={{ color: '#806d42', fontWeight: 'bold' }}
+                      >
+                        Creer une catégorie
+                      </h4>
+                    </div>
+                    <label
+                      className='labels'
+                      style={{ color: '#806d42', fontWeight: 'bold' }}
+                    >
+                      Titre de la catégorie
                     </label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Titre"
-                      ref={titleElement}
-                     
-                    /> */}
-                    <form onSubmit={handleSubmit}>
-                      <input type='text' ref={titleElement} />
-                      <label htmlFor='file'>Select image:</label>
+                    <div className='input-group mb-4'>
+                      <input
+                        type='text'
+                        className='form-control'
+                        placeholder='Titre de la catégorie'
+                        ref={titleElement}
+                      />
+                    </div>
+                    <label
+                      className='labels'
+                      style={{ color: '#806d42', fontWeight: 'bold' }}
+                    >
+                      Choisissez votre fichier
+                    </label>
+                    <div className='input-group mb-3'>
                       <input
                         type='file'
-                        id='file'
+                        accept='image/*'
+                        className='form-control'
+                        id='image'
+                        placeholder='image de la catégorie'
                         onChange={handleFileChange}
                       />
-                      <button type='submit'>Upload image</button>
-                    </form>
-                  </div>
-                </div>
-                <div className='row' style={{ display: 'flex' }}>
-                  <div className='column mt-3 col-6' style={{ width: '100%' }}>
-                    <div className='col-md-12'></div>
-                  </div>
-                  <div
-                    className='mt-4 text-center col-12'
-                    style={{
-                      marginRight: '0',
-                      display: 'flex',
-                      justifyContent: 'end',
-                    }}
-                  >
-                    {/* <button
-                      className="btn btn-primary profile-button col-md-12"
-                      type="button"
-                      onClick={handleSubmitForm}
+                      <label htmlFor='image' className=''></label>
+                    </div>
+
+                    <button
+                      className='btn btn-primary profile-button col-md-12'
+                      type='button'
                       style={{
                         padding: '5px',
-                        backgroundColor: '#007872',
+                        backgroundColor: '#806d42',
                         borderColor: 'white',
                       }}
                     >
                       Sauvegarder modifications
-                    </button> */}
+                    </button>
                   </div>
                 </div>
               </div>
+            </form>
+
+            <div className='row' style={{ display: 'flex' }}>
+              <div className='column mt-3 col-6' style={{ width: '100%' }}>
+                <div className='col-md-12'></div>
+              </div>
+              <div
+                className='mt-4 text-center col-12'
+                style={{
+                  marginRight: '0',
+                  display: 'flex',
+                  justifyContent: 'end',
+                }}
+              ></div>
             </div>
           </div>
         </div>

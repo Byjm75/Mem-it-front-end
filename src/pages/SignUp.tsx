@@ -92,7 +92,8 @@ export const SignUp = () => {
               />
             </MDBCol>
 
-            <MDBCol md="8">
+            <MDBCol md='8'
+            >
               <h1 style={{ textAlign: 'center', color: 'white' }}>
                 Inscrivez vous
               </h1>
@@ -162,8 +163,8 @@ export const SignUp = () => {
           </MDBRow>
         </MDBCard>
       </MDBContainer>
-      <div style={{height:'150px'}}></div>
-        <FooterConnect />
+      <div style={{ height: '150px' }}></div>
+      <FooterConnect />
     </div>
   );
 };

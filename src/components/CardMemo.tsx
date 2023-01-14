@@ -1,6 +1,6 @@
 import { CardmemoProps } from '../Interface/Interface';
 
-import {DropdownMemo} from './DropdownMemo';
+import { DropdownMemo } from './DropdownMemo';
 
 export const CardMemo = ({ memoAffich }: CardmemoProps) => {
   let photo: string = memoAffich.image;
@@ -12,7 +12,7 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
 
   return (
     <div
-      className=""
+      className=''
       style={{
         width: ' 13.5rem',
         height: '17rem',
@@ -25,7 +25,7 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
       <DropdownMemo memo={memoAffich} />
       <div style={{ width: '87%', margin: '3px auto' }}>
         <div
-          className="btn btn- col-sm-12"
+          className='btn btn- col-sm-12'
           style={{
             height: '12.7em',
             margin: '15px auto',
@@ -35,7 +35,7 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
         >
           {/* <div className="card-body"> */}
           <h5
-            className="card-title"
+            className='card-title'
             style={{
               textAlign: 'center',
               border: 'solid 2px #806d42',
@@ -49,7 +49,7 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
             }}
           >
             {' '}
-            <a className="navbar-brand" href="/memo">
+            <a className='navbar-brand' href='/memo'>
               {memoAffich.title}
             </a>
           </h5>
@@ -57,7 +57,7 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
 
           <img
             src={memoAffich.image}
-            alt="illustration memo"
+            alt='illustration memo'
             style={{ width: '100%', borderRadius: '7px', marginTop: '4px' }}
           />
         </div>
@@ -65,4 +65,3 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
     </div>
   );
 };
-

@@ -25,7 +25,7 @@ export const MemosUncat = () => {
   }, []);
   const handleUserInput = (userInputText: string) => {};
   return (
-    <div className="position-sticky">
+    <div className='position-sticky'>
       <div
         style={{
           width: '100%',

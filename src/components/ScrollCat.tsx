@@ -1,10 +1,11 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { DropdownPropsCat } from '../Interface/Interface';
+import React, { useEffect, useRef, useState } from 'react';
 import { Categories } from '../Interface/Interface';
-// let dataCateg: DropdownPropsCat[] = []
 
-export const ScrollCat = () /*({ category }: DropdownPropsCat)*/ => {
+export const ScrollCat = () => {
+  const inputSelect = useRef<HTMLSelectElement>(null);
+
+  console.log('le titre sélectionné est', inputSelect);
   const [categories, setCategories] = useState<Categories[]>([]);
   useEffect(() => {
     axios
@@ -16,23 +17,26 @@ export const ScrollCat = () /*({ category }: DropdownPropsCat)*/ => {
         setCategories(res.data);
       });
   }, []);
-  return (
-    <div>
-      <div className="input-group mb-3">
-        {}
-        {categories.map((categorie) => (
-          <select>
-            <option key={categorie.id}>{categorie.title}</option>
-          </select>
-        ))}
-        <label className="input-group-text" htmlFor="inputGroupSelect01">
-          Options
-        </label>
 
-        <input className="form-select" id="inputGroupSelect01" type="select">
-          {' '}
-        </input>
+  return (
+    <>
+      <div className='input-group mb-3'>
+        <select
+          className='form-select'
+          id='floatingSelect'
+          ref={inputSelect}
+          aria-label='Floating label select example'
+        >
+          <label htmlFor='floatingSelect'>Email</label>
+          {categories.map((categ) => {
+            return (
+              <option id='floatingSelect' value={categ.id}>
+                {categ.title}
+              </option>
+            );
+          })}
+        </select>
       </div>
-    </div>
+    </>
   );
 };

@@ -1,14 +1,15 @@
 import axios, { AxiosResponse } from 'axios';
 import { FormEvent, useEffect, useRef, useState } from 'react';
-import {FooterConnect} from '../components/FooterConnect';
 import {ToolsBar} from '../components/ToolsBar';
 import jwtDecode from 'jwt-decode';
 import { DecodTokenType, UserData } from '../Interface/Interface';
 import SideBBar from '../components/SideBBar';
+import { useNavigate } from 'react-router-dom';
+import { FooterConnect } from '../components/FooterConnect';
 
 export const Profil = () => {
   const [userToken, setUserToken] = useState<UserData>();
-
+  const navigate = useNavigate();
   const pseudoElement = useRef<HTMLInputElement>(null);
   const ImageProfilElement = useRef<HTMLInputElement>(null);
   const emailElement = useRef<HTMLInputElement>(null);
@@ -34,7 +35,7 @@ export const Profil = () => {
     const accessToken = localStorage.getItem('token');
     axios
       .patch(
-        `http://localhost:8085/api/auth/update/${userToken?.id}`,
+        `http://localhost:8085/api/utilisateur/${userToken?.id}`,
         {
           pseudo: pseudoElement.current?.value,
           email: emailElement.current?.value,
@@ -48,6 +49,8 @@ export const Profil = () => {
       .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data);
         alert('Profil mis à jour!');
+        navigate('/dashboard');
+        window.location.reload();
       });
   };
 
@@ -178,7 +181,7 @@ export const Profil = () => {
                       onClick={handleSubmitForm}
                       style={{
                         padding: '5px',
-                        backgroundColor: '#007872',
+                        backgroundColor: '#806d42',
                         borderColor: 'white',
                       }}
                     >
@@ -206,4 +209,3 @@ export const Profil = () => {
     </div>
   );
 };
-

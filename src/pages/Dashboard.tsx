@@ -24,7 +24,6 @@ export const Dashboard = () => {
         setListCatDisplayed(res.data);
       });
   }, []);
-
   const handleUserInput = (userInputText: string) => {
     console.log("qu'a tapé mon user ? : ", userInputText);
     let catTemporaire = [...listCatDisplayed];
@@ -39,6 +38,8 @@ export const Dashboard = () => {
       setListCatDisplayed(dataCateg);
     }
   };
+  
+
   return (
     <div className="position-sticky">
       <div
@@ -63,25 +64,45 @@ export const Dashboard = () => {
         >
           <SideBBar />
         </div>
-        <div style={{ height: '90px' }}></div>
-        <div style={{ width: '70%', margin: ' auto' }}>
-          <div>
-            <h1
-              className=""
+        <div style={{ width: '64%', margin: '0 auto' }}>
+          <div
+            style={{
+              width: '100%',
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'end',
+              alignItems: 'flex-end',
+            }}
+          >
+            <div
               style={{
-                width: '100%',
-                position: 'relative',
                 display: 'flex',
-                justifyContent: 'end',
-                alignItems: 'flex-end',
-                margin: '37px 0 0 ',
-                borderBottom: ' 4mm ridge #007872',
-                color: '#007872',
-                fontWeight: 'bold',
+                justifyContent: 'space-bettwen',
+                flexWrap: 'wrap',
+                listStyle: 'none',
               }}
             >
-              Mon espace
-            </h1>
+              <h1
+                style={{
+                  width: '100%',
+                  position: 'relative',
+                  display: 'flex',
+                  justifyContent: 'end',
+                  alignItems: 'flex-end',
+                  margin: '10px 0 0 ',
+
+                  color: '#806d42',
+                  fontWeight: 'bold',
+                }}
+              >
+                Mes catégories
+              </h1>
+              {listCatDisplayed.map((categorie) => (
+                <li key={categorie.id}>
+                  <CardCategory categoryAffich={categorie} />
+                </li>
+              ))}
+            </div>
           </div>
 
           <div
@@ -92,24 +113,16 @@ export const Dashboard = () => {
               flexWrap: 'wrap',
               justifyContent: 'flex-end',
             }}
-          >
-            {listCatDisplayed.map((categorie, i) => (
-              <ul key={i}>
-                <li
-                  key={categorie.id}
-                  style={{
-                    listStyleType: 'none',
-                    margin: '0 10px',
-                  }}
-                >
-                  <CardCategory categoryAffich={categorie} />
-                </li>
-              </ul>
-            ))}{' '}
+          ></div>
+          <div>
+            <hr />
+
+            <div
+              className='card-tools row'
+              style={{ display: 'flex', justifyContent: 'space-around' }}
+            ></div>
           </div>
-        </div>
-        <div style={{ height: '150px' }}>
-          <div style={{ position: 'fixed', right: '15px', bottom: '115px' }}>
+          <div style={{ position: 'fixed', right: '15px', bottom: '120px' }}>
             <AddBtn />
           </div>
         </div>

@@ -6,6 +6,7 @@ export interface MemosProps {
   image: string;
   url: string;
   date_creation: string;
+  categorie_: Categories;
 }
 
 export interface DecodTokenType {

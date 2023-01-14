@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { CardcategoryProps } from '../Interface/Interface';
 import { DropdownCategorie } from './DropdownCategorie';
+import { DropdownCategorie } from './DropdownCategorie';
 
 export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
   const [listImgDisplayed, setListImgDisplayed] = useState<string>();
@@ -38,11 +39,11 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
         })
         .then((res) => {});
     }
-  });
+  }, []);
 
   return (
     <div
-      className=""
+      className=''
       style={{
         width: ' 13.5rem',
         height: '17rem',
@@ -55,7 +56,7 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
       <DropdownCategorie category={categoryAffich} />
       <div style={{ width: '87%', margin: '3px auto' }}>
         <div
-          className="btn btn- col-sm-12"
+          className='btn btn- col-sm-12'
           style={{
             height: '12.7em',
             margin: '15px auto',
@@ -63,28 +64,25 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
             backgroundColor: 'black',
           }}
         >
-          {/* <div className="card-body" style={{ border: ' solid#806d42 5px'  }}> */}
-            <h5
-              className="card-title"
-              style={{
-                textAlign: 'center',
-                border: 'solid 2px #806d42',
-                borderRadius: '7px',
-                // width: '80%',
-                margin: ' auto',
-                backgroundColor: '#806d42',
-                padding: '10px',
+          <h5
+            className='card-title'
+            style={{
+              textAlign: 'center',
+              border: 'solid 2px #806d42',
+              borderRadius: '7px',
+              // width: '80%',
+              margin: ' auto',
+              backgroundColor: '#806d42',
+              padding: '10px',
 
-                color: 'white',
-              }}
-            >
-              {' '}
-              <a className="navbar-brand" href="/memo">
-                {categoryAffich.title}
-              </a>
-            </h5>
-          {/* </div> */}
-
+              color: 'white',
+            }}
+          >
+            {' '}
+            <a className='navbar-brand' href={`/memo/${categoryAffich.id}`}>
+              {categoryAffich.title}
+            </a>
+          </h5>
           <img
             src={listImgDisplayed}
             alt="illustration catégorie"

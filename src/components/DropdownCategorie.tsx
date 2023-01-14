@@ -1,8 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
-import { FormEvent, useRef, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import { Categories, DropdownPropsCat } from '../Interface/Interface';
 
 export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
@@ -14,8 +13,9 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
   const titleElement = useRef<HTMLInputElement>(null);
   const ImageElement = useRef<HTMLInputElement>(null);
   const favElement = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate();
 
+
+  
   const handleSubmitForm = async (e: FormEvent) => {
     console.log('handleSubmitForm');
     e.preventDefault();
@@ -23,35 +23,33 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
     console.log(titleElement.current?.value);
     console.log(ImageElement.current?.value);
     console.log(favElement.current?.value);
+    
+      axios
+        .patch(
+          `http://localhost:8085/api/categorie/${category.id}`,
 
-    //   useEffect(() => {
-    axios
-      .patch(
-        `http://localhost:8085/api/categorie/${category.id}`,
-
-        {
-          title: titleElement.current?.value,
-          favori: favElement.current?.value,
-          image: ImageElement.current?.value,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          {
+            title: titleElement.current?.value,
+            favori: favElement.current?.value,
+            image: ImageElement.current?.value,
           },
-        }
-      )
-      .then((response: AxiosResponse<{ data: any }>) => {
-        console.log('response ', response.data.data);
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        )
+        .then((response: AxiosResponse<{ data: any }>) => {
+          console.log('response ', response.data.data);
 
-        console.log(response, 'res');
-        alert('Catégorie modifiée!');
-        setCategories(response.data.data);
-        handleClose();
-        axios.get('http://localhost:8085/api/categorie/');
-      });
-  };
-  //   },[]);
-  // useEffect(() => {
+          console.log(response, 'res');
+          alert('Catégorie modifiée!');
+          setCategories(response.data.data);
+          handleClose();
+          window.location.reload();
+        });
+    }
+  
 
   const handleClickForm = async () => {
     await axios
@@ -67,22 +65,21 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
         alert('Catégorie modifiée!');
         setCategories(response.data.data);
         handleClose();
-        axios.get('http://localhost:8085/api/categorie/');
+        window.location.reload();
       });
   };
-  // },[]);
 
   return (
-    <div >
+    <div>
       <div
         style={{ zIndex: '0' }}
-         className="dropstart  d-flex justify-content-end "
+        className='dropstart  d-flex justify-content-end '
       >
         <Button
-          className="btn btn-secondary"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
+          className='btn btn-secondary'
+          type='button'
+          data-bs-toggle='dropdown'
+          aria-expanded='false'
           style={{
             fontSize: '10px',
             backgroundColor: '#806d42',
@@ -90,21 +87,21 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
           }}
         >
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            className="bi bi-three-dots"
-            viewBox="0 0 16 16"
+            xmlns='http://www.w3.org/2000/svg'
+            width='16'
+            height='16'
+            fill='currentColor'
+            className='bi bi-three-dots'
+            viewBox='0 0 16 16'
           >
-            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+            <path d='M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z' />
           </svg>{' '}
         </Button>
-        <ul className="dropdown-menu  bg-dark " style={{ width: '50%' }}>
+        <ul className='dropdown-menu  bg-dark ' style={{ width: '50%' }}>
           <li>
             <Button
-              className="btn btn-success"
-              type="button"
+              className='btn btn-success'
+              type='button'
               style={{ width: '100%', marginBottom: '5px' }}
               onClick={handleShow}
             >
@@ -113,8 +110,8 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
           </li>
           <li>
             <Button
-              className="btn btn-danger"
-              type="button"
+              className='btn btn-danger'
+              type='button'
               style={{ width: '100%' }}
               onClick={handleClickForm}
             >

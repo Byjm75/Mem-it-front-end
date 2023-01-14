@@ -2,13 +2,13 @@ import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
 import { DropdownPropsMemo } from '../Interface/Interface';
 
 export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  
   const [memos, setMemos] = useState<DropdownPropsMemo | undefined>();
 
   const titleElement = useRef<HTMLInputElement>(null);
@@ -16,7 +16,6 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
   const bodyElement = useRef<HTMLInputElement>(null);
   const ImageElement = useRef<HTMLInputElement>(null);
   const urlElement = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate();
 
   const handleSubmitForm = async (e: FormEvent) => {
     console.log('handleSubmitForm');
@@ -28,7 +27,6 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
     console.log(ImageElement.current?.value);
     console.log(urlElement.current?.value);
 
-    //   useEffect(() => {
     axios
       .patch(
         `http://localhost:8085/api/tache/${memo.id}`,
@@ -53,11 +51,9 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         alert('Memo modifiée!');
         setMemos(response.data.data);
         handleClose();
-        axios.get('http://localhost:8085/api/tache/');
+        window.location.reload();
       });
   };
-  //   },[]);
-  // useEffect(() => {
 
   const handleClickForm = async () => {
     await axios
@@ -73,14 +69,14 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         alert('Catégorie modifiée!');
         setMemos(response.data.data);
         handleClose();
-        axios.get('http://localhost:8085/api/tache/');
+        window.location.reload();
       });
   };
   // },[]);
 
   return (
     <div>
-      <div className="dropstart  d-flex justify-content-end">
+      <div className='dropdown d-flex justify-content-end'>
         <Button
           className="btn btn-secondary "
           type="button"
