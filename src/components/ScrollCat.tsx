@@ -4,7 +4,7 @@ import { Categories } from '../Interface/Interface';
 
 export const ScrollCat = () => {
   const inputSelect = useRef<HTMLSelectElement>(null);
-  
+
   console.log('le titre sélectionné est', inputSelect);
   const [categories, setCategories] = useState<Categories[]>([]);
   useEffect(() => {
