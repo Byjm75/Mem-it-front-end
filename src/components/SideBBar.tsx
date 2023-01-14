@@ -35,7 +35,7 @@ function SideBBar() {
         // zIndex: 1,
         top: '5.63rem',
         color: '#806d42',
-        fontSize: '20px',
+        fontSize: '18px',
       }}
     >
       <button
@@ -50,25 +50,18 @@ function SideBBar() {
         Menu
       </button>
       {isOpen && (
-        <div className="sidebar" style={{ padding: '0 17px 15px' }}>
-          <a
-           
-            className="navbar-brand "
-            href="/dashboard"
-          >
+        <div className="sidebar" style={{ padding: '0 17px 10px' }}>
+          <a className="navbar-brand " href="/dashboard">
             <svg
-            
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
+              width="18"
+              height="18"
               fill="currentColor"
               className="bi bi-house-door"
               viewBox="0 0 16 16"
             >
-              
               <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146ZM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5Z" />
             </svg>{' '}
-           
             Accueil
           </a>{' '}
           <hr />
@@ -78,8 +71,8 @@ function SideBBar() {
               <a className="navbar-brand" href="/createCategory">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
+                  width="18"
+                  height="18"
                   fill="currentColor"
                   className="bi bi-sticky"
                   viewBox="0 0 16 16"
@@ -94,8 +87,8 @@ function SideBBar() {
               <a className="navbar-brand" href="/createTask">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
+                  width="18"
+                  height="18"
                   fill="currentColor"
                   className="bi bi-sticky"
                   viewBox="0 0 16 16"
@@ -111,8 +104,8 @@ function SideBBar() {
               <a className="navbar-brand" href="/categorie">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
+                  width="18"
+                  height="18"
                   fill="currentColor"
                   className="bi bi-calendar3"
                   viewBox="0 0 16 16"
@@ -129,8 +122,8 @@ function SideBBar() {
               <a className="navbar-brand" href="/categorie">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
+                  width="18"
+                  height="18"
                   fill="currentColor"
                   className="bi bi-calendar3"
                   viewBox="0 0 16 16"
@@ -146,8 +139,8 @@ function SideBBar() {
               <a className="navbar-brand" href="/profil">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
+                  width="18"
+                  height="18"
                   fill="currentColor"
                   className="bi bi-person-fill"
                   viewBox="0 0 16 16"
@@ -162,8 +155,8 @@ function SideBBar() {
           <a className="navbar-brand" href="/signin" onClick={handleLogout}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
+              width="18"
+              height="18"
               fill="currentColor"
               className="bi bi-plug"
               viewBox="0 0 16 16"
