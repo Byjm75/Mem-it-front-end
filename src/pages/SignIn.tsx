@@ -131,9 +131,6 @@ export const SignIn = () => {
                   className='mb-1 w-100'
                   style={{ height: '40px' }}
                   onClick={handleSubmitForm}
-                  // <div className="alert alert-success" role="alert">
-                  //   'Bon retour parmi nous!'
-                  // </div>;
                   role="alert"
                 >
                   Connexion
