@@ -89,18 +89,27 @@ export const CreateMemo = () => {
             <div className='col-md-10 border-right'>
               <div className='p-3 py-4'>
                 <div className='d-flex justify-content-between align-items-center mb-4'>
-                  <h4 className='text-right' style={{ color: '#806d42',fontWeight:'bold' }}>
+                  <h4
+                    className='text-right'
+                    style={{ color: '#806d42', fontWeight: 'bold' }}
+                  >
                     Créer un mémo
                   </h4>
                 </div>
-                <label className='labels' style={{ color: '#806d42',fontWeight:'bold' }}>
+                <label
+                  className='labels'
+                  style={{ color: '#806d42', fontWeight: 'bold' }}
+                >
                   Catégorie de votre mémo
                 </label>
                 <ScrollCat />
                 <div className='row' style={{ display: 'flex' }}>
                   <div className='column mt-3 col-6' style={{ width: '100%' }}>
                     <div className='col-md-12'>
-                      <label className='labels' style={{ color: '#806d42',fontWeight:'bold' }}>
+                      <label
+                        className='labels'
+                        style={{ color: '#806d42', fontWeight: 'bold' }}
+                      >
                         Titre de votre mémo
                       </label>
                       <input
@@ -113,7 +122,10 @@ export const CreateMemo = () => {
                   </div>
 
                   <div className='col-md-12 mt-4'>
-                    <label className='labels' style={{ color: '#806d42',fontWeight:'bold' }}>
+                    <label
+                      className='labels'
+                      style={{ color: '#806d42', fontWeight: 'bold' }}
+                    >
                       Date de votre évènement
                     </label>
                     <input
@@ -126,7 +138,10 @@ export const CreateMemo = () => {
                 </div>
                 <div className='column mt-3 col-6 ' style={{ width: '100%' }}>
                   <div className='col-md-12 '>
-                    <label className='labels' style={{ color: '#806d42',fontWeight:'bold' }}>
+                    <label
+                      className='labels'
+                      style={{ color: '#806d42', fontWeight: 'bold' }}
+                    >
                       Image de votre profil
                     </label>
                     <input
@@ -143,7 +158,10 @@ export const CreateMemo = () => {
                       style={{ width: '100%' }}
                     >
                       <div className='col-md-12'>
-                        <label className='labels' style={{ color: '#806d42',fontWeight:"bold" }}>
+                        <label
+                          className='labels'
+                          style={{ color: '#806d42', fontWeight: 'bold' }}
+                        >
                           Lien internet
                         </label>
                         <input
@@ -162,7 +180,7 @@ export const CreateMemo = () => {
                         <div className='col-md-12'>
                           <label
                             className='labels'
-                            style={{ color: '#806d42',fontWeight:'bold' }}
+                            style={{ color: '#806d42', fontWeight: 'bold' }}
                           >
                             Contenu
                           </label>

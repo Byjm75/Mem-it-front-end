@@ -72,7 +72,6 @@ export const Dashboard = () => {
               alignItems: 'flex-end',
             }}
           >
-            
             <div
               style={{
                 display: 'flex',

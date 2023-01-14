@@ -2,8 +2,8 @@ import axios, { AxiosResponse } from 'axios';
 import React, { ChangeEvent, FormEvent, useRef, useState } from 'react';
 import { ToolsBar } from '../components/ToolsBar';
 import { useNavigate } from 'react-router-dom';
-import { Sidebar } from '../components/Sidebar';
 import { FooterConnect } from '../components/FooterConnect';
+import { Sidebar } from '../components/Sidebar';
 
 export const CreateCategory = () => {
   const navigate = useNavigate();
@@ -120,7 +120,10 @@ export const CreateCategory = () => {
                         Creer une catégorie
                       </h4>
                     </div>
-                    <label className='labels' style={{ color: '#806d42', fontWeight:"bold" }}>
+                    <label
+                      className='labels'
+                      style={{ color: '#806d42', fontWeight: 'bold' }}
+                    >
                       Titre de la catégorie
                     </label>
                     <div className='input-group mb-4'>
@@ -131,7 +134,10 @@ export const CreateCategory = () => {
                         ref={titleElement}
                       />
                     </div>
-                    <label className='labels' style={{ color: '#806d42', fontWeight:"bold" }}>
+                    <label
+                      className='labels'
+                      style={{ color: '#806d42', fontWeight: 'bold' }}
+                    >
                       Choisissez votre fichier
                     </label>
                     <div className='input-group mb-3'>

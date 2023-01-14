@@ -25,7 +25,7 @@ export const MemosUncat = () => {
   }, []);
   const handleUserInput = (userInputText: string) =>{}
   return (
-    <div className="position-sticky">
+    <div className='position-sticky'>
       <div
         style={{
           width: '100%',
@@ -59,7 +59,7 @@ export const MemosUncat = () => {
         >
           <div>
             <h1
-              className="card-title"
+              className='card-title'
               style={{
                 width: '100%',
                 position: 'relative',
@@ -76,17 +76,14 @@ export const MemosUncat = () => {
           </div>
           <hr />
 
-          <div className="  ">
+          <div className='  '>
             <div
               style={{
                 display: 'flex',
                 justifyContent: 'space-bettwen',
                 flexWrap: 'wrap',
-                
               }}
             >
-              
-              
               {listmemoDisplayed.map((memo, i) => (
                 <ul key={i}>
                   <li
@@ -101,7 +98,6 @@ export const MemosUncat = () => {
                   </li>
                 </ul>
               ))}
-             
             </div>
           </div>
         </div>
