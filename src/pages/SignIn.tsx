@@ -34,16 +34,6 @@ export const SignIn = () => {
       })
       .then((response) => {
         const token = response.data.accessToken;
-<<<<<<< HEAD
-        // Set le token dans le localstorage
-        localStorage.setItem('token', token);
-        console.log('response ', response.data);
-
-        window.alert(' Bon retour parmi nous!');
-        // window.location.reload();
-
-        navigate('/dashboard');
-=======
         if (token) {
           localStorage.setItem('token', token);
           setIsConnect('Authentification réussie');
@@ -53,7 +43,6 @@ export const SignIn = () => {
       .catch(() => {
         setIsConnect('Vous nêtes pas inscrit, veuillez vous inscrire avant');
         setTimeout(() => navigate('/signup'), 1000);
->>>>>>> 0d50ee93d70300a7c1e5492c0a7a27e91268e3df
       });
   };
 

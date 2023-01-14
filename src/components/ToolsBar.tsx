@@ -44,7 +44,7 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
       <nav
         className="navbar  sticky-top navbar-expand d-inline-flex
         "
-        style={{ backgroundColor: 'black', width: '100%', position: 'fixed' }}
+        style={{ backgroundColor: 'black', width: '100%' }}
       >
         <div
           style={{

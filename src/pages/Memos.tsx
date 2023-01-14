@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { AddBtn } from '../components/AddBtn';
 import { CardMemo } from '../components/CardMemo';
 import { FooterConnect } from '../components/FooterConnect';
@@ -12,6 +13,8 @@ let filteredMemos: string[] = [];
 
 export const Memos = () => {
   const [listmemoDisplayed, setListMemoDisplayed] = useState<MemosProps[]>([]);
+  let { categoryId } = useParams();
+
 
   useEffect(() => {
     const token = localStorage.getItem('token');

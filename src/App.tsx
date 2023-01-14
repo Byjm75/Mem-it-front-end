@@ -11,6 +11,7 @@ import {Profil} from './Pages/Profil';
 import {Memos} from './Pages/Memos';
 import { MemosUncat } from './Pages/MemosUncat';
 import { CreateMemo } from './Pages/CreateMemo';
+import { SignIn } from './Pages/SignIn';
 
 
 

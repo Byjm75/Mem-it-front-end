@@ -38,7 +38,6 @@ export const Dashboard = () => {
       setListCatDisplayed(dataCateg);
     }
   };
-  
 
   return (
     <div className="position-sticky">
@@ -53,81 +52,74 @@ export const Dashboard = () => {
       >
         <ToolsBar onSearch={handleUserInput} />
       </div>{' '}
-      <div>
+      {/* <div> */}
+      <div
+        style={{
+          display: 'flex',
+          position: 'fixed',
+          overflow: 'hidden',
+          zIndex: '1',
+        }}
+      >
+        <SideBBar />
+      </div>
+      <div style={{ height: '50px' }}></div>
+      <div style={{ width: '64%', height: '100%', margin: '0 auto' }}>
         <div
           style={{
             display: 'flex',
-            position: 'fixed',
-            overflow: 'hidden',
-            zIndex: '1',
+            justifyContent: 'space-bettwen',
+            flexWrap: 'wrap',
+            listStyle: 'none',
           }}
         >
-          <SideBBar />
-        </div>
-        <div style={{ width: '64%', margin: '0 auto' }}>
-          <div
+          <h1
             style={{
               width: '100%',
               position: 'relative',
               display: 'flex',
               justifyContent: 'end',
               alignItems: 'flex-end',
+              margin: '10px 0 0 ',
+              color: '#806d42',
+              fontWeight: 'bold',
             }}
           >
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-bettwen',
-                flexWrap: 'wrap',
-                listStyle: 'none',
-              }}
-            >
-              <h1
-                style={{
-                  width: '100%',
-                  position: 'relative',
-                  display: 'flex',
-                  justifyContent: 'end',
-                  alignItems: 'flex-end',
-                  margin: '10px 0 0 ',
+            Mes catégories
+          </h1>
+        </div>
+        <hr />
 
-                  color: '#806d42',
-                  fontWeight: 'bold',
-                }}
-              >
-                Mes catégories
-              </h1>
-              {listCatDisplayed.map((categorie) => (
-                <li key={categorie.id}>
-                  <CardCategory categoryAffich={categorie} />
-                </li>
-              ))}
-            </div>
-          </div>
-
+        <div
+          className=" "
+          style={{
+            width: '100%',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            listStyle: 'none',
+          }}
+        >
+          {' '}
+          {listCatDisplayed.map((categorie) => (
+            <li key={categorie.id}>
+              <CardCategory categoryAffich={categorie} />
+            </li>
+          ))}
+        </div>
+        <div>
           <div
-            className=" "
-            style={{
-              width: '100%',
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'flex-end',
-            }}
+            className="card-tools row"
+            style={{ display: 'flex', justifyContent: 'space-around' }}
           ></div>
-          <div>
-            <hr />
-
-            <div
-              className='card-tools row'
-              style={{ display: 'flex', justifyContent: 'space-around' }}
-            ></div>
-          </div>
-          <div style={{ position: 'fixed', right: '15px', bottom: '120px' }}>
-            <AddBtn />
-          </div>
+        </div>
+        <div style={{ position: 'fixed', right: '15px', bottom: '120px' }}>
+          <AddBtn />
         </div>
       </div>
+        <div style={{ height: '500px' }}></div>
       <FooterConnect />
+      {/* </div> */}
     </div>
   );
 };

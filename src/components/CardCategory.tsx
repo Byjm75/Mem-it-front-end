@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { CardcategoryProps } from '../Interface/Interface';
 import { DropdownCategorie } from './DropdownCategorie';
-import { DropdownCategorie } from './DropdownCategorie';
+
 
 export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
   const [listImgDisplayed, setListImgDisplayed] = useState<string>();
