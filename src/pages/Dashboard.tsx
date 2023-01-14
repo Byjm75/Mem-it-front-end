@@ -1,7 +1,7 @@
-import {AddBtn} from '../components/AddBtn';
-import {ToolsBar} from '../components/ToolsBar';
+import { AddBtn } from '../components/AddBtn';
+import { ToolsBar } from '../components/ToolsBar';
 import { Sidebar } from '../components/Sidebar';
-import {FooterConnect} from '../components/FooterConnect';
+import { FooterConnect } from '../components/FooterConnect';
 import { Categories } from '../Interface/Interface';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -36,7 +36,6 @@ export const Dashboard = () => {
       setListCatDisplayed(dataCateg);
     }
   };
-  
 
   return (
     <div style={{ height: '100vh' }}>
@@ -136,4 +135,3 @@ export const Dashboard = () => {
     </div>
   );
 };
-

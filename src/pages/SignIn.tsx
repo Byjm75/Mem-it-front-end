@@ -32,7 +32,7 @@ export const SignIn = () => {
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
       })
-      .then((response) => {
+      .then((response: AxiosResponse) => {
         const token = response.data.accessToken;
         if (token) {
           localStorage.setItem('token', token);
@@ -51,7 +51,7 @@ export const SignIn = () => {
       <Navbar />
       <MDBContainer
         style={{
-          margin: '39px auto',
+          marginTop: '7rem',
         }}
       >
         <MDBCard>

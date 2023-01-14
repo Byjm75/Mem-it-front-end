@@ -17,6 +17,7 @@ import { Navbar } from '../components/Navbar';
 
 export const SignUp = () => {
   const [isRegister, setIsRegister] = useState<String>();
+
   const pseudoElement = useRef<HTMLInputElement>(null);
   const emailElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
@@ -39,14 +40,17 @@ export const SignUp = () => {
         password: passwordElement.current?.value,
         ConfirmPassword: ConfirmPasswordElement.current?.value,
       })
-      .then((response: AxiosResponse<{ data: any }>) => {
-        if (response.status) {
+      .then((response: AxiosResponse) => {
+        console.log('réponde de axios', response);
+        console.log('réponde de axios', response.data);
+
+        if (response.data.status === 200) {
           setIsRegister('Compte crée');
           setTimeout(() => navigate('/signin'), 1000);
         }
       })
-      .catch((error) => {
-        if (error === '23505') setIsRegister('erreur dans le formulaire');
+      .catch(() => {
+        setIsRegister('erreur dans le formulaire');
         console.log();
       });
   };
@@ -54,7 +58,11 @@ export const SignUp = () => {
   return (
     <div>
       <Navbar />
-      <MDBContainer className='my-2'>
+      <MDBContainer
+        style={{
+          marginTop: '7rem',
+        }}
+      >
         <MDBCard>
           <MDBRow
             className='g-0 d-flex align-items-center'
@@ -160,7 +168,7 @@ export const SignUp = () => {
           <div></div>
         )}
       </MDBContainer>
-      <div style={{ height: '150px' }}></div>
+
       <FooterConnect />
     </div>
   );

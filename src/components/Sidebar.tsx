@@ -49,8 +49,10 @@ export const Sidebar = () => {
         Menu
       </button>
       {isOpen && (
-        <div className='sidebar' style={{ padding: '0 17px 10px' }}>
-          <a className='navbar-brand ' href='/dashboard'>
+        <div className='sidebar' style={{
+          padding: '0 17px 10px',
+        }}>
+          <a className='navbar-brand ml-3 ' href='/dashboard'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='18'

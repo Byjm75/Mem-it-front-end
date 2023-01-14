@@ -93,6 +93,7 @@ export const Profil = () => {
             backgroundColor: 'black',
             justifyContent: 'center',
             width: '62%',
+            marginLeft: '20rem',
           }}
         >
           <div className='row'>

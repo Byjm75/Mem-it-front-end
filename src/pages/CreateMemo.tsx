@@ -41,7 +41,7 @@ export const CreateMemo = () => {
       .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data);
         alert('Nouveau mémo crée!');
-        navigate('/tache');
+        navigate('/memo');
       });
   };
   return (
@@ -83,9 +83,10 @@ export const CreateMemo = () => {
             backgroundColor: 'black',
             justifyContent: 'center',
             width: '62%',
+            marginLeft: '20rem',
           }}
         >
-          <div className='row py-4'>
+          <div className='row py-4  '>
             <div className='col-md-10 border-right'>
               <div className='p-3 py-4'>
                 <div className='d-flex justify-content-between align-items-center mb-4'>
@@ -93,7 +94,7 @@ export const CreateMemo = () => {
                     className='text-right'
                     style={{ color: '#806d42', fontWeight: 'bold' }}
                   >
-                    Créer un mémo
+                    Créer votre mémo
                   </h4>
                 </div>
                 <label
@@ -211,7 +212,7 @@ export const CreateMemo = () => {
                             borderColor: 'white',
                           }}
                         >
-                          Sauvegarder modifications
+                          Sauvegarder votre mémo
                         </button>
                       </div>
                     </div>

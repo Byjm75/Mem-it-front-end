@@ -1,7 +1,3 @@
-import jwtDecode from 'jwt-decode';
-import { SyntheticEvent, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-
 import {
   DecodTokenType,
   SearchBarProps,
@@ -12,6 +8,9 @@ import {
   Notifications,
   AdminPanelSettings,
 } from '@mui/icons-material';
+import jwtDecode from 'jwt-decode';
+import { SyntheticEvent, useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const ToolsBar = ({ onSearch }: SearchBarProps) => {
   const location = useLocation();
