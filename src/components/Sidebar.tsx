@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import React, { useEffect, useState } from 'react';
-import { DecodTokenType, UserData } from '../Interface/Interface';
+import { DecodTokenType, UserData } from '../interface/Interface';
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,9 +49,12 @@ export const Sidebar = () => {
         Menu
       </button>
       {isOpen && (
-        <div className='sidebar' style={{
-          padding: '0 17px 10px',
-        }}>
+        <div
+          className='sidebar'
+          style={{
+            padding: '0 17px 10px',
+          }}
+        >
           <a className='navbar-brand ml-3 ' href='/dashboard'>
             <svg
               xmlns='http://www.w3.org/2000/svg'

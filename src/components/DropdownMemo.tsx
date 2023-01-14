@@ -2,13 +2,13 @@ import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
-import { DropdownPropsMemo } from '../Interface/Interface';
+import { DropdownPropsMemo } from '../interface/Interface';
 
 export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
+
   const [memos, setMemos] = useState<DropdownPropsMemo | undefined>();
 
   const titleElement = useRef<HTMLInputElement>(null);

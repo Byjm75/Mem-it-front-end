@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import {AddBtn} from '../components/AddBtn';
-import {CardMemo} from '../components/CardMemo';
-import {FooterConnect} from '../components/FooterConnect';
+import { AddBtn } from '../components/AddBtn';
+import { CardMemo } from '../components/CardMemo';
+import { FooterConnect } from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
-import {ToolsBar} from '../components/ToolsBar';
-import { MemosProps } from '../Interface/Interface';
+import { ToolsBar } from '../components/ToolsBar';
+import { MemosProps } from '../interface/Interface';
 
 let listeMemos: MemosProps[] = [];
 
@@ -23,7 +23,7 @@ export const MemosUncat = () => {
         setListMemoDisplayed(res.data);
       });
   }, []);
-  const handleUserInput = (userInputText: string) =>{}
+  const handleUserInput = (userInputText: string) => {};
   return (
     <div className='position-sticky'>
       <div
@@ -113,4 +113,3 @@ export const MemosUncat = () => {
     </div>
   );
 };
-

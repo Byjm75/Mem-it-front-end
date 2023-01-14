@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
-import { Categories } from '../Interface/Interface';
+import { Categories } from '../interface/Interface';
 
 export const ScrollCat = () => {
   const inputSelect = useRef<HTMLSelectElement>(null);
