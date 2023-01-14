@@ -10,12 +10,13 @@ import {
   MDBCheckbox,
   MDBBtn,
 } from 'mdb-react-ui-kit';
-import { FormEvent, useRef } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {FooterConnect} from '../components/FooterConnect';
+import { FooterConnect } from '../components/FooterConnect';
 import { Navbar } from '../components/Navbar';
 
 export const SignUp = () => {
+  const [isRegister, setIsRegister] = useState<String>();
   const pseudoElement = useRef<HTMLInputElement>(null);
   const emailElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
@@ -30,6 +31,7 @@ export const SignUp = () => {
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     console.log(ConfirmPasswordElement.current?.value);
+
     axios
       .post('http://localhost:8085/api/auth/register', {
         pseudo: pseudoElement.current?.value,
@@ -38,9 +40,14 @@ export const SignUp = () => {
         ConfirmPassword: ConfirmPasswordElement.current?.value,
       })
       .then((response: AxiosResponse<{ data: any }>) => {
-        console.log('response ', response.data);
-        alert('nouveau compte crée!');
-        navigate('/signin');
+        if (response.status) {
+          setIsRegister('Compte crée');
+          setTimeout(() => navigate('/signin'), 1000);
+        }
+      })
+      .catch((error) => {
+        if (error === '23505') setIsRegister('erreur dans le formulaire');
+        console.log();
       });
   };
 
@@ -72,8 +79,7 @@ export const SignUp = () => {
               />
             </MDBCol>
 
-            <MDBCol md='8'
-            >
+            <MDBCol md='8'>
               <h1 style={{ textAlign: 'center', color: 'white' }}>
                 Inscrivez vous
               </h1>
@@ -142,6 +148,17 @@ export const SignUp = () => {
             </MDBCol>
           </MDBRow>
         </MDBCard>
+        {isRegister === 'Compte crée' ? (
+          <div className='alert alert-success' role='alert'>
+            {isRegister}
+          </div>
+        ) : isRegister === 'erreur dans le formulaire' ? (
+          <div className='alert alert-danger d-flex' role='alert'>
+            {isRegister}
+          </div>
+        ) : (
+          <div></div>
+        )}
       </MDBContainer>
       <div style={{ height: '150px' }}></div>
       <FooterConnect />

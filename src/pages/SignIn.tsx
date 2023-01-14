@@ -9,13 +9,14 @@ import {
   MDBInput,
   MDBCheckbox,
 } from 'mdb-react-ui-kit';
-import { FormEvent, useRef } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 import { Navbar } from '../components/Navbar';
-import {FooterConnect} from '../components/FooterConnect';
+import { FooterConnect } from '../components/FooterConnect';
 import axios, { AxiosResponse } from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export const SignIn = () => {
+  const [isConnect, setIsConnect] = useState<String>();
   const emailElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
 
@@ -31,13 +32,17 @@ export const SignIn = () => {
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
       })
-      .then((response: AxiosResponse) => {
+      .then((response) => {
         const token = response.data.accessToken;
-        // Set le token dans le localstorage
-        localStorage.setItem('token', token);
-        console.log('response ', response.data);
-        window.alert('Bon retour parmi nous!');
-        navigate('/dashboard');
+        if (token) {
+          localStorage.setItem('token', token);
+          setIsConnect('Authentification réussie');
+          setTimeout(() => navigate('/dashboard'), 1000);
+        }
+      })
+      .catch(() => {
+        setIsConnect('Vous nêtes pas inscrit, veuillez vous inscrire avant');
+        setTimeout(() => navigate('/signup'), 1000);
       });
   };
 
@@ -120,11 +125,23 @@ export const SignIn = () => {
                   Connexion{''}
                 </MDBBtn>
               </MDBCardBody>
-             
             </MDBCol>
           </MDBRow>
         </MDBCard>
+        {isConnect === 'Authentification réussie' ? (
+          <div className='alert alert-success' role='alert'>
+            {isConnect}
+          </div>
+        ) : isConnect ===
+          'Vous nêtes pas inscrit, veuillez vous inscrire avant' ? (
+          <div className='alert alert-danger d-flex' role='alert'>
+            {isConnect}
+          </div>
+        ) : (
+          <div></div>
+        )}
       </MDBContainer>
+
       <div style={{ height: '150px' }}></div>
 
       <FooterConnect />
