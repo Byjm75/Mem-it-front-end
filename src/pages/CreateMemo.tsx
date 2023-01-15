@@ -6,7 +6,8 @@ import { ScrollCat } from '../components/ScrollCat';
 import { Sidebar } from '../components/Sidebar';
 // import Sidebar from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
-import { Categories } from '../interface/Interface';
+import { Categories } from '../Interface/Interface';
+// import { Categories } from '../interface/Interface';
 
 let userSelectCat: Categories;
 
@@ -115,24 +116,11 @@ export const CreateMemo = () => {
                     Créer votre mémo
                   </h4>
                 </div>
-<<<<<<< HEAD
-                <label
-                  className="labels"
-                  style={{ color: '#806d42', fontWeight: 'bold' }}
-                >
-                  Catégorie de votre mémo
-                </label>
-                <ScrollCat />
-                <div className="row" style={{ display: 'flex' }}>
-                  <div className="column mt-3 col-6" style={{ width: '100%' }}>
-                    <div className="col-md-12">
-=======
                 <ScrollCat onSelectCatTitle={handleSelectCategorie} />
 
                 <div className='row' style={{ display: 'flex' }}>
                   <div className='column mt-3 col-6' style={{ width: '100%' }}>
                     <div className='col-md-12'>
->>>>>>> cb6902a02f84031ad22329e8e52c71846cb8d65a
                       <label
                         className="labels"
                         style={{ color: '#806d42', fontWeight: 'bold' }}

@@ -16,11 +16,8 @@ import { FooterConnect } from '../components/FooterConnect';
 import { Navbar } from '../components/Navbar';
 
 export const SignUp = () => {
-<<<<<<< HEAD
-=======
   
 
->>>>>>> cb6902a02f84031ad22329e8e52c71846cb8d65a
   const pseudoElement = useRef<HTMLInputElement>(null);
   const emailElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
@@ -175,10 +172,7 @@ export const SignUp = () => {
             </MDBCol>
           </MDBRow>
         </MDBCard>
-<<<<<<< HEAD
-=======
         
->>>>>>> cb6902a02f84031ad22329e8e52c71846cb8d65a
       </MDBContainer>
 
       <FooterConnect />
