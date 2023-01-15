@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
 import { Categories, ScrollCatProps } from '../interface/Interface';
 
+
+
+
 export const ScrollCat = ({ onSelectCatTitle }: ScrollCatProps) => {
   const categTitleSelect = useRef<HTMLSelectElement>(null);
   console.log('coucou');
