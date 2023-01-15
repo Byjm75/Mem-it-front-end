@@ -1,36 +1,65 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
-import { Categories } from '../interface/Interface';
+import { Categories, ScrollCatProps } from '../interface/Interface';
 
-export const ScrollCat = () => {
-  const inputSelect = useRef<HTMLSelectElement>(null);
+export const ScrollCat = ({ onSelectCatTitle }: ScrollCatProps) => {
+  const categTitleSelect = useRef<HTMLSelectElement>(null);
+  console.log('coucou');
 
-  console.log('le titre sélectionné est', inputSelect);
   const [categories, setCategories] = useState<Categories[]>([]);
+  const [catTitle, setcatTitle] = useState<string>('');
+
+  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    // setcatTitle(e.currentTarget.value);
+    // console.log("la valeur de l'input catTitle est", e.currentTarget.value);
+    console.log(
+      'handleselect : catégorie sélectionnée : ',
+      categTitleSelect.current?.value
+    );
+
+    const categSelectFiltered: Categories[] = categories.filter((categ) => categ.title === categTitleSelect.current?.value);
+    console.log('Scroll Cat - categories filtrées par la catég séléctionnée : ', categSelectFiltered);
+
+    const categSelectObject: Categories = categSelectFiltered[0];    
+    console.log('Scroll Cat - categorie objet séléctionnée : ', categSelectObject);
+
+    if (categTitleSelect.current?.value)
+      onSelectCatTitle(categSelectObject);
+  };
+  console.log('le titre sélectionné est', categories);
+
   useEffect(() => {
     axios
       .get('http://localhost:8085/api/categorie', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
       .then((res) => {
-        console.log(res);
+        console.log(res.data.data);
         setCategories(res.data);
       });
   }, []);
 
   return (
     <>
+      <label
+        className='labels'
+        style={{ color: '#806d42', fontWeight: 'bold' }}
+      >
+        Catégorie de votre mémo (optionnel)
+      </label>
       <div className='input-group mb-3'>
         <select
           className='form-select'
           id='floatingSelect'
-          ref={inputSelect}
           aria-label='Floating label select example'
+          // value={catTitle}
+          onChange={handleSelect}
+          ref={categTitleSelect}
         >
-          <label htmlFor='floatingSelect'>Email</label>
+          <option value=''>Sélectionner une catégorie</option>
           {categories.map((categ) => {
             return (
-              <option id='floatingSelect' value={categ.id}>
+              <option id='floatingSelect' value={categ.title} key={categ.id}>
                 {categ.title}
               </option>
             );

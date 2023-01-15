@@ -16,7 +16,7 @@ import { FooterConnect } from '../components/FooterConnect';
 import { Navbar } from '../components/Navbar';
 
 export const SignUp = () => {
-  const [isRegister, setIsRegister] = useState<String>();
+  
 
   const pseudoElement = useRef<HTMLInputElement>(null);
   const emailElement = useRef<HTMLInputElement>(null);
@@ -33,26 +33,42 @@ export const SignUp = () => {
     console.log(passwordElement.current?.value);
     console.log(ConfirmPasswordElement.current?.value);
 
-    axios
-      .post('http://localhost:8085/api/auth/register', {
-        pseudo: pseudoElement.current?.value,
-        email: emailElement.current?.value,
-        password: passwordElement.current?.value,
-        ConfirmPassword: ConfirmPasswordElement.current?.value,
-      })
-      .then((response: AxiosResponse) => {
-        console.log('réponde de axios', response);
-        console.log('réponde de axios', response.data);
+    if (
+      pseudoElement.current?.value === '' ||
+      emailElement.current?.value === '' ||
+      passwordElement.current?.value === '' ||
+      ConfirmPasswordElement.current?.value === ''
+    ) {
+      alert('tous les champs doivent être renseignés');
+    }
+    if (
+      passwordElement.current?.value !== ConfirmPasswordElement.current?.value
+    ) {
+      alert(
+        'votre confirmation de mot de passe doit être la même que votre mot de passe'
+      );
+    } else {
+      axios
+        .post('http://localhost:8085/api/auth/register', {
+          pseudo: pseudoElement.current?.value,
+          email: emailElement.current?.value,
+          password: passwordElement.current?.value,
+          ConfirmPassword: ConfirmPasswordElement.current?.value,
+        })
+        .then((response: AxiosResponse) => {
+          console.log('réponde de axios', response);
+          console.log('réponde de axios', response.data);
 
-        if (response.data.status === 200) {
-          setIsRegister('Compte crée');
-          setTimeout(() => navigate('/signin'), 1000);
-        }
-      })
-      .catch(() => {
-        setIsRegister('erreur dans le formulaire');
-        console.log();
-      });
+          console.log('reponse', response.status);
+          if (response.status === 201) {
+            alert('Compte crée');
+            setTimeout(() => navigate('/signin'), 1000);
+          }
+        })
+        .catch(() => {
+          alert('erreur dans le formulaire');
+        });
+    }
   };
 
   return (
@@ -60,7 +76,7 @@ export const SignUp = () => {
       <Navbar />
       <MDBContainer
         style={{
-          marginTop: '7rem',
+          marginTop: '2rem',
         }}
       >
         <MDBCard>
@@ -156,17 +172,7 @@ export const SignUp = () => {
             </MDBCol>
           </MDBRow>
         </MDBCard>
-        {isRegister === 'Compte crée' ? (
-          <div className='alert alert-success' role='alert'>
-            {isRegister}
-          </div>
-        ) : isRegister === 'erreur dans le formulaire' ? (
-          <div className='alert alert-danger d-flex' role='alert'>
-            {isRegister}
-          </div>
-        ) : (
-          <div></div>
-        )}
+        
       </MDBContainer>
 
       <FooterConnect />

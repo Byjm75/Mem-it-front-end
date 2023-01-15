@@ -12,6 +12,7 @@ let listeMemos: MemosProps[] = [];
 
 export const Memos = () => {
   const [listmemoDisplayed, setListMemoDisplayed] = useState<MemosProps[]>([]);
+
   let { categoryId } = useParams();
   console.log("l'id catégorie", categoryId);
 
