@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import React, { ChangeEvent, FormEvent, useRef, useState } from 'react';
+import React, {  useRef, useState } from 'react';
 import { ToolsBar } from '../components/ToolsBar';
 import { useNavigate } from 'react-router-dom';
 import { blob } from 'stream/consumers';
@@ -107,12 +107,14 @@ export const CreateCategory = () => {
         </div>
         
         <div
-          className='container rounded bg-4 mt-5 '
+          className='container rounded bg-4 '
           style={{
             display: 'flex',
             backgroundColor: 'black',
             justifyContent: 'center',
             width: '62%',
+            marginLeft: '20rem',
+            marginTop: '10rem',
           }}
         >
           <div className=' row py-6'>
@@ -125,7 +127,7 @@ export const CreateCategory = () => {
                         className='text-right'
                         style={{ color: '#806d42', fontWeight: 'bold' }}
                       >
-                        Creer une catégorie
+                        Créer votre catégorie
                       </h4>
                     </div>
                     <label
@@ -206,6 +208,4 @@ export const CreateCategory = () => {
   );
 };
 
-function setImage(arg0: string) {
-  throw new Error('Function not implemented.');
-}
+

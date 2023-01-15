@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CardcategoryProps } from '../Interface/Interface';
+import { CardcategoryProps } from '../interface/Interface';
 import { DropdownCategorie } from './DropdownCategorie';
 
 
