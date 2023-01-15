@@ -23,7 +23,7 @@ export const CreateCategory = () => {
     setFile(files);
   };
 
-  const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(file);
     console.log(titleElement.current?.value);

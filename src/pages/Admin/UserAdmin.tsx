@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { ToolsBar } from '../../components/ToolsBar';
 import { UserData } from '../../Interface/Interface';
@@ -7,6 +7,9 @@ import { UserData } from '../../Interface/Interface';
 let listeUsers: UserData[] = [];
 
 export const UserAdmin = () => {
+  const selectUser = useRef<HTMLButtonElement>(null);
+  console.log('la valeur du button selectUser', selectUser.current?.value);
+
   const [listUsersDisplayed, setListUsersDisplayed] = useState<UserData[]>([
     ...listeUsers,
   ]);
@@ -41,6 +44,29 @@ export const UserAdmin = () => {
     }
   };
 
+  const handleDelete = (e: React.FormEvent<HTMLButtonElement>) => {
+    if (selectUser.current?.value) {
+      axios
+        .delete(
+          `http://localhost:8085/api/utilisateur/${selectUser.current?.value}`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        )
+        .then((res) => {
+          listeUsers = listeUsers.filter(
+            (user) =>
+              user.id && user.email && user.pseudo !== selectUser.current?.value
+          );
+          listeUsers = res.data;
+          setListUsersDisplayed([...listeUsers]);
+          console.log(res.data);
+        });
+    } else {
+    }
+  };
   return (
     <div>
       <ToolsBar onSearch={handleUserInput} />
@@ -60,10 +86,14 @@ export const UserAdmin = () => {
               <td>{user.email}</td>
               <td>{user.pseudo}</td>
               <td>
-                <button type='button' className='btn btn-success'>
-                  Success
-                </button>
-                <button type='button' className='btn btn-danger'>
+                <button
+                  type='button'
+                  value={user.id}
+                  key={user.id}
+                  className='btn btn-danger'
+                  ref={selectUser}
+                  onClick={handleDelete}
+                >
                   Supprimer
                 </button>
               </td>

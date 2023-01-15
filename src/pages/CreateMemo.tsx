@@ -1,11 +1,14 @@
 import axios, { AxiosResponse } from 'axios';
-import React, { FormEvent, useRef } from 'react';
+import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FooterConnect } from '../components/FooterConnect';
 import { ScrollCat } from '../components/ScrollCat';
 import { Sidebar } from '../components/Sidebar';
 // import Sidebar from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
+import { Categories } from '../interface/Interface';
+
+let userSelectCat: Categories;
 
 export const CreateMemo = () => {
   const titleElement = useRef<HTMLInputElement>(null);
@@ -13,18 +16,26 @@ export const CreateMemo = () => {
   const bodyElement = useRef<HTMLInputElement>(null);
   const imageElement = useRef<HTMLInputElement>(null);
   const urlElement = useRef<HTMLInputElement>(null);
-  const catIdElement = useRef<HTMLInputElement>(null);
+
   const navigate = useNavigate();
 
+  const handleSelectCategorie = (cat: Categories) => {
+    userSelectCat = cat;
+    console.log('CreateMemo - catégorie sélectionnée : ', userSelectCat);
+  };
+
   const handleSubmitForm = async (e: FormEvent) => {
-    console.log('handleSubmitForm');
     e.preventDefault();
+    console.log(
+      'CreateMemo - Handle Submit - catégorie sélectionnée : ',
+      userSelectCat
+    );
+
     console.log(titleElement.current?.value);
     console.log(eventDateElement.current?.value);
     console.log(bodyElement.current?.value);
     console.log(imageElement.current?.value);
     console.log(urlElement.current?.value);
-    console.log(catIdElement.current?.value);
     axios
       .post(
         'http://localhost:8085/api/tache',
@@ -34,6 +45,7 @@ export const CreateMemo = () => {
           body: bodyElement.current?.value,
           image: imageElement.current?.value,
           url: urlElement.current?.value,
+          categorie_: userSelectCat,
         },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -42,7 +54,12 @@ export const CreateMemo = () => {
       .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data);
         alert('Nouveau mémo crée!');
-        navigate('/memo');
+        if (userSelectCat) {
+          navigate(`/memo/${userSelectCat.id}`);
+        }else
+        {
+          navigate('/memoUnCat');
+        }
       });
   };
   return (
@@ -78,7 +95,7 @@ export const CreateMemo = () => {
           <Sidebar />
         </div>
         <div
-          className="container rounded bg-' mt-5 mb-5 "
+          className='container rounded bg- mt-5 mb-5 '
           style={{
             display: 'flex',
             backgroundColor: 'black',
@@ -98,6 +115,7 @@ export const CreateMemo = () => {
                     Créer votre mémo
                   </h4>
                 </div>
+<<<<<<< HEAD
                 <label
                   className="labels"
                   style={{ color: '#806d42', fontWeight: 'bold' }}
@@ -108,6 +126,13 @@ export const CreateMemo = () => {
                 <div className="row" style={{ display: 'flex' }}>
                   <div className="column mt-3 col-6" style={{ width: '100%' }}>
                     <div className="col-md-12">
+=======
+                <ScrollCat onSelectCatTitle={handleSelectCategorie} />
+
+                <div className='row' style={{ display: 'flex' }}>
+                  <div className='column mt-3 col-6' style={{ width: '100%' }}>
+                    <div className='col-md-12'>
+>>>>>>> cb6902a02f84031ad22329e8e52c71846cb8d65a
                       <label
                         className="labels"
                         style={{ color: '#806d42', fontWeight: 'bold' }}

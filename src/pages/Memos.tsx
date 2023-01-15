@@ -14,6 +14,7 @@ let filteredMemos: string[] = [];
 
 export const Memos = () => {
   const [listmemoDisplayed, setListMemoDisplayed] = useState<MemosProps[]>([]);
+
   let { categoryId } = useParams();
 
   useEffect(() => {

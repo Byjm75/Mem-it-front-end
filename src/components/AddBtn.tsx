@@ -1,10 +1,21 @@
 import Modal from 'react-bootstrap/Modal';
-import  { FormEvent, useRef, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import axios, { AxiosResponse } from 'axios';
+import { ScrollCat } from './ScrollCat';
+import { Categories } from '../interface/Interface';
+import { useNavigate } from 'react-router-dom';
+
+let userSelectCat: Categories;
 
 export const AddBtn = () => {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSelectCategorie = (cat: Categories) => {
+    userSelectCat = cat;
+    console.log('CreateMemo - catégorie sélectionnée : ', userSelectCat);
+  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -53,7 +64,6 @@ export const AddBtn = () => {
     console.log('handleSubmitForm');
     e.preventDefault();
     console.log(taskTitleElement.current?.value);
-
     console.log(taskBodyElement.current?.value);
     console.log(taskImageElement.current?.value);
     console.log(taskUrlElement.current?.value);
@@ -73,6 +83,7 @@ export const AddBtn = () => {
             body: taskBodyElement.current?.value,
             image: taskImageElement.current?.value,
             url: taskUrlElement.current?.value,
+            categorie_: userSelectCat,
           },
           {
             headers: {
@@ -84,7 +95,13 @@ export const AddBtn = () => {
           console.log('response ', response.data);
           alert('Nouveau mémo crée!');
           handleClose();
-          window.location.reload()
+          if (userSelectCat) {
+            navigate(`/memo/${userSelectCat.id}`);
+            window.location.reload();
+          } else {
+            navigate('/memoUnCat');
+            window.location.reload();
+          }
         });
     } else {
       axios
@@ -96,6 +113,7 @@ export const AddBtn = () => {
             body: taskBodyElement.current?.value,
             image: taskImageElement.current?.value,
             url: taskUrlElement.current?.value,
+            categorie_: userSelectCat,
           },
           {
             headers: {
@@ -107,7 +125,13 @@ export const AddBtn = () => {
           console.log('response ', response.data);
           alert('Nouveau mémo crée!');
           handleClose();
-          window.location.reload()
+          if (userSelectCat) {
+            navigate(`/memo/${userSelectCat.id}`);
+            window.location.reload();
+          } else {
+            navigate('/memoUnCat');
+            window.location.reload();
+          }
         });
     }
   };
@@ -201,6 +225,7 @@ export const AddBtn = () => {
               aria-labelledby='memo-tab'
               tabIndex={0}
             >
+              <ScrollCat onSelectCatTitle={handleSelectCategorie} />
               <div>
                 <input
                   type='text'
