@@ -7,11 +7,9 @@ export const ScrollCat = ({ onSelectCatTitle }: ScrollCatProps) => {
   console.log('coucou');
 
   const [categories, setCategories] = useState<Categories[]>([]);
-  const [catTitle, setcatTitle] = useState<string>('');
 
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    // setcatTitle(e.currentTarget.value);
-    // console.log("la valeur de l'input catTitle est", e.currentTarget.value);
+  
     console.log(
       'handleselect : catégorie sélectionnée : ',
       categTitleSelect.current?.value
