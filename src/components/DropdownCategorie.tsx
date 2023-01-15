@@ -2,7 +2,8 @@ import axios, { AxiosResponse } from 'axios';
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
-import { Categories, DropdownPropsCat } from '../interface/Interface';
+import { Categories, DropdownPropsCat } from '../Interface/Interface';
+
 
 export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
   const [show, setShow] = useState(false);

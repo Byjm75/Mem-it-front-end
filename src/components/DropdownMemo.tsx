@@ -2,7 +2,8 @@ import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
-import { DropdownPropsMemo } from '../interface/Interface';
+import { DropdownPropsMemo } from '../Interface/Interface';
+
 
 export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
   const [show, setShow] = useState(false);

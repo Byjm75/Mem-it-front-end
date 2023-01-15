@@ -3,7 +3,8 @@ import React, { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FooterConnect } from '../components/FooterConnect';
 import { ScrollCat } from '../components/ScrollCat';
-import SideBBar from '../components/SideBBar';
+import { Sidebar } from '../components/Sidebar';
+// import Sidebar from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 
 export const CreateMemo = () => {
@@ -74,7 +75,7 @@ export const CreateMemo = () => {
             zIndex: '1',
           }}
         >
-          <SideBBar />
+          <Sidebar />
         </div>
         <div
           className="container rounded bg-' mt-5 mb-5 "
@@ -86,116 +87,116 @@ export const CreateMemo = () => {
             marginLeft: '20rem',
           }}
         >
-          <div className='row py-4  '>
-            <div className='col-md-10 border-right'>
-              <div className='p-3 py-4'>
-                <div className='d-flex justify-content-between align-items-center mb-4'>
+          <div className="row py-4  ">
+            <div className="col-md-10 border-right">
+              <div className="p-3 py-4">
+                <div className="d-flex justify-content-between align-items-center mb-4">
                   <h4
-                    className='text-right'
+                    className="text-right"
                     style={{ color: '#806d42', fontWeight: 'bold' }}
                   >
                     Créer votre mémo
                   </h4>
                 </div>
                 <label
-                  className='labels'
+                  className="labels"
                   style={{ color: '#806d42', fontWeight: 'bold' }}
                 >
                   Catégorie de votre mémo
                 </label>
                 <ScrollCat />
-                <div className='row' style={{ display: 'flex' }}>
-                  <div className='column mt-3 col-6' style={{ width: '100%' }}>
-                    <div className='col-md-12'>
+                <div className="row" style={{ display: 'flex' }}>
+                  <div className="column mt-3 col-6" style={{ width: '100%' }}>
+                    <div className="col-md-12">
                       <label
-                        className='labels'
+                        className="labels"
                         style={{ color: '#806d42', fontWeight: 'bold' }}
                       >
                         Titre de votre mémo
                       </label>
                       <input
-                        type='url'
-                        className='form-control'
-                        placeholder='Titre'
+                        type="url"
+                        className="form-control"
+                        placeholder="Titre"
                         ref={titleElement}
                       />
                     </div>
                   </div>
 
-                  <div className='col-md-12 mt-4'>
+                  <div className="col-md-12 mt-4">
                     <label
-                      className='labels'
+                      className="labels"
                       style={{ color: '#806d42', fontWeight: 'bold' }}
                     >
                       Date de votre évènement
                     </label>
                     <input
-                      type='date'
-                      className='form-control'
+                      type="date"
+                      className="form-control"
                       placeholder="Date de l'évènement"
                       ref={eventDateElement}
                     />
                   </div>
                 </div>
-                <div className='column mt-3 col-6 ' style={{ width: '100%' }}>
-                  <div className='col-md-12 '>
+                <div className="column mt-3 col-6 " style={{ width: '100%' }}>
+                  <div className="col-md-12 ">
                     <label
-                      className='labels'
+                      className="labels"
                       style={{ color: '#806d42', fontWeight: 'bold' }}
                     >
                       Image de votre profil
                     </label>
                     <input
-                      type='file'
-                      className='form-control'
-                      placeholder='image de profil'
+                      type="file"
+                      className="form-control"
+                      placeholder="image de profil"
                       ref={imageElement}
                     />
                   </div>
 
-                  <div className='row' style={{ display: 'flex' }}>
+                  <div className="row" style={{ display: 'flex' }}>
                     <div
-                      className='column mt-3 col-6'
+                      className="column mt-3 col-6"
                       style={{ width: '100%' }}
                     >
-                      <div className='col-md-12'>
+                      <div className="col-md-12">
                         <label
-                          className='labels'
+                          className="labels"
                           style={{ color: '#806d42', fontWeight: 'bold' }}
                         >
                           Lien internet
                         </label>
                         <input
-                          type='url'
-                          className='form-control'
-                          placeholder='lien internet'
+                          type="url"
+                          className="form-control"
+                          placeholder="lien internet"
                           ref={urlElement}
                         />
                       </div>
                     </div>
-                    <div className='row' style={{ display: 'flex' }}>
+                    <div className="row" style={{ display: 'flex' }}>
                       <div
-                        className='column mt-3 col-6'
+                        className="column mt-3 col-6"
                         style={{ width: '100%' }}
                       >
-                        <div className='col-md-12'>
+                        <div className="col-md-12">
                           <label
-                            className='labels'
+                            className="labels"
                             style={{ color: '#806d42', fontWeight: 'bold' }}
                           >
                             Contenu
                           </label>
                           <input
-                            type='textarea'
-                            className='form-control'
-                            placeholder='description'
+                            type="textarea"
+                            className="form-control"
+                            placeholder="description"
                             ref={bodyElement}
                           />
                         </div>
                       </div>
 
                       <div
-                        className='mt-4 text-center col-12'
+                        className="mt-4 text-center col-12"
                         style={{
                           marginRight: '0',
                           display: 'flex',
@@ -203,8 +204,8 @@ export const CreateMemo = () => {
                         }}
                       >
                         <button
-                          className='btn btn-primary profile-button col-md-12'
-                          type='button'
+                          className="btn btn-primary profile-button col-md-12"
+                          type="button"
                           onClick={handleSubmitForm}
                           style={{
                             padding: '5px',

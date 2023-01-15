@@ -1,8 +1,8 @@
-import {
-  DecodTokenType,
-  SearchBarProps,
-  UserData,
-} from '../interface/Interface';
+// import {
+//   DecodTokenType,
+//   SearchBarProps,
+//   UserData,
+// } from '../interface/Interface';
 import {
   PeopleAlt,
   Notifications,
@@ -11,6 +11,7 @@ import {
 import jwtDecode from 'jwt-decode';
 import { SyntheticEvent, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { DecodTokenType, SearchBarProps, UserData } from '../Interface/Interface';
 
 export const ToolsBar = ({ onSearch }: SearchBarProps) => {
   const location = useLocation();

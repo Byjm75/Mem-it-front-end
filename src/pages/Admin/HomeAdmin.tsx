@@ -1,7 +1,8 @@
 import jwtDecode from 'jwt-decode';
 import { Chart } from '../../components/Admin/Chart/Chart';
-import { ToolsBar } from '../../components/ToolsBar';
-import { DecodTokenType, UserData } from '../../interface/Interface';
+
+import { DecodTokenType } from '../../Interface/Interface';
+// import { DecodTokenType, UserData } from '../../interface/Interface';
 import './HomeAdmin.css';
 
 export const HomeAdmin = () => {
@@ -14,7 +15,7 @@ export const HomeAdmin = () => {
   return (
     <div>
       {/* <ToolsBar /> */}
-      <div className='home'>
+      <div className="home">
         <Chart />
       </div>
     </div>

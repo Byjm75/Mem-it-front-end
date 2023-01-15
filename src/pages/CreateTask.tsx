@@ -1,19 +1,18 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {FooterConnect} from '../components/FooterConnect';
-import SideBBar from '../components/SideBBar';
-import {ToolsBar} from '../components/ToolsBar';
+import { FooterConnect } from '../components/FooterConnect';
+import { Sidebar } from '../components/Sidebar';
+import { ToolsBar } from '../components/ToolsBar';
 
 export const CreateTask = () => {
-
   const titleElement = useRef<HTMLInputElement>(null);
   const eventDateElement = useRef<HTMLInputElement>(null);
   const bodyElement = useRef<HTMLInputElement>(null);
   const imageElement = useRef<HTMLInputElement>(null);
   const urlElement = useRef<HTMLInputElement>(null);
 
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmitForm = async (e: FormEvent) => {
     console.log('handleSubmitForm');
@@ -41,8 +40,7 @@ export const CreateTask = () => {
       .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data);
         alert('Nouveau mémo crée!');
-                navigate('/tache')
-
+        navigate('/tache');
       });
   };
   return (
@@ -56,9 +54,11 @@ export const CreateTask = () => {
           zIndex: '1',
         }}
       >
-        <ToolsBar onSearch={function (userInput: string): void {
-          throw new Error('Function not implemented.');
-        } } />
+        <ToolsBar
+          onSearch={function (userInput: string): void {
+            throw new Error('Function not implemented.');
+          }}
+        />
       </div>{' '}
       <div
         style={{
@@ -73,7 +73,7 @@ export const CreateTask = () => {
             zIndex: '1',
           }}
         >
-          <SideBBar />
+          <Sidebar />
         </div>
         <div
           className="container rounded bg-' mt-5 mb-5 "
@@ -84,19 +84,19 @@ export const CreateTask = () => {
             width: '62%',
           }}
         >
-          <div className='row'>
-            <div className='col-md-10 border-right'>
-              <div className='p-3 py-4'>
-                <div className='d-flex justify-content-between align-items-center mb-4'>
-                  <h4 className='text-right' style={{ color: '#007872' }}>
+          <div className="row">
+            <div className="col-md-10 border-right">
+              <div className="p-3 py-4">
+                <div className="d-flex justify-content-between align-items-center mb-4">
+                  <h4 className="text-right" style={{ color: '#007872' }}>
                     Creer un mémo
                   </h4>
                 </div>
 
-                <div className='row mt-3' style={{ display: 'flex' }}>
-                  <div className='col-md-4 border-right'></div>
-                  <div className='col-md-8'>
-                    <label className='labels' style={{ color: '#007872' }}>
+                <div className="row mt-3" style={{ display: 'flex' }}>
+                  <div className="col-md-4 border-right"></div>
+                  <div className="col-md-8">
+                    <label className="labels" style={{ color: '#007872' }}>
                       Titre
                     </label>
                     <input
@@ -107,37 +107,37 @@ export const CreateTask = () => {
                     />
                   </div>
                 </div>
-                <div className='col-md-8'>
-                  <label className='labels' style={{ color: '#007872' }}>
+                <div className="col-md-8">
+                  <label className="labels" style={{ color: '#007872' }}>
                     Date de votre évènement
                   </label>
                   <input
-                    type='date'
-                    className='form-control'
+                    type="date"
+                    className="form-control"
                     placeholder="Date de l'évènement"
                     ref={eventDateElement}
                   />
                 </div>
               </div>
-              <div className='row py-4' style={{ display: 'flex' }}>
-                <div className='column mt-3 col-6 ' style={{ width: '100%' }}>
-                  <div className='col-md-12 '>
-                    <label className='labels' style={{ color: '#007872' }}>
+              <div className="row py-4" style={{ display: 'flex' }}>
+                <div className="column mt-3 col-6 " style={{ width: '100%' }}>
+                  <div className="col-md-12 ">
+                    <label className="labels" style={{ color: '#007872' }}>
                       Image de profil
                     </label>
                     <input
-                      type='file'
-                      className='form-control'
-                      placeholder='image de profil'
+                      type="file"
+                      className="form-control"
+                      placeholder="image de profil"
                       ref={imageElement}
                     />
                   </div>
                 </div>
 
-                <div className='row' style={{ display: 'flex' }}>
-                  <div className='column mt-3 col-6' style={{ width: '100%' }}>
-                    <div className='col-md-12'>
-                      <label className='labels' style={{ color: '#007872' }}>
+                <div className="row" style={{ display: 'flex' }}>
+                  <div className="column mt-3 col-6" style={{ width: '100%' }}>
+                    <div className="col-md-12">
+                      <label className="labels" style={{ color: '#007872' }}>
                         Lien internet
                       </label>
                       <input
@@ -148,26 +148,26 @@ export const CreateTask = () => {
                       />
                     </div>
                   </div>
-                  <div className='row' style={{ display: 'flex' }}>
+                  <div className="row" style={{ display: 'flex' }}>
                     <div
-                      className='column mt-3 col-6'
+                      className="column mt-3 col-6"
                       style={{ width: '100%' }}
                     >
-                      <div className='col-md-12'>
-                        <label className='labels' style={{ color: '#007872' }}>
+                      <div className="col-md-12">
+                        <label className="labels" style={{ color: '#007872' }}>
                           Description
                         </label>
                         <input
-                          type='textarea'
-                          className='form-control'
-                          placeholder='description'
+                          type="textarea"
+                          className="form-control"
+                          placeholder="description"
                           ref={bodyElement}
                         />
                       </div>
                     </div>
 
                     <div
-                      className='mt-4 text-center col-12'
+                      className="mt-4 text-center col-12"
                       style={{
                         marginRight: '0',
                         display: 'flex',
@@ -175,8 +175,8 @@ export const CreateTask = () => {
                       }}
                     >
                       <button
-                        className='btn btn-primary profile-button col-md-12'
-                        type='button'
+                        className="btn btn-primary profile-button col-md-12"
+                        type="button"
                         onClick={handleSubmitForm}
                         style={{
                           padding: '5px',
@@ -195,9 +195,7 @@ export const CreateTask = () => {
         </div>
       </div>
       <div style={{ height: '150px' }}></div>
-      
-        <FooterConnect />
-      </div>
+      <FooterConnect />
+    </div>
   );
 };
-

@@ -5,7 +5,8 @@ import { CardMemo } from '../components/CardMemo';
 import { FooterConnect } from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
-import { MemosProps } from '../interface/Interface';
+import { MemosProps } from '../Interface/Interface';
+
 
 let listeMemos: MemosProps[] = [];
 
@@ -46,7 +47,7 @@ export const MemosUncat = () => {
             zIndex: '1',
           }}
         >
-          <SideBBar />
+          <Sidebar />
         </div>
         <div style={{ height: '90px' }}></div>
         <div style={{ width: '70%', margin: ' auto' }}>

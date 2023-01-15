@@ -22,6 +22,10 @@ export interface Categories {
   favoris: string;
 }
 
+export interface ScrollCatCategories {
+  selectTitle: Categories;
+}
+
 export interface CardcategoryProps {
   categoryAffich: Categories;
 }

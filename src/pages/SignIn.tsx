@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import {
   MDBBtn,
   MDBContainer,
@@ -161,4 +159,3 @@ export const SignIn = () => {
     </div>
   );
 };
->>>>>>> 5168238e459032c01f01b50649f05df1a3c221fc

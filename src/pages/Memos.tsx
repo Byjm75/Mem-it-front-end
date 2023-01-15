@@ -4,9 +4,10 @@ import { useParams } from 'react-router-dom';
 import { AddBtn } from '../components/AddBtn';
 import { CardMemo } from '../components/CardMemo';
 import { FooterConnect } from '../components/FooterConnect';
-import SideBBar from '../components/SideBBar';
+import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
-import { MemosProps } from '../interface/Interface';
+import { MemosProps } from '../Interface/Interface';
+
 
 let listeMemos: MemosProps[] = [];
 let filteredMemos: string[] = [];
@@ -14,7 +15,6 @@ let filteredMemos: string[] = [];
 export const Memos = () => {
   const [listmemoDisplayed, setListMemoDisplayed] = useState<MemosProps[]>([]);
   let { categoryId } = useParams();
-
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -33,7 +33,7 @@ export const Memos = () => {
   }, []);
   const handleUserInput = (userInputText: string) => {};
   return (
-    <div className='position-sticky'>
+    <div className="position-sticky">
       <div
         style={{
           width: '100%',
@@ -54,7 +54,7 @@ export const Memos = () => {
             zIndex: '1',
           }}
         >
-          <SideBBar />
+          <Sidebar />
         </div>
         <div style={{ height: '90px' }}></div>
         <div style={{ width: '70%', margin: ' auto' }}>
