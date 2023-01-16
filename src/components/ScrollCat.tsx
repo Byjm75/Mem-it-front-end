@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
-import { Categories, ScrollCatProps } from '../interface/Interface';
+import { Categories, ScrollCatProps } from '../Interface/Interface';
 
 
 

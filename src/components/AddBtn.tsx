@@ -3,7 +3,7 @@ import { FormEvent, useRef, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import axios, { AxiosResponse } from 'axios';
 import { ScrollCat } from './ScrollCat';
-import { Categories } from '../interface/Interface';
+import { Categories } from '../Interface/Interface';
 import { useNavigate } from 'react-router-dom';
 
 let userSelectCat: Categories;

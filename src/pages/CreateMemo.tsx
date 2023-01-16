@@ -5,7 +5,7 @@ import { FooterConnect } from '../components/FooterConnect';
 import { ScrollCat } from '../components/ScrollCat';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
-import { Categories } from '../interface/Interface';
+import { Categories } from '../Interface/Interface';
 
 let userSelectCat: Categories;
 

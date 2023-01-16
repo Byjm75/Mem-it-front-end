@@ -1,7 +1,7 @@
 import jwtDecode from 'jwt-decode';
 import { Chart } from '../../components/Admin/Chart/Chart';
 import { ToolsBar } from '../../components/ToolsBar';
-import { DecodTokenType, UserData } from '../../interface/Interface';
+import { DecodTokenType, UserData } from '../../Interface/Interface';
 import './HomeAdmin.css';
 
 export const HomeAdmin = () => {

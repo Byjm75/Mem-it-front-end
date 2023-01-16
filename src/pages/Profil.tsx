@@ -4,7 +4,7 @@ import { FooterConnect } from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 import jwtDecode from 'jwt-decode';
-import { DecodTokenType, UserData } from '../interface/Interface';
+import { DecodTokenType, UserData } from '../Interface/Interface';
 import { useNavigate } from 'react-router-dom';
 
 export const Profil = () => {

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { ToolsBar } from '../../components/ToolsBar';
-import { UserData } from '../../interface/Interface';
+import { UserData } from '../../Interface/Interface';
 
 let listeUsers: UserData[] = [];
 
