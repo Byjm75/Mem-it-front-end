@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FooterConnect } from '../components/Footer';
+import { Footer } from '../components/Footer';
 import { ScrollCat } from '../components/ScrollCat';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
@@ -232,7 +232,7 @@ export const CreateMemo = () => {
           </div>
         </form>
         <div style={{ height: '150px' }}></div>
-        <FooterConnect />
+        <Footer />
       </div>
     );
   };

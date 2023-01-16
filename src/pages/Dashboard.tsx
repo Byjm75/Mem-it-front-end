@@ -1,7 +1,7 @@
 import { AddBtn } from '../components/AddBtn';
 import { ToolsBar } from '../components/ToolsBar';
 import { Sidebar } from '../components/Sidebar';
-import { FooterConnect } from '../components/Footer';
+import { Footer } from '../components/Footer';
 import { Categories } from '../interface/Interface';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -117,7 +117,7 @@ export const Dashboard = () => {
           zIndex: '1',
         }}
       >
-        <FooterConnect />
+        <Footer/>
       </div>
     </div>
   );

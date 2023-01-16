@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { AddBtn } from '../components/AddBtn';
 import { CardMemo } from '../components/CardMemo';
-import { FooterConnect } from '../components/Footer';
+import { Footer } from '../components/Footer';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 import { MemosProps } from '../interface/Interface';
@@ -111,7 +111,7 @@ export const MemosUncat = () => {
         </div>
       </div>
 
-      <FooterConnect />
+      <Footer />
     </div>
   );
 };
