@@ -1,9 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
-import { Categories, ScrollCatProps } from '../Interface/Interface';
-
-
-
+import { Categories, ScrollCatProps } from '../interface/Interface';
 
 export const ScrollCat = ({ onSelectCatTitle }: ScrollCatProps) => {
   const categTitleSelect = useRef<HTMLSelectElement>(null);
@@ -12,20 +9,26 @@ export const ScrollCat = ({ onSelectCatTitle }: ScrollCatProps) => {
   const [categories, setCategories] = useState<Categories[]>([]);
 
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  
     console.log(
       'handleselect : catégorie sélectionnée : ',
       categTitleSelect.current?.value
     );
 
-    const categSelectFiltered: Categories[] = categories.filter((categ) => categ.title === categTitleSelect.current?.value);
-    console.log('Scroll Cat - categories filtrées par la catég séléctionnée : ', categSelectFiltered);
+    const categSelectFiltered: Categories[] = categories.filter(
+      (categ) => categ.title === categTitleSelect.current?.value
+    );
+    console.log(
+      'Scroll Cat - categories filtrées par la catég séléctionnée : ',
+      categSelectFiltered
+    );
 
-    const categSelectObject: Categories = categSelectFiltered[0];    
-    console.log('Scroll Cat - categorie objet séléctionnée : ', categSelectObject);
+    const categSelectObject: Categories = categSelectFiltered[0];
+    console.log(
+      'Scroll Cat - categorie objet séléctionnée : ',
+      categSelectObject
+    );
 
-    if (categTitleSelect.current?.value)
-      onSelectCatTitle(categSelectObject);
+    if (categTitleSelect.current?.value) onSelectCatTitle(categSelectObject);
   };
   console.log('le titre sélectionné est', categories);
 

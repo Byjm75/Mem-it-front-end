@@ -5,7 +5,7 @@ import { CardMemo } from '../components/CardMemo';
 import { FooterConnect } from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
-import { MemosProps } from '../Interface/Interface';
+import { MemosProps } from '../interface/Interface';
 
 let listeMemos: MemosProps[] = [];
 

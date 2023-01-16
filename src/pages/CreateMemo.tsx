@@ -1,11 +1,11 @@
 import axios, { AxiosResponse } from 'axios';
-import React, { FormEvent, useEffect, useRef, useState } from 'react';
+import React, { FormEvent, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FooterConnect } from '../components/FooterConnect';
 import { ScrollCat } from '../components/ScrollCat';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
-import { Categories } from '../Interface/Interface';
+import { Categories } from '../interface/Interface';
 
 let userSelectCat: Categories;
 
@@ -55,8 +55,7 @@ export const CreateMemo = () => {
         alert('Nouveau mémo crée!');
         if (userSelectCat) {
           navigate(`/memo/${userSelectCat.id}`);
-        }else
-        {
+        } else {
           navigate('/memoUnCat');
         }
       });

@@ -2,7 +2,7 @@ import { AddBtn } from '../components/AddBtn';
 import { ToolsBar } from '../components/ToolsBar';
 import { Sidebar } from '../components/Sidebar';
 import { FooterConnect } from '../components/FooterConnect';
-import { Categories } from '../Interface/Interface';
+import { Categories } from '../interface/Interface';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { CardCategory } from '../components/CardCategory';
@@ -59,49 +59,49 @@ export const Dashboard = () => {
             overflow: 'hidden',
             zIndex: '1',
           }}
-          >
+        >
           <Sidebar />
-          </div>
-          <div
+        </div>
+        <div
+          style={{
+            width: '64%',
+            margin: '0 auto',
+            position: 'relative',
+            left: '25px',
+          }}
+        >
+          <h1
+            className='card-title'
             style={{
-              width: '64%',
-              margin: '0 auto',
+              width: '100%',
               position: 'relative',
-              left: '25px',
+              display: 'flex',
+              justifyContent: 'end',
+              alignItems: 'flex-end',
+              margin: '10px 0 0 ',
+              color: '#806d42',
+              fontWeight: 'bold',
             }}
           >
-            <h1
-              className='card-title'
-              style={{
-                width: '100%',
-                position: 'relative',
-                display: 'flex',
-                justifyContent: 'end',
-                alignItems: 'flex-end',
-                margin: '10px 0 0 ',
-                color: '#806d42',
-                fontWeight: 'bold',
-              }}
-            >
-              CATEGORIES
-            </h1>
+            CATEGORIES
+          </h1>
 
-            <hr />
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                flexWrap: 'wrap',
-                listStyleType: 'none',
-              }}
-            >
-              {listCatDisplayed.map((categorie) => (
-                <li key={categorie.id}>
-                  <CardCategory categoryAffich={categorie} />
-                </li>
-              ))}
-            </div>
+          <hr />
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              listStyleType: 'none',
+            }}
+          >
+            {listCatDisplayed.map((categorie) => (
+              <li key={categorie.id}>
+                <CardCategory categoryAffich={categorie} />
+              </li>
+            ))}
           </div>
+        </div>
 
         <div style={{ position: 'fixed', right: '15px', bottom: '120px' }}>
           <AddBtn />
@@ -113,8 +113,7 @@ export const Dashboard = () => {
           position: 'fixed',
           bottom: '0',
           width: '100%',
-          zIndex:'1'
-          ,
+          zIndex: '1',
         }}
       >
         <FooterConnect />
