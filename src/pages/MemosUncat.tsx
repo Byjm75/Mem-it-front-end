@@ -19,8 +19,10 @@ export const MemosUncat = () => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        listeMemos = res.data;
-        setListMemoDisplayed(res.data);
+        listeMemos = res.data.filter(
+          (memo: MemosProps) => memo.categorie_ === null
+        );
+        setListMemoDisplayed(listeMemos);
       });
   }, []);
   const handleUserInput = (userInputText: string) => {};
