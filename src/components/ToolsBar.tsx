@@ -1,8 +1,5 @@
-import {
-  DecodTokenType,
-  SearchBarProps,
-  UserData,
-} from '../Interface/Interface';
+
+
 import {
   PeopleAlt,
   Notifications,

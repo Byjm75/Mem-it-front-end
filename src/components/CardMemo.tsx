@@ -1,6 +1,5 @@
 import { CardmemoProps } from '../Interface/Interface';
 
-import { CardmemoProps } from '../Interface/Interface';
 import { DropdownMemo } from './DropdownMemo';
 
 export const CardMemo = ({ memoAffich }: CardmemoProps) => {
