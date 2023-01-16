@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const FooterConnect = () => {
   return (
     <div

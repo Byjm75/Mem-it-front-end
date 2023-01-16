@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { FormEvent, useEffect, useRef, useState } from 'react';
-import { FooterConnect } from '../components/FooterConnect';
+import { FooterConnect } from '../components/Footer';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 import jwtDecode from 'jwt-decode';
@@ -50,6 +50,18 @@ export const Profil = () => {
         console.log('response ', response.data);
         alert('Profil mis à jour!');
         navigate('/dashboard');
+        window.location.reload();
+      });
+  };
+  const deleteAccount = async () => {
+    axios
+      .delete(`http://localhost:8085/api/utilisateur/${userToken?.id}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      })
+      .then((response: AxiosResponse<{ data: any }>) => {
+        console.log('response ', response.data);
+        alert('Votre compte a été supprimé!');
+        navigate('/signup');
         window.location.reload();
       });
   };
@@ -200,6 +212,21 @@ export const Profil = () => {
                       }}
                     >
                       Sauvegarder modifications
+                    </button>
+                  </div>
+                  <div>
+                    <button
+                      className='delete button'
+                      onClick={() => {
+                        const confirmBox = window.confirm(
+                          'Voulez-vous vraiment supprimer votre compte?'
+                        );
+                        if (confirmBox === true) {
+                          deleteAccount();
+                        }
+                      }}
+                    >
+                      Supprimer mon compte
                     </button>
                   </div>
                 </div>

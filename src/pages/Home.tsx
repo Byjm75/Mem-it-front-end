@@ -1,6 +1,6 @@
 import { Carroussel } from '../components/Caroussel';
 import { Navbar } from '../components/Navbar';
-import { FooterConnect } from '../components/FooterConnect';
+import { FooterConnect } from '../components/Footer';
 
 export const Home = () => {
   return (

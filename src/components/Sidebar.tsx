@@ -71,7 +71,6 @@ export const Sidebar = () => {
           <hr />
           <ul style={{ listStyleType: 'none' }}>
             <li>
-              {' '}
               <a className='navbar-brand' href='/createCategory'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'

@@ -1,12 +1,13 @@
 import { AddBtn } from '../components/AddBtn';
 import { ToolsBar } from '../components/ToolsBar';
 import { Sidebar } from '../components/Sidebar';
-import { FooterConnect } from '../components/FooterConnect';
+import { FooterConnect } from '../components/Footer';
 import { Categories } from '../interface/Interface';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { CardCategory } from '../components/CardCategory';
-import zIndex from '@mui/material/styles/zIndex';
+
+
 
 let dataCateg: Categories[] = [];
 export const Dashboard = () => {
