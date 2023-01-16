@@ -1,4 +1,4 @@
-import { CardmemoProps } from '../interface/Interface';
+import { CardmemoProps } from '../Interface/Interface';
 
 import { DropdownMemo } from './DropdownMemo';
 

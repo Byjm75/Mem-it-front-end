@@ -2,7 +2,7 @@ import {
   DecodTokenType,
   SearchBarProps,
   UserData,
-} from '../interface/Interface';
+} from '../Interface/Interface';
 import {
   PeopleAlt,
   Notifications,
