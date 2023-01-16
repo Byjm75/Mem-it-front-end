@@ -11,22 +11,8 @@ import { MemosUncat } from './Pages/MemosUncat';
 import { SignIn } from './Pages/SignIn';
 import { SignUp } from './Pages/SignUp';
 import { Profil } from './Pages/Profil';
-// import SignUp from './Pages/SignUp';
-// import Profil from './Pages/Profil';
-// import {SignUp} from './Pages/SignUp';
-// import { SignUp } from './Pages/SignUp';
-// import { SignIn } from './pages/SignIn';
-// import { HomeAdmin } from './pages/Admin/HomeAdmin';
-// import { UserAdmin } from './pages/Admin/UserAdmin';
-// import { Dashboard } from './pages/Dashboard';
-// import { CreateCategory } from './pages/CreateCategory';
-// import { Home } from './pages/Home';
-// import { Profil } from './pages/Profil';
-// import { Memos } from './pages/Memos';
-// import { MemosUncat } from './pages/MemosUncat';
-// import { CreateMemo } from './pages/CreateMemo';
 
-export const App = () => {
+ const App = () => {
   return (
     <div>
       <BrowserRouter>
@@ -37,7 +23,6 @@ export const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/profil" element={<Profil />} />
-          {/* <Route path="/profil" element={<Profil />} /> */}
           <Route path="/memo/:categoryId" element={<Memos />} />
           <Route path="/admin" element={<HomeAdmin />} />
           <Route path="/adminUsers" element={<UserAdmin />} />
@@ -49,3 +34,4 @@ export const App = () => {
     </div>
   );
 };
+export default App;
