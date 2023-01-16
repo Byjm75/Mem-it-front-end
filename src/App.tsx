@@ -2,17 +2,17 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home, Dashboard } from '@mui/icons-material';
-import { HomeAdmin } from './Pages/Admin/HomeAdmin';
-import { UserAdmin } from './Pages/Admin/UserAdmin';
-import { CreateCategory } from './Pages/CreateCategory';
-import { CreateMemo } from './Pages/CreateMemo';
-import { Memos } from './Pages/Memos';
-import { MemosUncat } from './Pages/MemosUncat';
-import { SignIn } from './Pages/SignIn';
-import { SignUp } from './Pages/SignUp';
-import { Profil } from './Pages/Profil';
+import { HomeAdmin } from './pages/Admin/HomeAdmin';
+import { UserAdmin } from './pages/Admin/UserAdmin';
+import { CreateCategory } from './pages/CreateCategory';
+import { CreateMemo } from './pages/CreateMemo';
+import { Memos } from './pages/Memos';
+import { MemosUncat } from './pages/MemosUncat';
+import { SignIn } from './pages/SignIn';
+import { SignUp } from './pages/SignUp';
+import { Profil } from './pages/Profil';
 
- const App = () => {
+const App = () => {
   return (
     <div>
       <BrowserRouter>
