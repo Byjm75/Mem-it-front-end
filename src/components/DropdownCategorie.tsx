@@ -4,7 +4,6 @@ import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 import { Categories, DropdownPropsCat } from '../Interface/Interface';
 
-
 export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);

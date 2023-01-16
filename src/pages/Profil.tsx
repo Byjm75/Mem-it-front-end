@@ -4,9 +4,8 @@ import { FooterConnect } from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 import jwtDecode from 'jwt-decode';
-
-import { useNavigate } from 'react-router-dom';
 import { DecodTokenType, UserData } from '../Interface/Interface';
+import { useNavigate } from 'react-router-dom';
 
 export const Profil = () => {
   const [userToken, setUserToken] = useState<UserData>();

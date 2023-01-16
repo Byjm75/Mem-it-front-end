@@ -7,7 +7,6 @@ import { Sidebar } from '../components/Sidebar';
 // import Sidebar from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 import { Categories } from '../Interface/Interface';
-// import { Categories } from '../interface/Interface';
 
 let userSelectCat: Categories;
 

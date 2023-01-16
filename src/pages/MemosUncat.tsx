@@ -7,7 +7,6 @@ import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 import { MemosProps } from '../Interface/Interface';
 
-
 let listeMemos: MemosProps[] = [];
 
 export const MemosUncat = () => {

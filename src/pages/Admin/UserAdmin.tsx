@@ -3,7 +3,6 @@ import axios from 'axios';
 import { ToolsBar } from '../../components/ToolsBar';
 import { UserData } from '../../Interface/Interface';
 
-
 let listeUsers: UserData[] = [];
 
 export const UserAdmin = () => {

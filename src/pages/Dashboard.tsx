@@ -2,11 +2,11 @@ import { AddBtn } from '../components/AddBtn';
 import { ToolsBar } from '../components/ToolsBar';
 import { Sidebar } from '../components/Sidebar';
 import { FooterConnect } from '../components/FooterConnect';
-// import { Categories } from '../interface/Interface';
+import { Categories } from '../Interface/Interface';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { CardCategory } from '../components/CardCategory';
-import { Categories } from '../Interface/Interface';
+
 
 let dataCateg: Categories[] = [];
 export const Dashboard = () => {

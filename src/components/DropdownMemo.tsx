@@ -4,7 +4,6 @@ import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 import { DropdownPropsMemo } from '../Interface/Interface';
 
-
 export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
