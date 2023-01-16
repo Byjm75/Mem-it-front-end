@@ -2,10 +2,11 @@ import { AddBtn } from '../components/AddBtn';
 import { ToolsBar } from '../components/ToolsBar';
 import { Sidebar } from '../components/Sidebar';
 import { FooterConnect } from '../components/FooterConnect';
-import { Categories } from '../Interface/Interface';
+import { Categories } from '../interface/Interface';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { CardCategory } from '../components/CardCategory';
+import zIndex from '@mui/material/styles/zIndex';
 
 
 let dataCateg: Categories[] = [];
@@ -39,7 +40,7 @@ export const Dashboard = () => {
   };
 
   return (
-    <div style={{ height: '100vh' }}>
+    <div className='position-sticky'>
       <div
         style={{
           width: '100%',
@@ -50,88 +51,73 @@ export const Dashboard = () => {
         }}
       >
         <ToolsBar onSearch={handleUserInput} />
-      </div>{' '}
-      <div>
+      </div>
+      <div style={{ width: '100%', display: 'flex' }}>
         <div
           style={{
             display: 'flex',
-            position: 'fixed',
+            position: 'relative',
             overflow: 'hidden',
             zIndex: '1',
           }}
         >
           <Sidebar />
         </div>
-        <div style={{ width: '64%', margin: '0 auto' }}>
-          <div
+        <div
+          style={{
+            width: '64%',
+            margin: '0 auto',
+            position: 'relative',
+            left: '25px',
+          }}
+        >
+          <h1
+            className='card-title'
             style={{
               width: '100%',
               position: 'relative',
               display: 'flex',
               justifyContent: 'end',
               alignItems: 'flex-end',
+              margin: '10px 0 0 ',
+              color: '#806d42',
+              fontWeight: 'bold',
             }}
           >
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-bettwen',
-                flexWrap: 'wrap',
-                listStyle: 'none',
-              }}
-            >
-              <h1
-                style={{
-                  width: '100%',
-                  position: 'relative',
-                  display: 'flex',
-                  justifyContent: 'end',
-                  alignItems: 'flex-end',
-                  margin: '10px 0 0 ',
+            CATEGORIES
+          </h1>
 
-                  color: '#806d42',
-                  fontWeight: 'bold',
-                }}
-              >
-                Mes catégories
-              </h1>
-              {listCatDisplayed.map((categorie) => (
-                <li key={categorie.id}>
-                  <CardCategory categoryAffich={categorie} />
-                </li>
-              ))}
-            </div>
-          </div>
-
+          <hr />
           <div
-            className="card-tools row"
             style={{
               display: 'flex',
-              justifyContent: 'space-around',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              listStyleType: 'none',
             }}
-          ></div>
-          <div>
-            <hr />
+          >
+            {listCatDisplayed.map((categorie) => (
+              <li key={categorie.id}>
+                <CardCategory categoryAffich={categorie} />
+              </li>
+            ))}
+          </div>
+        </div>
 
-            <div
-              className="card-tools row"
-              style={{ display: 'flex', justifyContent: 'space-around' }}
-            ></div>
-          </div>
-          <div style={{ position: 'fixed', right: '15px', bottom: '120px' }}>
-            <AddBtn />
-          </div>
+        <div style={{ position: 'fixed', right: '15px', bottom: '120px' }}>
+          <AddBtn />
         </div>
-        <div
-          style={{
-            marginTop: '30px',
-            position: 'fixed',
-            bottom: '0',
-            width: '100%',
-          }}
-        >
-          <FooterConnect />
-        </div>
+      </div>
+      <div
+        style={{
+          marginTop: '30px',
+          position: 'fixed',
+          bottom: '0',
+          width: '100%',
+          zIndex: '1',
+        }}
+      >
+        <FooterConnect />
       </div>
     </div>
   );

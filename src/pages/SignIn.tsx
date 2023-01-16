@@ -26,7 +26,7 @@ export const SignIn = () => {
     e.preventDefault();
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
-    
+
     axios
       .post('http://localhost:8085/api/auth/login', {
         email: emailElement.current?.value,
@@ -34,16 +34,16 @@ export const SignIn = () => {
       })
       .then((response) => {
         const token = response.data.accessToken;
-        if (token   ){
+        if (token) {
           localStorage.setItem('token', token);
           alert('Authentification réussie');
           setTimeout(() => navigate('/dashboard'), 1000);
         }
       })
-      
+
       .catch(() => {
         alert('Combinaison adresse mail/ mot de passe non trouvée');
-        window.location.reload()
+        window.location.reload();
       });
   };
 
@@ -62,7 +62,7 @@ export const SignIn = () => {
       </div>
       <MDBContainer
         style={{
-          margin: '25px auto',
+          marginTop: '3rem',
         }}
       >
         <MDBCard>
@@ -140,7 +140,6 @@ export const SignIn = () => {
             </MDBCol>
           </MDBRow>
         </MDBCard>
-        
       </MDBContainer>
 
       <div style={{ height: '150px' }}></div>

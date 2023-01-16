@@ -23,7 +23,7 @@ export const CreateCategory = () => {
     setFile(files);
   };
 
-  const handleSubmit = async (event: React.SyntheticEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(file);
     console.log(titleElement.current?.value);
@@ -43,6 +43,9 @@ export const CreateCategory = () => {
       })
         .then((response: any) => {
           console.log(response.data);
+          alert('Nouvelle catégorie créée!');
+          navigate('/dashboard');
+          window.location.reload();
         })
         .catch((error: any) => {
           console.error(error);
@@ -65,10 +68,10 @@ export const CreateCategory = () => {
           console.log('response ', response.data);
           console.log(response, 'res');
           alert('Nouvelle catégorie créée!');
+          navigate('/dashboard');
+          window.location.reload();
         });
     }
-    navigate('/dashboard');
-    window.location.reload();
   };
 
   return (
@@ -112,15 +115,15 @@ export const CreateCategory = () => {
             justifyContent: 'center',
             width: '62%',
             marginLeft: '20rem',
-            marginTop: '10rem',
+            marginTop: '5rem',
           }}
         >
           <div className=" row py-6">
             <form onSubmit={handleSubmit}>
-              <div className="row">
-                <div className="col-md-10 border-right">
-                  <div className="p-3 py-5">
-                    <div className="d-flex justify-content-between align-items-center mb-4">
+              <div className='row'>
+                <div className='col-md-12 border-right'>
+                  <div className='p-3 py-5'>
+                    <div className='d-flex justify-content-between align-items-center mb-4'>
                       <h4
                         className="text-right"
                         style={{ color: '#806d42', fontWeight: 'bold' }}
@@ -161,8 +164,8 @@ export const CreateCategory = () => {
                     </div>
 
                     <button
-                      className="btn btn-primary profile-button col-md-12"
-                      type="button"
+                      className='btn btn-primary profile-button col-md-12'
+                      type='submit'
                       style={{
                         padding: '5px',
                         backgroundColor: '#806d42',

@@ -2,7 +2,15 @@ import React from 'react';
 
 export const FooterConnect = () => {
   return (
-    <div style={{ position: 'fixed', bottom: '0', width: '100%' }}>
+    <div
+      style={{
+        position: 'fixed',
+        bottom: '0',
+        width: '100%',
+        zIndex: '1',
+        overflow: 'hidden',
+      }}
+    >
       <section className=''>
         <footer
           className='text-center text-white'
