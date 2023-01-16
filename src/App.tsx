@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home, Dashboard } from '@mui/icons-material';
 import { HomeAdmin } from './pages/Admin/HomeAdmin';
 import { UserAdmin } from './pages/Admin/UserAdmin';
 import { CreateCategory } from './pages/CreateCategory';
@@ -11,6 +10,8 @@ import { MemosUncat } from './pages/MemosUncat';
 import { SignIn } from './pages/SignIn';
 import { SignUp } from './pages/SignUp';
 import { Profil } from './pages/Profil';
+import { Home } from './pages/Home';
+import { Dashboard } from './pages/Dashboard';
 
 const App = () => {
   return (
