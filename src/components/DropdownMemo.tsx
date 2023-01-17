@@ -72,7 +72,7 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         console.log('response ', response.data.data);
 
         console.log(response, 'res');
-        alert('Catégorie modifiée!');
+        alert('Catégorie supprimée!');
         setMemos(response.data.data);
         handleClose();
 
