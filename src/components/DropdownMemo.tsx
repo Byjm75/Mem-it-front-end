@@ -43,8 +43,8 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         {
           title: titleElement.current?.value,
           date_event: date_eventElement.current?.value,
-          bodyElement: bodyElement.current?.value,
-          urlElement: urlElement.current?.value,
+          body: bodyElement.current?.value,
+          url: urlElement.current?.value,
           categorie_: userSelectCat,
         },
         {
@@ -60,6 +60,11 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         alert('Memo modifiée!');
         setMemos(response.data.data);
         handleClose();
+        if (userSelectCat) {
+          navigate(`/memo/${userSelectCat.id}`);
+        } else {
+          ;
+        }
         window.location.reload();
       });
   };
@@ -81,7 +86,7 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         if (userSelectCat) {
           navigate(`/memo/${userSelectCat.id}`);
         } else {
-          navigate('/memoUnCat');
+          navigate('/dashboard');
         }
 
         window.location.reload();
@@ -168,7 +173,7 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
               <Form.Control
                 type='text'
                 placeholder='Contenu de votre mémo'
-                ref={titleElement}
+                ref={bodyElement}
               />
             </FloatingLabel>
           </form>

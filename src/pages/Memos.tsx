@@ -6,15 +6,18 @@ import { CardMemo } from '../components/CardMemo';
 import { Footer} from '../components/Footer';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
-import { MemosProps } from '../interface/Interface';
+import { Categories, MemosProps } from '../interface/Interface';
+
 
 let listeMemos: MemosProps[] = [];
+
 
 export const Memos = () => {
   const [listmemoDisplayed, setListMemoDisplayed] = useState<MemosProps[]>([]);
 
   let { categoryId } = useParams();
   console.log("l'id catégorie", categoryId);
+  
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -31,6 +34,8 @@ export const Memos = () => {
         setListMemoDisplayed(listeMemos);
       });
   }, []);
+  
+  
   const handleUserInput = (userInputText: string) => {
     console.log("qu'a tapé mon user ? : ", userInputText);
     let catTemporaire = [...listmemoDisplayed];

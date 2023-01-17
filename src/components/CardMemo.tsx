@@ -1,4 +1,4 @@
-import { memo } from 'react';
+
 import { CardmemoProps } from '../interface/Interface';
 import { DropdownMemo } from './DropdownMemo';
 
@@ -8,6 +8,7 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
 
   return (
     <div>
+      
     <div
       className='container-card-cat'
       style={{
@@ -41,6 +42,7 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
         </div>
       </div>
       <div style={{ width: '87%', margin: '3px auto' }}>
+        
         <div
           className='btn btn- col-sm-12'
           style={{
@@ -53,17 +55,21 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
             color: 'white',
           }}
         >
-          
-          {/* <p> {memoAffich.date_event && memoAffich.body}</p> */}
+          <ul>
+          <li>{memoAffich.body}</li>
+           <li> {memoAffich.date_event.toLocaleString("fr-FR")}</li>
 
-          {/* {memoAffich.date_event !== null ? (
-            memoAffich.date_event && memoAffich.body
-          ) : (
-            <div>{memoAffich.body}</div>
-          )} */}
+            </ul>
+
+          
+          
         </div>
+        
       </div>
+      
     </div>
+    
     </div>
+    
   );
 };

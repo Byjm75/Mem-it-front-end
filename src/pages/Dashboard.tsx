@@ -84,7 +84,7 @@ export const Dashboard = () => {
               fontWeight: 'bold',
             }}
           >
-            CATEGORIES
+            CATEGORIES 
           </h1>
 
           <hr />
