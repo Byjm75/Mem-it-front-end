@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { CardcategoryProps } from '../interface/Interface';
 import { DropdownCategorie } from './DropdownCategorie';
 
-
 export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
   const [listImgDisplayed, setListImgDisplayed] = useState<string>();
   console.log('bonjour je suis votre url : ', categoryAffich.image);
@@ -76,7 +75,7 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
 
       <div style={{ width: '87%', margin: '3px auto' }}>
         <div
-          className='btn btn- col-sm-12'
+          className="btn btn- col-sm-12"
           style={{
             height: '12.7em',
             margin: '15px auto',

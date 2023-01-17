@@ -1,5 +1,6 @@
 import Modal from 'react-bootstrap/Modal';
 import { FormEvent, useRef, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import axios, { AxiosResponse } from 'axios';
 import { ScrollCat } from './ScrollCat';
@@ -169,9 +170,9 @@ export const AddBtn = () => {
   };
 
   return (
-    <div className='App'>
+    <div className="App">
       <Button
-        variant='danger'
+        variant="danger"
         onClick={handleShow}
         style={{ padding: '0px 25px', fontSize: '45px' }}
       >
@@ -182,31 +183,31 @@ export const AddBtn = () => {
         <Modal.Header closeButton>
           <Modal.Title>Ajout</Modal.Title>
 
-          <ul className='nav nav-tabs' id='myTab' role='tablist'>
-            <li className='nav-item' role='presentation'>
+          <ul className="nav nav-tabs" id="myTab" role="tablist">
+            <li className="nav-item" role="presentation">
               <button
-                className='nav-link active'
-                id='category-tab'
-                data-bs-toggle='tab'
-                data-bs-target='#category-tab-pane'
-                type='button'
-                role='tab'
-                aria-controls='category-tab-pane'
-                aria-selected='true'
+                className="nav-link active"
+                id="category-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#category-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="category-tab-pane"
+                aria-selected="true"
               >
                 Nouvelle catégorie
               </button>
             </li>
-            <li className='nav-item' role='presentation'>
+            <li className="nav-item" role="presentation">
               <button
-                className='nav-link'
-                id='memo-tab'
-                data-bs-toggle='tab'
-                data-bs-target='#memo-tab-pane'
-                type='button'
-                role='tab'
-                aria-controls='memo-tab-pane'
-                aria-selected='false'
+                className="nav-link"
+                id="memo-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#memo-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="memo-tab-pane"
+                aria-selected="false"
               >
                 Nouveau mémo
               </button>
@@ -253,31 +254,31 @@ export const AddBtn = () => {
               </div>
             </form>
             <div
-              className='tab-pane fade'
-              id='memo-tab-pane'
-              role='tabpanel'
-              aria-labelledby='memo-tab'
+              className="tab-pane fade"
+              id="memo-tab-pane"
+              role="tabpanel"
+              aria-labelledby="memo-tab"
               tabIndex={0}
             >
               <ScrollCat onSelectCatTitle={handleSelectCategorie} />
               <div>
                 <input
-                  type='text'
-                  className='form-control'
-                  id='nomMemo'
-                  placeholder='nom du mémo'
+                  type="text"
+                  className="form-control"
+                  id="nomMemo"
+                  placeholder="nom du mémo"
                   ref={taskTitleElement}
                 />
                 <label htmlFor='nomMemo'></label>
               </div>
               <div>
                 <input
-                  className='form-control'
-                  type='date'
-                  id='eventDate'
+                  className="form-control"
+                  type="date"
+                  id="eventDate"
                   ref={taskEventDateElement}
                 />
-                <label htmlFor='eventDate' className=''></label>
+                <label htmlFor="eventDate" className=""></label>
               </div>
 
               <div>
@@ -302,7 +303,7 @@ export const AddBtn = () => {
                 <label htmlFor='bodyMemo' className=''></label>
               </div>
               <div>
-                <Button variant='primary' onClick={handleTaskSubmitForm}>
+                <Button variant="primary" onClick={handleTaskSubmitForm}>
                   Ajouter
                 </Button>
               </div>

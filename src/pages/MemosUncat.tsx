@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { AddBtn } from '../components/AddBtn';
 import { CardMemo } from '../components/CardMemo';
 import { Footer } from '../components/Footer';
 import { Sidebar } from '../components/Sidebar';
@@ -27,7 +26,7 @@ export const MemosUncat = () => {
   }, []);
   const handleUserInput = (userInputText: string) => {};
   return (
-    <div className='position-sticky'>
+    <div className="position-sticky">
       <div
         style={{
           width: '100%',
@@ -39,7 +38,7 @@ export const MemosUncat = () => {
       >
         <ToolsBar onSearch={handleUserInput} />
       </div>
-      <div>
+      <div style={{ width: '100%', display: 'flex' }}>
         <div
           style={{
             display: 'flex',
@@ -50,53 +49,57 @@ export const MemosUncat = () => {
         >
           <Sidebar />
         </div>
-        <div style={{ height: '90px' }}></div>
-        <div style={{ width: '70%', margin: ' auto' }}>
+
+        <div
+          style={{
+            width: '64%',
+            margin: '0 auto',
+            position: 'relative',
+            left: '25px',
+          }}
+        >
           <div>
             <h1
-              className=""
+              className="card-title"
               style={{
                 width: '100%',
                 position: 'relative',
                 display: 'flex',
                 justifyContent: 'end',
                 alignItems: 'flex-end',
-                margin: '37px 0 0 ',
-                borderBottom: '4mm ridge #007872',
-                color: '#007872',
+                margin: '10px 0 0 ',
+                color: '#806d42',
                 fontWeight: 'bold',
               }}
             >
               Mémos
             </h1>
           </div>
+          <hr />
 
-          <div
-            style={{
-              width: '100%',
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'flex-end',
-            }}
-          >
-            {listmemoDisplayed.map((memo, i) => (
-              <ul key={i}>
-                <li
-                  key={memo.id}
-                  style={{
-                    listStyleType: 'none',
-                    margin: '0 10px',
-                  }}
-                >
-                  <CardMemo memoAffich={memo} />
-                </li>
-              </ul>
-            ))}{' '}
-          </div>
-        </div>
-        <div style={{ height: '150px' }}>
-          <div style={{ position: 'fixed', right: '15px', bottom: '115px' }}>
-            <AddBtn />
+          <div className="  ">
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-bettwen',
+                flexWrap: 'wrap',
+              }}
+            >
+              {listmemoDisplayed.map((memo, i) => (
+                <ul key={i}>
+                  <li
+                    key={i}
+                    style={{
+                      listStyleType: 'none',
+                      position: 'relative',
+                      right: '30px',
+                    }}
+                  >
+                    <CardMemo memoAffich={memo} />
+                  </li>
+                </ul>
+              ))}
+            </div>
           </div>
         </div>
       </div>

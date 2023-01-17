@@ -84,9 +84,9 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
               {location.pathname !== '/createCategory' &&
                 location.pathname !== '/createTask' && (
                   <input
-                    className='form-control mr-sm-2'
-                    type='search'
-                    placeholder='taper votre recherche'
+                    className="form-control mr-sm-2"
+                    type="search"
+                    placeholder="taper votre recherche"
                     onChange={handleChange}
                   />
                 )}
@@ -111,9 +111,9 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
                   <ul className="navbar-nav">
                     <li className="nav-item active">
                       <a
-                        className='nav-link active'
-                        aria-current='page'
-                        href='/admin'
+                        className="nav-link active"
+                        aria-current="page"
+                        href="/admin"
                       >
                         <AdminPanelSettings
                           style={{ color: '#806d42', fontSize: '50px' }}
@@ -147,9 +147,9 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
                 </div>
                 <div>
                   <img
-                    className='col-3'
-                    src='../assets/profile-icon-png-917.png'
-                    alt='profile'
+                    className="col-3"
+                    src="../assets/profile-icon-png-917.png"
+                    alt="profile"
                     style={{
                       width: '5.2rem',
                       margin: '5px 0 0 ',
@@ -173,7 +173,6 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
                   }}
                   onClick={profilElement}
                 />
-                
               </div>
             )}
           </div>

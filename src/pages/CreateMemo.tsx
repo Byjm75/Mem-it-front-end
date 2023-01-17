@@ -15,7 +15,16 @@ export const CreateMemo = () => {
   const bodyElement = useRef<HTMLTextAreaElement>(null);
   const urlElement = useRef<HTMLInputElement>(null);
 
+
   const navigate = useNavigate();
+
+  const handleSelectCategorie = (cat: Categories) => {
+    userSelectCat = cat;
+    console.log('CreateMemo - catégorie sélectionnée : ', userSelectCat);
+  };
+
+  const handleSubmitForm = (event: React.SyntheticEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
   const handleSelectCategorie = (cat: Categories) => {
     userSelectCat = cat;
@@ -142,29 +151,28 @@ export const CreateMemo = () => {
                         className='labels'
                         style={{ color: '#806d42', fontWeight: 'bold' }}
                       >
-                        Titre de votre mémo
+                        Date de votre évènement
                       </label>
                       <input
                         type='text'
                         className='form-control'
-                        placeholder='Titre'
-                        ref={titleElement}
+                        placeholder="Date de l'évènement"
+                        ref={eventDateElement}
                       />
                     </div>
                   </div>
-
-                  <div className='col-md-12 mt-4'>
+                  <div className='col-md-12'>
                     <label
                       className='labels'
                       style={{ color: '#806d42', fontWeight: 'bold' }}
                     >
-                      Date de votre évènement
+                      Lien internet
                     </label>
                     <input
-                      type='date'
+                      type='url'
                       className='form-control'
-                      placeholder="Date de l'évènement"
-                      ref={eventDateElement}
+                      placeholder='lien internet'
+                      ref={urlElement}
                     />
                   </div>
                 </div>
@@ -203,23 +211,19 @@ export const CreateMemo = () => {
                       style={{ width: '100%' }}
                     >
                       <div
-                        className='mt-4 text-center col-12'
-                        style={{
-                          marginRight: '0',
-                          display: 'flex',
-                          justifyContent: 'end',
-                        }}
+                        className='column mt-3 col-6'
+                        style={{ width: '100%' }}
                       >
                         <button
                           className='btn btn-primary profile-button col-md-12'
                           type='submit'
                           style={{
-                            padding: '5px',
-                            backgroundColor: '#806d42',
-                            borderColor: 'white',
+                            marginRight: '0',
+                            display: 'flex',
+                            justifyContent: 'end',
                           }}
                         >
-                          Sauvegarder votre mémo
+                          Sauvegarder modifications
                         </button>
                       </div>
                     </div>
@@ -229,9 +233,10 @@ export const CreateMemo = () => {
             </div>
           </div>
         </div>
-      </form>
-      <div style={{ height: '150px' }}></div>
-      <Footer />
+        <div style={{ height: '150px' }}></div>
+        <Footer />
+      </div>
     </div>
   );
 };
+

@@ -101,7 +101,7 @@ export const SignUp = () => {
               />
             </MDBCol>
 
-            <MDBCol md='8'>
+            <MDBCol md="8">
               <h1 style={{ textAlign: 'center', color: 'white' }}>
                 Inscrivez vous
               </h1>

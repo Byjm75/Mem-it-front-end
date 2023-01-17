@@ -74,7 +74,6 @@ export const CreateCategory = () => {
 
   return (
     <div>
-      
       <div
         style={{
           width: '100%',
@@ -95,8 +94,6 @@ export const CreateCategory = () => {
           display: 'flex',
         }}
       >
-        
-      
         <div
           style={{
             display: 'flex',
@@ -107,7 +104,7 @@ export const CreateCategory = () => {
         >
           <Sidebar />
         </div>
-        
+
         <div
           className='container rounded bg-4 '
           style={{
@@ -119,49 +116,49 @@ export const CreateCategory = () => {
             marginTop: '4rem',
           }}
         >
-          <div className=' row py-6'>
+          <div className=" row py-6">
             <form onSubmit={handleSubmit}>
               <div className='row'>
                 <div className='col-md-10 border-right'>
                   <div className='p-3 py-5'>
                     <div className='d-flex justify-content-between align-items-center mb-4'>
                       <h4
-                        className='text-right'
+                        className="text-right"
                         style={{ color: '#806d42', fontWeight: 'bold' }}
                       >
                         Créer votre catégorie
                       </h4>
                     </div>
                     <label
-                      className='labels'
+                      className="labels"
                       style={{ color: '#806d42', fontWeight: 'bold' }}
                     >
                       Titre de la catégorie
                     </label>
-                    <div className='input-group mb-4'>
+                    <div className="input-group mb-4">
                       <input
-                        type='text'
-                        className='form-control'
-                        placeholder='Titre de la catégorie'
+                        type="text"
+                        className="form-control"
+                        placeholder="Titre de la catégorie"
                         ref={titleElement}
                       />
                     </div>
                     <label
-                      className='labels'
+                      className="labels"
                       style={{ color: '#806d42', fontWeight: 'bold' }}
                     >
                       Choisissez votre fichier
                     </label>
-                    <div className='input-group mb-3'>
+                    <div className="input-group mb-3">
                       <input
-                        type='file'
-                        accept='image/*'
-                        className='form-control'
-                        id='image'
-                        placeholder='image de la catégorie'
+                        type="file"
+                        accept="image/*"
+                        className="form-control"
+                        id="image"
+                        placeholder="image de la catégorie"
                         onChange={handleFileChange}
                       />
-                      <label htmlFor='image' className=''></label>
+                      <label htmlFor="image" className=""></label>
                     </div>
 
                     <button
@@ -180,12 +177,12 @@ export const CreateCategory = () => {
               </div>
             </form>
 
-            <div className='row' style={{ display: 'flex' }}>
-              <div className='column mt-3 col-6' style={{ width: '100%' }}>
-                <div className='col-md-12'></div>
+            <div className="row" style={{ display: 'flex' }}>
+              <div className="column mt-3 col-6" style={{ width: '100%' }}>
+                <div className="col-md-12"></div>
               </div>
               <div
-                className='mt-4 text-center col-12'
+                className="mt-4 text-center col-12"
                 style={{
                   marginRight: '0',
                   display: 'flex',

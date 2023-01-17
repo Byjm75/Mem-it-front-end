@@ -14,7 +14,7 @@ export const HomeAdmin = () => {
   return (
     <div>
       {/* <ToolsBar /> */}
-      <div className='home'>
+      <div className="home">
         <Chart />
       </div>
     </div>

@@ -42,7 +42,7 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
       </div>
       <div style={{ width: '87%', margin: '3px auto' }}>
         <div
-          className='btn btn- col-sm-12'
+          className="btn btn- col-sm-12"
           style={{
             display: 'flex',
             justifyContent: 'center',

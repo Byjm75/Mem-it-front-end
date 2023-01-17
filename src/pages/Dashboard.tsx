@@ -12,9 +12,7 @@ import { CardCategory } from '../components/CardCategory';
 let dataCateg: Categories[] = [];
 export const Dashboard = () => {
   const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>([]);
-  //   const handleUserInput = (userInputText: string)=> {
 
-  // }
   useEffect(() => {
     axios
       .get('http://localhost:8085/api/categorie', {
@@ -55,16 +53,7 @@ export const Dashboard = () => {
         <ToolsBar onSearch={handleUserInput} />
       </div>
       <div style={{ width: '100%', display: 'flex' }}>
-        <div
-          style={{
-            display: 'flex',
-            position: 'relative',
-            overflow: 'hidden',
-            zIndex: '1',
-          }}
-        >
-          <Sidebar />
-        </div>
+        
         <div
           style={{
             width: '64%',
@@ -73,17 +62,31 @@ export const Dashboard = () => {
             left: '25px',
           }}
         >
+          <Sidebar />
+        </div>
+        <div
+          style={{
+            width: '70%',
+            margin: '0 85px 0 auto',
+            position: 'relative',
+            // left: '25px',
+          }}
+        >
+          <div style={{ height: '40px' }}></div>
+
           <h1
             className='card-title'
             style={{
               width: '100%',
               position: 'relative',
+              left:'30px',
               display: 'flex',
               justifyContent: 'end',
               alignItems: 'flex-end',
               margin: '10px 0 0 ',
               color: '#806d42',
               fontWeight: 'bold',
+              borderBottom: 'solid 4px #806d42',
             }}
           >
             CATEGORIES

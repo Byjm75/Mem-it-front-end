@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { DecodTokenType, UserData } from '../interface/Interface';
 
 export const Sidebar = () => {
+export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [userToken, setUserToken] = useState<UserData>();
