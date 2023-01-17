@@ -175,7 +175,7 @@ if(ImageElement.current?.value===""){
             <path d='M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z' />
           </svg>{' '}
         </Button>
-        <ul className='dropdown-menu  bg-dark ' style={{ width: '50%' }}>
+        <ul className='dropdown-menu  bg-dark ' style={{ width: '50%'}}>
           <li>
             <Button
               className='btn btn-success'
@@ -208,7 +208,7 @@ if(ImageElement.current?.value===""){
             
               <input
                 type='text'
-                placeholder='catégorie'
+                placeholder='Nom de la catégorie'
                 ref={titleElement}
               />
             
