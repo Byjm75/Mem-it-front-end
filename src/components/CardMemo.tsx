@@ -55,7 +55,7 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
             color: 'white',
           }}
         >
-          <ul >
+          <ul className='listCardMemo' >
           <li>{memoAffich.body}</li>
            <li> {memoAffich.date_event?.toLocaleString("fr-FR")}</li>
            </ul>
