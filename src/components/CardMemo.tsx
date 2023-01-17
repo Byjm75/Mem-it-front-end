@@ -41,17 +41,18 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
             <DropdownMemo memo={memoAffich} />
           </div>
         </div>
-        <div style={{ width: '87%', margin: '3px auto' }}>
+        <div style={{ width: '87%', margin: '3px auto'}}>
           <div
             className="btn btn- col-sm-12"
             style={{
               display: 'flex',
-              justifyContent:'start',
+              justifyContent:'center',
               height: '12.7em',
               margin: '15px auto',
               border: ' solid 2px #806d42',
               backgroundColor: 'black',
               color: 'white',
+              
             }}
           >
             <p> {memoAffich.date_event && memoAffich.body}</p>

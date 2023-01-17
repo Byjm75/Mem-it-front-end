@@ -166,9 +166,9 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
               className='mb-3'
             >
               <Form.Control
-                type='text'
+                type='textarea'
                 placeholder='Contenu de votre mémo'
-                ref={titleElement}
+                ref={bodyElement}
               />
             </FloatingLabel>
           </form>
