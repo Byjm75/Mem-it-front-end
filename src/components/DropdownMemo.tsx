@@ -6,10 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import { Categories, DropdownPropsMemo } from '../interface/Interface';
 import { ScrollCat } from './ScrollCat';
 
-let userSelectCat: Categories;
-import { useNavigate } from 'react-router-dom';
-import { Categories, DropdownPropsMemo } from '../interface/Interface';
-import { ScrollCat } from './ScrollCat';
 
 let userSelectCat: Categories;
 
