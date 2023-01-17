@@ -55,11 +55,11 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
             color: 'white',
           }}
         >
-          <ul>
+          <ul >
           <li>{memoAffich.body}</li>
-           <li> {memoAffich.date_event.toLocaleString("fr-FR")}</li>
-
-            </ul>
+           <li> {memoAffich.date_event?.toLocaleString("fr-FR")}</li>
+           </ul>
+           
 
           
           
@@ -68,8 +68,6 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
       </div>
       
     </div>
-    
     </div>
-    
   );
 };
