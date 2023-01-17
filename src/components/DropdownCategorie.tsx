@@ -2,20 +2,28 @@ import axios, { AxiosResponse } from 'axios';
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
-import { Categories, DropdownPropsCat } from '../Interface/Interface';
+import { useNavigate } from 'react-router-dom';
+import { Categories, DropdownPropsCat } from '../interface/Interface';
 
 export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [categories, setCategories] = useState<Categories | undefined>();
-
+const navigate = useNavigate();
   const titleElement = useRef<HTMLInputElement>(null);
   const ImageElement = useRef<HTMLInputElement>(null);
   const favElement = useRef<HTMLInputElement>(null);
+ const [file, setFile] = useState<File>();
 
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let files = event.target.files?.[0];
 
-  
+    if (!files) {
+      return;
+    }
+    setFile(files);
+  };
   const handleSubmitForm = async (e: FormEvent) => {
     console.log('handleSubmitForm');
     e.preventDefault();
@@ -23,33 +31,103 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
     console.log(titleElement.current?.value);
     console.log(ImageElement.current?.value);
     console.log(favElement.current?.value);
-    
-      axios
-        .patch(
-          `http://localhost:8085/api/categorie/${category.id}`,
+if(ImageElement.current?.value===""){
+    axios
+      .patch(
+        `http://localhost:8085/api/categorie/${category.id}`,
 
-          {
-            title: titleElement.current?.value,
-            favori: favElement.current?.value,
-            image: ImageElement.current?.value,
+        {
+          title: titleElement.current?.value,
+          favori: favElement.current?.value,
+          
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`,
-            },
-          }
-        )
-        .then((response: AxiosResponse<{ data: any }>) => {
-          console.log('response ', response.data.data);
+        }
+      )
+      .then((response: AxiosResponse<{ data: any }>) => {
+        console.log('response ', response.data.data);
 
-          console.log(response, 'res');
+        console.log(response, 'res');
+        alert('Catégorie modifiée!');
+        setCategories(response.data.data);
+        handleClose();
+        window.location.reload();
+      });}
+      if(file && titleElement.current?.value){
+        const formData = new FormData();
+        if(file){
+      formData.append('file', file);}
+      if(titleElement.current.value!== ""){
+      formData.append('categorieTitle', titleElement.current.value)};
+       axios({
+        method: 'post',
+        url: `http://localhost:8085/api/image/${category.id}`,
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
+        .then((response: any) => {
+          console.log(response.data);
           alert('Catégorie modifiée!');
-          setCategories(response.data.data);
-          handleClose();
+          navigate('/dashboard');
           window.location.reload();
+        })
+        .catch((error: any) => {
+          console.error(error);
         });
-    }
-  
+        
+
+      }
+      if(file && (titleElement.current?.value ==="")){
+        const formData = new FormData();
+        formData.append('file', file);
+        axios({
+        method: 'post',
+        url: `http://localhost:8085/api/image/${category.id}`,
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
+        .then((response: any) => {
+          console.log(response.data);
+          alert('Catégorie modifiée!');
+          navigate('/dashboard');
+          window.location.reload();
+        })
+        .catch((error: any) => {
+          console.error(error);
+        });
+      }
+      if(!file && (titleElement.current?.value)){
+        
+        axios.patch(`http://localhost:8085/api/categorie/${category.id}`,
+        {title: titleElement.current.value},
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+        )
+      
+       
+        .then((response: any) => {
+          console.log(response.data);
+          alert('Catégorie modifiée!');
+          navigate('/dashboard');
+          window.location.reload();
+        })
+        .catch((error: any) => {
+          console.error(error);
+        });
+      }
+  };
 
   const handleClickForm = async () => {
     await axios
@@ -124,37 +202,37 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
         <Modal.Header closeButton>
           <Modal.Title>Modifier catégorie</Modal.Title>
         </Modal.Header>
+        
         <Modal.Body>
-          <form>
-            <FloatingLabel
-              controlId="floatingInput"
-              label="Catégorie"
-              className="mb-3"
-            >
-              <Form.Control
-                type="text"
-                placeholder="catégorie"
+          <form onSubmit={handleSubmitForm}>
+            
+              <input
+                type='text'
+                placeholder='catégorie'
                 ref={titleElement}
               />
-            </FloatingLabel>
+            
             <div>
-              <Form.Control
-                className="text-primary"
-                type="file"
-                accept="image/*"
-                ref={ImageElement}
-              ></Form.Control>
+              <input
+                className='text-primary'
+                type='file'
+                accept='image/*'
+                id='image'
+                onChange={handleFileChange}
+              ></input>
             </div>
-          </form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="danger" onClick={handleClose}>
+          
+        
+        
+        
+          <Button variant='danger' onClick={handleClose}>
             Fermer
           </Button>
-          <Button variant="success" onClick={handleSubmitForm}>
+          <Button variant='success' type='submit'>
             Modifier
           </Button>
-        </Modal.Footer>
+          </form>
+        </Modal.Body>
       </Modal>
     </div>
   );

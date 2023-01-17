@@ -3,16 +3,17 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AddBtn } from '../components/AddBtn';
 import { CardMemo } from '../components/CardMemo';
-import { FooterConnect } from '../components/FooterConnect';
-import SideBBar from '../components/SideBBar';
+import { FooterConnect } from '../components/Footer';
+import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
-import { MemosProps } from '../Interface/Interface';
+import { MemosProps } from '../interface/Interface';
 
 let listeMemos: MemosProps[] = [];
 let filteredMemos: string[] = [];
 
 export const Memos = () => {
   const [listmemoDisplayed, setListMemoDisplayed] = useState<MemosProps[]>([]);
+
   let { categoryId } = useParams();
 
 
@@ -54,7 +55,7 @@ export const Memos = () => {
             zIndex: '1',
           }}
         >
-          <SideBBar />
+          <Sidear />
         </div>
         <div style={{ height: '90px' }}></div>
         <div style={{ width: '70%', margin: ' auto' }}>

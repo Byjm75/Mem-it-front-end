@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CardcategoryProps } from '../Interface/Interface';
+import { CardcategoryProps } from '../interface/Interface';
 import { DropdownCategorie } from './DropdownCategorie';
 
 
@@ -43,7 +43,7 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
 
   return (
     <div
-      className=''
+      className='container-card-cat'
       style={{
         width: ' 13.5rem',
         height: '17rem',
@@ -51,9 +51,29 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
         margin: ' 20px 0 ',
         backgroundColor: 'black',
         borderColor: '#806d42',
+       
       }}
     >
-      <DropdownCategorie category={categoryAffich} />
+      <div
+        className='card-title d-flex t'
+        style={{
+          textAlign: 'center',
+          border: 'solid 2px #806d42',
+          borderRadius: '7px',
+          margin: ' auto',
+          backgroundColor: '#806d42',
+          color: 'white',
+           
+        }}
+      >
+        <a className='navbar-brand' href={`/memo/${categoryAffich.id}`}>
+          <h5>{categoryAffich.title}</h5>
+        </a>
+        <div className= ''>
+          <DropdownCategorie category={categoryAffich} />
+        </div>
+      </div>
+
       <div style={{ width: '87%', margin: '3px auto' }}>
         <div
           className='btn btn- col-sm-12'
@@ -64,28 +84,9 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
             backgroundColor: 'black',
           }}
         >
-          <h5
-            className='card-title'
-            style={{
-              textAlign: 'center',
-              border: 'solid 2px #806d42',
-              borderRadius: '7px',
-              // width: '80%',
-              margin: ' auto',
-              backgroundColor: '#806d42',
-              padding: '10px',
-
-              color: 'white',
-            }}
-          >
-            {' '}
-            <a className='navbar-brand' href={`/memo/${categoryAffich.id}`}>
-              {categoryAffich.title}
-            </a>
-          </h5>
           <img
             src={listImgDisplayed}
-            alt="illustration catégorie"
+            alt='illustration catégorie'
             style={{ width: '100%', borderRadius: '7px', marginTop: '4px' }}
           />
         </div>

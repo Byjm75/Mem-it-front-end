@@ -10,13 +10,12 @@ import {
   MDBCheckbox,
   MDBBtn,
 } from 'mdb-react-ui-kit';
-import { FormEvent, useRef, useState } from 'react';
+import { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FooterConnect } from '../components/FooterConnect';
+import { Footer } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
 
 export const SignUp = () => {
-  const [isRegister, setIsRegister] = useState<String>();
   const pseudoElement = useRef<HTMLInputElement>(null);
   const emailElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
@@ -32,47 +31,50 @@ export const SignUp = () => {
     console.log(passwordElement.current?.value);
     console.log(ConfirmPasswordElement.current?.value);
 
-    axios
-      .post('http://localhost:8085/api/auth/register', {
-        pseudo: pseudoElement.current?.value,
-        email: emailElement.current?.value,
-        password: passwordElement.current?.value,
-        ConfirmPassword: ConfirmPasswordElement.current?.value,
-      })
-      .then((response: AxiosResponse<{ data: any }>) => {
-        if (response.status) {
-          setIsRegister('Compte crée');
-          setTimeout(() => navigate('/signin'), 1000);
-        }
-      })
-      .catch((error) => {
-        if (error === '23505') setIsRegister('erreur dans le formulaire');
-        console.log();
-      });
+    if (
+      pseudoElement.current?.value === '' ||
+      emailElement.current?.value === '' ||
+      passwordElement.current?.value === '' ||
+      ConfirmPasswordElement.current?.value === ''
+    ) {
+      alert('tous les champs doivent être renseignés');
+    }
+    if (
+      passwordElement.current?.value !== ConfirmPasswordElement.current?.value
+    ) {
+      alert(
+        'votre confirmation de mot de passe doit être la même que votre mot de passe'
+      );
+    } else {
+      axios
+        .post('http://localhost:8085/api/auth/register', {
+          pseudo: pseudoElement.current?.value,
+          email: emailElement.current?.value,
+          password: passwordElement.current?.value,
+          ConfirmPassword: ConfirmPasswordElement.current?.value,
+        })
+        .then((response: AxiosResponse) => {
+          console.log('réponde de axios', response);
+          console.log('réponde de axios', response.data);
+
+          console.log('reponse', response.status);
+          if (response.status === 201) {
+            alert('Compte crée');
+            setTimeout(() => navigate('/signin'), 1000);
+          }
+        })
+        .catch(() => {
+          alert('erreur dans le formulaire');
+        });
+    }
   };
 
   return (
-    <div
-    // style={{
-    //   backgroundColor: '#ABCDEF',
-    //   overflow: 'hidden',
-    // }}
-    >
-      <div
-        style={{
-          width: '100%',
-          position: 'sticky',
-          top: '0',
-          overflow: 'hidden',
-          zIndex: '1',
-        }}
-      >
-        <Navbar />
-      </div>{' '}
+    <div>
+      <Navbar />
       <MDBContainer
-        // className="my-2"
         style={{
-          margin: ' 4px auto',
+          marginTop: '2rem',
         }}
       >
         <MDBCard>
@@ -168,20 +170,9 @@ export const SignUp = () => {
             </MDBCol>
           </MDBRow>
         </MDBCard>
-        {isRegister === 'Compte crée' ? (
-          <div className='alert alert-success' role='alert'>
-            {isRegister}
-          </div>
-        ) : isRegister === 'erreur dans le formulaire' ? (
-          <div className='alert alert-danger d-flex' role='alert'>
-            {isRegister}
-          </div>
-        ) : (
-          <div></div>
-        )}
       </MDBContainer>
-      <div style={{ height: '150px' }}></div>
-      <FooterConnect />
+
+      <Footer />
     </div>
   );
 };

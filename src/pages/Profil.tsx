@@ -1,11 +1,11 @@
 import axios, { AxiosResponse } from 'axios';
 import { FormEvent, useEffect, useRef, useState } from 'react';
-import {ToolsBar} from '../components/ToolsBar';
+import { Footer } from '../components/Footer';
+import { Sidebar } from '../components/Sidebar';
+import { ToolsBar } from '../components/ToolsBar';
 import jwtDecode from 'jwt-decode';
-import { DecodTokenType, UserData } from '../Interface/Interface';
-import SideBBar from '../components/SideBBar';
+import { DecodTokenType, UserData } from '../interface/Interface';
 import { useNavigate } from 'react-router-dom';
-import { FooterConnect } from '../components/FooterConnect';
 
 export const Profil = () => {
   const [userToken, setUserToken] = useState<UserData>();
@@ -53,6 +53,18 @@ export const Profil = () => {
         window.location.reload();
       });
   };
+  const deleteAccount = async () => {
+    axios
+      .delete(`http://localhost:8085/api/utilisateur/${userToken?.id}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+      })
+      .then((response: AxiosResponse<{ data: any }>) => {
+        console.log('response ', response.data);
+        alert('Votre compte a été supprimé!');
+        navigate('/signup');
+        window.location.reload();
+      });
+  };
 
   return (
     <div>
@@ -85,7 +97,7 @@ export const Profil = () => {
             zIndex: '1',
           }}
         >
-          <SideBBar />
+          <Sidebar />
         </div>
 
         <div
@@ -94,7 +106,8 @@ export const Profil = () => {
             display: 'flex',
             backgroundColor: 'black',
             justifyContent: 'center',
-            width: '85%',
+            width: '62%',
+            marginLeft: '20rem',
           }}
         >
           <div className="row">
@@ -188,6 +201,21 @@ export const Profil = () => {
                       Sauvegarder modifications
                     </button>
                   </div>
+                  <div>
+                    <button
+                      className='delete button'
+                      onClick={() => {
+                        const confirmBox = window.confirm(
+                          'Voulez-vous vraiment supprimer votre compte?'
+                        );
+                        if (confirmBox === true) {
+                          deleteAccount();
+                        }
+                      }}
+                    >
+                      Supprimer mon compte
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -204,7 +232,7 @@ export const Profil = () => {
       >
         <div style={{ height: '15px' }}></div>
 
-        <FooterConnect />
+        <Footer />
       </div>
     </div>
   );

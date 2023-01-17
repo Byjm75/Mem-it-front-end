@@ -1,11 +1,13 @@
 import { AddBtn } from '../components/AddBtn';
 import { ToolsBar } from '../components/ToolsBar';
-import { FooterConnect } from '../components/FooterConnect';
-import SideBBar from '../components/SideBBar';
-import { CardCategory } from '../components/CardCategory';
-import { Categories } from '../Interface/Interface';
+import { Sidebar } from '../components/Sidebar';
+import { FooterConnect } from '../components/Footer';
+import { Categories } from '../interface/Interface';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { CardCategory } from '../components/CardCategory';
+
+
 
 let dataCateg: Categories[] = [];
 export const Dashboard = () => {
@@ -40,7 +42,7 @@ export const Dashboard = () => {
   };
 
   return (
-    <div className="position-sticky">
+    <div className='position-sticky'>
       <div
         style={{
           width: '100%',
@@ -51,29 +53,28 @@ export const Dashboard = () => {
         }}
       >
         <ToolsBar onSearch={handleUserInput} />
-      </div>{' '}
-      {/* <div> */}
-      <div
-        style={{
-          display: 'flex',
-          position: 'fixed',
-          overflow: 'hidden',
-          zIndex: '1',
-        }}
-      >
-        <SideBBar />
       </div>
-      <div style={{ height: '50px' }}></div>
-      <div style={{ width: '64%', height: '100%', margin: '0 auto' }}>
+      <div style={{ width: '100%', display: 'flex' }}>
         <div
           style={{
             display: 'flex',
-            justifyContent: 'space-bettwen',
-            flexWrap: 'wrap',
-            listStyle: 'none',
+            position: 'relative',
+            overflow: 'hidden',
+            zIndex: '1',
+          }}
+        >
+          <Sidebar />
+        </div>
+        <div
+          style={{
+            width: '64%',
+            margin: '0 auto',
+            position: 'relative',
+            left: '25px',
           }}
         >
           <h1
+            className='card-title'
             style={{
               width: '100%',
               position: 'relative',
@@ -85,41 +86,41 @@ export const Dashboard = () => {
               fontWeight: 'bold',
             }}
           >
-            Mes catégories
+            CATEGORIES
           </h1>
-        </div>
-        <hr />
 
-        <div
-          className=" "
-          style={{
-            width: '100%',
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            listStyle: 'none',
-          }}
-        >
-          {' '}
-          {listCatDisplayed.map((categorie) => (
-            <li key={categorie.id}>
-              <CardCategory categoryAffich={categorie} />
-            </li>
-          ))}
-        </div>
-        <div>
+          <hr />
           <div
-            className="card-tools row"
-            style={{ display: 'flex', justifyContent: 'space-around' }}
-          ></div>
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              listStyleType: 'none',
+            }}
+          >
+            {listCatDisplayed.map((categorie) => (
+              <li key={categorie.id}>
+                <CardCategory categoryAffich={categorie} />
+              </li>
+            ))}
+          </div>
         </div>
+
         <div style={{ position: 'fixed', right: '15px', bottom: '120px' }}>
           <AddBtn />
         </div>
       </div>
-        <div style={{ height: '500px' }}></div>
-      <FooterConnect />
-      {/* </div> */}
+      <div
+        style={{
+          marginTop: '30px',
+          position: 'fixed',
+          bottom: '0',
+          width: '100%',
+          zIndex: '1',
+        }}
+      >
+        <FooterConnect />
+      </div>
     </div>
   );
 };

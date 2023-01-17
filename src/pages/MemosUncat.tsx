@@ -2,10 +2,10 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { AddBtn } from '../components/AddBtn';
 import { CardMemo } from '../components/CardMemo';
-import { FooterConnect } from '../components/FooterConnect';
-import SideBBar from '../components/SideBBar';
+import { FooterConnect } from '../components/Footer';
+import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
-import { MemosProps } from '../Interface/Interface';
+import { MemosProps } from '../interface/Interface';
 
 let listeMemos: MemosProps[] = [];
 
@@ -19,8 +19,10 @@ export const MemosUncat = () => {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        listeMemos = res.data;
-        setListMemoDisplayed(res.data);
+        listeMemos = res.data.filter(
+          (memo: MemosProps) => memo.categorie_ === null
+        );
+        setListMemoDisplayed(listeMemos);
       });
   }, []);
   const handleUserInput = (userInputText: string) => {};

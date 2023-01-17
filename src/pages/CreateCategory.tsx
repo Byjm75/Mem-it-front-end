@@ -1,10 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
-import React, { ChangeEvent, FormEvent, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { ToolsBar } from '../components/ToolsBar';
 import { useNavigate } from 'react-router-dom';
-import { blob } from 'stream/consumers';
-import { FooterConnect } from '../components/FooterConnect';
-import SideBBar from '../components/SideBBar';
+import { FooterConnect } from '../components/Footer';
+import { Sidebar } from '../components/Sidebar';
 
 export const CreateCategory = () => {
   const navigate = useNavigate();
@@ -42,6 +41,9 @@ export const CreateCategory = () => {
       })
         .then((response: any) => {
           console.log(response.data);
+          alert('Nouvelle catégorie créée!');
+          navigate('/dashboard');
+          window.location.reload();
         })
         .catch((error: any) => {
           console.error(error);
@@ -64,10 +66,10 @@ export const CreateCategory = () => {
           console.log('response ', response.data);
           console.log(response, 'res');
           alert('Nouvelle catégorie créée!');
+          navigate('/dashboard');
+          window.location.reload();
         });
     }
-    navigate('/dashboard');
-    window.location.reload();
   };
 
   return (
@@ -103,16 +105,18 @@ export const CreateCategory = () => {
             zIndex: '1',
           }}
         >
-          <SideBBar />
+          <Sidebar />
         </div>
         
         <div
-          className='container rounded bg-4 mt-5 '
+          className='container rounded bg-4 '
           style={{
             display: 'flex',
             backgroundColor: 'black',
             justifyContent: 'center',
             width: '62%',
+            marginLeft: '20rem',
+            marginTop: '4rem',
           }}
         >
           <div className=' row py-6'>
@@ -125,7 +129,7 @@ export const CreateCategory = () => {
                         className='text-right'
                         style={{ color: '#806d42', fontWeight: 'bold' }}
                       >
-                        Creer une catégorie
+                        Créer votre catégorie
                       </h4>
                     </div>
                     <label
@@ -162,7 +166,7 @@ export const CreateCategory = () => {
 
                     <button
                       className='btn btn-primary profile-button col-md-12'
-                      type='button'
+                      type='submit'
                       style={{
                         padding: '5px',
                         backgroundColor: '#806d42',
@@ -205,7 +209,3 @@ export const CreateCategory = () => {
     </div>
   );
 };
-
-function setImage(arg0: string) {
-  throw new Error('Function not implemented.');
-}
