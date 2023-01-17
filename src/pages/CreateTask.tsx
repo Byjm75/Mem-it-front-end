@@ -1,7 +1,8 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FooterConnect } from '../components/FooterConnect';
+import { FooterConnect } from '../components/Footer';
+// import { FooterConnect } from '../components/FooterConnect';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 

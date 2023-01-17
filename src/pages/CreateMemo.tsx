@@ -115,7 +115,7 @@ export const CreateMemo = () => {
           <Sidebar />
         </div>
         <form onSubmit={handleSubmitForm}>
-          <div
+          {/* <div
             className='container rounded bg- mt-5 mb-5 '
             style={{
               display: 'flex',
@@ -123,7 +123,7 @@ export const CreateMemo = () => {
               justifyContent: 'center',
               width: '62%',
             }}
-          >
+          > */}
             <div className='row py-4  '>
               <div className='col-md-10 border-right'>
                 <div className='p-3 py-4'>
