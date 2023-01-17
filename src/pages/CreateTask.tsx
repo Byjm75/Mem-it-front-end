@@ -1,19 +1,18 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {FooterConnect} from '../components/FooterConnect';
-import SideBBar from '../components/SideBBar';
-import {ToolsBar} from '../components/ToolsBar';
+import { FooterConnect } from '../components/FooterConnect';
+import SideBBar from '../components/Sidebar';
+import { ToolsBar } from '../components/ToolsBar';
 
 export const CreateTask = () => {
-
   const titleElement = useRef<HTMLInputElement>(null);
   const eventDateElement = useRef<HTMLInputElement>(null);
   const bodyElement = useRef<HTMLInputElement>(null);
   const imageElement = useRef<HTMLInputElement>(null);
   const urlElement = useRef<HTMLInputElement>(null);
 
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmitForm = async (e: FormEvent) => {
     console.log('handleSubmitForm');
@@ -41,8 +40,7 @@ export const CreateTask = () => {
       .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data);
         alert('Nouveau mémo crée!');
-                navigate('/tache')
-
+        navigate('/tache');
       });
   };
   return (
@@ -56,9 +54,11 @@ export const CreateTask = () => {
           zIndex: '1',
         }}
       >
-        <ToolsBar onSearch={function (userInput: string): void {
-          throw new Error('Function not implemented.');
-        } } />
+        <ToolsBar
+          onSearch={function (userInput: string): void {
+            throw new Error('Function not implemented.');
+          }}
+        />
       </div>{' '}
       <div
         style={{
@@ -100,9 +100,9 @@ export const CreateTask = () => {
                       Titre
                     </label>
                     <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Titre"
+                      type='text'
+                      className='form-control'
+                      placeholder='Titre'
                       ref={titleElement}
                     />
                   </div>
@@ -141,9 +141,9 @@ export const CreateTask = () => {
                         Lien internet
                       </label>
                       <input
-                        type="url"
-                        className="form-control"
-                        placeholder="lien internet"
+                        type='url'
+                        className='form-control'
+                        placeholder='lien internet'
                         ref={urlElement}
                       />
                     </div>
@@ -195,9 +195,7 @@ export const CreateTask = () => {
         </div>
       </div>
       <div style={{ height: '150px' }}></div>
-      
-        <FooterConnect />
-      </div>
+      <FooterConnect />
+    </div>
   );
 };
-

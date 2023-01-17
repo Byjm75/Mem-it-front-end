@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { AddBtn } from '../components/AddBtn';
 import { CardMemo } from '../components/CardMemo';
-import { FooterConnect } from '../components/Footer';
+import { Footer } from '../components/Footer';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 import { MemosProps } from '../interface/Interface';
@@ -48,7 +48,7 @@ export const MemosUncat = () => {
             zIndex: '1',
           }}
         >
-          <SideBBar />
+          <Sidebar />
         </div>
         <div style={{ height: '90px' }}></div>
         <div style={{ width: '70%', margin: ' auto' }}>
@@ -100,7 +100,7 @@ export const MemosUncat = () => {
           </div>
         </div>
       </div>
-      <FooterConnect />
+      <Footer />
     </div>
   );
 };
