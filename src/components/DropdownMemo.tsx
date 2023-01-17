@@ -173,6 +173,26 @@ const navigate = useNavigate()
                 ref={bodyElement}
               />
             </FloatingLabel>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Date de votre Memo"
+              className="mb-3"
+            >
+              <Form.Control
+                type="date"
+                placeholder="date mémo"
+                ref={date_eventElement}
+              /></FloatingLabel>
+              <FloatingLabel
+              controlId="floatingInput"
+              label="Lien internet"
+              className="mb-3"
+            >
+              <Form.Control
+                type="url"
+                placeholder="Lien internet"
+                ref={urlElement}
+              /></FloatingLabel>
           </form>
         </Modal.Body>
         <Modal.Footer>
