@@ -69,8 +69,8 @@ export const UserAdmin = () => {
   return (
     <div>
       <ToolsBar onSearch={handleUserInput} />
-      <table className='table table-striped'>
-        <thead className='thead-dark'>
+      <table className="table table-striped">
+        <thead className="thead-dark">
           <tr>
             <th>ID</th>
             <th>Email</th>
@@ -81,15 +81,15 @@ export const UserAdmin = () => {
         <tbody>
           {listUsersDisplayed.map((user, i) => (
             <tr key={i}>
-              <td className='button mr-3'>{user.id}</td>
+              <td className="button mr-3">{user.id}</td>
               <td>{user.email}</td>
               <td>{user.pseudo}</td>
               <td>
                 <button
-                  type='button'
+                  type="button"
                   value={user.id}
                   key={user.id}
-                  className='btn btn-danger'
+                  className="btn btn-danger"
                   ref={selectUser}
                   onClick={handleDelete}
                 >

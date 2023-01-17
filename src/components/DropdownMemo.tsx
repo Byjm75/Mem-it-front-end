@@ -78,13 +78,13 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
     <div>
       <div
         style={{ zIndex: '0' }}
-        className='dropstart  d-flex justify-content-end '
+        className="dropstart  d-flex justify-content-end "
       >
         <Button
-          className='btn btn-secondary'
-          type='button'
-          data-bs-toggle='dropdown'
-          aria-expanded='false'
+          className="btn btn-secondary"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
           style={{
             fontSize: '10px',
             backgroundColor: '#806d42',
@@ -92,22 +92,22 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
           }}
         >
           <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='16'
-            height='16'
-            fill='currentColor'
-            className='bi bi-three-dots'
-            viewBox='0 0 16 16'
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-three-dots"
+            viewBox="0 0 16 16"
           >
-            <path d='M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z' />
+            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
           </svg>{' '}
         </Button>
-        <ul className='dropdown-menu  bg-dark ' style={{ width: '50%' }}>
+        <ul className="dropdown-menu  bg-dark " style={{ width: '50%' }}>
           {' '}
           <li>
             <Button
-              className='btn btn-success'
-              type='button'
+              className="btn btn-success"
+              type="button"
               style={{ width: '100%', marginBottom: '5px' }}
               onClick={handleShow}
             >
@@ -116,8 +116,8 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
           </li>
           <li>
             <Button
-              className='btn btn-danger'
-              type='button'
+              className="btn btn-danger"
+              type="button"
               style={{ width: '100%' }}
               onClick={handleClickForm}
             >

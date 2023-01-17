@@ -12,7 +12,7 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
 
   return (
     <div
-      className=''
+      className=""
       style={{
         width: ' 13.5rem',
         height: '17rem',
@@ -22,10 +22,36 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
         borderColor: '#806d42',
       }}
     >
-      <DropdownMemo memo={memoAffich} />
+       <h5
+        className="card-title pb-0"
+        style={{
+          textAlign: 'center',
+          border: 'solid 2px #806d42',
+          borderRadius: '7px',
+          width: '100%',
+          margin: ' auto',
+          backgroundColor: '#806d42',
+          padding: '10px',
+          display: 'flex',
+          justifyContent: 'space-between',
+
+          color: 'white',
+        }}
+      >
+        {' '}
+        <div>
+           <a className="navbar-brand" href="/memo">
+              {memoAffich.title}
+            </a>
+        </div>
+        <div>
+          <DropdownMemo memo={memoAffich} />
+        </div>
+      </h5>
+      
       <div style={{ width: '87%', margin: '3px auto' }}>
         <div
-          className='btn btn- col-sm-12'
+          className="btn btn- col-sm-12"
           style={{
             height: '12.7em',
             margin: '15px auto',
@@ -35,7 +61,7 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
         >
           {/* <div className="card-body"> */}
           <h5
-            className='card-title'
+            className="card-title"
             style={{
               textAlign: 'center',
               border: 'solid 2px #806d42',
@@ -49,15 +75,15 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
             }}
           >
             {' '}
-            <a className='navbar-brand' href='/memo'>
+            {/* <a className="navbar-brand" href="/memo">
               {memoAffich.title}
-            </a>
+            </a> */}
           </h5>
           {/* </div> */}
 
           <img
             src={memoAffich.image}
-            alt='illustration memo'
+            alt="illustration memo"
             style={{ width: '100%', borderRadius: '7px', marginTop: '4px' }}
           />
         </div>

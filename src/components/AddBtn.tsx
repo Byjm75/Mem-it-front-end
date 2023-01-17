@@ -11,45 +11,77 @@ let userSelectCat: Categories;
 export const AddBtn = () => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
-
-  const handleSelectCategorie = (cat: Categories) => {
-    userSelectCat = cat;
-    console.log('CreateMemo - catégorie sélectionnée : ', userSelectCat);
-  };
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const titleElement = useRef<HTMLInputElement>(null);
   const ImageElement = useRef<HTMLInputElement>(null);
   const favElement = useRef<HTMLInputElement>(null);
-
-  const handleSubmitForm = async (e: FormEvent) => {
-    console.log('handleSubmitForm');
-    e.preventDefault();
-    console.log(titleElement.current?.value);
-    console.log(ImageElement.current?.value);
-    console.log(favElement.current?.value);
-
-    axios
-      .post(
-        'http://localhost:8085/api/categorie',
-
-        {
-          title: titleElement.current?.value,
-          favori: favElement.current?.value,
-          image: ImageElement.current?.value,
-        },
-        {
-          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-        }
-      )
-      .then((response: AxiosResponse<{ data: any }>) => {
-        console.log('response ', response.data);
-        console.log(response, 'res');
-        alert('Nouvelle catégorie créée!');
-        handleClose();
-      });
+  const handleSelectCategorie = (cat: Categories) => {
+    userSelectCat = cat;
+    console.log('CreateMemo - catégorie sélectionnée : ', userSelectCat);
   };
+  const [file, setFile] = useState<File>();
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let files = event.target.files?.[0];
+
+    if (!files) {
+      return;
+    }
+    setFile(files);
+  };
+  const handleSubmit = (event: React.SyntheticEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(file);
+    console.log(titleElement.current?.value);
+    if (file && titleElement.current?.value) {
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('categorieTitle', titleElement.current.value);
+
+      axios({
+        method: 'post',
+        url: 'http://localhost:8085/api/image/upload',
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
+        .then((response: any) => {
+          console.log(response.data);
+          alert('Nouvelle catégorie créée!');
+          handleClose();
+          navigate('/dashboard');
+          window.location.reload();
+        })
+        .catch((error: any) => {
+          console.error(error);
+        });
+    }
+    const inputTitle = titleElement.current?.value;
+    if ((file === undefined || null) && (inputTitle !== undefined || null)) {
+      axios
+        .post(
+          'http://localhost:8085/api/categorie',
+
+          { title: titleElement.current?.value, image: '' },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        )
+        .then((response: AxiosResponse<{ data: any }>) => {
+          console.log('response ', response.data);
+          console.log(response, 'res');
+          alert('Nouvelle catégorie créée!');
+          handleClose();
+          navigate('/dashboard');
+          window.location.reload();
+        });
+    }
+  };
+
   const taskTitleElement = useRef<HTMLInputElement>(null);
   const taskEventDateElement = useRef<HTMLInputElement>(null);
   const taskBodyElement = useRef<HTMLInputElement>(null);
@@ -137,9 +169,9 @@ export const AddBtn = () => {
   };
 
   return (
-    <div className='App'>
+    <div className="App">
       <Button
-        variant='danger'
+        variant="danger"
         onClick={handleShow}
         style={{ padding: '0px 25px', fontSize: '45px' }}
       >
@@ -150,31 +182,31 @@ export const AddBtn = () => {
         <Modal.Header closeButton>
           <Modal.Title>Ajout</Modal.Title>
 
-          <ul className='nav nav-tabs' id='myTab' role='tablist'>
-            <li className='nav-item' role='presentation'>
+          <ul className="nav nav-tabs" id="myTab" role="tablist">
+            <li className="nav-item" role="presentation">
               <button
-                className='nav-link active'
-                id='category-tab'
-                data-bs-toggle='tab'
-                data-bs-target='#category-tab-pane'
-                type='button'
-                role='tab'
-                aria-controls='category-tab-pane'
-                aria-selected='true'
+                className="nav-link active"
+                id="category-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#category-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="category-tab-pane"
+                aria-selected="true"
               >
                 Nouvelle catégorie
               </button>
             </li>
-            <li className='nav-item' role='presentation'>
+            <li className="nav-item" role="presentation">
               <button
-                className='nav-link'
-                id='memo-tab'
-                data-bs-toggle='tab'
-                data-bs-target='#memo-tab-pane'
-                type='button'
-                role='tab'
-                aria-controls='memo-tab-pane'
-                aria-selected='false'
+                className="nav-link"
+                id="memo-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#memo-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="memo-tab-pane"
+                aria-selected="false"
               >
                 Nouveau mémo
               </button>
@@ -182,99 +214,92 @@ export const AddBtn = () => {
           </ul>
         </Modal.Header>
         <Modal.Body>
-          <div className='tab-content' id='myTabContent'>
+          <div className="tab-content" id="myTabContent">
+            <form onSubmit={handleSubmit}>
+              <div
+                className="tab-pane fade show active"
+                id="category-tab-pane"
+                role="tabpanel"
+                aria-labelledby="category-tab"
+                tabIndex={0}
+              >
+                <div>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="nomCategorie"
+                    placeholder="nom de la catégorie"
+                    ref={titleElement}
+                  />
+                  <label htmlFor="nomCategorie" className=""></label>
+                </div>
+                <div>
+                  Image de catégorie :
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="form-control"
+                    id="image"
+                    placeholder="image de la catégorie"
+                    onChange={handleFileChange}
+                  />
+                  <label htmlFor="image" className=""></label>
+                </div>
+                <div>
+                  <Button variant="primary" type="submit">
+                    Ajouter
+                  </Button>
+                </div>
+              </div>
+            </form>
             <div
-              className='tab-pane fade show active'
-              id='category-tab-pane'
-              role='tabpanel'
-              aria-labelledby='category-tab'
-              tabIndex={0}
-            >
-              <div>
-                <input
-                  type='text'
-                  className='form-control'
-                  id='nomCategorie'
-                  placeholder='nom de la catégorie'
-                  ref={titleElement}
-                />
-                <label htmlFor='nomCategorie' className=''></label>
-              </div>
-              <div>
-                Image de catégorie :
-                <input
-                  type='file'
-                  accept='image/*'
-                  className='form-control'
-                  id='image'
-                  placeholder='image de la catégorie'
-                  ref={ImageElement}
-                />
-                <label htmlFor='image' className=''></label>
-              </div>
-              <div>
-                <Button variant='primary' onClick={handleSubmitForm}>
-                  Ajouter
-                </Button>
-              </div>
-            </div>
-            <div
-              className='tab-pane fade'
-              id='memo-tab-pane'
-              role='tabpanel'
-              aria-labelledby='memo-tab'
+              className="tab-pane fade"
+              id="memo-tab-pane"
+              role="tabpanel"
+              aria-labelledby="memo-tab"
               tabIndex={0}
             >
               <ScrollCat onSelectCatTitle={handleSelectCategorie} />
               <div>
                 <input
-                  type='text'
-                  className='form-control'
-                  id='nomMemo'
-                  placeholder='nom du mémo'
+                  type="text"
+                  className="form-control"
+                  id="nomMemo"
+                  placeholder="nom du mémo"
                   ref={taskTitleElement}
                 />
-                <label htmlFor='nomMemo' className=''></label>
+                <label htmlFor="nomMemo" className=""></label>
               </div>
               <div>
                 <input
-                  className='form-control'
-                  type='date'
-                  id='eventDate'
+                  className="form-control"
+                  type="date"
+                  id="eventDate"
                   ref={taskEventDateElement}
                 />
-                <label htmlFor='eventDate' className=''></label>
+                <label htmlFor="eventDate" className=""></label>
               </div>
+
               <div>
                 <input
-                  type='textarea'
-                  className='form-control'
-                  id='bodyMemo'
-                  placeholder='description'
-                  ref={taskBodyElement}
-                />
-                <label htmlFor='bodyMemo' className=''></label>
-              </div>
-              <div>
-                <input
-                  type='file'
-                  className='form-control'
-                  id='memoImage'
-                  placeholder='image du mémo'
-                  ref={taskImageElement}
-                />
-                <label htmlFor='memoImage' className=''></label>
-              </div>
-              <div>
-                <input
-                  className='form-control'
-                  type='url'
-                  id='url'
-                  placeholder='lien internet'
+                  className="form-control"
+                  type="url"
+                  id="url"
+                  placeholder="lien internet"
                   ref={taskUrlElement}
                 />
 
-                <label htmlFor='url' className=''></label>
+                <label htmlFor="url" className=""></label>
+              </div>
+              <div>
+                <input
+                  type="textarea"
+                  className="form-control"
+                  id="bodyMemo"
+                  placeholder="Contenu du mémo"
+                  ref={taskBodyElement}
+                />
+                <label htmlFor="bodyMemo" className=""></label>
               </div>
               <div>
                 {/* <input
@@ -282,11 +307,11 @@ export const AddBtn = () => {
                   id="memoCategory"
                   placeholder="Catégorie du mémo, futur menu deroulant"
                 /> */}
-                <label htmlFor='memoCategory' className=''></label>
+                <label htmlFor="memoCategory" className=""></label>
               </div>
 
               <div>
-                <Button variant='primary' onClick={handleTaskSubmitForm}>
+                <Button variant="primary" onClick={handleTaskSubmitForm}>
                   Ajouter
                 </Button>
               </div>

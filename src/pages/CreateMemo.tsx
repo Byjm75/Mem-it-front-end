@@ -94,18 +94,17 @@ export const CreateMemo = () => {
           <Sidebar />
         </div>
         <div
-          className='container rounded bg- mt-5 mb-5 '
+          className="container rounded bg- mt-5 mb-5 "
           style={{
             display: 'flex',
             backgroundColor: 'black',
             justifyContent: 'center',
             width: '62%',
-            marginLeft: '20rem',
           }}
         >
           <div className="row py-4  ">
-            <div className="col-md-10 border-right">
-              <div className="p-3 py-4">
+            <div className="col-md-12 border-right">
+              <div className="p-3 py-">
                 <div className="d-flex justify-content-between align-items-center mb-4">
                   <h4
                     className="text-right"
@@ -116,9 +115,9 @@ export const CreateMemo = () => {
                 </div>
                 <ScrollCat onSelectCatTitle={handleSelectCategorie} />
 
-                <div className='row' style={{ display: 'flex' }}>
-                  <div className='column mt-3 col-6' style={{ width: '100%' }}>
-                    <div className='col-md-12'>
+                <div className="row" style={{ display: 'flex' }}>
+                  
+                    <div className="col-md-12">
                       <label
                         className="labels"
                         style={{ color: '#806d42', fontWeight: 'bold' }}
@@ -132,7 +131,6 @@ export const CreateMemo = () => {
                         ref={titleElement}
                       />
                     </div>
-                  </div>
 
                   <div className="col-md-12 mt-4">
                     <label
@@ -149,23 +147,7 @@ export const CreateMemo = () => {
                     />
                   </div>
                 </div>
-                <div className="column mt-3 col-6 " style={{ width: '100%' }}>
-                  <div className="col-md-12 ">
-                    <label
-                      className="labels"
-                      style={{ color: '#806d42', fontWeight: 'bold' }}
-                    >
-                      Image de votre profil
-                    </label>
-                    <input
-                      type="file"
-                      className="form-control"
-                      placeholder="image de profil"
-                      ref={imageElement}
-                    />
-                  </div>
-
-                  <div className="row" style={{ display: 'flex' }}>
+                
                     <div
                       className="column mt-3 col-6"
                       style={{ width: '100%' }}
@@ -185,7 +167,7 @@ export const CreateMemo = () => {
                         />
                       </div>
                     </div>
-                    <div className="row" style={{ display: 'flex' }}>
+                   
                       <div
                         className="column mt-3 col-6"
                         style={{ width: '100%' }}
@@ -226,10 +208,8 @@ export const CreateMemo = () => {
                         >
                           Sauvegarder votre mémo
                         </button>
-                      </div>
-                    </div>
+                     
                   </div>
-                </div>
               </div>
             </div>
           </div>
