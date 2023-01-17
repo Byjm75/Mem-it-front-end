@@ -2,8 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import React, { useRef, useState } from 'react';
 import { ToolsBar } from '../components/ToolsBar';
 import { useNavigate } from 'react-router-dom';
-import { blob } from 'stream/consumers';
-import { FooterConnect } from '../components/FooterConnect';
+import { FooterConnect } from '../components/Footer';
 import { Sidebar } from '../components/Sidebar';
 // import sidebar from '../components/Sidebar';
 
@@ -115,13 +114,13 @@ export const CreateCategory = () => {
             justifyContent: 'center',
             width: '62%',
             marginLeft: '20rem',
-            marginTop: '5rem',
+            marginTop: '4rem',
           }}
         >
           <div className=" row py-6">
             <form onSubmit={handleSubmit}>
               <div className='row'>
-                <div className='col-md-12 border-right'>
+                <div className='col-md-10 border-right'>
                   <div className='p-3 py-5'>
                     <div className='d-flex justify-content-between align-items-center mb-4'>
                       <h4

@@ -53,10 +53,9 @@ export const ScrollCat = ({ onSelectCatTitle }: ScrollCatProps) => {
       </label>
       <div className="input-group mb-3">
         <select
-          className="form-select"
-          id="floatingSelect"
-          aria-label="Floating label select example"
-          // value={catTitle}
+          className='form-select'
+          id='floatingSelect'
+          aria-label='Floating label select example'
           onChange={handleSelect}
           ref={categTitleSelect}
         >

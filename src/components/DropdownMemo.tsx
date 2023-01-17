@@ -2,7 +2,11 @@ import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
-import { DropdownPropsMemo } from '../interface/Interface';
+import { useNavigate } from 'react-router-dom';
+import { Categories, DropdownPropsMemo } from '../interface/Interface';
+import { ScrollCat } from './ScrollCat';
+
+let userSelectCat: Categories;
 
 export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
   const [show, setShow] = useState(false);
@@ -14,8 +18,14 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
   const titleElement = useRef<HTMLInputElement>(null);
   const date_eventElement = useRef<HTMLInputElement>(null);
   const bodyElement = useRef<HTMLInputElement>(null);
-  const ImageElement = useRef<HTMLInputElement>(null);
   const urlElement = useRef<HTMLInputElement>(null);
+
+  const navigate = useNavigate();
+
+  const handleSelectCategorie = (cat: Categories) => {
+    userSelectCat = cat;
+    console.log('CreateMemo - catégorie sélectionnée : ', userSelectCat);
+  };
 
   const handleSubmitForm = async (e: FormEvent) => {
     console.log('handleSubmitForm');
@@ -24,7 +34,6 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
     console.log(titleElement.current?.value);
     console.log(date_eventElement.current?.value);
     console.log(bodyElement.current?.value);
-    console.log(ImageElement.current?.value);
     console.log(urlElement.current?.value);
 
     axios
@@ -35,8 +44,8 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
           title: titleElement.current?.value,
           date_event: date_eventElement.current?.value,
           bodyElement: bodyElement.current?.value,
-          image: ImageElement.current?.value,
           urlElement: urlElement.current?.value,
+          categorie_: userSelectCat,
         },
         {
           headers: {
@@ -69,6 +78,12 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         alert('Catégorie modifiée!');
         setMemos(response.data.data);
         handleClose();
+        if (userSelectCat) {
+          navigate(`/memo/${userSelectCat.id}`);
+        } else {
+          navigate('/memoUnCat');
+        }
+
         window.location.reload();
       });
   };
@@ -131,22 +146,31 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
           <Modal.Title>Modifier memo</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <ScrollCat onSelectCatTitle={handleSelectCategorie} />
           <form>
             <FloatingLabel
-              controlId="floatingInput"
-              label="Memo"
-              className="mb-3"
+              controlId='floatingInput'
+              label='Titre de votre Memo'
+              className='mb-3'
             >
-              <Form.Control type="text" placeholder="memo" ref={titleElement} />
-            </FloatingLabel>
-            <div>
               <Form.Control
-                className="text-primary"
-                type="file"
-                accept="image/*"
-                ref={ImageElement}
-              ></Form.Control>
-            </div>
+                type='text'
+                placeholder='Titre mémo'
+                ref={titleElement}
+              />
+            </FloatingLabel>
+
+            <FloatingLabel
+              controlId='floatingInput'
+              label='Contenu de votre mémo'
+              className='mb-3'
+            >
+              <Form.Control
+                type='text'
+                placeholder='Contenu de votre mémo'
+                ref={titleElement}
+              />
+            </FloatingLabel>
           </form>
         </Modal.Body>
         <Modal.Footer>

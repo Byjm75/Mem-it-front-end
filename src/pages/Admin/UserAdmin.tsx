@@ -66,6 +66,10 @@ export const UserAdmin = () => {
     } else {
     }
   };
+  function deleteAccount() {
+    throw new Error('Function not implemented.');
+  }
+
   return (
     <div>
       <ToolsBar onSearch={handleUserInput} />
@@ -85,16 +89,21 @@ export const UserAdmin = () => {
               <td>{user.email}</td>
               <td>{user.pseudo}</td>
               <td>
-                <button
-                  type="button"
-                  value={user.id}
-                  key={user.id}
-                  className="btn btn-danger"
-                  ref={selectUser}
-                  onClick={handleDelete}
-                >
-                  Supprimer
-                </button>
+                <div>
+                  <button
+                    className='delete button'
+                    onClick={() => {
+                      const confirmBox = window.confirm(
+                        'Voulez-vous vraiment supprimer votre compte?'
+                      );
+                      if (confirmBox === true) {
+                        deleteAccount();
+                      }
+                    }}
+                  >
+                    Supprimer mon compte
+                  </button>
+                </div>
               </td>
             </tr>
           ))}

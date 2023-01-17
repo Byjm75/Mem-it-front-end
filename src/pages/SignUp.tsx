@@ -12,12 +12,10 @@ import {
 } from 'mdb-react-ui-kit';
 import { FormEvent, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FooterConnect } from '../components/FooterConnect';
+import { FooterConnect } from '../components/Footer';
 import { Navbar } from '../components/Navbar';
 
 export const SignUp = () => {
-  
-
   const pseudoElement = useRef<HTMLInputElement>(null);
   const emailElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
@@ -172,7 +170,6 @@ export const SignUp = () => {
             </MDBCol>
           </MDBRow>
         </MDBCard>
-        
       </MDBContainer>
 
       <FooterConnect />
