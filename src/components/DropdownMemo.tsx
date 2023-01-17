@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { Categories, DropdownPropsMemo } from '../interface/Interface';
 import { ScrollCat } from './ScrollCat';
 
@@ -13,7 +14,7 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
   const handleShow = () => setShow(true);
 
   const [memos, setMemos] = useState<DropdownPropsMemo>();
-
+const navigate = useNavigate()
   const titleElement = useRef<HTMLInputElement>(null);
   const date_eventElement = useRef<HTMLInputElement>(null);
   const bodyElement = useRef<HTMLInputElement>(null);
