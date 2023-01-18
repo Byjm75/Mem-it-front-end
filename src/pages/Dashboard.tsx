@@ -1,11 +1,13 @@
 import { AddBtn } from '../components/AddBtn';
 import { ToolsBar } from '../components/ToolsBar';
-import { Sidebar } from '../components/Sidebar';
+// import { Sidebar } from '../components/Sidebar';
 import { Footer } from '../components/Footer';
 import { Categories } from '../interface/Interface';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { CardCategory } from '../components/CardCategory';
+import { Sidebar } from '../components/Sidebar';
+import { over } from 'lodash';
 
 let dataCateg: Categories[] = [];
 export const Dashboard = () => {
@@ -52,22 +54,15 @@ export const Dashboard = () => {
       </div>
       <div style={{ width: '100%', display: 'flex' }}>
         
-        <div
-          style={{
-            width: '64%',
-            margin: '0 auto',
-            position: 'relative',
-            left: '25px',
-          }}
-        >
-          <Sidebar />
+        
+          <Sidebar/>
         </div>
         <div
           style={{
-            width: '64%',
-            margin: '0 auto',
-            position: 'relative',
-            left: '25px',
+            width: '67%',
+            margin: '0 100px 0 auto',
+           
+           
           }}
         >
           <h1
@@ -90,7 +85,7 @@ export const Dashboard = () => {
           <div
             style={{
               display: 'flex',
-              justifyContent: 'space-between',
+              justifyContent: 'space-start',
               flexWrap: 'wrap',
               listStyleType: 'none',
             }}
@@ -100,10 +95,9 @@ export const Dashboard = () => {
                 <CardCategory categoryAffich={categorie} />
               </li>
             ))}
-          </div>
         </div>
 
-        <div style={{ position: 'fixed', right: '15px', bottom: '120px' }}>
+        <div style={{ position: 'fixed', right: '3px', bottom: '120px' }}>
           <AddBtn />
         </div>
       </div>

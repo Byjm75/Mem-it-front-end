@@ -28,7 +28,8 @@ export const App = () => {
           <Route path='/admin' element={<HomeAdmin />} />
           <Route path='/adminUsers' element={<UserAdmin />} />
           <Route path='/createCategory' element={<CreateCategory />} />
-          <Route path='/createMemo' element={<CreateMemo />} />
+          
+          {/* <Route path='/createMemo' element={<CreateMemo />} /> */}
           <Route path='/memoUnCat' element={<MemosUncat />} />
         </Routes>
       </BrowserRouter>

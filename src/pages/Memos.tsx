@@ -67,7 +67,8 @@ export const Memos = () => {
             zIndex: '1',
           }}
         >
-          <Sidebar />
+          <Sidebar/>
+          {/* <Sidebar /> */}
         </div>
 
         <div
