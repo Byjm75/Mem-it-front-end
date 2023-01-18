@@ -214,39 +214,39 @@ export const AddBtn = () => {
           </ul>
         </Modal.Header>
         <Modal.Body>
-          <div className='tab-content' id='myTabContent'>
+          <div className="tab-content" id="myTabContent">
             <form onSubmit={handleSubmit}>
               <div
-                className='tab-pane fade show active'
-                id='category-tab-pane'
-                role='tabpanel'
-                aria-labelledby='category-tab'
+                className="tab-pane fade show active"
+                id="category-tab-pane"
+                role="tabpanel"
+                aria-labelledby="category-tab"
                 tabIndex={0}
               >
                 <div>
                   <input
-                    type='text'
-                    className='form-control'
-                    id='nomCategorie'
-                    placeholder='nom de la catégorie'
+                    type="text"
+                    className="form-control"
+                    id="nomCategorie"
+                    placeholder="nom de la catégorie"
                     ref={titleElement}
                   />
-                  <label htmlFor='nomCategorie' className=''></label>
+                  <label htmlFor="nomCategorie" className=""></label>
                 </div>
                 <div>
                   Image de catégorie :
                   <input
-                    type='file'
-                    accept='image/*'
-                    className='form-control'
-                    id='image'
-                    placeholder='image de la catégorie'
+                    type="file"
+                    accept="image/*"
+                    className="form-control"
+                    id="image"
+                    placeholder="image de la catégorie"
                     onChange={handleFileChange}
                   />
-                  <label htmlFor='image' className=''></label>
+                  <label htmlFor="image" className=""></label>
                 </div>
                 <div>
-                  <Button variant='primary' type='submit'>
+                  <Button variant="primary" type="submit">
                     Ajouter
                   </Button>
                 </div>
@@ -268,7 +268,7 @@ export const AddBtn = () => {
                   placeholder="nom du mémo"
                   ref={taskTitleElement}
                 />
-                <label htmlFor='nomMemo'></label>
+                <label htmlFor="nomMemo"></label>
               </div>
               <div>
                 <input
@@ -282,24 +282,24 @@ export const AddBtn = () => {
 
               <div>
                 <input
-                  className='form-control'
-                  type='url'
-                  id='url'
-                  placeholder='lien internet'
+                  className="form-control"
+                  type="url"
+                  id="url"
+                  placeholder="lien internet"
                   ref={taskUrlElement}
                 />
 
-                <label htmlFor='url' className=''></label>
+                <label htmlFor="url" className=""></label>
               </div>
               <div>
                 <input
-                  type='textarea'
-                  className='form-control'
-                  id='bodyMemo'
-                  placeholder='Contenu du mémo'
+                  type="textarea"
+                  className="form-control"
+                  id="bodyMemo"
+                  placeholder="Contenu du mémo"
                   ref={taskBodyElement}
                 />
-                <label htmlFor='bodyMemo' className=''></label>
+                <label htmlFor="bodyMemo" className=""></label>
               </div>
               <div>
                 <Button variant="primary" onClick={handleTaskSubmitForm}>

@@ -10,11 +10,11 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [categories, setCategories] = useState<Categories | undefined>();
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const titleElement = useRef<HTMLInputElement>(null);
   const ImageElement = useRef<HTMLInputElement>(null);
   const favElement = useRef<HTMLInputElement>(null);
- const [file, setFile] = useState<File>();
+  const [file, setFile] = useState<File>();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let files = event.target.files?.[0];
@@ -31,92 +31,48 @@ const navigate = useNavigate();
     console.log(titleElement.current?.value);
     console.log(ImageElement.current?.value);
     console.log(favElement.current?.value);
-if(ImageElement.current?.value===""){
-    axios
-      .patch(
-        `http://localhost:8085/api/categorie/${category.id}`,
+    if (ImageElement.current?.value === '') {
+      axios
+        .patch(
+          `http://localhost:8085/api/categorie/${category.id}`,
 
-        {
-          title: titleElement.current?.value,
-          favori: favElement.current?.value,
-          
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          {
+            title: titleElement.current?.value,
+            favori: favElement.current?.value,
           },
-        }
-      )
-      .then((response: AxiosResponse<{ data: any }>) => {
-        console.log('response ', response.data.data);
-
-        console.log(response, 'res');
-        alert('Catégorie modifiée!');
-        setCategories(response.data.data);
-        handleClose();
-        window.location.reload();
-      });}
-      if(file && titleElement.current?.value){
-        const formData = new FormData();
-        if(file){
-      formData.append('file', file);}
-      if(titleElement.current.value!== ""){
-      formData.append('categorieTitle', titleElement.current.value)};
-       axios({
-        method: 'post',
-        url: `http://localhost:8085/api/image/${category.id}`,
-        data: formData,
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      })
-        .then((response: any) => {
-          console.log(response.data);
-          alert('Catégorie modifiée!');
-          navigate('/dashboard');
-          window.location.reload();
-        })
-        .catch((error: any) => {
-          console.error(error);
-        });
-        
-
-      }
-      if(file && (titleElement.current?.value ==="")){
-        const formData = new FormData();
-        formData.append('file', file);
-        axios({
-        method: 'post',
-        url: `http://localhost:8085/api/image/${category.id}`,
-        data: formData,
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      })
-        .then((response: any) => {
-          console.log(response.data);
-          alert('Catégorie modifiée!');
-          navigate('/dashboard');
-          window.location.reload();
-        })
-        .catch((error: any) => {
-          console.error(error);
-        });
-      }
-      if(!file && (titleElement.current?.value)){
-        
-        axios.patch(`http://localhost:8085/api/categorie/${category.id}`,
-        {title: titleElement.current.value},
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-        }
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
         )
-      
-       
+        .then((response: AxiosResponse<{ data: any }>) => {
+          console.log('response ', response.data.data);
+
+          console.log(response, 'res');
+          alert('Catégorie modifiée!');
+          setCategories(response.data.data);
+          handleClose();
+          window.location.reload();
+        });
+    }
+    if (file && titleElement.current?.value) {
+      const formData = new FormData();
+      if (file) {
+        formData.append('file', file);
+      }
+      if (titleElement.current.value !== '') {
+        formData.append('categorieTitle', titleElement.current.value);
+      }
+      axios({
+        method: 'post',
+        url: `http://localhost:8085/api/image/${category.id}`,
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
         .then((response: any) => {
           console.log(response.data);
           alert('Catégorie modifiée!');
@@ -126,7 +82,51 @@ if(ImageElement.current?.value===""){
         .catch((error: any) => {
           console.error(error);
         });
-      }
+    }
+    if (file && titleElement.current?.value === '') {
+      const formData = new FormData();
+      formData.append('file', file);
+      axios({
+        method: 'post',
+        url: `http://localhost:8085/api/image/${category.id}`,
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
+        .then((response: any) => {
+          console.log(response.data);
+          alert('Catégorie modifiée!');
+          navigate('/dashboard');
+          window.location.reload();
+        })
+        .catch((error: any) => {
+          console.error(error);
+        });
+    }
+    if (!file && titleElement.current?.value) {
+      axios
+        .patch(
+          `http://localhost:8085/api/categorie/${category.id}`,
+          { title: titleElement.current.value },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        )
+
+        .then((response: any) => {
+          console.log(response.data);
+          alert('Catégorie modifiée!');
+          navigate('/dashboard');
+          window.location.reload();
+        })
+        .catch((error: any) => {
+          console.error(error);
+        });
+    }
   };
 
   const handleClickForm = async () => {
@@ -202,35 +202,27 @@ if(ImageElement.current?.value===""){
         <Modal.Header closeButton>
           <Modal.Title>Modifier catégorie</Modal.Title>
         </Modal.Header>
-        
+
         <Modal.Body>
           <form onSubmit={handleSubmitForm}>
-            
-              <input
-                type='text'
-                placeholder='catégorie'
-                ref={titleElement}
-              />
-            
+            <input type="text" placeholder="catégorie" ref={titleElement} />
+
             <div>
               <input
-                className='text-primary'
-                type='file'
-                accept='image/*'
-                id='image'
+                className="text-primary"
+                type="file"
+                accept="image/*"
+                id="image"
                 onChange={handleFileChange}
               ></input>
             </div>
-          
-        
-        
-        
-          <Button variant='danger' onClick={handleClose}>
-            Fermer
-          </Button>
-          <Button variant='success' type='submit'>
-            Modifier
-          </Button>
+
+            <Button variant="danger" onClick={handleClose}>
+              Fermer
+            </Button>
+            <Button variant="success" type="submit">
+              Modifier
+            </Button>
           </form>
         </Modal.Body>
       </Modal>

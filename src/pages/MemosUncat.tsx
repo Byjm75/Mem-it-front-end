@@ -68,7 +68,7 @@ export const MemosUncat = () => {
                 display: 'flex',
                 justifyContent: 'end',
                 alignItems: 'flex-end',
-                margin: '10px 0 0 ',
+                margin: '50px 0 0 ',
                 color: '#806d42',
                 fontWeight: 'bold',
               }}
@@ -78,29 +78,27 @@ export const MemosUncat = () => {
           </div>
           <hr />
 
-          <div className="  ">
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-bettwen',
-                flexWrap: 'wrap',
-              }}
-            >
-              {listmemoDisplayed.map((memo, i) => (
-                <ul key={i}>
-                  <li
-                    key={i}
-                    style={{
-                      listStyleType: 'none',
-                      position: 'relative',
-                      right: '30px',
-                    }}
-                  >
-                    <CardMemo memoAffich={memo} />
-                  </li>
-                </ul>
-              ))}
-            </div>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-bettwen',
+              flexWrap: 'wrap',
+            }}
+          >
+            {listmemoDisplayed.map((memo, i) => (
+              <ul key={i}>
+                <li
+                  key={i}
+                  style={{
+                    listStyleType: 'none',
+                    position: 'relative',
+                    right: '30px',
+                  }}
+                >
+                  <CardMemo memoAffich={memo} />
+                </li>
+              </ul>
+            ))}
           </div>
         </div>
       </div>

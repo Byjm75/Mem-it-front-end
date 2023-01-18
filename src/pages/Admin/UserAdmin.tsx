@@ -91,7 +91,7 @@ export const UserAdmin = () => {
               <td>
                 <div>
                   <button
-                    className='delete button'
+                    className="delete button"
                     onClick={() => {
                       const confirmBox = window.confirm(
                         'Voulez-vous vraiment supprimer votre compte?'

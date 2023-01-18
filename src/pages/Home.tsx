@@ -16,7 +16,7 @@ export const Home = () => {
       >
         <Navbar />
       </div>
-      <div className='container' style={{ margin: 'auto' }}>
+      <div className="container" style={{ margin: 'auto' }}>
         <div
           style={{
             width: '100%',
@@ -30,25 +30,25 @@ export const Home = () => {
           }}
         >
           <div
-            className='card  row'
+            className="card  row"
             style={{
-              width: '100%',
+              position: 'fixed',
+              width: '85%',
               padding: '10px',
               display: 'flex',
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'center',
-              marginTop: '7rem',
             }}
           >
-            <div className='col-sm-6'>
+            <div className="col-sm-6">
               <h1
                 style={{
                   fontSize: '40px',
                   margin: '0 auto',
-                  backgroundColor: '#9AAEB4',
+                  backgroundColor: 'black',
                   padding: '10px',
-                  color: '#007872',
+                  color: '#806D42',
                   borderColor: '#EDC26A',
                   borderRadius: '70px 15px 70px 0',
                 }}
@@ -58,7 +58,7 @@ export const Home = () => {
 
               <Carroussel />
             </div>
-            <div className='col-sm-6'>
+            <div className="col-sm-6">
               <div
                 style={{
                   width: '100%',
@@ -67,23 +67,25 @@ export const Home = () => {
                   padding: '15px',
                 }}
               >
+                <div style={{color:'black'}}>
                 <h2> Gérez toutes vos activités</h2>
                 <p>
                   Prise en main facile et simplicité d'utilisation,{' '}
-                  <span style={{ color: '#EDC26A' }}> MEM-IT </span>vous
+                  <span style={{ color: '#806D42' }}> MEM-IT </span>vous
                   accompagne au quotidien dans la gestion de de vos activités.
                   <br />
                   Vous gagnez du temps dans votre organisation et tout cela
                   <span style={{ color: 'red' }}> gratuitement </span> bien sûr.
                 </p>
+                </div>
                 <hr />
                 <div
-                  className='space row'
+                  className="space row"
                   style={{ display: 'flex', justifyContent: 'space-between' }}
                 >
                   <button
-                    type='button'
-                    className='btn btn-danger col-sm-12'
+                    type="button"
+                    className="btn btn-danger col-sm-12"
                     style={{
                       fontSize: '30px',
                       padding: '0px 40px',
@@ -93,13 +95,13 @@ export const Home = () => {
                       borderRadius: '15px',
                     }}
                   >
-                    <a className='navbar-brand' href='/signup'>
+                    <a className="navbar-brand" href="/signup">
                       Inscription
                     </a>{' '}
                   </button>
                   <button
-                    type='button'
-                    className='btn btn-success col-sm-12'
+                    type="button"
+                    className="btn btn-success col-sm-12"
                     style={{
                       fontSize: '30px',
                       padding: '0px 40px',

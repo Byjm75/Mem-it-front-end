@@ -42,7 +42,7 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
 
   return (
     <div
-      className='container-card-cat'
+      className="container-card-cat"
       style={{
         width: ' 13.5rem',
         height: '17rem',
@@ -50,11 +50,10 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
         margin: ' 20px 0 ',
         backgroundColor: 'black',
         borderColor: '#806d42',
-       
       }}
     >
       <div
-        className='card-title d-flex t'
+        className="card-title d-flex t"
         style={{
           textAlign: 'center',
           border: 'solid 2px #806d42',
@@ -62,13 +61,14 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
           margin: ' auto',
           backgroundColor: '#806d42',
           color: 'white',
-           
+          display:'flex',
+          justifyContent:'space-between'
         }}
       >
-        <a className='navbar-brand' href={`/memo/${categoryAffich.id}`}>
+        <a className="navbar-brand" href={`/memo/${categoryAffich.id}`}>
           <h5>{categoryAffich.title}</h5>
         </a>
-        <div className= ''>
+        <div className="">
           <DropdownCategorie category={categoryAffich} />
         </div>
       </div>
@@ -78,15 +78,15 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
           className="btn btn- col-sm-12"
           style={{
             height: '12.7em',
-            margin: '15px auto',
+            // margin: '15px auto',
             border: ' solid 2px #806d42',
             backgroundColor: 'black',
           }}
         >
           <img
             src={listImgDisplayed}
-            alt='illustration catégorie'
-            style={{ width: '100%', borderRadius: '7px', marginTop: '4px' }}
+            alt="illustration catégorie"
+            style={{ width: '100%', height:'auto%', objectFit: 'cover',borderRadius: '7px', marginTop: '4px' }}
           />
         </div>
       </div>

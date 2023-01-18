@@ -1,11 +1,6 @@
 import './Chart.css';
 
-
-
 //  pour chaque user compteur de connxion +voir une incrémentation
-
-
-
 
 import {
   LineChart,
@@ -63,17 +58,16 @@ const data = [
 
 export const Chart = () => {
   return (
-    <div className='chart'>
-      <h3 className='chartTitle'>Trafic utilisateurs</h3>
-      <ResponsiveContainer width='100%' aspect={4 / 1}>
+    <div className="chart">
+      <h3 className="chartTitle">Trafic utilisateurs</h3>
+      <ResponsiveContainer width="100%" aspect={4 / 1}>
         <LineChart data={data}>
-          <XAxis dataKey='name' stroke='#5550bd' />
-          <Line type='monotone' dataKey='Active User' stroke='#5550bd' />
+          <XAxis dataKey="name" stroke="#5550bd" />
+          <Line type="monotone" dataKey="Active User" stroke="#5550bd" />
           <Tooltip />
-          {<CartesianGrid stroke='#e0dfdf' strokeDasharray='5 5' />}
+          {<CartesianGrid stroke="#e0dfdf" strokeDasharray="5 5" />}
         </LineChart>
       </ResponsiveContainer>
     </div>
   );
 };
-

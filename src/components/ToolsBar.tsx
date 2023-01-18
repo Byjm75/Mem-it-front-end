@@ -1,4 +1,9 @@
 import {
+  DecodTokenType,
+  SearchBarProps,
+  UserData,
+} from '../interface/Interface';
+import {
   PeopleAlt,
   Notifications,
   AdminPanelSettings,
@@ -6,11 +11,6 @@ import {
 import jwtDecode from 'jwt-decode';
 import { SyntheticEvent, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import {
-  DecodTokenType,
-  SearchBarProps,
-  UserData,
-} from '../interface/Interface';
 
 export const ToolsBar = ({ onSearch }: SearchBarProps) => {
   const location = useLocation();
@@ -41,7 +41,7 @@ export const ToolsBar = ({ onSearch }: SearchBarProps) => {
   return (
     <div>
       <nav
-        className="navbar  sticky-top navbar-expand d-inline-flex
+        className="navbar  ticky-top navbar-expand d-inline-flex
         "
         style={{ backgroundColor: 'black', width: '100%' }}
       >

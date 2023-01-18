@@ -4,7 +4,6 @@ import { ToolsBar } from '../components/ToolsBar';
 import { useNavigate } from 'react-router-dom';
 import { FooterConnect } from '../components/Footer';
 import { Sidebar } from '../components/Sidebar';
-// import sidebar from '../components/Sidebar';
 
 export const CreateCategory = () => {
   const navigate = useNavigate();
@@ -105,7 +104,6 @@ export const CreateCategory = () => {
         >
           <Sidebar />
         </div>
-
         <div
           className="container rounded bg-4 "
           style={{
@@ -119,10 +117,10 @@ export const CreateCategory = () => {
         >
           <div className=" row py-6">
             <form onSubmit={handleSubmit}>
-              <div className='row'>
-                <div className='col-md-10 border-right'>
-                  <div className='p-3 py-5'>
-                    <div className='d-flex justify-content-between align-items-center mb-4'>
+              <div className="row">
+                <div className="col-md-10 border-right">
+                  <div className="p-3 py-5">
+                    <div className="d-flex justify-content-between align-items-center mb-4">
                       <h4
                         className="text-right"
                         style={{ color: '#806d42', fontWeight: 'bold' }}
@@ -163,8 +161,8 @@ export const CreateCategory = () => {
                     </div>
 
                     <button
-                      className='btn btn-primary profile-button col-md-12'
-                      type='submit'
+                      className="btn btn-primary profile-button col-md-12"
+                      type="submit"
                       style={{
                         padding: '5px',
                         backgroundColor: '#806d42',

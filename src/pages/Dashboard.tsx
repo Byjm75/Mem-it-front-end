@@ -7,8 +7,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { CardCategory } from '../components/CardCategory';
 
-
-
 let dataCateg: Categories[] = [];
 export const Dashboard = () => {
   const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>([]);
@@ -52,7 +50,7 @@ export const Dashboard = () => {
       >
         <ToolsBar onSearch={handleUserInput} />
       </div>
-      <div>
+      <div style={{ width: '100%', display: 'flex' }}>
         <div
           style={{
             display: 'flex',
@@ -65,32 +63,29 @@ export const Dashboard = () => {
         </div>
         <div
           style={{
-            width: '70%',
-            margin: '0 85px 0 auto',
+            width: '64%',
+            margin: '0 auto',
             position: 'relative',
-            // left: '25px',
+            left: '25px',
           }}
         >
-          <div style={{ height: '40px' }}></div>
-
           <h1
-            className=""
+            className="card-title"
             style={{
               width: '100%',
               position: 'relative',
-              left:'30px',
               display: 'flex',
               justifyContent: 'end',
               alignItems: 'flex-end',
-              margin: '10px 0 0 ',
+              margin: '50px 0 0 ',
               color: '#806d42',
               fontWeight: 'bold',
-              borderBottom: 'solid 4px #806d42',
             }}
           >
             CATEGORIES
           </h1>
 
+          <hr />
           <div
             style={{
               display: 'flex',
@@ -100,21 +95,14 @@ export const Dashboard = () => {
             }}
           >
             {listCatDisplayed.map((categorie) => (
-              <li
-                key={categorie.id}
-                style={{
-                  listStyleType: 'none',
-                  margin: '10px 0px 0 45px',
-                }}
-              >
+              <li key={categorie.id} style={{margin:'10px 10px'}}>
                 <CardCategory categoryAffich={categorie} />
               </li>
             ))}
           </div>
         </div>
-      </div>{' '}
-      <div style={{ height: '100px' }}>
-        <div style={{ position: 'fixed', right: '0px', bottom: '120px' }}>
+
+        <div style={{ position: 'fixed', right: '15px', bottom: '120px' }}>
           <AddBtn />
         </div>
       </div>

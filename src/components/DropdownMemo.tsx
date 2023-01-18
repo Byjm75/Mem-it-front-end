@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import React, { FormEvent, useEffect, useRef, useState } from 'react';
+import React, { FormEvent, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -149,26 +149,26 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
           <ScrollCat onSelectCatTitle={handleSelectCategorie} />
           <form>
             <FloatingLabel
-              controlId='floatingInput'
-              label='Titre de votre Memo'
-              className='mb-3'
+              controlId="floatingInput"
+              label="Titre de votre Memo"
+              className="mb-3"
             >
               <Form.Control
-                type='text'
-                placeholder='Titre mémo'
+                type="text"
+                placeholder="Titre mémo"
                 ref={titleElement}
               />
             </FloatingLabel>
 
             <FloatingLabel
-              controlId='floatingInput'
-              label='Contenu de votre mémo'
-              className='mb-3'
+              controlId="floatingInput"
+              label="Contenu de votre mémo"
+              className="mb-3"
             >
               <Form.Control
-                type='text'
-                placeholder='Contenu de votre mémo'
-                ref={titleElement}
+                type="text"
+                placeholder="Contenu de votre mémo"
+                ref={bodyElement}
               />
             </FloatingLabel>
           </form>
