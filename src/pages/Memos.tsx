@@ -2,12 +2,14 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CardMemo } from '../components/CardMemo';
-import { Footer } from '../components/Footer';
+import { Footer} from '../components/Footer';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
-import { MemosProps } from '../interface/Interface';
+import { Categories, MemosProps } from '../interface/Interface';
+
 
 let listeMemos: MemosProps[] = [];
+
 
 export const Memos = () => {
   const [listmemoDisplayed, setListMemoDisplayed] = useState<MemosProps[]>([]);
@@ -15,6 +17,7 @@ export const Memos = () => {
 
   let { categoryId } = useParams();
   console.log("l'id catégorie", categoryId);
+  
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -31,6 +34,8 @@ export const Memos = () => {
         setListMemoDisplayed(listeMemos);
       });
   }, []);
+  
+  
   const handleUserInput = (userInputText: string) => {
     console.log("qu'a tapé mon user ? : ", userInputText);
     let catTemporaire = [...listmemoDisplayed];
@@ -98,30 +103,39 @@ export const Memos = () => {
           </div>
           <hr />
 
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-bettwen',
-              flexWrap: 'wrap',
-            }}
-          >
-            {listmemoDisplayed.map((memo, i) => (
-              <ul key={i}>
-                <li
-                  key={i}
-                  style={{
-                    listStyleType: 'none',
-                    position: 'relative',
-                    right: '30px',
-                  }}
-                >
-                  <CardMemo memoAffich={memo} />
-                </li>
-              </ul>
-            ))}
+          <div className='  '>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-bettwen',
+                flexWrap: 'wrap',
+              }}
+            >
+              {listmemoDisplayed.map((memo, i) => (
+                <ul key={i}>
+                  <li
+                    key={i}
+                    style={{
+                      listStyleType: 'none',
+                      position: 'relative',
+                      right: '30px',
+                    }}
+                  >
+                    <CardMemo memoAffich={memo} />
+                  </li>
+                </ul>
+              ))}
+            </div>
           </div>
         </div>
       </div>
+
+      <div style={{ height: '150px' }}>
+        <div style={{ position: 'fixed', right: '15px', bottom: '115px' }}>
+          <AddBtn />
+        </div>
+      </div>
+
       <Footer />
     </div>
   );

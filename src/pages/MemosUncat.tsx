@@ -77,30 +77,39 @@ export const MemosUncat = () => {
           </div>
           <hr />
 
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-bettwen',
-              flexWrap: 'wrap',
-            }}
-          >
-            {listmemoDisplayed.map((memo, i) => (
-              <ul key={i}>
-                <li
-                  key={i}
-                  style={{
-                    listStyleType: 'none',
-                    position: 'relative',
-                    right: '30px',
-                  }}
-                >
-                  <CardMemo memoAffich={memo} />
-                </li>
-              </ul>
-            ))}
+          <div className='  '>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-bettwen',
+                flexWrap: 'wrap',
+              }}
+            >
+              {listmemoDisplayed.map((memo, i) => (
+                <ul key={i}>
+                  <li
+                    key={i}
+                    style={{
+                      listStyleType: 'none',
+                      position: 'relative',
+                      right: '30px',
+                    }}
+                  >
+                    <CardMemo memoAffich={memo} />
+                  </li>
+                </ul>
+              ))}
+            </div>
           </div>
         </div>
       </div>
+
+      <div style={{ height: '150px' }}>
+        <div style={{ position: 'fixed', right: '15px', bottom: '115px' }}>
+          <AddBtn />
+        </div>
+      </div>
+
       <Footer />
     </div>
   );

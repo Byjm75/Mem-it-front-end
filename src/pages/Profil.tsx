@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { Footer } from '../components/Footer';
+import { Footer } from '../components/Footer';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 import jwtDecode from 'jwt-decode';
@@ -14,7 +15,7 @@ export const Profil = () => {
   const ImageProfilElement = useRef<HTMLInputElement>(null);
   const emailElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
-
+const confirmPasswordElement = useRef<HTMLInputElement>(null);
   useEffect(() => {
     const accessToken = localStorage.getItem('token');
     if (accessToken) {
@@ -31,7 +32,10 @@ export const Profil = () => {
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     console.log(ImageProfilElement.current?.value);
-
+if (passwordElement.current?.value!== confirmPasswordElement.current?.value){
+  alert('Le mot de passe et la confirmation du mot de passe doivent être identiques')
+  
+}else{
     const accessToken = localStorage.getItem('token');
     axios
       .patch(
@@ -51,7 +55,7 @@ export const Profil = () => {
         alert('Profil mis à jour!');
         navigate('/dashboard');
         window.location.reload();
-      });
+      });}
   };
   const deleteAccount = async () => {
     axios
@@ -176,9 +180,25 @@ export const Profil = () => {
                     />
                   </div>
                 </div>
-                <div className="row" style={{ display: 'flex' }}>
-                  <div className="column mt-3 col-6" style={{ width: '100%' }}>
-                    <div className="col-md-12">
+                <div className='row mt-3'>
+                  <div className='col-md-12'>
+                    <label
+                      className='labels'
+                      style={{ color: '#806d42', fontWeight: 'bold' }}
+                    >
+                      Confirmez votre mot de passe
+                    </label>
+                    <input
+                      type='text'
+                      className='form-control'
+                      placeholder='confirmer mot de passe'
+                      ref={confirmPasswordElement}
+                    />
+                  </div>
+                </div>
+                <div className='row' style={{ display: 'flex' }}>
+                  <div className='column mt-3 col-6' style={{ width: '100%' }}>
+                    <div className='col-md-12'>
                       <label
                         className="labels"
                         style={{ color: '#806d42', fontWeight: 'bold' }}

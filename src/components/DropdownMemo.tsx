@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef, useState } from 'react';
+import React, { FormEvent, useRef, useState } from 'react';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -44,8 +45,8 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         {
           title: titleElement.current?.value,
           date_event: date_eventElement.current?.value,
-          bodyElement: bodyElement.current?.value,
-          urlElement: urlElement.current?.value,
+          body: bodyElement.current?.value,
+          url: urlElement.current?.value,
           categorie_: userSelectCat,
         },
         {
@@ -61,6 +62,11 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         alert('Memo modifiée!');
         setMemos(response.data.data);
         handleClose();
+        if (userSelectCat) {
+          navigate(`/memo/${userSelectCat.id}`);
+        } else {
+          ;
+        }
         window.location.reload();
       });
   };
@@ -82,7 +88,7 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         if (userSelectCat) {
           navigate(`/memo/${userSelectCat.id}`);
         } else {
-          navigate('/memoUnCat');
+          navigate('/dashboard');
         }
 
         window.location.reload();
@@ -167,8 +173,8 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
               className="mb-3"
             >
               <Form.Control
-                type="text"
-                placeholder="Contenu de votre mémo"
+                type='text'
+                placeholder='Contenu de votre mémo'
                 ref={bodyElement}
               />
             </FloatingLabel>

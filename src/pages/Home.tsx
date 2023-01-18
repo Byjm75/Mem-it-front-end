@@ -1,6 +1,7 @@
 import { Carroussel } from '../components/Caroussel';
 import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
+import { Footer } from '../components/Footer';
 
 export const Home = () => {
   return (
@@ -121,7 +122,7 @@ export const Home = () => {
       </div>
       <div style={{ height: '150px' }}></div>
 
-      <Footer />
+      <Footer/>
     </div>
   );
 };

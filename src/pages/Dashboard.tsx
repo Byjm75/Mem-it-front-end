@@ -1,6 +1,6 @@
 import { AddBtn } from '../components/AddBtn';
 import { ToolsBar } from '../components/ToolsBar';
-// import { Sidebar } from '../components/Sidebar';
+import { Sidebar } from '../components/Sidebar';
 import { Footer } from '../components/Footer';
 import { Categories } from '../interface/Interface';
 import { useEffect, useState } from 'react';
@@ -78,7 +78,7 @@ export const Dashboard = () => {
               fontWeight: 'bold',
             }}
           >
-            CATEGORIES
+            CATEGORIES 
           </h1>
 
           <hr />
@@ -110,7 +110,7 @@ export const Dashboard = () => {
           zIndex: '1',
         }}
       >
-        <Footer />
+        <Footer/>
       </div>
     </div>
   );
