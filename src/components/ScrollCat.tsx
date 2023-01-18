@@ -46,12 +46,12 @@ export const ScrollCat = ({ onSelectCatTitle }: ScrollCatProps) => {
   return (
     <>
       <label
-        className="labels"
+        className='labels'
         style={{ color: '#806d42', fontWeight: 'bold' }}
       >
         Catégorie de votre mémo (optionnel)
       </label>
-      <div className="input-group mb-3">
+      <div className='input-group mb-3'>
         <select
           className="form-select"
           id="floatingSelect"
@@ -59,10 +59,10 @@ export const ScrollCat = ({ onSelectCatTitle }: ScrollCatProps) => {
           onChange={handleSelect}
           ref={categTitleSelect}
         >
-          <option value="">Sélectionner une catégorie</option>
+          <option value=''>Sélectionner une catégorie</option>
           {categories.map((categ) => {
             return (
-              <option id="floatingSelect" value={categ.title} key={categ.id}>
+              <option id='floatingSelect' value={categ.title} key={categ.id}>
                 {categ.title}
               </option>
             );

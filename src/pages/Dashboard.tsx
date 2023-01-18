@@ -1,7 +1,7 @@
 import { AddBtn } from '../components/AddBtn';
 import { ToolsBar } from '../components/ToolsBar';
 import { Sidebar } from '../components/Sidebar';
-import { FooterConnect } from '../components/Footer';
+import { Footer } from '../components/Footer';
 import { Categories } from '../interface/Interface';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -38,7 +38,7 @@ export const Dashboard = () => {
   };
 
   return (
-    <div className="position-sticky">
+    <div className='position-sticky'>
       <div
         style={{
           width: '100%',
@@ -51,12 +51,13 @@ export const Dashboard = () => {
         <ToolsBar onSearch={handleUserInput} />
       </div>
       <div style={{ width: '100%', display: 'flex' }}>
+        
         <div
           style={{
-            display: 'flex',
+            width: '64%',
+            margin: '0 auto',
             position: 'relative',
-            overflow: 'hidden',
-            zIndex: '1',
+            left: '25px',
           }}
         >
           <Sidebar />
@@ -70,7 +71,7 @@ export const Dashboard = () => {
           }}
         >
           <h1
-            className="card-title"
+            className='card-title'
             style={{
               width: '100%',
               position: 'relative',
@@ -89,7 +90,7 @@ export const Dashboard = () => {
           <div
             style={{
               display: 'flex',
-              justifyContent: 'flex-start',
+              justifyContent: 'space-between',
               flexWrap: 'wrap',
               listStyleType: 'none',
             }}
@@ -115,7 +116,7 @@ export const Dashboard = () => {
           zIndex: '1',
         }}
       >
-        <FooterConnect />
+        <Footer />
       </div>
     </div>
   );

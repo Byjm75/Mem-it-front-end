@@ -11,9 +11,9 @@ import {
 } from 'mdb-react-ui-kit';
 import { FormEvent, useRef, useState } from 'react';
 import { Navbar } from '../components/Navbar';
-import { FooterConnect } from '../components/Footer';
 import axios, { AxiosResponse } from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Footer } from '../components/Footer';
 
 export const SignIn = () => {
   const emailElement = useRef<HTMLInputElement>(null);
@@ -133,7 +133,7 @@ export const SignIn = () => {
 
       <div style={{ height: '150px' }}></div>
 
-      <FooterConnect />
+      <Footer />
     </div>
   );
 };

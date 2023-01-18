@@ -1,9 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FooterConnect } from '../components/Footer';
+import { Footer} from '../components/Footer';
 import { ScrollCat } from '../components/ScrollCat';
-import { Sidebar } from '../components/Sidebar';
+import {Sidebar} from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 import { Categories } from '../interface/Interface';
 
@@ -15,7 +15,16 @@ export const CreateMemo = () => {
   const bodyElement = useRef<HTMLTextAreaElement>(null);
   const urlElement = useRef<HTMLInputElement>(null);
 
+
   const navigate = useNavigate();
+
+  const handleSelectCategorie = (cat: Categories) => {
+    userSelectCat = cat;
+    console.log('CreateMemo - catégorie sélectionnée : ', userSelectCat);
+  };
+
+  const handleSubmitForm = (event: React.SyntheticEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
   const handleSelectCategorie = (cat: Categories) => {
     userSelectCat = cat;
@@ -114,7 +123,7 @@ export const CreateMemo = () => {
       </div>
       <form onSubmit={handleSubmitForm}>
         <div
-          className="container rounded bg- mt-5 mb-5 "
+          className='container rounded bg- mt-5 mb-5 '
           style={{
             display: 'flex',
             backgroundColor: 'black',
@@ -122,12 +131,12 @@ export const CreateMemo = () => {
             width: '62%',
           }}
         >
-          <div className="row py-4  ">
-            <div className="col-md-10 border-right">
-              <div className="p-3 py-4">
-                <div className="d-flex justify-content-between align-items-center mb-4">
+          <div className='row py-4  '>
+            <div className='col-md-10 border-right'>
+              <div className='p-3 py-4'>
+                <div className='d-flex justify-content-between align-items-center mb-4'>
                   <h4
-                    className="text-right"
+                    className='text-right'
                     style={{ color: '#806d42', fontWeight: 'bold' }}
                   >
                     Créer votre mémo
@@ -135,6 +144,9 @@ export const CreateMemo = () => {
                 </div>
                 <ScrollCat onSelectCatTitle={handleSelectCategorie} />
 
+                <div className='row' style={{ display: 'flex' }}>
+                  <div className='column mt-3 col-6' style={{ width: '100%' }}>
+                    <div className='col-md-12'>
                 <div className="row" style={{ display: 'flex' }}>
                   <div className="column mt-3 col-6" style={{ width: '100%' }}>
                     <div className="col-md-12">
@@ -145,10 +157,10 @@ export const CreateMemo = () => {
                         Titre de votre mémo
                       </label>
                       <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Titre"
-                        ref={titleElement}
+                        type='text'
+                        className='form-control'
+                        placeholder="Date de l'évènement"
+                        ref={eventDateElement}
                       />
                     </div>
                   </div>
@@ -168,38 +180,38 @@ export const CreateMemo = () => {
                     />
                   </div>
                 </div>
-                <div className="col-md-12">
+                <div className='col-md-12'>
                   <label
-                    className="labels"
+                    className='labels'
                     style={{ color: '#806d42', fontWeight: 'bold' }}
                   >
                     Lien internet
                   </label>
                   <input
-                    type="url"
-                    className="form-control"
-                    placeholder="lien internet"
+                    type='url'
+                    className='form-control'
+                    placeholder='lien internet'
                     ref={urlElement}
                   />
                 </div>
-                <div className="column mt-3 col-6 " style={{ width: '100%' }}>
-                  <div className="row" style={{ display: 'flex' }}>
+                <div className='column mt-3 col-6 ' style={{ width: '100%' }}>
+                  <div className='row' style={{ display: 'flex' }}>
                     <div
-                      className="column mt-3 col-6"
+                      className='column mt-3 col-6'
                       style={{ width: '100%' }}
                     >
-                      <div className="input-group">
+                      <div className='input-group'>
                         <textarea
-                          className="form-control"
-                          aria-label="Contenue de votre mémo"
-                          placeholder="Contenu de votre mémo"
+                          className='form-control'
+                          aria-label='Contenue de votre mémo'
+                          placeholder='Contenu de votre mémo'
                           ref={bodyElement}
                         ></textarea>
                       </div>
                     </div>
 
                     <div
-                      className="column mt-3 col-6"
+                      className='column mt-3 col-6'
                       style={{ width: '100%' }}
                     >
                       <div
@@ -211,15 +223,15 @@ export const CreateMemo = () => {
                         }}
                       >
                         <button
-                          className="btn btn-primary profile-button col-md-12"
-                          type="submit"
+                          className='btn btn-primary profile-button col-md-12'
+                          type='submit'
                           style={{
                             padding: '5px',
                             backgroundColor: '#806d42',
                             borderColor: 'white',
                           }}
                         >
-                          Sauvegarder votre mémo
+                          Sauvegarder modifications
                         </button>
                       </div>
                     </div>
@@ -229,9 +241,9 @@ export const CreateMemo = () => {
             </div>
           </div>
         </div>
-      </form>
-      <div style={{ height: '150px' }}></div>
-      <FooterConnect />
+        <div style={{ height: '150px' }}></div>
+        <Footer />
+      </div>
     </div>
   );
 };

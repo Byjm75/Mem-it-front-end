@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import React, { useRef, useState } from 'react';
 import { ToolsBar } from '../components/ToolsBar';
 import { useNavigate } from 'react-router-dom';
-import { FooterConnect } from '../components/Footer';
+import { Footer } from '../components/Footer';
 import { Sidebar } from '../components/Sidebar';
 
 export const CreateCategory = () => {
@@ -105,7 +105,7 @@ export const CreateCategory = () => {
           <Sidebar />
         </div>
         <div
-          className="container rounded bg-4 "
+          className='container rounded bg-4 '
           style={{
             display: 'flex',
             backgroundColor: 'black',
@@ -200,7 +200,7 @@ export const CreateCategory = () => {
           width: '100%',
         }}
       >
-        <FooterConnect />
+        <Footer />
       </div>
     </div>
   );

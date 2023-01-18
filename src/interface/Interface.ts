@@ -22,8 +22,7 @@ export interface Categories {
   favoris: string;
 }
 
-export interface ScrollCatProps {
-  onSelectCatTitle: { (cat: Categories): void };
+export interface ScrollCatProps {onSelectCatTitle: { (cat:Categories):void};
 }
 
 export interface CardcategoryProps {

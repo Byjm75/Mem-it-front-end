@@ -1,9 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { AddBtn } from '../components/AddBtn';
 import { CardMemo } from '../components/CardMemo';
-import { FooterConnect } from '../components/Footer';
+import { Footer } from '../components/Footer';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 import { MemosProps } from '../interface/Interface';
@@ -12,6 +11,7 @@ let listeMemos: MemosProps[] = [];
 
 export const Memos = () => {
   const [listmemoDisplayed, setListMemoDisplayed] = useState<MemosProps[]>([]);
+
 
   let { categoryId } = useParams();
   console.log("l'id catégorie", categoryId);
@@ -121,14 +121,7 @@ export const Memos = () => {
           </div>
         </div>
       </div>
-
-      <div style={{ height: '150px' }}>
-        <div style={{ position: 'fixed', right: '15px', bottom: '115px' }}>
-          <AddBtn />
-        </div>
-      </div>
-
-      <FooterConnect />
+      <Footer />
     </div>
   );
 };

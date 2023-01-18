@@ -1,8 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FooterConnect } from '../components/Footer';
-// import { FooterConnect } from '../components/FooterConnect';
+import { Footer } from '../components/Footer';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 
@@ -101,9 +100,9 @@ export const CreateTask = () => {
                       Titre
                     </label>
                     <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Titre"
+                      type='text'
+                      className='form-control'
+                      placeholder='Titre'
                       ref={titleElement}
                     />
                   </div>
@@ -142,9 +141,9 @@ export const CreateTask = () => {
                         Lien internet
                       </label>
                       <input
-                        type="url"
-                        className="form-control"
-                        placeholder="lien internet"
+                        type='url'
+                        className='form-control'
+                        placeholder='lien internet'
                         ref={urlElement}
                       />
                     </div>
@@ -196,7 +195,7 @@ export const CreateTask = () => {
         </div>
       </div>
       <div style={{ height: '150px' }}></div>
-      <FooterConnect />
+      <Footer/>
     </div>
   );
 };
