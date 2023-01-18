@@ -6,7 +6,6 @@ import { Categories } from '../interface/Interface';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { CardCategory } from '../components/CardCategory';
-import { Sidebar } from '../components/Sidebar';
 import { over } from 'lodash';
 
 let dataCateg: Categories[] = [];
