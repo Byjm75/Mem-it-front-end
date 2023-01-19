@@ -13,14 +13,12 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [memos, setMemos] = useState<DropdownPropsMemo | undefined>();
-
+  const [memos, setMemos] = useState<DropdownPropsMemo>();
+const navigate = useNavigate()
   const titleElement = useRef<HTMLInputElement>(null);
   const date_eventElement = useRef<HTMLInputElement>(null);
   const bodyElement = useRef<HTMLInputElement>(null);
   const urlElement = useRef<HTMLInputElement>(null);
-
-  const navigate = useNavigate();
 
   const handleSelectCategorie = (cat: Categories) => {
     userSelectCat = cat;
@@ -28,12 +26,12 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
   };
 
   const handleSubmitForm = async (e: FormEvent) => {
-    console.log('handleSubmitForm');
+    console.log('handleSubmitForm', e);
     e.preventDefault();
 
-    console.log(titleElement.current?.value);
+    console.log('ceci est mon titre : ', titleElement.current?.value);
     console.log(date_eventElement.current?.value);
-    console.log(bodyElement.current?.value);
+    console.log('Ceci est mon corps...', bodyElement.current?.value);
     console.log(urlElement.current?.value);
 
     axios
@@ -43,8 +41,8 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         {
           title: titleElement.current?.value,
           date_event: date_eventElement.current?.value,
-          bodyElement: bodyElement.current?.value,
-          urlElement: urlElement.current?.value,
+          body: bodyElement.current?.value,
+          url: urlElement.current?.value,
           categorie_: userSelectCat,
         },
         {
@@ -60,6 +58,11 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         alert('Memo modifiée!');
         setMemos(response.data.data);
         handleClose();
+        if (userSelectCat) {
+          navigate(`/memo/${userSelectCat.id}`);
+        } else {
+          ;
+        }
         window.location.reload();
       });
   };
@@ -75,31 +78,30 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
         console.log('response ', response.data.data);
 
         console.log(response, 'res');
-        alert('Catégorie modifiée!');
+        alert('Catégorie supprimée!');
         setMemos(response.data.data);
         handleClose();
         if (userSelectCat) {
           navigate(`/memo/${userSelectCat.id}`);
         } else {
-          navigate('/memoUnCat');
+          navigate('/dashboard');
         }
 
         window.location.reload();
       });
   };
-  // },[]);
 
   return (
     <div>
       <div
         style={{ zIndex: '0' }}
-        className='dropstart  d-flex justify-content-end '
+        className="dropstart  d-flex justify-content-end "
       >
         <Button
-          className='btn btn-secondary'
-          type='button'
-          data-bs-toggle='dropdown'
-          aria-expanded='false'
+          className="btn btn-secondary"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
           style={{
             fontSize: '10px',
             backgroundColor: '#806d42',
@@ -107,22 +109,22 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
           }}
         >
           <svg
-            xmlns='http://www.w3.org/2000/svg'
-            width='16'
-            height='16'
-            fill='currentColor'
-            className='bi bi-three-dots'
-            viewBox='0 0 16 16'
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className="bi bi-three-dots"
+            viewBox="0 0 16 16"
           >
-            <path d='M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z' />
+            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
           </svg>{' '}
         </Button>
-        <ul className='dropdown-menu  bg-dark ' style={{ width: '50%' }}>
+        <ul className="dropdown-menu  bg-dark " style={{ width: '50%' }}>
           {' '}
           <li>
             <Button
-              className='btn btn-success'
-              type='button'
+              className="btn btn-success"
+              type="button"
               style={{ width: '100%', marginBottom: '5px' }}
               onClick={handleShow}
             >
@@ -131,8 +133,8 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
           </li>
           <li>
             <Button
-              className='btn btn-danger'
-              type='button'
+              className="btn btn-danger"
+              type="button"
               style={{ width: '100%' }}
               onClick={handleClickForm}
             >
@@ -149,35 +151,55 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
           <ScrollCat onSelectCatTitle={handleSelectCategorie} />
           <form>
             <FloatingLabel
-              controlId='floatingInput'
-              label='Titre de votre Memo'
-              className='mb-3'
+              controlId="floatingInput"
+              label="Titre de votre Memo"
+              className="mb-3"
             >
               <Form.Control
-                type='text'
-                placeholder='Titre mémo'
+                type="text"
+                placeholder="Titre mémo"
                 ref={titleElement}
               />
             </FloatingLabel>
 
             <FloatingLabel
-              controlId='floatingInput'
-              label='Contenu de votre mémo'
-              className='mb-3'
+              controlId="floatingInput"
+              label="Contenu de votre mémo"
+              className="mb-3"
             >
               <Form.Control
                 type='text'
                 placeholder='Contenu de votre mémo'
-                ref={titleElement}
+                ref={bodyElement}
               />
             </FloatingLabel>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Date de votre Memo"
+              className="mb-3"
+            >
+              <Form.Control
+                type="date"
+                placeholder="date mémo"
+                ref={date_eventElement}
+              /></FloatingLabel>
+              <FloatingLabel
+              controlId="floatingInput"
+              label="Lien internet"
+              className="mb-3"
+            >
+              <Form.Control
+                type="url"
+                placeholder="Lien internet"
+                ref={urlElement}
+              /></FloatingLabel>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant='danger' onClick={handleClose}>
+          <Button variant="danger" onClick={handleClose}>
             Fermer
           </Button>
-          <Button variant='success' onClick={handleSubmitForm}>
+          <Button variant="success" onClick={handleSubmitForm}>
             Modifier
           </Button>
         </Modal.Footer>

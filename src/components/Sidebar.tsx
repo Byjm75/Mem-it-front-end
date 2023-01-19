@@ -27,14 +27,15 @@ export const Sidebar = () => {
 
   return (
     <div
-      style={{
+     style={{
         backgroundColor: 'black',
         width: '17rem',
         position: 'fixed',
-        // zIndex: 1,
         top: '5.63rem',
         color: '#806d42',
         fontSize: '18px',
+        zIndex: '1',
+        overflow: 'hidden',
       }}
     >
       <button

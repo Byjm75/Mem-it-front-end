@@ -1,4 +1,4 @@
-import { memo } from 'react';
+
 import { CardmemoProps } from '../interface/Interface';
 import { DropdownMemo } from './DropdownMemo';
 
@@ -8,6 +8,7 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
 
   return (
     <div>
+      
     <div
       className='container-card-cat'
       style={{
@@ -21,18 +22,20 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
     >
       <div
         className='card-title d-flex'
-        style={{
-          textAlign: 'center',
-          border: 'solid 2px #806d42',
-          borderRadius: '7px',
-          margin: ' auto',
-          backgroundColor: '#806d42',
-          color: 'white',
-        }}
+       style={{
+            textAlign: 'center',
+            border: 'solid 2px #806d42',
+            borderRadius: '7px',
+            margin: ' auto',
+            backgroundColor: '#806d42',
+            color: 'white',
+            display: 'flex',
+            justifyContent: 'space-between',
+          }}
       >
         <div>
           <a className='navbar-brand' href='/memo'>
-            <h5> {memoAffich.title}</h5>
+            <h5 style={{ paddingLeft: '5px' }}> {memoAffich.title}</h5>
           </a>
           
         </div>
@@ -41,6 +44,7 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
         </div>
       </div>
       <div style={{ width: '87%', margin: '3px auto' }}>
+        
         <div
           className='btn btn- col-sm-12'
           style={{
@@ -53,10 +57,19 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
             color: 'white',
           }}
         >
+          <ul className='listCardMemo'
+           >
+          <li>{memoAffich.body}</li>
+           <li > {memoAffich.date_event?.toLocaleString("fr-FR")}</li>
+           </ul>
+           
+
           
-         
+          
         </div>
+        
       </div>
+      
     </div>
     </div>
   );

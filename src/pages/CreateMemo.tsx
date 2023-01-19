@@ -1,13 +1,13 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { FormEvent, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FooterConnect } from '../components/Footer';
+import { Footer } from '../components/Footer';
 import { ScrollCat } from '../components/ScrollCat';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 import { Categories } from '../interface/Interface';
 
-let userSelectCat: Categories;
+let userSelectCat: Categories ;
 
 export const CreateMemo = () => {
   const titleElement = useRef<HTMLInputElement>(null);
@@ -19,8 +19,10 @@ export const CreateMemo = () => {
 
   const handleSelectCategorie = (cat: Categories) => {
     userSelectCat = cat;
+    if(!cat){userSelectCat.id=""}
     console.log('CreateMemo - catégorie sélectionnée : ', userSelectCat);
   };
+  
 
   const handleSubmitForm = (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -29,8 +31,8 @@ export const CreateMemo = () => {
     console.log(eventDateElement.current?.value);
     console.log(bodyElement.current?.value);
     console.log(urlElement.current?.value);
-    console.log(userSelectCat.title);
-    if (!eventDateElement.current?.value) {
+    // console.log(userSelectCat.title);
+    if ((!userSelectCat)&&(!eventDateElement.current?.value)) {
   
   
       axios
@@ -40,7 +42,7 @@ export const CreateMemo = () => {
             title: titleElement.current?.value,
             body: bodyElement.current?.value,
             url: urlElement.current?.value,
-            categorie_: userSelectCat,
+            
           },
           {
             headers: {
@@ -51,13 +53,17 @@ export const CreateMemo = () => {
         .then((response: AxiosResponse<{ data: any }>) => {
           console.log('response ', response.data);
           alert('Nouveau mémo crée!');
-          if (userSelectCat) {
-            navigate(`/memo/${userSelectCat.id}`);
-          } else {
-            navigate('/memoUnCat');
-          }
+          navigate('/memoUnCat')
+          // if (userSelectCat) {
+          //   navigate(`/memo/${userSelectCat.id}`);
+          // } else {
+          //   navigate('/memoUnCat');
+          // }
         });
-    } else {
+    } 
+  if ((!userSelectCat)&&(eventDateElement.current?.value)) {
+  
+  
       axios
         .post(
           'http://localhost:8085/api/tache',
@@ -65,8 +71,8 @@ export const CreateMemo = () => {
             title: titleElement.current?.value,
             body: bodyElement.current?.value,
             url: urlElement.current?.value,
-            categorie_: userSelectCat,
-            event_date : eventDateElement.current?.value,
+            date_event: eventDateElement.current?.value
+            
           },
           {
             headers: {
@@ -77,13 +83,75 @@ export const CreateMemo = () => {
         .then((response: AxiosResponse<{ data: any }>) => {
           console.log('response ', response.data);
           alert('Nouveau mémo crée!');
-          if (userSelectCat) {
-            navigate(`/memo/${userSelectCat.id}`);
-          } else {
-            navigate('/memoUnCat');
-          }
+          navigate('/memoUnCat')
+
+          // if (userSelectCat) {
+          //   navigate(`/memo/${userSelectCat.id}`);
+          // } else {
+          //   navigate('/memoUnCat');
+          // }
         });
-    };}
+    }
+    if ((userSelectCat)&&(!eventDateElement.current?.value)) {
+  
+  
+      axios
+        .post(
+          'http://localhost:8085/api/tache',
+          {
+            title: titleElement.current?.value,
+            body: bodyElement.current?.value,
+            url: urlElement.current?.value,
+            categorie_ : userSelectCat
+            
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        )
+        .then((response: AxiosResponse<{ data: any }>) => {
+          console.log('response ', response.data);
+          alert('Nouveau mémo crée!');
+          navigate(`/memo/${userSelectCat.id}`)
+
+         
+        });
+    }
+    if ((userSelectCat)&&(eventDateElement.current?.value)) {
+  
+  
+      axios
+        .post(
+          'http://localhost:8085/api/tache',
+          {
+            title: titleElement.current?.value,
+            body: bodyElement.current?.value,
+            url: urlElement.current?.value,
+            categorie_ : userSelectCat,
+            date_event : eventDateElement.current?.value
+            
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+          }
+        )
+        .then((response: AxiosResponse<{ data: any }>) => {
+          console.log('response ', response.data);
+          alert('Nouveau mémo crée!');
+          navigate(`/memo/${userSelectCat.id}`)
+
+         
+        });
+    }
+    if(!titleElement.current?.value){
+      alert('un titre est obligatoire')
+    }
+  
+  }
 
     return (
       <div>
@@ -232,7 +300,7 @@ export const CreateMemo = () => {
           </div>
         </form>
         <div style={{ height: '150px' }}></div>
-        <FooterConnect />
+        <Footer />
       </div>
     );
   };

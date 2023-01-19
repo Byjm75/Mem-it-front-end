@@ -1,4 +1,4 @@
-export const FooterConnect = () => {
+export const Footer = () => {
   return (
     <div
       style={{
