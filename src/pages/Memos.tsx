@@ -16,7 +16,12 @@ export const Memos = () => {
   const [listmemoDisplayed, setListMemoDisplayed] = useState<MemosProps[]>([]);
 
   let { categoryId } = useParams();
+  let category : Categories
+  
   console.log("l'id catégorie", categoryId);
+  
+      
+
   
 
   useEffect(() => {
@@ -28,12 +33,18 @@ export const Memos = () => {
       .then((res) => {
         listeMemos = res.data.filter((memo: MemosProps) => {
           if (memo.categorie_) {
-            return memo.categorie_.id === categoryId;
+            return memo.categorie_.id === categoryId
+           
           }
         });
         setListMemoDisplayed(listeMemos);
       });
+      
+      
   }, []);
+  
+  
+  
   
   
   const handleUserInput = (userInputText: string) => {
@@ -49,7 +60,8 @@ export const Memos = () => {
     } else {
       setListMemoDisplayed(listeMemos);
     }
-  };
+  }
+  ;
   return (
     <div className='position-sticky'>
       <div
@@ -61,76 +73,61 @@ export const Memos = () => {
           zIndex: '1',
         }}
       >
+        
         <ToolsBar onSearch={handleUserInput} />
       </div>
       <div style={{ width: '100%', display: 'flex' }}>
-        <div
-          style={{
-            display: 'flex',
-            position: 'fixed',
-            overflow: 'hidden',
-            zIndex: '1',
-          }}
-        >
+        
           <Sidebar />
-        </div>
+      </div>
 
         <div
-          style={{
-            width: '64%',
-            margin: '0 auto',
-            position: 'relative',
-            left: '25px',
-          }}
+           style={{
+          width: '70%',
+          margin: '0 55px 0 auto',
+        }}
         >
-          <div>
             <h1
-              className='card-title'
-              style={{
-                width: '100%',
-                position: 'relative',
-                display: 'flex',
-                justifyContent: 'end',
-                alignItems: 'flex-end',
-                margin: '10px 0 0 ',
-                color: '#806d42',
-                fontWeight: 'bold',
-              }}
+              className="card-title"
+          style={{
+            width: '100%',
+            position: 'relative',
+            display: 'flex',
+            justifyContent: 'end',
+            alignItems: 'flex-end',
+            margin: '50px 0 0 ',
+            color: '#806d42',
+            fontWeight: 'bold',
+            borderBottom: 'solid 3px #806d42',
+          }}
             >
               Mémos
             </h1>
-          </div>
-          <hr />
 
-          <div className='  '>
             <div
               style={{
                 display: 'flex',
-                justifyContent: 'space-bettwen',
+                justifyContent: 'space-start',
                 flexWrap: 'wrap',
+                listStyleType: 'none',
               }}
-            >
+              >
               {listmemoDisplayed.map((memo, i) => (
-                <ul key={i}>
-                  <li
-                    key={i}
-                    style={{
-                      listStyleType: 'none',
-                      position: 'relative',
-                      right: '30px',
-                    }}
-                  >
+                // <ul key={i}>
+                <li
+                key={i}
+                style={{ margin: '10px 30px 0 15px' }}
+                >
                     <CardMemo memoAffich={memo} />
                   </li>
-                </ul>
-              ))}
+                // </ul>
+                ))}
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
+        
 
-      <div style={{ height: '150px' }}>
-        <div style={{ position: 'fixed', right: '15px', bottom: '115px' }}>
+      <div style={{ height: '130px' }}>
+        <div style={{ position: 'fixed', right: '3px', bottom: '115px' }}>
           <AddBtn />
         </div>
       </div>

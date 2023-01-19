@@ -64,12 +64,10 @@ export const Dashboard = () => {
           <Sidebar />
         </div>
         <div
-          style={{
-            width: '64%',
-            margin: '0 auto',
-            position: 'relative',
-            left: '25px',
-          }}
+           style={{
+          width: '70%',
+          margin: '0 55px 0 auto',
+        }}
         >
           <h1
             className='card-title'
@@ -91,34 +89,28 @@ export const Dashboard = () => {
           <div
             style={{
               display: 'flex',
-              justifyContent: 'space-between',
+              justifyContent: 'flex-start',
               flexWrap: 'wrap',
               listStyleType: 'none',
             }}
           >
+
             {listCatDisplayed.map((categorie) => (
-              <li key={categorie.id}>
+              <li key={categorie.id} style={{ margin: '10px 30px 0 15px ' }}>
                 <CardCategory categoryAffich={categorie} />
               </li>
             ))}
           </div>
         </div>
+      </div>
 
-        <div style={{ position: 'fixed', right: '15px', bottom: '120px' }}>
+        <div style={{ height: '130px' }}>
+        <div style={{ position: 'fixed', right: '3px', bottom: '115px' }}>
           <AddBtn />
         </div>
       </div>
-      <div
-        style={{
-          marginTop: '30px',
-          position: 'fixed',
-          bottom: '0',
-          width: '100%',
-          zIndex: '1',
-        }}
-      >
+      
         <Footer/>
-      </div>
     </div>
   );
 };

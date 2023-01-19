@@ -66,7 +66,7 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
         }}
       >
         <a className="navbar-brand" href={`/memo/${categoryAffich.id}`}>
-          <h5>{categoryAffich.title}</h5>
+          <h5 style={{paddingLeft:'5px'}}>{categoryAffich.title}</h5>
         </a>
         <div className="">
           <DropdownCategorie category={categoryAffich} />
