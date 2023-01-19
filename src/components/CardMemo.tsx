@@ -54,13 +54,7 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
           }}
         >
           
-          {/* <p> {memoAffich.date_event && memoAffich.body}</p> */}
-
-          {/* {memoAffich.date_event !== null ? (
-            memoAffich.date_event && memoAffich.body
-          ) : (
-            <div>{memoAffich.body}</div>
-          )} */}
+         
         </div>
       </div>
     </div>
