@@ -117,6 +117,8 @@ export const SignUp = () => {
                   className='form-control'
                   inputRef={pseudoElement}
                   placeholder='pseudo'
+                  required
+                  minLength={3}
                 />
 
                 <MDBInput
@@ -127,6 +129,8 @@ export const SignUp = () => {
                   className='form-control'
                   placeholder='email@exemple.com'
                   inputRef={emailElement}
+                  required
+                  minLength={4}
                 />
                 <MDBInput
                   wrapperClass='mb-1'
@@ -136,6 +140,8 @@ export const SignUp = () => {
                   className='form-control'
                   placeholder='mot de passe'
                   inputRef={passwordElement}
+                  required
+                  minLength={4}
                 />
                 <MDBInput
                   wrapperClass='mb-1'
@@ -145,6 +151,9 @@ export const SignUp = () => {
                   className='form-control'
                   placeholder='confirmez mot de passe'
                   inputRef={ConfirmPasswordElement}
+                  required
+                  minLength={4}
+                  
                 />
 
                 <div className='d-flex justify-content-between mx-1 mb-2'>

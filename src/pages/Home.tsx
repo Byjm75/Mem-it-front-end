@@ -97,20 +97,7 @@ export const Home = () => {
                       Inscription
                     </a>{' '}
                   </button>
-                  <button
-                    type='button'
-                    className='btn btn-success col-sm-12'
-                    style={{
-                      fontSize: '30px',
-                      padding: '0px 40px',
-                      backgroundColor: '#007872',
-                      marginTop: '30px',
-                      borderColor: '#007872',
-                      borderRadius: '15px',
-                    }}
-                  >
-                    Demo
-                  </button>
+                  
                 </div>
               </div>
             </div>

@@ -22,18 +22,20 @@ export const CardMemo = ({ memoAffich }: CardmemoProps) => {
     >
       <div
         className='card-title d-flex'
-        style={{
-          textAlign: 'center',
-          border: 'solid 2px #806d42',
-          borderRadius: '7px',
-          margin: ' auto',
-          backgroundColor: '#806d42',
-          color: 'white',
-        }}
+       style={{
+            textAlign: 'center',
+            border: 'solid 2px #806d42',
+            borderRadius: '7px',
+            margin: ' auto',
+            backgroundColor: '#806d42',
+            color: 'white',
+            display: 'flex',
+            justifyContent: 'space-between',
+          }}
       >
         <div>
           <a className='navbar-brand' href='/memo'>
-            <h5> {memoAffich.title}</h5>
+            <h5 style={{ paddingLeft: '5px' }}> {memoAffich.title}</h5>
           </a>
           
         </div>
