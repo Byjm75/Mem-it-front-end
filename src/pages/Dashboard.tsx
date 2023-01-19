@@ -39,7 +39,7 @@ export const Dashboard = () => {
   };
 
   return (
-    <div className='position-sticky'>
+    <div className="position-sticky">
       <div
         style={{
           width: '100%',
@@ -52,50 +52,47 @@ export const Dashboard = () => {
         <ToolsBar onSearch={handleUserInput} />
       </div>
       <div style={{ width: '100%', display: 'flex' }}>
-        
-        
-          <Sidebar/>
-        </div>
-        <div
+        <Sidebar />
+      </div>
+
+      <div
+        style={{
+          width: '70%',
+          margin: '0 55px 0 auto',
+        }}
+      >
+        <h1
+          className="card-title"
           style={{
-            width: '67%',
-            margin: '0 100px 0 auto',
-           
-           
+            width: '100%',
+            position: 'relative',
+            display: 'flex',
+            justifyContent: 'end',
+            alignItems: 'flex-end',
+            margin: '50px 0 0 ',
+            color: '#806d42',
+            fontWeight: 'bold',
+            borderBottom: 'solid 3px #806d42',
           }}
         >
-          <h1
-            className='card-title'
-            style={{
-              width: '100%',
-              position: 'relative',
-              display: 'flex',
-              justifyContent: 'end',
-              alignItems: 'flex-end',
-              margin: '50px 0 0 ',
-              color: '#806d42',
-              fontWeight: 'bold',
-            }}
-          >
-            CATEGORIES 
-          </h1>
+          CATEGORIES
+        </h1>
 
-          <hr />
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-start',
-              flexWrap: 'wrap',
-              listStyleType: 'none',
-            }}
-          >
-            {listCatDisplayed.map((categorie) => (
-              <li key={categorie.id} style={{margin:'10px 10px'}}>
-                <CardCategory categoryAffich={categorie} />
-              </li>
-            ))}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-start',
+            flexWrap: 'wrap',
+            listStyleType: 'none',
+          }}
+        >
+          {listCatDisplayed.map((categorie) => (
+            <li key={categorie.id} style={{ margin: '10px 30px 0 15px ' }}>
+              <CardCategory categoryAffich={categorie} />
+            </li>
+          ))}
         </div>
-
+        <div style={{ height: '100px' }}></div>
         <div style={{ position: 'fixed', right: '3px', bottom: '120px' }}>
           <AddBtn />
         </div>
@@ -109,7 +106,7 @@ export const Dashboard = () => {
           zIndex: '1',
         }}
       >
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );

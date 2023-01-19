@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { Footer } from '../components/Footer';
-import { Footer } from '../components/Footer';
 import { Sidebar } from '../components/Sidebar';
 import { ToolsBar } from '../components/ToolsBar';
 import jwtDecode from 'jwt-decode';

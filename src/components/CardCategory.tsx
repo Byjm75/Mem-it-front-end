@@ -66,7 +66,7 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
         }}
       >
         <a className="navbar-brand" href={`/memo/${categoryAffich.id}`}>
-          <h5>{categoryAffich.title}</h5>
+          <h5 style={{paddingLeft:'5px'}}>{categoryAffich.title}</h5>
         </a>
         <div className="">
           <DropdownCategorie category={categoryAffich} />
@@ -78,7 +78,7 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
           className="btn btn- col-sm-12"
           style={{
             height: '12.7em',
-            // margin: '15px auto',
+            margin: '15px auto',
             border: ' solid 2px #806d42',
             backgroundColor: 'black',
           }}
@@ -86,7 +86,7 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
           <img
             src={listImgDisplayed}
             alt="illustration catégorie"
-            style={{ width: '100%', height:'auto%', objectFit: 'cover',borderRadius: '7px', marginTop: '4px' }}
+            style={{ width: '100%', height:'auto', objectFit:'cover',borderRadius: '7px', marginTop: '4px' }}
           />
         </div>
       </div>

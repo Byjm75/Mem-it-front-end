@@ -14,7 +14,6 @@ import { Navbar } from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import axios, { AxiosResponse } from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { Footer } from '../components/Footer';
 
 export const SignIn = () => {
   const emailElement = useRef<HTMLInputElement>(null);
