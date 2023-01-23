@@ -112,7 +112,7 @@ export const CreateMemo = () => {
     if (userSelectCat && eventDateElement.current?.value) {
       axios
         .post(
-          'http://localhost:8082/api/tache',
+          'http://api-memit.dev-formation.fr/api/tache',
           {
             title: titleElement.current?.value,
             body: bodyElement.current?.value,

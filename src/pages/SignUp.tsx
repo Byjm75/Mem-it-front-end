@@ -47,7 +47,7 @@ export const SignUp = () => {
       );
     } else {
       axios
-        .post('http://51.83.40.58:8082/api/auth/register', {
+        .post('http://api-memit.dev-formation.fr/api/auth/register', {
           pseudo: pseudoElement.current?.value,
           email: emailElement.current?.value,
           password: passwordElement.current?.value,

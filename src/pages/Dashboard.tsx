@@ -13,7 +13,7 @@ export const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8082/api/categorie', {
+      .get('http://api-memit.dev-formation.fr/api/categorie', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
       .then((res) => {

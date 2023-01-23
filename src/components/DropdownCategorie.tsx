@@ -34,7 +34,7 @@ export const DropdownCategorie = ({ category }: DropdownPropsCat) => {
     if (ImageElement.current?.value === '') {
       axios
         .patch(
-          `http://localhost:8082/api/categorie/${category.id}`,
+          `http://api-memit.dev-formation.fr/api/categorie/${category.id}`,
 
           {
             title: titleElement.current?.value,

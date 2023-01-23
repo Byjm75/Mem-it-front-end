@@ -28,7 +28,7 @@ export const SignIn = () => {
     console.log(passwordElement.current?.value);
 
     axios
-      .post('http://51.83.40.58:8082/api/auth/login', {
+      .post('http://api-memit.dev-formation.fr/api/auth/login', {
         email: emailElement.current?.value,
         password: passwordElement.current?.value,
       })

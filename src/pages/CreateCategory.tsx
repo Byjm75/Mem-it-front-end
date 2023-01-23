@@ -53,7 +53,7 @@ export const CreateCategory = () => {
     if ((file === undefined || null) && (inputTitle !== undefined || null)) {
       axios
         .post(
-          'http://localhost:8082/api/categorie',
+          'http://api-memit.dev-formation.fr/api/categorie',
 
           { title: titleElement.current?.value, image: '' },
           {

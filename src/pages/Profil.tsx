@@ -62,9 +62,12 @@ export const Profil = () => {
   };
   const deleteAccount = async () => {
     axios
-      .delete(`http://localhost:8082/api/utilisateur/${userToken?.id}`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-      })
+      .delete(
+        `http://api-memit.dev-formation.fr/api/utilisateur/${userToken?.id}`,
+        {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        }
+      )
       .then((response: AxiosResponse<{ data: any }>) => {
         console.log('response ', response.data);
         alert('Votre compte a été supprimé!');

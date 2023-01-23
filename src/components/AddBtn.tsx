@@ -40,7 +40,7 @@ export const AddBtn = () => {
 
       axios({
         method: 'post',
-        url: 'http://localhost:8082/api/image/upload',
+        url: 'http://api-memit.dev-formation.fr/api/image/upload',
         data: formData,
         headers: {
           'Content-Type': 'multipart/form-data',

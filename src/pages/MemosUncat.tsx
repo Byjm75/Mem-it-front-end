@@ -15,7 +15,7 @@ export const MemosUncat = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     axios
-      .get('http://localhost:8082/api/tache', {
+      .get('http://api-memit.dev-formation.fr/api/tache', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {

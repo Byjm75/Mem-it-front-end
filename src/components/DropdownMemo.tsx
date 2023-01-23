@@ -68,7 +68,7 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
 
   const handleClickForm = async () => {
     await axios
-      .delete(`http://localhost:8082/api/tache/${memo.id}`, {
+      .delete(`http://api-memit.dev-formation.fr/api/tache/${memo.id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },

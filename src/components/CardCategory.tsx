@@ -21,9 +21,12 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
       'https://www.lacourdespetits.com/wp-content/uploads/2015/12/logo_lacourdespetits.jpg'
     ) {
       console.log('image sur mesure');
-      fetch(`http://localhost:8082/api/image/${categoryAffich.image}`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-      })
+      fetch(
+        `http://api-memit.dev-formation.fr/api/image/${categoryAffich.image}`,
+        {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        }
+      )
         .then((resp) => resp.blob())
         .then((image) => {
           const reader = new FileReader();
