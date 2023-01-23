@@ -1,6 +1,6 @@
-# nom du wokflow (optionnel mais recommandé)
+# nom du wokflow (memIt)
 name: CI-CD
-# déclancheur
+# déclencheur
 on:
   # condition de déclanchement
   push:
