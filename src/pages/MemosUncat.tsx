@@ -15,7 +15,7 @@ export const MemosUncat = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     axios
-      .get('http://localhost:8085/api/tache', {
+      .get('http://localhost:8082/api/tache', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
@@ -48,57 +48,52 @@ export const MemosUncat = () => {
             zIndex: '1',
           }}
         > */}
-          <Sidebar />
-        </div>
+        <Sidebar />
+      </div>
 
-        <div
-           style={{
+      <div
+        style={{
           width: '70%',
           margin: '0 55px 0 auto',
         }}
-        >
-          <div>
-            <h1
-              className="card-title"
-          style={{
-            width: '100%',
-            position: 'relative',
-            display: 'flex',
-            justifyContent: 'end',
-            alignItems: 'flex-end',
-            margin: '50px 0 0 ',
-            color: '#806d42',
-            fontWeight: 'bold',
-            borderBottom: 'solid 3px #806d42',
-          }}
-            >
-              Mémos
-            </h1>
+      >
+        <div>
+          <h1
+            className='card-title'
+            style={{
+              width: '100%',
+              position: 'relative',
+              display: 'flex',
+              justifyContent: 'end',
+              alignItems: 'flex-end',
+              margin: '50px 0 0 ',
+              color: '#806d42',
+              fontWeight: 'bold',
+              borderBottom: 'solid 3px #806d42',
+            }}
+          >
+            Mémos
+          </h1>
 
           {/* <div className='  '> */}
-            <div
+          <div
             style={{
-            display: 'flex',
-            justifyContent: 'space-start',
-            flexWrap: 'wrap',
-            listStyleType: 'none',
-          }}
-            >
-
-              {listmemoDisplayed.map((memo, i) => (
-                <ul key={i}>
-                  <li
-                  key={i}
-                  style={{ margin: '10px 30px 0 15px' }}
-                  >
-
-                    <CardMemo memoAffich={memo} />
-                  </li>
-                </ul>
-              ))}
-              </div>
-            </div>
-          {/* </div> */}
+              display: 'flex',
+              justifyContent: 'space-start',
+              flexWrap: 'wrap',
+              listStyleType: 'none',
+            }}
+          >
+            {listmemoDisplayed.map((memo, i) => (
+              <ul key={i}>
+                <li key={i} style={{ margin: '10px 30px 0 15px' }}>
+                  <CardMemo memoAffich={memo} />
+                </li>
+              </ul>
+            ))}
+          </div>
+        </div>
+        {/* </div> */}
       </div>
 
       <div style={{ height: '130px' }}>

@@ -21,7 +21,7 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
       'https://www.lacourdespetits.com/wp-content/uploads/2015/12/logo_lacourdespetits.jpg'
     ) {
       console.log('image sur mesure');
-      fetch(`http://localhost:8085/api/image/${categoryAffich.image}`, {
+      fetch(`http://localhost:8082/api/image/${categoryAffich.image}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
         .then((resp) => resp.blob())
@@ -42,7 +42,7 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
 
   return (
     <div
-      className="container-card-cat"
+      className='container-card-cat'
       style={{
         width: ' 13.5rem',
         height: '17rem',
@@ -53,7 +53,7 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
       }}
     >
       <div
-        className="card-title d-flex t"
+        className='card-title d-flex t'
         style={{
           textAlign: 'center',
           border: 'solid 2px #806d42',
@@ -65,17 +65,17 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
           justifyContent: 'space-between',
         }}
       >
-        <a className="navbar-brand" href={`/memo/${categoryAffich.id}`}>
-          <h5 style={{paddingLeft:'5px'}}>{categoryAffich.title}</h5>
+        <a className='navbar-brand' href={`/memo/${categoryAffich.id}`}>
+          <h5 style={{ paddingLeft: '5px' }}>{categoryAffich.title}</h5>
         </a>
-        <div className="">
+        <div className=''>
           <DropdownCategorie category={categoryAffich} />
         </div>
       </div>
 
       <div style={{ width: '87%', margin: '3px auto' }}>
         <div
-          className="btn btn- col-sm-12"
+          className='btn btn- col-sm-12'
           style={{
             height: '12.7em',
             margin: '15px auto',
@@ -85,7 +85,7 @@ export const CardCategory = ({ categoryAffich }: CardcategoryProps) => {
         >
           <img
             src={listImgDisplayed}
-            alt="illustration catégorie"
+            alt='illustration catégorie'
             style={{
               width: '100%',
               borderRadius: '7px',

@@ -32,7 +32,7 @@ export const CreateCategory = () => {
 
       axios({
         method: 'post',
-        url: 'http://localhost:8085/api/image/upload',
+        url: 'http://localhost:8082/api/image/upload',
         data: formData,
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -53,7 +53,7 @@ export const CreateCategory = () => {
     if ((file === undefined || null) && (inputTitle !== undefined || null)) {
       axios
         .post(
-          'http://localhost:8085/api/categorie',
+          'http://localhost:8082/api/categorie',
 
           { title: titleElement.current?.value, image: '' },
           {

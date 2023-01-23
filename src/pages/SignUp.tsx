@@ -47,7 +47,7 @@ export const SignUp = () => {
       );
     } else {
       axios
-        .post('http://localhost:8085/api/auth/register', {
+        .post('http://localhost:8082/api/auth/register', {
           pseudo: pseudoElement.current?.value,
           email: emailElement.current?.value,
           password: passwordElement.current?.value,
@@ -153,7 +153,6 @@ export const SignUp = () => {
                   inputRef={ConfirmPasswordElement}
                   required
                   minLength={4}
-                  
                 />
 
                 <div className='d-flex justify-content-between mx-1 mb-2'>

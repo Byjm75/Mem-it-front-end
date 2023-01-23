@@ -47,7 +47,7 @@ export const UserAdmin = () => {
     if (selectUser.current?.value) {
       axios
         .delete(
-          `http://localhost:8085/api/utilisateur/${selectUser.current?.value}`,
+          `http://localhost:8082/api/utilisateur/${selectUser.current?.value}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`,

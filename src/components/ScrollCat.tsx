@@ -34,7 +34,7 @@ export const ScrollCat = ({ onSelectCatTitle }: ScrollCatProps) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8085/api/categorie', {
+      .get('http://localhost:8082/api/categorie', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
       .then((res) => {

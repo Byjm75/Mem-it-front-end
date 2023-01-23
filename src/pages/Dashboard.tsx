@@ -7,15 +7,13 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { CardCategory } from '../components/CardCategory';
 
-
-
 let dataCateg: Categories[] = [];
 export const Dashboard = () => {
   const [listCatDisplayed, setListCatDisplayed] = useState<Categories[]>([]);
 
   useEffect(() => {
     axios
-      .get('http://localhost:8085/api/categorie', {
+      .get('http://localhost:8082/api/categorie', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
       .then((res) => {
@@ -64,10 +62,10 @@ export const Dashboard = () => {
           <Sidebar />
         </div>
         <div
-           style={{
-          width: '70%',
-          margin: '0 55px 0 auto',
-        }}
+          style={{
+            width: '70%',
+            margin: '0 55px 0 auto',
+          }}
         >
           <h1
             className='card-title'
@@ -82,7 +80,7 @@ export const Dashboard = () => {
               fontWeight: 'bold',
             }}
           >
-            CATEGORIES 
+            CATEGORIES
           </h1>
 
           <hr />
@@ -94,7 +92,6 @@ export const Dashboard = () => {
               listStyleType: 'none',
             }}
           >
-
             {listCatDisplayed.map((categorie) => (
               <li key={categorie.id} style={{ margin: '10px 30px 0 15px ' }}>
                 <CardCategory categoryAffich={categorie} />
@@ -104,13 +101,13 @@ export const Dashboard = () => {
         </div>
       </div>
 
-        <div style={{ height: '130px' }}>
+      <div style={{ height: '130px' }}>
         <div style={{ position: 'fixed', right: '3px', bottom: '115px' }}>
           <AddBtn />
         </div>
       </div>
-      
-        <Footer/>
+
+      <Footer />
     </div>
   );
 };

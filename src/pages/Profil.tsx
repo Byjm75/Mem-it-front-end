@@ -14,7 +14,7 @@ export const Profil = () => {
   const ImageProfilElement = useRef<HTMLInputElement>(null);
   const emailElement = useRef<HTMLInputElement>(null);
   const passwordElement = useRef<HTMLInputElement>(null);
-const confirmPasswordElement = useRef<HTMLInputElement>(null);
+  const confirmPasswordElement = useRef<HTMLInputElement>(null);
   useEffect(() => {
     const accessToken = localStorage.getItem('token');
     if (accessToken) {
@@ -31,34 +31,38 @@ const confirmPasswordElement = useRef<HTMLInputElement>(null);
     console.log(emailElement.current?.value);
     console.log(passwordElement.current?.value);
     console.log(ImageProfilElement.current?.value);
-if (passwordElement.current?.value!== confirmPasswordElement.current?.value){
-  alert('Le mot de passe et la confirmation du mot de passe doivent être identiques')
-  
-}else{
-    const accessToken = localStorage.getItem('token');
-    axios
-      .patch(
-        `http://localhost:8085/api/utilisateur/${userToken?.id}`,
-        {
-          pseudo: pseudoElement.current?.value,
-          email: emailElement.current?.value,
-          password: passwordElement.current?.value,
-          ImageProfilElement: ImageProfilElement.current?.value,
-        },
-        {
-          headers: { Authorization: `Bearer ${accessToken}` },
-        }
-      )
-      .then((response: AxiosResponse<{ data: any }>) => {
-        console.log('response ', response.data);
-        alert('Profil mis à jour!');
-        navigate('/dashboard');
-        window.location.reload();
-      });}
+    if (
+      passwordElement.current?.value !== confirmPasswordElement.current?.value
+    ) {
+      alert(
+        'Le mot de passe et la confirmation du mot de passe doivent être identiques'
+      );
+    } else {
+      const accessToken = localStorage.getItem('token');
+      axios
+        .patch(
+          `http://localhost:8085/api/utilisateur/${userToken?.id}`,
+          {
+            pseudo: pseudoElement.current?.value,
+            email: emailElement.current?.value,
+            password: passwordElement.current?.value,
+            ImageProfilElement: ImageProfilElement.current?.value,
+          },
+          {
+            headers: { Authorization: `Bearer ${accessToken}` },
+          }
+        )
+        .then((response: AxiosResponse<{ data: any }>) => {
+          console.log('response ', response.data);
+          alert('Profil mis à jour!');
+          navigate('/dashboard');
+          window.location.reload();
+        });
+    }
   };
   const deleteAccount = async () => {
     axios
-      .delete(`http://localhost:8085/api/utilisateur/${userToken?.id}`, {
+      .delete(`http://localhost:8082/api/utilisateur/${userToken?.id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       })
       .then((response: AxiosResponse<{ data: any }>) => {
@@ -111,70 +115,70 @@ if (passwordElement.current?.value!== confirmPasswordElement.current?.value){
             marginLeft: '20rem',
           }}
         >
-          <div className="row">
-            <div className="col-md-10 border-right">
-              <div className="p-3 py-5">
-                <div className="d-flex justify-content-between align-items-center mb-4">
+          <div className='row'>
+            <div className='col-md-10 border-right'>
+              <div className='p-3 py-5'>
+                <div className='d-flex justify-content-between align-items-center mb-4'>
                   <h4
-                    className="text-right"
+                    className='text-right'
                     style={{ color: '#806d42', fontWeight: 'bold' }}
                   >
                     Modifier profil
                   </h4>
                 </div>
 
-                <div className="row mt-3" style={{ display: 'flex' }}>
-                  <div className="col-md-4 border-right">
+                <div className='row mt-3' style={{ display: 'flex' }}>
+                  <div className='col-md-4 border-right'>
                     <img
-                      width="100%"
-                      src="../assets/profile-icon-png-917.png"
-                      alt="profil"
+                      width='100%'
+                      src='../assets/profile-icon-png-917.png'
+                      alt='profil'
                     />
                   </div>
-                  <div className="col-md-8">
+                  <div className='col-md-8'>
                     <label
-                      className="labels"
+                      className='labels'
                       style={{ color: '#806d42', fontWeight: 'bold' }}
                     >
                       Pseudo
                     </label>
                     <input
-                      type="text"
-                      className="form-control"
-                      placeholder="pseudo"
+                      type='text'
+                      className='form-control'
+                      placeholder='pseudo'
                       ref={pseudoElement}
                     />
                   </div>
                 </div>
 
-                <div className="row mt-3">
-                  <div className="col-md-12">
+                <div className='row mt-3'>
+                  <div className='col-md-12'>
                     <label
-                      className="labels"
+                      className='labels'
                       style={{ color: '#806d42', fontWeight: 'bold' }}
                     >
                       Adresse mail
                     </label>
                     <input
-                      type="text"
-                      className="form-control"
-                      placeholder="modifier email"
+                      type='text'
+                      className='form-control'
+                      placeholder='modifier email'
                       ref={emailElement}
                     />
                   </div>
                 </div>
-                <div className="row mt-3">
-                  <div className="col-md-12">
+                <div className='row mt-3'>
+                  <div className='col-md-12'>
                     <label
-                      className="labels"
+                      className='labels'
                       style={{ color: '#806d42', fontWeight: 'bold' }}
                     >
                       Mot de passe
                     </label>
                     <input
-                      type="text"
-                      className="form-control"
-                      placeholder="modifier mot de passe"
+                      type='text'
+                      className='form-control'
+                      placeholder='modifier mot de passe'
                       ref={passwordElement}
                     />
                   </div>
@@ -199,21 +203,21 @@ if (passwordElement.current?.value!== confirmPasswordElement.current?.value){
                   <div className='column mt-3 col-6' style={{ width: '100%' }}>
                     <div className='col-md-12'>
                       <label
-                        className="labels"
+                        className='labels'
                         style={{ color: '#806d42', fontWeight: 'bold' }}
                       >
                         Image de profil
                       </label>
                       <input
-                        type="file"
-                        className="form-control"
-                        placeholder="image de profil"
+                        type='file'
+                        className='form-control'
+                        placeholder='image de profil'
                         ref={ImageProfilElement}
                       />
                     </div>
                   </div>
                   <div
-                    className="mt-4 text-center col-12"
+                    className='mt-4 text-center col-12'
                     style={{
                       marginRight: '0',
                       display: 'flex',
@@ -221,8 +225,8 @@ if (passwordElement.current?.value!== confirmPasswordElement.current?.value){
                     }}
                   >
                     <button
-                      className="btn btn-primary profile-button col-md-12"
-                      type="button"
+                      className='btn btn-primary profile-button col-md-12'
+                      type='button'
                       onClick={handleSubmitForm}
                       style={{
                         padding: '5px',
@@ -236,8 +240,8 @@ if (passwordElement.current?.value!== confirmPasswordElement.current?.value){
                   </div>
                   <div>
                     <button
-                      className="btn btn-primary profile-button col-md-12"
-                      type="button"
+                      className='btn btn-primary profile-button col-md-12'
+                      type='button'
                       onClick={() => {
                         const confirmBox = window.confirm(
                           'Voulez-vous vraiment supprimer votre compte?'

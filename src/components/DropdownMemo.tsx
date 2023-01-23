@@ -14,7 +14,7 @@ export const DropdownMemo = ({ memo }: DropdownPropsMemo) => {
   const handleShow = () => setShow(true);
 
   const [memos, setMemos] = useState<DropdownPropsMemo>();
-const navigate = useNavigate()
+  const navigate = useNavigate();
   const titleElement = useRef<HTMLInputElement>(null);
   const date_eventElement = useRef<HTMLInputElement>(null);
   const bodyElement = useRef<HTMLInputElement>(null);
@@ -61,7 +61,6 @@ const navigate = useNavigate()
         if (userSelectCat) {
           navigate(`/memo/${userSelectCat.id}`);
         } else {
-          ;
         }
         window.location.reload();
       });
@@ -69,7 +68,7 @@ const navigate = useNavigate()
 
   const handleClickForm = async () => {
     await axios
-      .delete(`http://localhost:8085/api/tache/${memo.id}`, {
+      .delete(`http://localhost:8082/api/tache/${memo.id}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
@@ -95,13 +94,13 @@ const navigate = useNavigate()
     <div>
       <div
         style={{ zIndex: '0' }}
-        className="dropstart  d-flex justify-content-end "
+        className='dropstart  d-flex justify-content-end '
       >
         <Button
-          className="btn btn-secondary"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
+          className='btn btn-secondary'
+          type='button'
+          data-bs-toggle='dropdown'
+          aria-expanded='false'
           style={{
             fontSize: '10px',
             backgroundColor: '#806d42',
@@ -109,22 +108,22 @@ const navigate = useNavigate()
           }}
         >
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            className="bi bi-three-dots"
-            viewBox="0 0 16 16"
+            xmlns='http://www.w3.org/2000/svg'
+            width='16'
+            height='16'
+            fill='currentColor'
+            className='bi bi-three-dots'
+            viewBox='0 0 16 16'
           >
-            <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+            <path d='M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z' />
           </svg>{' '}
         </Button>
-        <ul className="dropdown-menu  bg-dark " style={{ width: '50%' }}>
+        <ul className='dropdown-menu  bg-dark ' style={{ width: '50%' }}>
           {' '}
           <li>
             <Button
-              className="btn btn-success"
-              type="button"
+              className='btn btn-success'
+              type='button'
               style={{ width: '100%', marginBottom: '5px' }}
               onClick={handleShow}
             >
@@ -133,8 +132,8 @@ const navigate = useNavigate()
           </li>
           <li>
             <Button
-              className="btn btn-danger"
-              type="button"
+              className='btn btn-danger'
+              type='button'
               style={{ width: '100%' }}
               onClick={handleClickForm}
             >
@@ -151,21 +150,21 @@ const navigate = useNavigate()
           <ScrollCat onSelectCatTitle={handleSelectCategorie} />
           <form>
             <FloatingLabel
-              controlId="floatingInput"
-              label="Titre de votre Memo"
-              className="mb-3"
+              controlId='floatingInput'
+              label='Titre de votre Memo'
+              className='mb-3'
             >
               <Form.Control
-                type="text"
-                placeholder="Titre mémo"
+                type='text'
+                placeholder='Titre mémo'
                 ref={titleElement}
               />
             </FloatingLabel>
 
             <FloatingLabel
-              controlId="floatingInput"
-              label="Contenu de votre mémo"
-              className="mb-3"
+              controlId='floatingInput'
+              label='Contenu de votre mémo'
+              className='mb-3'
             >
               <Form.Control
                 type='text'
@@ -174,32 +173,34 @@ const navigate = useNavigate()
               />
             </FloatingLabel>
             <FloatingLabel
-              controlId="floatingInput"
-              label="Date de votre Memo"
-              className="mb-3"
+              controlId='floatingInput'
+              label='Date de votre Memo'
+              className='mb-3'
             >
               <Form.Control
-                type="date"
-                placeholder="date mémo"
+                type='date'
+                placeholder='date mémo'
                 ref={date_eventElement}
-              /></FloatingLabel>
-              <FloatingLabel
-              controlId="floatingInput"
-              label="Lien internet"
-              className="mb-3"
+              />
+            </FloatingLabel>
+            <FloatingLabel
+              controlId='floatingInput'
+              label='Lien internet'
+              className='mb-3'
             >
               <Form.Control
-                type="url"
-                placeholder="Lien internet"
+                type='url'
+                placeholder='Lien internet'
                 ref={urlElement}
-              /></FloatingLabel>
+              />
+            </FloatingLabel>
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={handleClose}>
+          <Button variant='danger' onClick={handleClose}>
             Fermer
           </Button>
-          <Button variant="success" onClick={handleSubmitForm}>
+          <Button variant='success' onClick={handleSubmitForm}>
             Modifier
           </Button>
         </Modal.Footer>
