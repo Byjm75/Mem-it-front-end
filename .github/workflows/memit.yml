@@ -1,0 +1,74 @@
+# nom du wokflow (optionnel mais recommandé)
+name: CI-CD
+# déclancheur
+on:
+  # condition de déclanchement
+  push:
+    # branche(s) concernée(s)
+    branches: [main]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# tâche/travaux que le script va devoir effectuer
+jobs:
+  # nom de la première tâche (job)
+  build:
+    # ce job va s'executer sur une machine virtuelle qui sera créée juste pour l'occasion
+    # (zone tampon) comme un environnement temporaire
+    runs-on: ubuntu-latest
+
+    # un job est constitué d'étapes
+    steps:
+      # chaque tiret correspond à une étape
+      - name: Use Node.js # description de l'étape
+        uses: actions/setup-node@v2 # installation de node/npm
+        with:
+          node-version: '16.x'
+
+      # récupération de code
+      - uses: actions/checkout@v2
+
+      # on installe les dépendances du projet (React)
+      - name: Install dependencies
+        run: npm install
+
+      # on execute le script qui se trouve dans le package.json pour build l'app
+      - name: Build app
+        run: npm run build
+
+      # on récupère le résultat du build pour le stocker dans un espace du repository
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: fakelbp-${{ github.run_id }}-${{ github.run_number }}
+          path: ./build
+
+  # 2e job qui concerne le déploiement
+  deploy:
+    # condition de lancement du job deploy
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      # récupération de l'artefact du job précédent
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          # ${{ github.run_id }} représente des variables mises à dispo par Github
+          name: fakelbp-${{ github.run_id }}-${{ github.run_number }}
+          path: './build'
+
+      # utilisation d'un script mis en place par un dev pour lancer une commande de copie de fichier
+      # entre 2 ordinateur
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
+        with:
+          # ${{ secrets.HOST }} les secrets sont les clés/variable stockées dans le repo
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: './build/*'
+          target:'/var/www/html/memit.dev-formation.fr'
+          strip_components: 1
